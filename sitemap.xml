@@ -18,10 +18,14 @@
   </url><url>
     <loc>http://ahaknow.com/posts/know/</loc>
   </url><url>
+    <loc>http://ahaknow.com/posts/read/</loc>
+  </url><url>
     <loc>http://ahaknow.com/search/</loc>
   </url><url>
     <loc>http://ahaknow.com/categories/</loc>
   </url><url>
     <loc>http://ahaknow.com/tags/</loc>
+  </url><url>
+    <loc>http://ahaknow.com/posts/life/</loc>
   </url>
 </urlset>
