@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: http://ahaknow.com/sitemap.xml
