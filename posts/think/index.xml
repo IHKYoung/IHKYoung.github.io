@@ -8,11 +8,11 @@
     <language>zh</language>
     <lastBuildDate>Thu, 17 Aug 2023 21:26:02 +0800</lastBuildDate><atom:link href="http://ahaknow.com/posts/think/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>CodingTest</title>
-      <link>http://ahaknow.com/posts/think/codingtest/</link>
+      <title>文本测试</title>
+      <link>http://ahaknow.com/posts/think/%E6%96%87%E6%9C%AC%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Thu, 17 Aug 2023 21:26:02 +0800</pubDate>
       
-      <guid>http://ahaknow.com/posts/think/codingtest/</guid>
+      <guid>http://ahaknow.com/posts/think/%E6%96%87%E6%9C%AC%E6%B5%8B%E8%AF%95/</guid>
       <description>毕业记录 范数 范数是一种衡量向量大小的量度，具有广泛的应用，包括线性代数、机器学习和数据分析。以下是一些常见范数的详细说明： 1. L1范数 L1范数</description>
     </item>
     
