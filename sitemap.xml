@@ -36,5 +36,7 @@
     <loc>http://ahaknow.com/search/</loc>
   </url><url>
     <loc>http://ahaknow.com/posts/life/</loc>
+  </url><url>
+    <loc>http://ahaknow.com/categories/</loc>
   </url>
 </urlset>
