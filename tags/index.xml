@@ -6,7 +6,16 @@
     <description>Recent content in 🏷️ 标签 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 21 Aug 2023 21:05:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Sep 2023 19:32:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>习惯</title>
+      <link>http://ahaknow.com/tags/%E4%B9%A0%E6%83%AF/</link>
+      <pubDate>Mon, 04 Sep 2023 19:32:23 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/tags/%E4%B9%A0%E6%83%AF/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>DeepLearning</title>
       <link>http://ahaknow.com/tags/deeplearning/</link>
@@ -22,6 +31,33 @@
       <pubDate>Mon, 21 Aug 2023 21:05:23 +0800</pubDate>
       
       <guid>http://ahaknow.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>反思</title>
+      <link>http://ahaknow.com/tags/%E5%8F%8D%E6%80%9D/</link>
+      <pubDate>Wed, 12 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://ahaknow.com/tags/%E5%8F%8D%E6%80%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>技艺</title>
+      <link>http://ahaknow.com/tags/%E6%8A%80%E8%89%BA/</link>
+      <pubDate>Mon, 20 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://ahaknow.com/tags/%E6%8A%80%E8%89%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPT</title>
+      <link>http://ahaknow.com/tags/gpt/</link>
+      <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://ahaknow.com/tags/gpt/</guid>
       <description></description>
     </item>
     

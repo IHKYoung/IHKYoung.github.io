@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+      }
+    });
+</script>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>0218 chatGPT的思考 | AhaKnow</title>
+<meta name="keywords" content="GPT">
+<meta name="description" content="脑海里突然蹦出这样一些话： “确实书读得太少了，GPT知道的东西这么多！ 人工智能真的有点‘可怕’了！ 书读多了，也不如会用这些工具啊！” 突然就想">
+<meta name="author" content="YOUNG">
+<link rel="canonical" href="http://ahaknow.com/posts/think/0218chatgpt%E7%9A%84%E6%80%9D%E8%80%83/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="http://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="http://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="http://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="http://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="0218 chatGPT的思考" />
+<meta property="og:description" content="脑海里突然蹦出这样一些话： “确实书读得太少了，GPT知道的东西这么多！ 人工智能真的有点‘可怕’了！ 书读多了，也不如会用这些工具啊！” 突然就想" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ahaknow.com/posts/think/0218chatgpt%E7%9A%84%E6%80%9D%E8%80%83/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="0218 chatGPT的思考"/>
+<meta name="twitter:description" content="脑海里突然蹦出这样一些话： “确实书读得太少了，GPT知道的东西这么多！ 人工智能真的有点‘可怕’了！ 书读多了，也不如会用这些工具啊！” 突然就想"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📚专栏",
+      "item": "http://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "💡思考",
+      "item": "http://ahaknow.com/posts/think/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "0218 chatGPT的思考",
+      "item": "http://ahaknow.com/posts/think/0218chatgpt%E7%9A%84%E6%80%9D%E8%80%83/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "0218 chatGPT的思考",
+  "name": "0218 chatGPT的思考",
+  "description": "脑海里突然蹦出这样一些话： “确实书读得太少了，GPT知道的东西这么多！ 人工智能真的有点‘可怕’了！ 书读多了，也不如会用这些工具啊！” 突然就想",
+  "keywords": [
+    "GPT"
+  ],
+  "articleBody": " 脑海里突然蹦出这样一些话：\n“确实书读得太少了，GPT知道的东西这么多！\n人工智能真的有点‘可怕’了！\n书读多了，也不如会用这些工具啊！”\n突然就想写写东西了，整理整理自己的一些思考吧！\n现在的人工智能语言模型，本质上讲是“几乎所”有高质量电子形式资料的集合体，它“学习”的东西要比一个普通学生（正常升学到毕业）要多得多多，所以它“几乎”无所不知。\n所以，作为一个普通学生，面对它，会显得“弱小无知”很多。初见之时会有“害怕”，但熟悉之后更多的应该是一种欣慰：\n终于有一个工具，能够帮自己来快速学习了！以前，可能需要老师辅导（何为老师呢？因为他知道的比我多，我要向他学习），现在，通过人工智能语言模型就能自己加速自己的学习了，哪些遇到问题了，请教一下他，说不定就有了思路，通过这个思路再探索下去，继续阅读相关书籍、课程，不就事半功倍了！\n为啥准备写这段文字之前，心里感觉怪怪的呢？\n有一点确实挺可叹的，就是人的思考能力在不经意的退化，**忘记了要怎样提问，甚至忘记了要怎样思考一个问题，**如果一个学生只知道老师讲的，自己不理解也不问为什么，那确实，等他们从小学、中学，一路读到大学之后，很容易就会被人工智能颠覆了！\n我觉得，还是要庆幸的，至少现在能用上这么好用的工具，来加速自己的认知。我记得以前（四五年前吧，那会儿AlphaGo刚出来，但我迟钝了），以会使用Google搜索为荣，为什么呢？因为用Google搜索能够更准确得获得自己需要的信息。现在呢，我倒是觉得，有这么好的工具不会用，那就真的是太亏了！当然自己认知的脚步也不能停，有了好的工具，更能得心应手才是！\n所以，不是什么人工智能的末日恐慌论，反而是在警醒自己：\n时刻保持自己的思考能力\n遇到问题，先理清楚头绪，一步步来解决，哪些是自己认知范围外的，这一部分可以通过提问的方式来获得启发；哪些是自己可以进行补缺的，有针对性地对课程和资料进行学习\n有了好工具了，一定要先学会使用！能用机器解决的，就让机器来辅助自己\n先写这么多吧，可以像记流水账一样来记录。\n",
+  "wordCount" : "843",
+  "inLanguage": "zh",
+  "datePublished": "2023-02-18T00:00:00Z",
+  "dateModified": "2023-02-18T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "YOUNG"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://ahaknow.com/posts/think/0218chatgpt%E7%9A%84%E6%80%9D%E8%80%83/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://ahaknow.com" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="http://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/posts" title="📚专栏">
+                    <span>📚专栏</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://ahaknow.com">🏡主页</a>&nbsp;»&nbsp;<a href="http://ahaknow.com/posts/">📚专栏</a>&nbsp;»&nbsp;<a href="http://ahaknow.com/posts/think/">💡思考</a></div>
+    <h1 class="post-title">
+      0218 chatGPT的思考
+    </h1>
+    <div class="post-meta"><span title='2023-02-18 00:00:00 +0000 UTC'>2023-02-18</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;YOUNG
+
+</div>
+  </header> 
+
+  <div class="post-content"><blockquote>
+<p>脑海里突然蹦出这样一些话：</p>
+<p>“确实书读得太少了，GPT知道的东西这么多！</p>
+<p>人工智能真的有点‘可怕’了！</p>
+<p>书读多了，也不如会用这些工具啊！”</p>
+</blockquote>
+<p>突然就想写写东西了，整理整理自己的一些思考吧！</p>
+<p>现在的人工智能语言模型，本质上讲是“几乎所”有高质量电子形式资料的集合体，它“学习”的东西要比一个普通学生（正常升学到毕业）要多得多多，所以它“几乎”无所不知。</p>
+<p>所以，作为一个普通学生，面对它，会显得“弱小无知”很多。初见之时会有“害怕”，但熟悉之后更多的应该是一种欣慰：</p>
+<p>终于有一个工具，能够帮自己来快速学习了！以前，可能需要老师辅导（何为老师呢？因为他知道的比我多，我要向他学习），现在，通过人工智能语言模型就能自己加速自己的学习了，哪些遇到问题了，请教一下他，说不定就有了思路，<strong>通过这个思路再探索下去，继续阅读相关书籍、课程，不就事半功倍了！</strong></p>
+<p>为啥准备写这段文字之前，心里感觉怪怪的呢？</p>
+<p>有一点确实挺可叹的，就是人的思考能力在不经意的退化，**忘记了要怎样提问，甚至忘记了要怎样思考一个问题，**如果一个学生只知道老师讲的，自己不理解也不问为什么，那确实，等他们从小学、中学，一路读到大学之后，很容易就会被人工智能颠覆了！</p>
+<p>我觉得，还是要庆幸的，至少现在能用上这么好用的工具，来加速自己的认知。我记得以前（四五年前吧，那会儿AlphaGo刚出来，但我迟钝了），以会使用Google搜索为荣，为什么呢？因为用Google搜索能够更准确得获得自己需要的信息。现在呢，我倒是觉得，有这么好的工具不会用，那就真的是太亏了！当然自己认知的脚步也不能停，有了好的工具，更能得心应手才是！</p>
+<p>所以，不是什么人工智能的末日恐慌论，反而是在警醒自己：</p>
+<ol>
+<li>
+<p>时刻保持自己的思考能力</p>
+</li>
+<li>
+<p>遇到问题，先理清楚头绪，一步步来解决，哪些是自己认知范围外的，这一部分可以通过提问的方式来获得启发；哪些是自己可以进行补缺的，有针对性地对课程和资料进行学习</p>
+</li>
+<li>
+<p>有了好工具了，一定要先学会使用！能用机器解决的，就让机器来辅助自己</p>
+</li>
+</ol>
+<p>先写这么多吧，可以像记流水账一样来记录。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://ahaknow.com/tags/gpt/">GPT</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://ahaknow.com/posts/think/0219%E5%88%9A%E8%B5%B7%E9%A3%9E%E5%B0%B1%E7%82%B8%E4%BA%86/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>0219 刚起飞就炸了</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://ahaknow.com">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper.git/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️拷贝';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋已拷贝';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️拷贝';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
