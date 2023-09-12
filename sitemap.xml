@@ -2,22 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://ahaknow.com/posts/know/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/posts/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/posts/know/linux%E9%9A%8F%E6%89%8B%E8%AE%B0/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/categories/ahaknow/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/tags/deeplearning/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/tags/linux/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/tags/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/categories/</loc>
+    <lastmod>2023-09-11T21:05:23+08:00</lastmod>
+  </url><url>
+    <loc>http://ahaknow.com/posts/know/python%E8%84%9A%E6%9C%AC%E5%BA%93/</loc>
+    <lastmod>2023-09-11T20:16:02+08:00</lastmod>
+  </url><url>
     <loc>http://ahaknow.com/posts/think/</loc>
     <lastmod>2023-09-06T20:32:23+08:00</lastmod>
   </url><url>
-    <loc>http://ahaknow.com/posts/</loc>
-    <lastmod>2023-09-06T20:32:23+08:00</lastmod>
-  </url><url>
     <loc>http://ahaknow.com/posts/think/0906%E4%BB%8E%E6%80%A7%E5%AF%92%E6%83%B3%E8%B5%B7/</loc>
-    <lastmod>2023-09-06T20:32:23+08:00</lastmod>
-  </url><url>
-    <loc>http://ahaknow.com/</loc>
-    <lastmod>2023-09-06T20:32:23+08:00</lastmod>
-  </url><url>
-    <loc>http://ahaknow.com/tags/</loc>
-    <lastmod>2023-09-06T20:32:23+08:00</lastmod>
-  </url><url>
-    <loc>http://ahaknow.com/categories/</loc>
     <lastmod>2023-09-06T20:32:23+08:00</lastmod>
   </url><url>
     <loc>http://ahaknow.com/categories/%E6%97%A5%E6%80%9D%E8%AE%B0/</loc>
@@ -32,19 +50,7 @@
     <loc>http://ahaknow.com/tags/%E4%B9%A0%E6%83%AF/</loc>
     <lastmod>2023-09-04T19:32:23+08:00</lastmod>
   </url><url>
-    <loc>http://ahaknow.com/posts/know/</loc>
-    <lastmod>2023-08-21T21:05:23+08:00</lastmod>
-  </url><url>
     <loc>http://ahaknow.com/posts/know/0821/</loc>
-    <lastmod>2023-08-21T21:05:23+08:00</lastmod>
-  </url><url>
-    <loc>http://ahaknow.com/categories/ahaknow/</loc>
-    <lastmod>2023-08-21T21:05:23+08:00</lastmod>
-  </url><url>
-    <loc>http://ahaknow.com/tags/deeplearning/</loc>
-    <lastmod>2023-08-21T21:05:23+08:00</lastmod>
-  </url><url>
-    <loc>http://ahaknow.com/tags/linux/</loc>
     <lastmod>2023-08-21T21:05:23+08:00</lastmod>
   </url><url>
     <loc>http://ahaknow.com/posts/think/0712%E5%81%9C%E6%BB%9E%E5%AD%A6%E4%B9%A0/</loc>

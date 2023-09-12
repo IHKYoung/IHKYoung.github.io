@@ -6,7 +6,25 @@
     <description>Recent content in 🏷️ 标签 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Wed, 06 Sep 2023 20:32:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Sep 2023 21:05:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DeepLearning</title>
+      <link>http://ahaknow.com/tags/deeplearning/</link>
+      <pubDate>Mon, 11 Sep 2023 21:05:23 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/tags/deeplearning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://ahaknow.com/tags/linux/</link>
+      <pubDate>Mon, 11 Sep 2023 21:05:23 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>十万个为什么</title>
       <link>http://ahaknow.com/tags/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/</link>
@@ -22,24 +40,6 @@
       <pubDate>Mon, 04 Sep 2023 19:32:23 +0800</pubDate>
       
       <guid>http://ahaknow.com/tags/%E4%B9%A0%E6%83%AF/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>DeepLearning</title>
-      <link>http://ahaknow.com/tags/deeplearning/</link>
-      <pubDate>Mon, 21 Aug 2023 21:05:23 +0800</pubDate>
-      
-      <guid>http://ahaknow.com/tags/deeplearning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://ahaknow.com/tags/linux/</link>
-      <pubDate>Mon, 21 Aug 2023 21:05:23 +0800</pubDate>
-      
-      <guid>http://ahaknow.com/tags/linux/</guid>
       <description></description>
     </item>
     

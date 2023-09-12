@@ -6,9 +6,27 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 21 Aug 2023 21:05:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Sep 2023 21:05:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>📝0821：Linux随手记📝</title>
+      <title>📝Linux随手记</title>
+      <link>http://ahaknow.com/posts/know/linux%E9%9A%8F%E6%89%8B%E8%AE%B0/</link>
+      <pubDate>Mon, 11 Sep 2023 21:05:23 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/linux%E9%9A%8F%E6%89%8B%E8%AE%B0/</guid>
+      <description>磁盘相关 查看挂载盘的文件格式: 可以使用df命令配合-T选项来查看挂载盘的文件格式。例如： 1 df -T 或者使用lsblk命令配合-f选项： 1 lsblk -f 修改</description>
+    </item>
+    
+    <item>
+      <title>🧑🏻‍💻Python脚本库</title>
+      <link>http://ahaknow.com/posts/know/python%E8%84%9A%E6%9C%AC%E5%BA%93/</link>
+      <pubDate>Mon, 11 Sep 2023 20:16:02 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/python%E8%84%9A%E6%9C%AC%E5%BA%93/</guid>
+      <description>处理数据集 Stereo数据集：SceneFlow 分离 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44</description>
+    </item>
+    
+    <item>
+      <title>Linux随手记📝</title>
       <link>http://ahaknow.com/posts/know/0821/</link>
       <pubDate>Mon, 21 Aug 2023 21:05:23 +0800</pubDate>
       
