@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AhaKnow</title>
-    <link>http://ahaknow.com/</link>
-    <description>Recent content on AhaKnow</description>
+    <title>📓 日思记 on AhaKnow</title>
+    <link>http://ahaknow.com/posts/diary/</link>
+    <description>Recent content in 📓 日思记 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 26 Jan 2024 10:35:31 +0800</lastBuildDate><atom:link href="http://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jan 2024 10:35:31 +0800</lastBuildDate><atom:link href="http://ahaknow.com/posts/diary/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>240126 2024年的第一篇记录</title>
       <link>http://ahaknow.com/posts/diary/2401262024%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95/</link>
@@ -14,15 +14,6 @@
       
       <guid>http://ahaknow.com/posts/diary/2401262024%E5%B9%B4%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E8%AE%B0%E5%BD%95/</guid>
       <description>话说，重新拾起要再次记录的念头，应该是一年前！ 最早开始想要记录，应该是六年前！六年啊！一恍惚就过去了？并且最可怕的事情，对比现在的自己和六年</description>
-    </item>
-    
-    <item>
-      <title>🧭博客部署&amp;操作指令（备忘使用）</title>
-      <link>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4%E5%A4%87%E5%BF%98%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4%E5%A4%87%E5%BF%98%E4%BD%BF%E7%94%A8/</guid>
-      <description>一转眼，2024年了！博客的更新又停滞了一年？！！！ 好记性不如烂笔头，不管以前知道的、学过的、时间久了都容易忘，时常记录下来，而不只是一个形</description>
     </item>
     
     <item>
@@ -105,8 +96,6 @@
       <guid>http://ahaknow.com/posts/diary/0218chatgpt%E7%9A%84%E6%80%9D%E8%80%83/</guid>
       <description>脑海里突然蹦出这样一些话： “确实书读得太少了，GPT知道的东西这么多！ 人工智能真的有点‘可怕’了！ 书读多了，也不如会用这些工具啊！” 突然就想</description>
     </item>
-    
-    
     
   </channel>
 </rss>
