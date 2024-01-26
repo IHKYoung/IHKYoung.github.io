@@ -6,23 +6,23 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 11 Sep 2023 21:05:23 +0800</lastBuildDate><atom:link href="http://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jan 2024 10:35:31 +0800</lastBuildDate><atom:link href="http://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>📝Linux随手记</title>
-      <link>http://ahaknow.com/posts/know/linux%E9%9A%8F%E6%89%8B%E8%AE%B0/</link>
-      <pubDate>Mon, 11 Sep 2023 21:05:23 +0800</pubDate>
+      <title>0126</title>
+      <link>http://ahaknow.com/posts/think/0126/</link>
+      <pubDate>Fri, 26 Jan 2024 10:35:31 +0800</pubDate>
       
-      <guid>http://ahaknow.com/posts/know/linux%E9%9A%8F%E6%89%8B%E8%AE%B0/</guid>
-      <description>磁盘相关 查看挂载盘的文件格式: 可以使用df命令配合-T选项来查看挂载盘的文件格式。例如： 1 df -T 或者使用lsblk命令配合-f选项： 1 lsblk -f 修改</description>
+      <guid>http://ahaknow.com/posts/think/0126/</guid>
+      <description></description>
     </item>
     
     <item>
-      <title>🧑🏻‍💻Python脚本库</title>
-      <link>http://ahaknow.com/posts/know/python%E8%84%9A%E6%9C%AC%E5%BA%93/</link>
-      <pubDate>Mon, 11 Sep 2023 20:16:02 +0800</pubDate>
+      <title>🧭博客部署&amp;操作指令（备忘使用）</title>
+      <link>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4%E5%A4%87%E5%BF%98%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 26 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://ahaknow.com/posts/know/python%E8%84%9A%E6%9C%AC%E5%BA%93/</guid>
-      <description>处理数据集 Stereo数据集：SceneFlow 分离 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44</description>
+      <guid>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4%E5%A4%87%E5%BF%98%E4%BD%BF%E7%94%A8/</guid>
+      <description>一转眼，2024年了！博客的更新又停滞了一年？！！！ 好记性不如烂笔头，不管以前知道的、学过的、时间久了都容易忘，时常记录下来，而不只是一个形</description>
     </item>
     
     <item>
@@ -41,15 +41,6 @@
       
       <guid>http://ahaknow.com/posts/think/0904%E4%B9%A0%E6%83%AF%E4%B8%8E%E6%89%93%E7%A0%B4%E4%B9%A0%E6%83%AF/</guid>
       <description>慌慌张张、匆匆忙忙， 一天一天日子久了， 好像什么都会忘掉…… 这大半年！！！！ 一种状态，习惯它久了，便心安理得了； 日记写得是断断续续，但能明确记</description>
-    </item>
-    
-    <item>
-      <title>Linux随手记📝</title>
-      <link>http://ahaknow.com/posts/know/0821/</link>
-      <pubDate>Mon, 21 Aug 2023 21:05:23 +0800</pubDate>
-      
-      <guid>http://ahaknow.com/posts/know/0821/</guid>
-      <description>磁盘相关 查看挂载盘的文件格式: 可以使用df命令配合-T选项来查看挂载盘的文件格式。例如： 1 df -T 或者使用lsblk命令配合-f选项： 1 lsblk -f 修改</description>
     </item>
     
     <item>

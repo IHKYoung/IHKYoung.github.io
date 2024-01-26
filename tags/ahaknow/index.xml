@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AhaKnow</title>
-    <link>http://ahaknow.com/categories/ahaknow/</link>
+    <link>http://ahaknow.com/tags/ahaknow/</link>
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Fri, 26 Jan 2024 10:35:31 +0800</lastBuildDate><atom:link href="http://ahaknow.com/categories/ahaknow/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jan 2024 10:35:31 +0800</lastBuildDate><atom:link href="http://ahaknow.com/tags/ahaknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>0126</title>
       <link>http://ahaknow.com/posts/think/0126/</link>
