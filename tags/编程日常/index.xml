@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>编程日常 on AhaKnow</title>
+    <link>http://ahaknow.com/tags/%E7%BC%96%E7%A8%8B%E6%97%A5%E5%B8%B8/</link>
+    <description>Recent content in 编程日常 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://ahaknow.com/tags/%E7%BC%96%E7%A8%8B%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 使用NFS（Network File System）进行挂载</title>
+      <link>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</link>
+      <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</guid>
+      <description>Linux 使用 NFS（Network File System）进行挂载 目的: ==NFS是一种允许远程主机通过网络访问文件系统的协议。== 通过ssh、mount</description>
+    </item>
+    
+  </channel>
+</rss>

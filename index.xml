@@ -62,6 +62,15 @@
     </item>
     
     <item>
+      <title>Linux 使用NFS（Network File System）进行挂载</title>
+      <link>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</link>
+      <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</guid>
+      <description>Linux 使用 NFS（Network File System）进行挂载 目的: ==NFS是一种允许远程主机通过网络访问文件系统的协议。== 通过ssh、mount</description>
+    </item>
+    
+    <item>
       <title>「0128」天下没有免费的午餐，羊毛总是出在羊身上啊</title>
       <link>http://ahaknow.com/posts/diary/0128%E5%A4%A9%E4%B8%8B%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E7%BE%8A%E6%AF%9B%E6%80%BB%E6%98%AF%E5%87%BA%E5%9C%A8%E7%BE%8A%E8%BA%AB%E4%B8%8A%E5%95%8A/</link>
       <pubDate>Sun, 28 Jan 2024 22:18:33 +0800</pubDate>
@@ -185,15 +194,6 @@
       
       <guid>http://ahaknow.com/posts/diary/0218chatgpt%E7%9A%84%E6%80%9D%E8%80%83/</guid>
       <description>脑海里突然蹦出这样一些话： “确实书读得太少了，GPT知道的东西这么多！ 人工智能真的有点‘可怕’了！ 书读多了，也不如会用这些工具啊！” 突然就想</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</guid>
-      <description>Linux 使用 NFS（Network File System） 目的: ==NFS是一种允许远程主机通过网络访问文件系统的协议。== 通过ssh、mount的方法就</description>
     </item>
     
     
