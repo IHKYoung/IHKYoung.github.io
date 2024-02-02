@@ -16,5 +16,14 @@
       <description>一转眼，2024年了！博客的更新又停滞了一年？！！！ 好记性不如烂笔头，不管以前知道的、学过的、时间久了都容易忘，时常记录下来，而不只是一个形</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</guid>
+      <description>Linux 使用 NFS（Network File System） 目的: ==NFS是一种允许远程主机通过网络访问文件系统的协议。== 通过ssh、mount的方法就</description>
+    </item>
+    
   </channel>
 </rss>
