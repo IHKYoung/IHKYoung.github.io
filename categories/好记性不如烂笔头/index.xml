@@ -6,14 +6,50 @@
     <description>Recent content in 好记性不如烂笔头 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 29 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Feb 2024 10:48:48 +0800</lastBuildDate><atom:link href="http://ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux 使用NFS（Network File System）进行挂载</title>
-      <link>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</link>
+      <title>Linux日常精进🚀</title>
+      <link>http://ahaknow.com/posts/know/linux%E6%97%A5%E5%B8%B8%E7%B2%BE%E8%BF%9B/</link>
+      <pubDate>Sun, 04 Feb 2024 17:53:59 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/linux%E6%97%A5%E5%B8%B8%E7%B2%BE%E8%BF%9B/</guid>
+      <description>好记性不如烂笔头！ 学一点记一点，常常温习，温故而有新知！ 经常会用到的，文件查找🔍 在Linux操作系统中，查找文件是日常工作的一个重要部分。L</description>
+    </item>
+    
+    <item>
+      <title>QT学习笔记</title>
+      <link>http://ahaknow.com/posts/know/qt%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 18 Feb 2024 10:48:48 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/qt%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>✨背景： 实时显示彩色图像、深度图像和点云，目前使用三个单独的窗口来实现可视化，感觉很LOW，应该可以将它们整合都一个窗口中展示，这样的话，布</description>
+    </item>
+    
+    <item>
+      <title>使用TensorRT实现模型加速</title>
+      <link>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8tensorrt%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Mon, 05 Feb 2024 19:06:48 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8tensorrt%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</guid>
+      <description>📝使用TensorRT实现模型加速🚀 [toc] 第一步：先测试模型的基准速度 使用ONNX测试模型运行速度基准 目标： 使用ONNX Runtime来测试机器</description>
+    </item>
+    
+    <item>
+      <title>Docker进阶指南</title>
+      <link>http://ahaknow.com/posts/know/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 04 Feb 2024 17:39:36 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>开始学习Docker的使用，怎么学呢？边用边学，边学边用！ 1. 进入Docker，需要同时映射本地的路径，使得在Docker中可以直接访问 举例如</description>
+    </item>
+    
+    <item>
+      <title>Linux使用NFS（Network File System）作为远程连接的网盘</title>
+      <link>http://ahaknow.com/posts/know/linux%E4%BD%BF%E7%94%A8nfs%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%BD%91%E7%9B%98/</link>
       <pubDate>Mon, 29 Jan 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://ahaknow.com/posts/know/linux-%E4%BD%BF%E7%94%A8-nfsnetwork-file-system/</guid>
-      <description>Linux 使用 NFS（Network File System）进行挂载 目的: ==NFS是一种允许远程主机通过网络访问文件系统的协议。== 通过ssh、mount</description>
+      <guid>http://ahaknow.com/posts/know/linux%E4%BD%BF%E7%94%A8nfs%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%BD%91%E7%9B%98/</guid>
+      <description>Linux使用NFS（Network File System）作为远程连接的网盘 目的: NFS是一种允许远程主机通过网络访问文件系统的协议。 通过ssh、</description>
     </item>
     
     <item>

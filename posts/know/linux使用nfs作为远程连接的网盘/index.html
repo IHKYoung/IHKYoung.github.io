@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        displayMath: [['$$','$$'], ['\[','\]']],
+      }
+    });
+</script>
+<html lang="zh" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Linux使用NFS（Network File System）作为远程连接的网盘 | AhaKnow</title>
+<meta name="keywords" content="编程日常">
+<meta name="description" content="Linux使用NFS（Network File System）作为远程连接的网盘 目的: NFS是一种允许远程主机通过网络访问文件系统的协议。 通过ssh、">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="http://ahaknow.com/posts/know/linux%E4%BD%BF%E7%94%A8nfs%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%BD%91%E7%9B%98/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="http://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="http://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="http://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="http://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Linux使用NFS（Network File System）作为远程连接的网盘" />
+<meta property="og:description" content="Linux使用NFS（Network File System）作为远程连接的网盘 目的: NFS是一种允许远程主机通过网络访问文件系统的协议。 通过ssh、" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://ahaknow.com/posts/know/linux%E4%BD%BF%E7%94%A8nfs%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%BD%91%E7%9B%98/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-01-29T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux使用NFS（Network File System）作为远程连接的网盘"/>
+<meta name="twitter:description" content="Linux使用NFS（Network File System）作为远程连接的网盘 目的: NFS是一种允许远程主机通过网络访问文件系统的协议。 通过ssh、"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "📚专栏",
+      "item": "http://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "🌟知识",
+      "item": "http://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  4 ,
+      "name": "Linux使用NFS（Network File System）作为远程连接的网盘",
+      "item": "http://ahaknow.com/posts/know/linux%E4%BD%BF%E7%94%A8nfs%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%BD%91%E7%9B%98/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux使用NFS（Network File System）作为远程连接的网盘",
+  "name": "Linux使用NFS（Network File System）作为远程连接的网盘",
+  "description": "Linux使用NFS（Network File System）作为远程连接的网盘 目的: NFS是一种允许远程主机通过网络访问文件系统的协议。 通过ssh、",
+  "keywords": [
+    "编程日常"
+  ],
+  "articleBody": "Linux使用NFS（Network File System）作为远程连接的网盘 目的:\nNFS是一种允许远程主机通过网络访问文件系统的协议。\n通过ssh、mount的方法就能共享文件路径\n比如，ssh连接开发板，直接共享本地的文件路径，有啥操作本地修改就行，开发板上只需要执行命令即可，而不是每次都scp，就很高效！\n操作步骤 安装 NFS 服务器:\n1 2 sudo apt-get update sudo apt-get install nfs-kernel-server 配置 NFS 共享: 编辑 /etc/exports 文件来添加您想共享的目录。\n1 sudo vim /etc/exports 添加类似以下内容（共享 /home/young/CKData 目录）：\n1 2 /home/young/CKData *(rw,sync,no_subtree_check,no_root_squash) /home/username/shared client-ip(rw,sync,no_subtree_check,no_root_squash) 其中 client-ip 是客户端的 IP 地址或子网。\n其中的通配符表示适对所有 IP 开放\n启动 NFS 服务:\n1 sudo systemctl restart nfs-kernel-server 在客户端挂载 NFS 共享: 在客户端，您需要安装 NFS 客户端工具，然后挂载远程文件系统：\n1 sudo mount server-ip:/home/username/shared /mnt 需要确保/mnt路径存在。\n特别情况 在使用 mount 命令挂载 NFS 文件系统时，-o nolock 是一个选项，用于控制文件锁定的行为。\n-o nolock 参数 含义：-o nolock 选项用于禁用 NFS 的文件锁定机制。文件锁定是一种机制，用于防止多个客户端同时写入或更改同一个文件，这有助于防止数据损坏或一致性问题。\n使用场景：\n当 NFS 客户端不能使用标准的文件锁定机制时，比如在一些较老的系统或者特定的网络环境下。 在一些简单的应用场景中，比如只读挂载或者不需要文件锁定的环境下。 当 NFS 服务器或网络不支持或不稳定时，使用 nolock 可以避免挂载操作因无法获得锁而失败。 其他常见的 mount 参数 rw / ro：分别表示挂载文件系统为可读写 (rw) 或只读 (ro)。\nvers：指定 NFS 协议的版本，如 vers=3 或 vers=4。\nsoft / hard：\nsoft：在网络问题导致 NFS 请求无响应时，客户端会在尝试一定次数后放弃，可能会导致数据损坏。 hard：在网络问题导致 NFS 请求无响应时，客户端会无限期地重试，直到服务器响应。 intr：允许 NFS 请求可以被中断，特别是在 hard 挂载模式下。\nrsize / wsize：指定读写操作的数据块大小。\ntimeo：设置 NFS 请求超时时间，通常以十分之一秒为单位。\nretrans：在请求失败时，设置 NFS 重试次数。\nsec：指定用于认证的安全模式，如 sec=krb5。\nasync / sync：\nasync：允许系统在写入操作完成前返回响应，可以提高性能，但在系统崩溃的情况下可能会导致数据丢失。 sync：确保写入操作完成后才返回响应，保证数据的一致性。 ",
+  "wordCount" : "907",
+  "inLanguage": "zh",
+  "datePublished": "2024-01-29T00:00:00Z",
+  "dateModified": "2024-01-29T00:00:00Z",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://ahaknow.com/posts/know/linux%E4%BD%BF%E7%94%A8nfs%E4%BD%9C%E4%B8%BA%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E7%9A%84%E7%BD%91%E7%9B%98/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://ahaknow.com" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="http://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/posts" title="📚专栏">
+                    <span>📚专栏</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/categories" title="🖇️归档">
+                    <span>🖇️归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://ahaknow.com">🏡主页</a>&nbsp;»&nbsp;<a href="http://ahaknow.com/posts/">📚专栏</a>&nbsp;»&nbsp;<a href="http://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title">
+      Linux使用NFS（Network File System）作为远程连接的网盘
+    </h1>
+    <div class="post-meta"><span title='2024-01-29 00:00:00 +0000 UTC'>2024-01-29</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;CKYoung
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">文章目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#linux%e4%bd%bf%e7%94%a8nfsnetwork-file-system%e4%bd%9c%e4%b8%ba%e8%bf%9c%e7%a8%8b%e8%bf%9e%e6%8e%a5%e7%9a%84%e7%bd%91%e7%9b%98" aria-label="Linux使用NFS（Network File System）作为远程连接的网盘">Linux使用NFS（Network File System）作为远程连接的网盘</a><ul>
+                        
+                <li>
+                    <a href="#%e6%93%8d%e4%bd%9c%e6%ad%a5%e9%aa%a4" aria-label="操作步骤">操作步骤</a></li>
+                <li>
+                    <a href="#%e7%89%b9%e5%88%ab%e6%83%85%e5%86%b5" aria-label="特别情况">特别情况</a><ul>
+                        
+                <li>
+                    <a href="#-o-nolock-%e5%8f%82%e6%95%b0" aria-label="-o nolock 参数"><code>-o nolock</code> 参数</a></li>
+                <li>
+                    <a href="#%e5%85%b6%e4%bb%96%e5%b8%b8%e8%a7%81%e7%9a%84-mount-%e5%8f%82%e6%95%b0" aria-label="其他常见的 mount 参数">其他常见的 mount 参数</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  <div class="post-content"><h1 id="linux使用nfsnetwork-file-system作为远程连接的网盘">Linux使用NFS（Network File System）作为远程连接的网盘<a hidden class="anchor" aria-hidden="true" href="#linux使用nfsnetwork-file-system作为远程连接的网盘">#</a></h1>
+<blockquote>
+<p><strong>目的</strong>:</p>
+<p><strong>NFS是一种允许远程主机通过网络访问文件系统的协议。</strong></p>
+<p>通过ssh、mount的方法就能共享文件路径</p>
+<p>比如，ssh连接开发板，直接共享本地的文件路径，有啥操作本地修改就行，开发板上只需要执行命令即可，而不是每次都scp，就很高效！</p>
+</blockquote>
+<h2 id="操作步骤">操作步骤<a hidden class="anchor" aria-hidden="true" href="#操作步骤">#</a></h2>
+<ol>
+<li>
+<p><strong>安装 NFS 服务器</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install nfs-kernel-server
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>配置 NFS 共享</strong>:
+编辑 <code>/etc/exports</code> 文件来添加您想共享的目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /etc/exports
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加类似以下内容（共享 <code>/home/young/CKData</code> 目录）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">/home/young/CKData *(rw,sync,no_subtree_check,no_root_squash)
+</span></span><span class="line"><span class="cl">/home/username/shared client-ip(rw,sync,no_subtree_check,no_root_squash)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中 <code>client-ip</code> 是客户端的 IP 地址或子网。</p>
+<p><strong>其中的通配符表示适对所有 IP 开放</strong></p>
+</li>
+<li>
+<p><strong>启动 NFS 服务</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl restart nfs-kernel-server
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><strong>在客户端挂载 NFS 共享</strong>:
+在客户端，您需要安装 NFS 客户端工具，然后挂载远程文件系统：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo mount server-ip:/home/username/shared /mnt
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p><strong>需要确保/mnt路径存在。</strong></p>
+<h2 id="特别情况">特别情况<a hidden class="anchor" aria-hidden="true" href="#特别情况">#</a></h2>
+<p>在使用 <code>mount</code> 命令挂载 NFS 文件系统时，<code>-o nolock</code> 是一个选项，用于控制文件锁定的行为。</p>
+<h3 id="-o-nolock-参数"><code>-o nolock</code> 参数<a hidden class="anchor" aria-hidden="true" href="#-o-nolock-参数">#</a></h3>
+<ul>
+<li>
+<p><strong>含义</strong>：<code>-o nolock</code> 选项用于禁用 NFS 的文件锁定机制。文件锁定是一种机制，用于防止多个客户端同时写入或更改同一个文件，这有助于防止数据损坏或一致性问题。</p>
+</li>
+<li>
+<p><strong>使用场景</strong>：</p>
+<ul>
+<li>当 NFS 客户端不能使用标准的文件锁定机制时，<strong>比如在一些较老的系统或者特定的网络环境下。</strong></li>
+<li>在一些简单的应用场景中，比如只读挂载或者不需要文件锁定的环境下。</li>
+<li>当 NFS 服务器或网络不支持或不稳定时，使用 <code>nolock</code> 可以避免挂载操作因无法获得锁而失败。</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他常见的-mount-参数">其他常见的 mount 参数<a hidden class="anchor" aria-hidden="true" href="#其他常见的-mount-参数">#</a></h3>
+<ol>
+<li>
+<p><strong><code>rw</code> / <code>ro</code></strong>：分别表示挂载文件系统为可读写 (<code>rw</code>) 或只读 (<code>ro</code>)。</p>
+</li>
+<li>
+<p><strong><code>vers</code></strong>：指定 NFS 协议的版本，如 <code>vers=3</code> 或 <code>vers=4</code>。</p>
+</li>
+<li>
+<p><strong><code>soft</code> / <code>hard</code></strong>：</p>
+<ul>
+<li><code>soft</code>：在网络问题导致 NFS 请求无响应时，客户端会在尝试一定次数后放弃，可能会导致数据损坏。</li>
+<li><code>hard</code>：在网络问题导致 NFS 请求无响应时，客户端会无限期地重试，直到服务器响应。</li>
+</ul>
+</li>
+<li>
+<p><strong><code>intr</code></strong>：允许 NFS 请求可以被中断，特别是在 <code>hard</code> 挂载模式下。</p>
+</li>
+<li>
+<p><strong><code>rsize</code> / <code>wsize</code></strong>：指定读写操作的数据块大小。</p>
+</li>
+<li>
+<p><strong><code>timeo</code></strong>：设置 NFS 请求超时时间，通常以十分之一秒为单位。</p>
+</li>
+<li>
+<p><strong><code>retrans</code></strong>：在请求失败时，设置 NFS 重试次数。</p>
+</li>
+<li>
+<p><strong><code>sec</code></strong>：指定用于认证的安全模式，如 <code>sec=krb5</code>。</p>
+</li>
+<li>
+<p><strong><code>async</code> / <code>sync</code></strong>：</p>
+<ul>
+<li><code>async</code>：允许系统在写入操作完成前返回响应，可以提高性能，但在系统崩溃的情况下可能会导致数据丢失。</li>
+<li><code>sync</code>：确保写入操作完成后才返回响应，保证数据的一致性。</li>
+</ul>
+</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://ahaknow.com/tags/%E7%BC%96%E7%A8%8B%E6%97%A5%E5%B8%B8/">编程日常</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://ahaknow.com/posts/diary/0129%E6%88%91%E4%BC%BC%E4%B9%8E%E6%9B%B4%E5%96%9C%E6%AC%A2%E6%94%B6%E6%8B%BE%E7%83%82%E5%B1%80/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>「0129」我似乎更喜欢收拾烂局？</span>
+  </a>
+  <a class="next" href="http://ahaknow.com/posts/diary/0128%E5%A4%A9%E4%B8%8B%E6%B2%A1%E6%9C%89%E5%85%8D%E8%B4%B9%E7%9A%84%E5%8D%88%E9%A4%90%E7%BE%8A%E6%AF%9B%E6%80%BB%E6%98%AF%E5%87%BA%E5%9C%A8%E7%BE%8A%E8%BA%AB%E4%B8%8A%E5%95%8A/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>「0128」天下没有免费的午餐，羊毛总是出在羊身上啊</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://ahaknow.com">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper.git/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️拷贝';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋已拷贝';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️拷贝';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

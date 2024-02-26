@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>思考与记录 on AhaKnow</title>
+    <link>http://ahaknow.com/tags/%E6%80%9D%E8%80%83%E4%B8%8E%E8%AE%B0%E5%BD%95/</link>
+    <description>Recent content in 思考与记录 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 20 Feb 2024 11:09:45 +0800</lastBuildDate><atom:link href="http://ahaknow.com/tags/%E6%80%9D%E8%80%83%E4%B8%8E%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>“狡兔三窟”的存在意义</title>
+      <link>http://ahaknow.com/posts/think/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F%E7%9A%84%E5%AD%98%E5%9C%A8%E6%84%8F%E4%B9%89/</link>
+      <pubDate>Tue, 20 Feb 2024 11:09:45 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/think/%E7%8B%A1%E5%85%94%E4%B8%89%E7%AA%9F%E7%9A%84%E5%AD%98%E5%9C%A8%E6%84%8F%E4%B9%89/</guid>
+      <description>引言： 今天，2024年2月20日，又一次经历了Word，就是微软Office的那个Word自己发病，把我论文里面的公式全变成了乱码&amp;amp;</description>
+    </item>
+    
+    <item>
+      <title>让工作自动完成or每天重复同样的工作？</title>
+      <link>http://ahaknow.com/posts/think/%E8%AE%A9%E5%B7%A5%E4%BD%9C%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90or%E6%AF%8F%E5%A4%A9%E9%87%8D%E5%A4%8D%E5%90%8C%E6%A0%B7%E7%9A%84%E5%B7%A5%E4%BD%9C/</link>
+      <pubDate>Mon, 19 Feb 2024 10:50:57 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/think/%E8%AE%A9%E5%B7%A5%E4%BD%9C%E8%87%AA%E5%8A%A8%E5%AE%8C%E6%88%90or%E6%AF%8F%E5%A4%A9%E9%87%8D%E5%A4%8D%E5%90%8C%E6%A0%B7%E7%9A%84%E5%B7%A5%E4%BD%9C/</guid>
+      <description>引子： 做了一个实时展示的小程序，一开始做的比较粗糙，每次呢，也就是每天的早上，都需要手动去执行，然后用鼠标去一点点调整展示窗口的大小和排列，</description>
+    </item>
+    
+  </channel>
+</rss>
