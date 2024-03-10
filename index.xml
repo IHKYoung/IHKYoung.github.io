@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Thu, 22 Feb 2024 16:45:33 +0800</lastBuildDate><atom:link href="http://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Feb 2024 17:16:20 +0800</lastBuildDate><atom:link href="http://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux日常精进🚀</title>
       <link>http://ahaknow.com/posts/know/linux%E6%97%A5%E5%B8%B8%E7%B2%BE%E8%BF%9B/</link>
@@ -14,6 +14,15 @@
       
       <guid>http://ahaknow.com/posts/know/linux%E6%97%A5%E5%B8%B8%E7%B2%BE%E8%BF%9B/</guid>
       <description>好记性不如烂笔头！ 学一点记一点，常常温习，温故而有新知！ 经常会用到的，文件查找🔍 在Linux操作系统中，查找文件是日常工作的一个重要部分。L</description>
+    </item>
+    
+    <item>
+      <title>使用Latex书写算法伪代码</title>
+      <link>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8latex%E4%B9%A6%E5%86%99%E7%AE%97%E6%B3%95%E4%BC%AA%E4%BB%A3%E7%A0%81/</link>
+      <pubDate>Wed, 28 Feb 2024 17:16:20 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8latex%E4%B9%A6%E5%86%99%E7%AE%97%E6%B3%95%E4%BC%AA%E4%BB%A3%E7%A0%81/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -68,15 +77,6 @@
       
       <guid>http://ahaknow.com/posts/diary/0206%E6%8A%8A%E6%B8%B8%E6%88%8F%E5%8F%B7%E5%8D%96%E4%BA%86%E5%90%A7%E4%B8%8D%E7%84%B6%E5%85%BB%E7%9D%80%E4%B9%88%E5%85%BB%E7%9D%80%E8%83%BD%E4%B8%8D%E8%83%BD%E6%8E%A7%E5%88%B6%E4%BD%8F%E8%87%AA%E5%B7%B1%E5%91%A2/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>使用TensorRT实现模型加速</title>
-      <link>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8tensorrt%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</link>
-      <pubDate>Mon, 05 Feb 2024 19:06:48 +0800</pubDate>
-      
-      <guid>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8tensorrt%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</guid>
-      <description>📝使用TensorRT实现模型加速🚀 [toc] 第一步：先测试模型的基准速度 使用ONNX测试模型运行速度基准 目标： 使用ONNX Runtime来测试机器</description>
     </item>
     
     <item>
@@ -203,6 +203,15 @@
       
       <guid>http://ahaknow.com/posts/diary/0906%E4%BB%8E%E6%80%A7%E5%AF%92%E6%83%B3%E8%B5%B7/</guid>
       <description>我在想…… 有点意思！ 那这是为什么啊？ 有的时候活得太浑浑噩噩了，听的是啥就是啥，这里听到一次新词，那里就给它显摆出去（哇！好厉害啊！）可是，再</description>
+    </item>
+    
+    <item>
+      <title>使用TensorRT实现模型加速</title>
+      <link>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8tensorrt%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</link>
+      <pubDate>Tue, 05 Sep 2023 19:06:48 +0800</pubDate>
+      
+      <guid>http://ahaknow.com/posts/know/%E4%BD%BF%E7%94%A8tensorrt%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%9E%8B%E5%8A%A0%E9%80%9F/</guid>
+      <description>第一步：先测试模型的基准速度 使用ONNX测试模型运行速度基准 目标： 使用ONNX Runtime来测试机器学习模型的推理时间基准。 步骤： 安装ON</description>
     </item>
     
     <item>
