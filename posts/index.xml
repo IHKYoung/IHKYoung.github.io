@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>📚专栏 on AhaKnow</title>
+    <title>🚀 天天向上 on AhaKnow</title>
     <link>http://ahaknow.com/posts/</link>
-    <description>Recent content in 📚专栏 on AhaKnow</description>
+    <description>Recent content in 🚀 天天向上 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh</language>
-    <lastBuildDate>Fri, 15 Mar 2024 21:43:37 +0800</lastBuildDate><atom:link href="http://ahaknow.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate></lastBuildDate>
+    <atom:link href="http://ahaknow.com/posts/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

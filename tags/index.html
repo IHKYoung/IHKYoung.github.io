@@ -1,17 +1,5 @@
 <!DOCTYPE html>
-<script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\\(','\\)']],
-        displayMath: [['$$','$$'], ['\[','\]']],
-      }
-    });
-</script>
 <html lang="zh" dir="auto">
-
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,7 +36,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -75,6 +63,9 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="🏷️ 标签"/>
 <meta name="twitter:description" content="想到了就记下来，想写的就好好写，日进一寸，亦有点滴欣喜～"/>
+
+    
+
 
 </head>
 
@@ -117,8 +108,6 @@
                         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                     </svg>
                 </button>
-                <ul class="lang-switch"><li>|</li>
-                </ul>
             </div>
         </div>
         <ul id="menu">
@@ -143,8 +132,8 @@
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/categories" title="🖇️归档">
-                    <span>🖇️归档</span>
+                <a href="http://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
                 </a>
             </li>
             <li>
@@ -161,48 +150,6 @@
 </header>
 
 <ul class="terms-tags">
-    <li>
-        <a href="http://ahaknow.com/tags/ahaknow/">AhaKnow <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/gpt/">GPT <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E7%BC%96%E7%A8%8B%E6%97%A5%E5%B8%B8/">编程日常 <sup><strong><sup>5</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/">操作指南 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E5%8F%8D%E6%80%9D/">反思 <sup><strong><sup>5</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E6%8A%80%E8%89%BA/">技艺 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E5%90%AF%E5%8F%91%E6%80%9D%E8%80%83/">启发思考 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E5%8D%81%E4%B8%87%E4%B8%AA%E4%B8%BA%E4%BB%80%E4%B9%88/">十万个为什么 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E5%88%B7%E9%A2%98%E5%AD%A6%E4%B9%A0/">刷题学习 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E8%AF%B4%E5%88%B0%E5%81%9A%E5%88%B0/">说到做到 <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E6%80%9D%E8%80%83%E4%B8%8E%E8%AE%B0%E5%BD%95/">思考与记录 <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E4%B9%A0%E6%83%AF/">习惯 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B/">心路历程 <sup><strong><sup>8</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="http://ahaknow.com/tags/%E8%87%AA%E6%88%91%E5%8F%8D%E6%80%9D2.0/">自我反思2.0 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
 </ul>
     </main>
     
@@ -211,7 +158,7 @@
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/IHKYoung/CKPaper.git/" rel="noopener" target="_blank">CKPaper</a>
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
     </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
@@ -274,6 +221,8 @@
     })
 
 </script>
+
+
 </body>
 
 </html>
