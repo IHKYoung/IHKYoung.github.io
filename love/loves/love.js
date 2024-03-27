@@ -457,10 +457,6 @@
             var ctx = s.tree.ctx;
             ctx.save();
         	ctx.beginPath();
-            //深黑色 rgb(35, 31, 32);
-            //RGB(0,139,139)
-            // RGB(102,205,170)
-            // RGB(34,139,34)
         	ctx.fillStyle = 'RGB(0,128,128)';
             ctx.shadowColor = '#22b822';
             ctx.shadowBlur = 2;
