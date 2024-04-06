@@ -15,11 +15,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>博客自定义：实现Mac风格的代码栏 | AhaKnow</title>
-<meta name="keywords" content="前端开发">
-<meta name="description" content="就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现">
+<title>二维平面下的坐标系变换 | AhaKnow</title>
+<meta name="keywords" content="SLAM">
+<meta name="description" content="以实际的移动机器人为例，学习坐标系变换的数学原理">
 <meta name="author" content="YOUNG">
-<link rel="canonical" href="http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/">
+<link rel="canonical" href="http://ahaknow.com/posts/know/2d-coordinate-transformation/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="http://ahaknow.com/Q.gif">
@@ -28,7 +28,7 @@
 <link rel="mask-icon" href="http://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/">
+<link rel="alternate" hreflang="zh" href="http://ahaknow.com/posts/know/2d-coordinate-transformation/">
 <noscript>
     <style>
         #theme-toggle,
@@ -65,16 +65,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="博客自定义：实现Mac风格的代码栏" />
-<meta property="og:description" content="就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现" />
+</noscript><meta property="og:title" content="二维平面下的坐标系变换" />
+<meta property="og:description" content="以实际的移动机器人为例，学习坐标系变换的数学原理" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-27T20:39:16+08:00" />
-<meta property="article:modified_time" content="2024-03-27T20:39:16+08:00" />
+<meta property="og:url" content="http://ahaknow.com/posts/know/2d-coordinate-transformation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-06T21:13:29+08:00" />
+<meta property="article:modified_time" content="2024-04-06T21:13:29+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="博客自定义：实现Mac风格的代码栏"/>
-<meta name="twitter:description" content="就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现"/>
+<meta name="twitter:title" content="二维平面下的坐标系变换"/>
+<meta name="twitter:description" content="以实际的移动机器人为例，学习坐标系变换的数学原理"/>
 
 
 <script type="application/ld+json">
@@ -97,8 +97,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "博客自定义：实现Mac风格的代码栏",
-      "item": "http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/"
+      "name": "二维平面下的坐标系变换",
+      "item": "http://ahaknow.com/posts/know/2d-coordinate-transformation/"
     }
   ]
 }
@@ -107,24 +107,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "博客自定义：实现Mac风格的代码栏",
-  "name": "博客自定义：实现Mac风格的代码栏",
-  "description": "就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现",
+  "headline": "二维平面下的坐标系变换",
+  "name": "二维平面下的坐标系变换",
+  "description": "以实际的移动机器人为例，学习坐标系变换的数学原理",
   "keywords": [
-    "前端开发"
+    "SLAM"
   ],
-  "articleBody": "就是要实现下面这种效果：\n# 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？\n对于前端开发来说，最好的学习方式就是阅读源码学习：\n直接看实现过这个效果的的网站是怎么实现的（只要是HTML+CSS方式的，就能读出来，如果全是JS生成的，那就。。。只能另辟蹊径了。）\n",
-  "wordCount" : "131",
+  "articleBody": " 问题的描述是这样的（用我理解后的语言来表达）：\n以搭载2D激光雷达（2D-Lidar）的扫地机器人为例，只考虑在二维平面下的关系。世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$，雷达坐标系的方向轴与机器人坐标系一致，雷达搭载在机器人上，用机器人坐标系$O_C$的坐标表达，雷达的位置为$(xlc, ylc)$，现在空间中有一个物体点P，通过2D雷达对其测量（雷达旋转方向为逆时针），得到对应的角度$angle$和距离$dis$，现在假设扫地机器人运动的角速度是$w_c$，线速度是$v_c$，在$t_0$时刻时，机器人坐标系$O_C$与世界坐标系$O_W$重合，这里的角度单位都是弧度，距离单位都是米。\n现在给这样一组数据，问在$t_1$时刻时，物体点P在世界坐标系$O_W$下的坐标：\nangle、dis、xlc、ylc、 vc、wc、t1\n需要理解的前提 首先，对于输入数据的理解：可以将测试数据作为一个验证情况，因为，当世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$之间的关系表达明确时，不管带入什么测试数据，都应该是满足的。\n另外，有一个常识需要补充：在C++环境以及处理物体学、数学分析等进行三角函数计算时，使用的都是弧度制， 1弧度 $\\frac{180}{\\pi}$度，1 度 = $\\frac{\\pi}{180}$弧度。\ndouble degrees = 90.0; double radians = degrees * (M_PI / 180.0); double sinValue = sin(radians); // 使用弧度 🌟进行一步一步拆解 ",
+  "wordCount" : "605",
   "inLanguage": "zh",
-  "datePublished": "2024-03-27T20:39:16+08:00",
-  "dateModified": "2024-03-27T20:39:16+08:00",
+  "datePublished": "2024-04-06T21:13:29+08:00",
+  "dateModified": "2024-04-06T21:13:29+08:00",
   "author":[{
     "@type": "Person",
     "name": "YOUNG"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/"
+    "@id": "http://ahaknow.com/posts/know/2d-coordinate-transformation/"
   },
   "publisher": {
     "@type": "Organization",
@@ -222,37 +222,119 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="http://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="http://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="http://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      博客自定义：实现Mac风格的代码栏
+      二维平面下的坐标系变换
     </h1>
-    <div class="post-meta"><span title='2024-03-27 20:39:16 +0800 CST'>2024-03-27</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;YOUNG
+    <div class="post-description">
+      以实际的移动机器人为例，学习坐标系变换的数学原理
+    </div>
+    <div class="post-meta"><span title='2024-04-06 21:13:29 +0800 CST'>2024-04-06</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;YOUNG
 
 </div>
-  </header> 
-  <div class="post-content"><p>就是要实现下面这种效果：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 就是展示一下效果^-^</span>
-</span></span></code></pre></div><p>像这种想法怎么样一步步实现的呢？</p>
-<p><strong>对于前端开发来说，最好的学习方式就是阅读源码学习：</strong></p>
-<blockquote>
-<p>直接看实现过这个效果的的网站是怎么实现的（只要是HTML+CSS方式的，就能读出来，如果全是JS生成的，那就。。。只能另辟蹊径了。）</p>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%9c%80%e8%a6%81%e7%90%86%e8%a7%a3%e7%9a%84%e5%89%8d%e6%8f%90" aria-label="需要理解的前提">需要理解的前提</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e8%a1%8c%e4%b8%80%e6%ad%a5%e4%b8%80%e6%ad%a5%e6%8b%86%e8%a7%a3" aria-label="🌟进行一步一步拆解">🌟进行一步一步拆解</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><blockquote>
+<p>问题的描述是这样的（用我理解后的语言来表达）：</p>
+<p>以搭载2D激光雷达（2D-Lidar）的扫地机器人为例，只考虑在二维平面下的关系。世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$，雷达坐标系的方向轴与机器人坐标系一致，雷达搭载在机器人上，用机器人坐标系$O_C$的坐标表达，雷达的位置为$(xlc, ylc)$，现在空间中有一个物体点P，通过2D雷达对其测量（雷达旋转方向为逆时针），得到对应的角度$angle$和距离$dis$，现在假设扫地机器人运动的角速度是$w_c$，线速度是$v_c$，在$t_0$时刻时，机器人坐标系$O_C$与世界坐标系$O_W$重合，这里的角度单位都是弧度，距离单位都是米。</p>
+<p>现在给这样一组数据，问在$t_1$时刻时，物体点P在世界坐标系$O_W$下的坐标：</p>
+<p><code>angle、dis、xlc、ylc、 vc、wc、t1</code></p>
 </blockquote>
+<p><img loading="lazy" src="robot.png" alt=""  />
+</p>
+<h2 id="需要理解的前提">需要理解的前提<a hidden class="anchor" aria-hidden="true" href="#需要理解的前提">#</a></h2>
+<p>首先，对于输入数据的理解：可以将测试数据作为一个验证情况，<strong>因为，当世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$之间的关系表达明确时，不管带入什么测试数据，都应该是满足的。</strong></p>
+<p>另外，有一个常识需要补充：在C++环境以及处理物体学、数学分析等进行三角函数计算时，使用的都是弧度制， 1弧度 $\frac{180}{\pi}$度，1 度 = $\frac{\pi}{180}$弧度。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">degrees</span> <span class="o">=</span> <span class="mf">90.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">radians</span> <span class="o">=</span> <span class="n">degrees</span> <span class="o">*</span> <span class="p">(</span><span class="n">M_PI</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">sinValue</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">radians</span><span class="p">);</span>  <span class="c1">// 使用弧度
+</span></span></span></code></pre></div><h2 id="进行一步一步拆解">🌟进行一步一步拆解<a hidden class="anchor" aria-hidden="true" href="#进行一步一步拆解">#</a></h2>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://ahaknow.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></li>
+      <li><a href="http://ahaknow.com/tags/slam/">SLAM</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://ahaknow.com/posts/know/2d-coordinate-transformation/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>二维平面下的坐标系变换</span>
-  </a>
-  <a class="next" href="http://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/">
+  <a class="next" href="http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/">
     <span class="title">下一页 »</span>
     <br>
-    <span>折腾博客是为了更好地专注在写作上？</span>
+    <span>博客自定义：实现Mac风格的代码栏</span>
   </a>
 </nav>
 

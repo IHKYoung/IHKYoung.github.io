@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AhaKnow</title>
-    <link>http://ahaknow.com/</link>
-    <description>Recent content on AhaKnow</description>
+    <title>自我学习 on AhaKnow</title>
+    <link>http://ahaknow.com/categories/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 自我学习 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sat, 06 Apr 2024 21:13:29 +0800</lastBuildDate>
-    <atom:link href="http://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://ahaknow.com/categories/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>二维平面下的坐标系变换</title>
       <link>http://ahaknow.com/posts/know/2d-coordinate-transformation/</link>
@@ -21,13 +21,6 @@
       <pubDate>Wed, 27 Mar 2024 20:39:16 +0800</pubDate>
       <guid>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/</guid>
       <description>就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现</description>
-    </item>
-    <item>
-      <title>折腾博客是为了更好地专注在写作上？</title>
-      <link>http://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/</link>
-      <pubDate>Wed, 27 Mar 2024 17:01:29 +0800</pubDate>
-      <guid>http://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/</guid>
-      <description>以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，</description>
     </item>
   </channel>
 </rss>
