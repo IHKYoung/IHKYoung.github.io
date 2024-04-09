@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 Apr 2024 21:25:15 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 09 Apr 2024 22:40:15 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://ahaknow.com/posts/know/techmp4-audio-track-repair/</link>
+      <pubDate>Tue, 09 Apr 2024 22:40:15 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/techmp4-audio-track-repair/</guid>
+      <description>又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好</description>
+    </item>
     <item>
       <title>博客优化：自定义字体加速显示</title>
       <link>https://ahaknow.com/posts/know/blogfont-display-acceleration/</link>

@@ -42,11 +42,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Slam14 Ch2 | AhaKnow</title>
-<meta name="keywords" content="未标签">
-<meta name="description" content="Slam14 Ch2 - AhaKnow">
+<title>AhaKnow</title>
+<meta name="keywords" content="没有Python做不到">
+<meta name="description" content="又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好">
 <meta name="author" content="YOUNG">
-<link rel="canonical" href="https://ahaknow.com/posts/know/slam14-ch2/">
+<link rel="canonical" href="https://ahaknow.com/posts/know/techmp4-audio-track-repair/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
@@ -55,7 +55,7 @@
 <link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/slam14-ch2/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/techmp4-audio-track-repair/">
 <noscript>
     <style>
         #theme-toggle,
@@ -92,16 +92,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Slam14 Ch2" />
-<meta property="og:description" content="" />
+</noscript><meta property="og:title" content="" />
+<meta property="og:description" content="又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ahaknow.com/posts/know/slam14-ch2/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-09T16:03:13+08:00" />
-<meta property="article:modified_time" content="2024-04-09T16:03:13+08:00" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/techmp4-audio-track-repair/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-09T22:40:15+08:00" />
+<meta property="article:modified_time" content="2024-04-09T22:40:15+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Slam14 Ch2"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好"/>
 
 
 <script type="application/ld+json">
@@ -124,8 +124,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Slam14 Ch2",
-      "item": "https://ahaknow.com/posts/know/slam14-ch2/"
+      "name": "",
+      "item": "https://ahaknow.com/posts/know/techmp4-audio-track-repair/"
     }
   ]
 }
@@ -134,24 +134,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Slam14 Ch2",
-  "name": "Slam14 Ch2",
-  "description": "",
+  "headline": "",
+  "name": "",
+  "description": "又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好",
   "keywords": [
-    "未标签"
+    "没有Python做不到"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": " 又干了一件：“为了一碟醋，包了一锅饺子”的事。。。\n就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）\n于是……\n都是4202年了，有什么问题是写个代码解决不了的呢？\n于是Python闪亮登场✨\n废话不多说，直接上代码：\nfrom moviepy.editor import VideoFileClip, AudioFileClip from pydub import AudioSegment # 加载视频文件 video_clip = VideoFileClip(\"./麻省理工-线性代数/[P01]Lec01_方程组的几何解释.mp4\") # 提取音频并保存为临时文件 temp_audio_path = \"temp_audio.mp3\" video_clip.audio.write_audiofile(temp_audio_path) # 使用pydub处理音频 audio_segment = AudioSegment.from_file(temp_audio_path) # 如果原始音频是立体声，分割为单声道；否则直接复制为左右两个声道 if audio_segment.channels \u003e 1: mono_channels = audio_segment.split_to_mono() right_channel = mono_channels[1] # 右声道 else: right_channel = audio_segment stereo_audio = AudioSegment.from_mono_audiosegments(right_channel, right_channel) # 将处理后的音频保存为另一个临时文件 stereo_audio_path = \"temp_stereo_audio.mp3\" stereo_audio.export(stereo_audio_path, format=\"mp3\") # 使用moviepy将新音频设置回视频 new_audio_clip = AudioFileClip(stereo_audio_path) video_clip.audio = new_audio_clip # 输出处理后的视频文件 video_clip.write_videofile(\"./麻省理工-线性代数/[P01]Lec01_方程组的几何解释（修复）.mp4\") # 清理临时文件 import os os.remove(temp_audio_path) os.remove(stereo_audio_path) 这里用到两个Python的工具：pydub、moviepy，直接安装就好。\nmoviepy可以同时处理视频和音频；pydub`主要处理音频部分，这个库提供了更灵活的音频处理功能，包括声道的操作。\npip install moviepy pip install pydub 同时确保系统中也安装了ffmpeg，因为pydub依赖于ffmpeg来处理音频文件：\nbrew install ffmpeg ",
+  "wordCount" : "668",
   "inLanguage": "zh",
-  "datePublished": "2024-04-09T16:03:13+08:00",
-  "dateModified": "2024-04-09T16:03:13+08:00",
+  "datePublished": "2024-04-09T22:40:15+08:00",
+  "dateModified": "2024-04-09T22:40:15+08:00",
   "author":[{
     "@type": "Person",
     "name": "YOUNG"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ahaknow.com/posts/know/slam14-ch2/"
+    "@id": "https://ahaknow.com/posts/know/techmp4-audio-track-repair/"
   },
   "publisher": {
     "@type": "Organization",
@@ -249,27 +249,75 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      Slam14 Ch2
+      
     </h1>
-    <div class="post-meta"><span title='2024-04-09 16:03:13 +0800 CST'>2024-04-09</span>&nbsp;·&nbsp;0 分钟&nbsp;·&nbsp;YOUNG
+    <div class="post-meta"><span title='2024-04-09 22:40:15 +0800 CST'>2024-04-09</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;YOUNG
 
 </div>
   </header> 
+  <div class="post-content"><blockquote>
+<p>又干了一件：“为了一碟醋，包了一锅饺子”的事。。。</p>
+<p>就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）</p>
+<p>于是……</p>
+</blockquote>
+<p><strong>都是4202年了，有什么问题是写个代码解决不了的呢？</strong></p>
+<p>于是Python闪亮登场✨</p>
+<p>废话不多说，直接上代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">moviepy.editor</span> <span class="kn">import</span> <span class="n">VideoFileClip</span><span class="p">,</span> <span class="n">AudioFileClip</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydub</span> <span class="kn">import</span> <span class="n">AudioSegment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载视频文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">video_clip</span> <span class="o">=</span> <span class="n">VideoFileClip</span><span class="p">(</span><span class="s2">&#34;./麻省理工-线性代数/[P01]Lec01_方程组的几何解释.mp4&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取音频并保存为临时文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">temp_audio_path</span> <span class="o">=</span> <span class="s2">&#34;temp_audio.mp3&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">video_clip</span><span class="o">.</span><span class="n">audio</span><span class="o">.</span><span class="n">write_audiofile</span><span class="p">(</span><span class="n">temp_audio_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用pydub处理音频</span>
+</span></span><span class="line"><span class="cl"><span class="n">audio_segment</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">temp_audio_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果原始音频是立体声，分割为单声道；否则直接复制为左右两个声道</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">audio_segment</span><span class="o">.</span><span class="n">channels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mono_channels</span> <span class="o">=</span> <span class="n">audio_segment</span><span class="o">.</span><span class="n">split_to_mono</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right_channel</span> <span class="o">=</span> <span class="n">mono_channels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 右声道</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right_channel</span> <span class="o">=</span> <span class="n">audio_segment</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">stereo_audio</span> <span class="o">=</span> <span class="n">AudioSegment</span><span class="o">.</span><span class="n">from_mono_audiosegments</span><span class="p">(</span><span class="n">right_channel</span><span class="p">,</span> <span class="n">right_channel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将处理后的音频保存为另一个临时文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">stereo_audio_path</span> <span class="o">=</span> <span class="s2">&#34;temp_stereo_audio.mp3&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">stereo_audio</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="n">stereo_audio_path</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&#34;mp3&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用moviepy将新音频设置回视频</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_audio_clip</span> <span class="o">=</span> <span class="n">AudioFileClip</span><span class="p">(</span><span class="n">stereo_audio_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">video_clip</span><span class="o">.</span><span class="n">audio</span> <span class="o">=</span> <span class="n">new_audio_clip</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 输出处理后的视频文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">video_clip</span><span class="o">.</span><span class="n">write_videofile</span><span class="p">(</span><span class="s2">&#34;./麻省理工-线性代数/[P01]Lec01_方程组的几何解释（修复）.mp4&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 清理临时文件</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">temp_audio_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">stereo_audio_path</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>这里用到两个Python的工具：pydub、moviepy，直接安装就好。</strong></p>
+<p><code>moviepy</code>可以同时处理视频和音频；pydub`主要处理音频部分，这个库提供了更灵活的音频处理功能，包括声道的操作。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip install moviepy
+</span></span><span class="line"><span class="cl">pip install pydub
+</span></span></code></pre></div><p>同时确保系统中也安装了<code>ffmpeg</code>，因为<code>pydub</code>依赖于<code>ffmpeg</code>来处理音频文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install ffmpeg
+</span></span></code></pre></div>
+
+  </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/">未标签</a></li>
+      <li><a href="https://ahaknow.com/tags/%E6%B2%A1%E6%9C%89python%E5%81%9A%E4%B8%8D%E5%88%B0/">没有Python做不到</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://ahaknow.com/posts/know/blogfont-display-acceleration/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>博客优化：自定义字体加速显示</span>
-  </a>
-  <a class="next" href="https://ahaknow.com/posts/know/slam14-ch1/">
+  <a class="next" href="https://ahaknow.com/posts/know/blogfont-display-acceleration/">
     <span class="title">下一页 »</span>
     <br>
-    <span>SLAM十四讲第一讲：预备知识</span>
+    <span>博客优化：自定义字体加速显示</span>
   </a>
 </nav>
 

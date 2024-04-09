@@ -33,15 +33,6 @@
     });
 </script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js"></script>
-<script>
-    WebFont.load({
-        custom: {
-            families: ['LXGW', 'LXGWMono'],
-        }
-    });
-</script>
-
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -149,8 +140,8 @@
   "keywords": [
     "前端开发"
   ],
-  "articleBody": " 博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。\n",
-  "wordCount" : "74",
+  "articleBody": " 博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。\n压缩字体 先显示后加载 压缩字体 TrueType Font (TTF) 常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。\nWeb Open Font Format (WOFF) WOFF是专门为Web设计的字体格式，2009年成为W3C的推荐标准。WOFF是基于TTF和OpenType字体格式的，但提供了更好的压缩和额外的元数据支持。WOFF存在两个版本：WOFF 1.0和WOFF 2.0。WOFF 2.0使用了更高效的压缩算法，文件大小比WOFF 1.0更小。\n总结 TTF是一种通用的字体格式，广泛用于各种操作系统和设备，提供了高质量的矢量字体展示。而WOFF是为Web设计的字体格式，它优化了文件大小和加载性能，特别适合在线使用。选择哪种格式取决于你的具体需求：如果你需要确保字体在各种环境中的广泛兼容性，TTF可能是更好的选择；如果你主要关注网页性能和加载速度，WOFF将是更优的选择。\n在MacOS上直接本地转换ttf字体。\n安装woff2工具：\nbrew install woff2 使用以下命令将TTF字体文件转换为WOFF2格式：\nwoff2_compress path/to/your/font.ttf 这会生成一个与原始TTF文件同名，但扩展名为.woff2的文件。例如，如果源文件名为font.ttf，输出文件将会是font.woff2。\n先显示后加载 这里主要是CSS的工作：\n在CSS文件中使用@font-face规则引入转换后的WOFF2字体文件，并通过font-display: swap;属性设置字体显示策略。这样做可以确保文本在字体文件下载完成之前使用回退字体显示，从而提升页面的可用性和性能。\n@font-face { font-family: 'MyCustomFont'; src: url('MyFont.woff2') format('woff2'); font-display: swap; /* 使用回退字体直到自定义字体加载完毕 */ } 这里，font-display: swap;指示浏览器在自定义字体加载期间使用回退字体，一旦自定义字体加载完毕立即切换。这有助于改善首次内容渲染时间（FCP）和最大内容绘制（LCP）等性能指标。\n也可以使用Web Font Loader，这里就是JavaScript的工作了：\nWeb Font Loader允许添加事件回调和控制字体加载的行为，简单的使用方式如下（需要配合CSS中的@font-face）：\n\u003cscript src=\"https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js\"\u003e\u003c/script\u003e \u003cscript\u003e WebFont.load({ custom: { families: ['MyCustomFont'], urls: ['path/to/your/css/file.css'] // CSS文件的路径（可以不特别设置） } }); \u003c/script\u003e ",
+  "wordCount" : "994",
   "inLanguage": "zh",
   "datePublished": "2024-04-09T21:25:15+08:00",
   "dateModified": "2024-04-09T21:25:15+08:00",
@@ -260,14 +251,135 @@
     <h1 class="post-title entry-hint-parent">
       博客优化：自定义字体加速显示
     </h1>
-    <div class="post-meta"><span title='2024-04-09 21:25:15 +0800 CST'>2024-04-09</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;YOUNG
+    <div class="post-meta"><span title='2024-04-09 21:25:15 +0800 CST'>2024-04-09</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;YOUNG
 
 </div>
-  </header> 
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%8e%8b%e7%bc%a9%e5%ad%97%e4%bd%93" aria-label="压缩字体">压缩字体</a><ul>
+                        
+                <li>
+                    <a href="#truetype-font-ttf" aria-label="TrueType Font (TTF)">TrueType Font (TTF)</a></li>
+                <li>
+                    <a href="#web-open-font-format-woff" aria-label="Web Open Font Format (WOFF)">Web Open Font Format (WOFF)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li>
+                <li>
+                    <a href="#%e5%85%88%e6%98%be%e7%a4%ba%e5%90%8e%e5%8a%a0%e8%bd%bd" aria-label="先显示后加载">先显示后加载</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
   <div class="post-content"><blockquote>
 <p>博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。</p>
+<ul>
+<li>压缩字体</li>
+<li>先显示后加载</li>
+</ul>
 </blockquote>
-
+<h3 id="压缩字体">压缩字体<a hidden class="anchor" aria-hidden="true" href="#压缩字体">#</a></h3>
+<h4 id="truetype-font-ttf">TrueType Font (TTF)<a hidden class="anchor" aria-hidden="true" href="#truetype-font-ttf">#</a></h4>
+<p>常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。</p>
+<h4 id="web-open-font-format-woff">Web Open Font Format (WOFF)<a hidden class="anchor" aria-hidden="true" href="#web-open-font-format-woff">#</a></h4>
+<p>WOFF是专门为Web设计的字体格式，2009年成为W3C的推荐标准。WOFF是基于TTF和OpenType字体格式的，但提供了更好的压缩和额外的元数据支持。WOFF存在两个版本：WOFF 1.0和WOFF 2.0。WOFF 2.0使用了更高效的压缩算法，文件大小比WOFF 1.0更小。</p>
+<h3 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h3>
+<p>TTF是一种通用的字体格式，广泛用于各种操作系统和设备，提供了高质量的矢量字体展示。而WOFF是为Web设计的字体格式，它优化了文件大小和加载性能，特别适合在线使用。选择哪种格式取决于你的具体需求：如果你需要确保字体在各种环境中的广泛兼容性，TTF可能是更好的选择；如果你主要关注网页性能和加载速度，WOFF将是更优的选择。</p>
+<p>在MacOS上直接本地转换ttf字体。</p>
+<p>安装<code>woff2</code>工具：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install woff2
+</span></span></code></pre></div><p>使用以下命令将TTF字体文件转换为WOFF2格式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">woff2_compress path/to/your/font.ttf
+</span></span></code></pre></div><p>这会生成一个与原始TTF文件同名，但扩展名为<code>.woff2</code>的文件。例如，如果源文件名为<code>font.ttf</code>，输出文件将会是<code>font.woff2</code>。</p>
+<h3 id="先显示后加载">先显示后加载<a hidden class="anchor" aria-hidden="true" href="#先显示后加载">#</a></h3>
+<p><strong>这里主要是CSS的工作：</strong></p>
+<p>在CSS文件中使用<code>@font-face</code>规则引入转换后的WOFF2字体文件，<strong>并通过<code>font-display: swap;</code>属性设置字体显示策略</strong>。这样做可以确保文本在字体文件下载完成之前使用回退字体显示，从而提升页面的可用性和性能。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">@</span><span class="k">font-face</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">font-family</span><span class="o">:</span> <span class="s1">&#39;MyCustomFont&#39;</span><span class="o">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">src</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="s1">&#39;MyFont.woff2&#39;</span><span class="o">)</span> <span class="nt">format</span><span class="o">(</span><span class="s1">&#39;woff2&#39;</span><span class="o">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">font-display</span><span class="o">:</span> <span class="nt">swap</span><span class="o">;</span> <span class="c">/* 使用回退字体直到自定义字体加载完毕 */</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这里，<code>font-display: swap;</code>指示浏览器在自定义字体加载期间使用回退字体，一旦自定义字体加载完毕立即切换。这有助于改善首次内容渲染时间（FCP）和最大内容绘制（LCP）等性能指标。</p>
+<p>也可以使用<code>Web Font Loader</code>，这里就是JavaScript的工作了：</p>
+<p><code>Web Font Loader</code>允许添加事件回调和控制字体加载的行为，简单的使用方式如下（需要配合CSS中的@font-face）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">WebFont</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">custom</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">families</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;MyCustomFont&#39;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">urls</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;path/to/your/css/file.css&#39;</span><span class="p">]</span> <span class="c1">// CSS文件的路径（可以不特别设置）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div>
 
   </div>
 
@@ -276,6 +388,11 @@
       <li><a href="https://ahaknow.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/techmp4-audio-track-repair/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span></span>
+  </a>
   <a class="next" href="https://ahaknow.com/posts/know/slam14-ch2/">
     <span class="title">下一页 »</span>
     <br>
