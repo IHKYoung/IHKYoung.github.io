@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\(','\)']],
-        displayMath: [['$$','$$'], ['\[','\]']],
-      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
     });
+
 </script>
-<html lang="zh" dir="auto">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<html lang="zh" dir="zh-cn">
 <head>
 	<meta name="generator" content="Hugo 0.124.1"><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,18 +47,18 @@
 
 <meta name="description" content="想到了就记下来，想写的就好好写，日进一寸，亦有点滴欣喜～">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="http://ahaknow.com/">
+<link rel="canonical" href="https://ahaknow.com/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://ahaknow.com/Q.gif">
-<link rel="icon" type="image/png" sizes="16x16" href="http://ahaknow.com/Q.gif">
-<link rel="icon" type="image/png" sizes="32x32" href="http://ahaknow.com/Q.gif">
-<link rel="apple-touch-icon" href="http://ahaknow.com/Q.gif">
-<link rel="mask-icon" href="http://ahaknow.com/Q.gif">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://ahaknow.com/index.xml">
-<link rel="alternate" type="application/json" href="http://ahaknow.com/index.json">
-<link rel="alternate" hreflang="zh" href="http://ahaknow.com/">
+<link rel="alternate" type="application/rss+xml" href="https://ahaknow.com/index.xml">
+<link rel="alternate" type="application/json" href="https://ahaknow.com/index.json">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/">
 <noscript>
     <style>
         #theme-toggle,
@@ -71,7 +98,7 @@
 </noscript><meta property="og:title" content="AhaKnow" />
 <meta property="og:description" content="想到了就记下来，想写的就好好写，日进一寸，亦有点滴欣喜～" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://ahaknow.com/" />
+<meta property="og:url" content="https://ahaknow.com/" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AhaKnow"/>
@@ -82,20 +109,20 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "AhaKnow",
-  "url": "http://ahaknow.com/",
+  "url": "https://ahaknow.com/",
   "description": "想到了就记下来，想写的就好好写，日进一寸，亦有点滴欣喜～",
-  "thumbnailUrl": "http://ahaknow.com/Q.gif",
+  "thumbnailUrl": "https://ahaknow.com/Q.gif",
   "sameAs": [
       
   ]
 }
 </script>
     
-
-
+    
+    
 </head>
 
-<body class="list" id="top">
+<body class=" list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -110,8 +137,8 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
-                <img src="http://ahaknow.com/Q.gif" alt="" aria-label="logo"
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
                     height="35">AhaKnow</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -138,32 +165,32 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://ahaknow.com/" title="🏡主页">
+                <a href="https://ahaknow.com/" title="🏡主页">
                     <span class="active">🏡主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/posts" title="🚀天天向上">
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
                     <span>🚀天天向上</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/archives" title="⏱️时间线">
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
                     <span>⏱️时间线</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/tags" title="🏷️标签">
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
                     <span>🏷️标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/categories" title="🖇归档">
+                <a href="https://ahaknow.com/categories" title="🖇归档">
                     <span>🖇归档</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔍搜索</span>
                 </a>
             </li>
@@ -172,7 +199,7 @@
 </header>
 <main class="main"><div class="profile">
     <div class="profile_inner">
-        <img draggable="false" src="http://ahaknow.com/Q.gif" alt="Aha! I know!" title="Aha! I know!"
+        <img draggable="false" src="https://ahaknow.com/Q.gif" alt="Aha! I know!" title="Aha! I know!"
             height="200" width="200" />
         <h1>AhaKnow</h1>
         <span>凡未知，皆可识📚因知识，而有趣～</span><div class="social-icons" >
@@ -198,10 +225,10 @@
     </div>
 </div>
 
-    </main>
-    
+</main>
+
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://ahaknow.com/">AhaKnow</a></span>
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

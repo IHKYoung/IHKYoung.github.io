@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>SLAM十四讲第一讲：预备知识 | AhaKnow</title>
+<meta name="keywords" content="SLAM">
+<meta name="description" content="边做题边学习">
+<meta name="author" content="YOUNG">
+<link rel="canonical" href="https://ahaknow.com/posts/know/slam14-ch1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/slam14-ch1/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="SLAM十四讲第一讲：预备知识" />
+<meta property="og:description" content="边做题边学习" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/slam14-ch1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-08T20:27:50+08:00" />
+<meta property="article:modified_time" content="2024-04-08T20:27:50+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SLAM十四讲第一讲：预备知识"/>
+<meta name="twitter:description" content="边做题边学习"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟知识",
+      "item": "https://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "SLAM十四讲第一讲：预备知识",
+      "item": "https://ahaknow.com/posts/know/slam14-ch1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SLAM十四讲第一讲：预备知识",
+  "name": "SLAM十四讲第一讲：预备知识",
+  "description": "边做题边学习",
+  "keywords": [
+    "SLAM"
+  ],
+  "articleBody": "第一讲里没有具体需要好好理解的部分，不过自测题目题目值得过一遍。\n1.线性方程Ax=b的求解 有线性方程$Ax=b$，若已知$A,b$，需要求解$x$，该如何求解？这对$A$和$b$有哪些要求？\n（提示：从$A$的维度和秩的角度来分析）\n这个问题很简单，但是值得全面地分析和理解：\n首先假设$A$是一个$m \\times n$矩阵，$x$是一个$n \\times 1$的列向量，$b$是一个$m \\times 1$的列向量。这里的$m$表示方程的数量，$n$表示未知数的数量。\n先从矩阵的秩出发来理解，以列的角度看，矩阵的秩表示了所有列向量线性组合所能达到的空间范围，对于方程$Ax=b$，如果向量$b$在矩阵$A$的列空间中（$b$可以被$A$的列向量线性表示），那么存在至少一个解$x$使得$Ax=b$，因此就有了下面的判断性质（比较矩阵$A$和增广矩阵$A|b$秩的关系）：\n$rank(A) = rank(A|b)$：表明向量$b$在矩阵$A$的列空间中，因此至少存在一个解$x$使得$Ax=b$。 $rank(A) \u003c rank(A|b)$：表明$b$不在$A$的列空间中，因此没有解。 然后再分析$rank(A)$来确定解的情况，是有唯一解还是存在多个解：\n如果$rank(A)=n$（未知数的数量，也就是列的数量），则$A$的所有列向量都是线性独立的，意味着对于给定的$b$，存在唯一的$x$满足$Ax=b$。 如果$rank(A)",
+  "wordCount" : "3368",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-08T20:27:50+08:00",
+  "dateModified": "2024-04-08T20:27:50+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "YOUNG"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/know/slam14-ch1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title entry-hint-parent">
+      SLAM十四讲第一讲：预备知识
+    </h1>
+    <div class="post-description">
+      边做题边学习
+    </div>
+    <div class="post-meta"><span title='2024-04-08 20:27:50 +0800 CST'>2024-04-08</span>&nbsp;·&nbsp;7 分钟&nbsp;·&nbsp;YOUNG
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1%e7%ba%bf%e6%80%a7%e6%96%b9%e7%a8%8baxb%e7%9a%84%e6%b1%82%e8%a7%a3" aria-label="1.线性方程Ax=b的求解">1.线性方程Ax=b的求解</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ba%bf%e6%80%a7%e6%96%b9%e7%a8%8baxb%e7%9a%84%e6%b1%82%e8%a7%a3%e6%96%b9%e6%b3%95" aria-label="线性方程$Ax=b$的求解方法">线性方程$Ax=b$的求解方法</a><ul>
+                        
+                <li>
+                    <a href="#lu%e5%88%86%e8%a7%a3" aria-label="LU分解">LU分解</a></li>
+                <li>
+                    <a href="#qr%e5%88%86%e8%a7%a3" aria-label="QR分解">QR分解</a></li>
+                <li>
+                    <a href="#%e5%a5%87%e5%bc%82%e5%80%bc%e5%88%86%e8%a7%a3svd" aria-label="奇异值分解（SVD）">奇异值分解（SVD）</a></li>
+                <li>
+                    <a href="#%e8%bf%ad%e4%bb%a3%e6%96%b9%e6%b3%95%e6%b1%82%e8%a7%a3" aria-label="迭代方法求解">迭代方法求解</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#2%e9%ab%98%e6%96%af%e5%88%86%e5%b8%83" aria-label="2.高斯分布">2.高斯分布</a><ul>
+                        
+                <li>
+                    <a href="#%e9%ab%98%e6%96%af%e5%88%86%e5%b8%83%e7%9a%84%e4%b8%80%e7%bb%b4%e5%bd%a2%e5%bc%8f" aria-label="高斯分布的一维形式">高斯分布的一维形式</a></li>
+                <li>
+                    <a href="#%e9%ab%98%e6%96%af%e5%88%86%e5%b8%83%e7%9a%84%e9%ab%98%e7%bb%b4%e5%bd%a2%e5%bc%8f" aria-label="高斯分布的高维形式">高斯分布的高维形式</a></li>
+                <li>
+                    <a href="#%e4%b8%ad%e5%bf%83%e6%9e%81%e9%99%90%e5%ae%9a%e7%90%86central-limit-theorem-clt" aria-label="中心极限定理（Central Limit Theorem, CLT）">中心极限定理（Central Limit Theorem, CLT）</a></li>
+                <li>
+                    <a href="#%e5%8d%8f%e6%96%b9%e5%b7%aecovariance" aria-label="协方差（Covariance）">协方差（Covariance）</a></li>
+                <li>
+                    <a href="#%e9%ab%98%e6%96%af%e5%88%86%e5%b8%83%e7%9a%84%e6%9d%a5%e9%be%99%e5%8e%bb%e8%84%89" aria-label="高斯分布的来龙去脉">高斯分布的来龙去脉</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><p>第一讲里没有具体需要好好理解的部分，不过自测题目题目值得过一遍。</p>
+<h2 id="1线性方程axb的求解">1.线性方程Ax=b的求解<a hidden class="anchor" aria-hidden="true" href="#1线性方程axb的求解">#</a></h2>
+<blockquote>
+<p>有线性方程$Ax=b$，若已知$A,b$，需要求解$x$，该如何求解？这对$A$和$b$有哪些要求？</p>
+<p>（提示：从$A$的维度和秩的角度来分析）</p>
+</blockquote>
+<p>这个问题很简单，但是值得全面地分析和理解：</p>
+<p>首先假设$A$是一个$m \times n$矩阵，$x$是一个$n \times 1$的列向量，$b$是一个$m \times 1$的列向量。这里的$m$表示方程的数量，$n$表示未知数的数量。</p>
+<p>先从矩阵的秩出发来理解，以列的角度看，矩阵的秩表示了<strong>所有列向量线性组合所能达到的空间范围</strong>，对于方程$Ax=b$，如果向量$b$在矩阵$A$的列空间中（$b$可以被$A$的列向量线性表示），那么<strong>存在</strong>至少一个解$x$使得$Ax=b$，因此就有了下面的判断性质（比较矩阵$A$和增广矩阵$A|b$秩的关系）：</p>
+<ul>
+<li><strong>$rank(A) = rank(A|b)$</strong>：表明向量$b$在矩阵$A$的列空间中，因此<strong>至少存在一个</strong>解$x$使得$Ax=b$。</li>
+<li><strong>$rank(A) &lt; rank(A|b)$</strong>：表明$b$不在$A$的列空间中，因此没有解。</li>
+</ul>
+<p>然后再分析$rank(A)$来确定解的情况，<strong>是有唯一解还是存在多个解：</strong></p>
+<ul>
+<li>如果$rank(A)=n$（未知数的数量，也就是列的数量），则$A$的所有列向量都是线性独立的，意味着对于给定的$b$，存在唯一的$x$满足$Ax=b$。</li>
+<li>如果$rank(A)&lt;n$，则$A$中的某些列向量是其他列向量的线性组合，意味着给定的$b$时，这些可以被其他列向量表示的向量不参与线性组合出$b$，也就可以有任意值作为系数，导致存在无限多个解。</li>
+</ul>
+<h3 id="线性方程axb的求解方法">线性方程$Ax=b$的求解方法<a hidden class="anchor" aria-hidden="true" href="#线性方程axb的求解方法">#</a></h3>
+<blockquote>
+<p>‼️以下的回答来自GPT，<strong>自己还不是很理解，需要重新系统学习线性代数的知识后再进行自己的消化吸收！</strong></p>
+</blockquote>
+<ul>
+<li><strong>超定系统</strong>：$m &gt; n$，方程数量多于未知数。</li>
+<li><strong>欠定系统</strong>：$m &lt; n$，方程数量少于未知数。</li>
+<li><strong>适定系统</strong>：$m = n$，方程数量等于未知数。</li>
+</ul>
+<h4 id="lu分解">LU分解<a hidden class="anchor" aria-hidden="true" href="#lu分解">#</a></h4>
+<ul>
+<li><strong>原理</strong>：将矩阵$A$分解为两个特殊的矩阵乘积，一个下三角矩阵$L$和一个上三角矩阵$U$，即$A=LU$。这样，原始问题$Ax=b$变为求解两个更简单的线性方程组$L(Ux)=b$。</li>
+<li><strong>求解过程</strong>：首先解$L\mathbf{y}=b$找到$\mathbf{y}$，然后解$Ux=\mathbf{y}$找到$x$。</li>
+<li><strong>适用性</strong>：特别适用于适定系统，也可用于某些类型的超定和欠定系统，假设$A$可以进行有效的LU分解。</li>
+</ul>
+<h4 id="qr分解">QR分解<a hidden class="anchor" aria-hidden="true" href="#qr分解">#</a></h4>
+<ul>
+<li><strong>原理</strong>：将矩阵$A$分解为一个正交矩阵$Q$和一个上三角矩阵$R$，即$A=QR$。正交矩阵具有性质$Q^TQ=I$（$I$是单位矩阵）。</li>
+<li><strong>求解过程</strong>：利用$Q$的正交性质，原方程$Ax=b$变为$QRx=b$，进一步化简为$Rx=Q^Tb$，然后可以通过回代求解上三角方程组$Rx=Q^Tb$来找到$x$。</li>
+<li><strong>适用性</strong>：适用于所有类型的系统，尤其是超定系统，因为QR分解提供了一种求解最小二乘问题的自然方法。</li>
+</ul>
+<h4 id="奇异值分解svd">奇异值分解（SVD）<a hidden class="anchor" aria-hidden="true" href="#奇异值分解svd">#</a></h4>
+<ul>
+<li><strong>原理</strong>：SVD将矩阵$A$分解为三个矩阵的乘积，即$A=U\Sigma V^T$，其中$U$和$V$是正交矩阵，$\Sigma$是对角矩阵，对角线上的元素是所谓的奇异值。</li>
+<li><strong>求解过程</strong>：对于方程$Ax=b$，可以转换为$\Sigma y=U^Tb$（这里$y=V^Tx$），然后通过求解$\Sigma y=U^Tb$来找到$y$，进一步求得$x=Vy$。</li>
+<li><strong>适用性</strong>：SVD是一种非常强大的方法，特别是对于奇异矩阵或矩阵秩不满的情况，因为它允许计算伪逆矩阵$A^+$，即使在$A$不可逆的情况下也能找到最小二乘解或最小范数解。</li>
+</ul>
+<h4 id="迭代方法求解">迭代方法求解<a hidden class="anchor" aria-hidden="true" href="#迭代方法求解">#</a></h4>
+<ul>
+<li><strong>原理</strong>：迭代方法是从一个初始估计开始，通过重复应用迭代公式来逐步逼近方程的解。常见的迭代方法包括雅可比方法、高斯-赛德尔方法和共轭梯度法等。</li>
+<li><strong>求解过程</strong>：根据具体的迭代公式，每一步都基于前一步的结果来更新解的估计值，直至满足某个终止条件（如解的变化小于某个阈值）。</li>
+<li><strong>适用性</strong>：迭代方法特别适用于大规模稀疏矩阵的系统，因为它们通常不需要矩阵分解，而矩阵分解在大规模问题上可能非常昂贵。</li>
+</ul>
+<h2 id="2高斯分布">2.高斯分布<a hidden class="anchor" aria-hidden="true" href="#2高斯分布">#</a></h2>
+<blockquote>
+<p>高斯分布是什么？它的一维形式是什么样子？它的高维形式是什么样子？</p>
+</blockquote>
+<p>高斯分布，也称为正态分布，高斯分布可以被视为描述自然和人为现象中随机误差的理想模型，其普遍性来源于中心极限定理（Central Limit Theorem, CLT），<strong>这个定理说明了许多小效应的累积可以产生高斯分布的现象</strong>，具体而言就是：“大量相互独立且分布相同的随机变量之和趋向于服从正态分布，无论原始随机变量的分布如何。”</p>
+<h3 id="高斯分布的一维形式">高斯分布的一维形式<a hidden class="anchor" aria-hidden="true" href="#高斯分布的一维形式">#</a></h3>
+<p>一维高斯分布（或简称为正态分布）的数学表达式为：</p>
+<p>$$
+f(x | \mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$</p>
+<p>其中，$\mu$是分布的均值，$\sigma^2$是方差，$\sigma$是标准差。这个公式描述了在给定均值$\mu$和方差$\sigma^2$的情况下，随机变量$X$取特定值$x$的概率密度。图形上，一维高斯分布是一个对称的钟形曲线，其中心位于均值$\mu$，曲线的宽度由标准差$\sigma$决定。</p>
+<h3 id="高斯分布的高维形式">高斯分布的高维形式<a hidden class="anchor" aria-hidden="true" href="#高斯分布的高维形式">#</a></h3>
+<p>高维高斯分布，或多变量高斯分布，是一维高斯分布在多维空间中的推广。其数学表达式为：</p>
+<p>$$
+f(\mathbf{x} | \boldsymbol{\mu}, \Sigma) = \frac{1}{\sqrt{(2\pi)^k |\Sigma|}} \exp\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^T \Sigma^{-1} (\mathbf{x}-\boldsymbol{\mu})\right)
+$$</p>
+<p>其中，$\mathbf{x}$是一个$k$维随机向量，$\boldsymbol{\mu}$是均值向量，$\Sigma$是协方差矩阵，$|\Sigma|$是协方差矩阵的行列式。高维高斯分布的图形是在多维空间中的一个“山峰”，其中心位于均值向量$\boldsymbol{\mu}$，“山峰”的形状和方向由协方差矩阵$\Sigma$决定。</p>
+<blockquote>
+<p>协方差是衡量两个随机变量联合变化趋势的度量。如果两个变量的增减趋势相同（即一个变量增加时，另一个也增加），则它们的协方差为正；如果一个变量增加时另一个减少，则协方差为负。</p>
+<p>对于两个随机变量$X$和$Y$，协方差定义为$Cov(X, Y) = E[(X - \mu_X)(Y - \mu_Y)]$，其中$\mu_X$和$\mu_Y$分别是$X$和$Y$的均值，$E$表示期望值操作。</p>
+</blockquote>
+<h3 id="中心极限定理central-limit-theorem-clt">中心极限定理（Central Limit Theorem, CLT）<a hidden class="anchor" aria-hidden="true" href="#中心极限定理central-limit-theorem-clt">#</a></h3>
+<p>中心极限定理是概率论中的一个基本定理，描述了在一定条件下，大量相互独立且分布相同的随机变量之和趋向于服从正态分布，无论原始随机变量的分布如何。</p>
+<ul>
+<li><strong>原理</strong>：假设你有一个随机变量序列（如掷骰子的点数），这些变量相互独立且服从同一分布（不必是正态分布）。当你取足够多这样的随机变量的平均值时，这些平均值的分布将趋近于一个正态分布。</li>
+<li><strong>重要性</strong>：这个定理说明了正态分布为何在自然和社会科学中如此普遍：许多现象都可以看作是多个小因素叠加的结果，每个因素本身可能不遵循正态分布，但它们的总效应却很可能如此。</li>
+</ul>
+<h3 id="协方差covariance">协方差（Covariance）<a hidden class="anchor" aria-hidden="true" href="#协方差covariance">#</a></h3>
+<p>协方差是衡量两个随机变量联合变化趋势的度量。如果两个变量的增减趋势相同（即一个变量增加时，另一个也增加），则它们的协方差为正；如果一个变量增加时另一个减少，则协方差为负。</p>
+<ul>
+<li><strong>表现形式</strong>：对于两个随机变量$X$和$Y$，协方差定义为$Cov(X, Y) = E[(X - \mu_X)(Y - \mu_Y)]$，其中$\mu_X$和$\mu_Y$分别是$X$和$Y$的均值，$E$表示期望值操作。</li>
+</ul>
+<h3 id="高斯分布的来龙去脉">高斯分布的来龙去脉<a hidden class="anchor" aria-hidden="true" href="#高斯分布的来龙去脉">#</a></h3>
+<ol>
+<li>
+<p><strong>随机现象的普遍性</strong>：自然和人类社会中的许多现象都可以看作是多个随机因素的综合效应。由于中心极限定理，这些现象的总效应往往趋于一个正态分布，这解释了正态分布在现实世界中的普遍性。</p>
+</li>
+<li>
+<p><strong>高斯分布的定义</strong>：高斯分布通过其概率密度函数精确描述了随机变量在每一点上的分布密度。一维高斯分布关注单个变量，而多维高斯分布则扩展到了多个变量之间的关系，其中协方差矩阵揭示了不同变量间的相关性。</p>
+</li>
+<li>
+<p><strong>协方差与多维高斯分布</strong>：在多维高斯分布中，协方差矩阵$\Sigma$不仅描述了各个变量的变异程度（通过矩阵的对角线元素），也描述了变量间的相关性（通过矩阵的非对角线元素）。这允许多维高斯分布捕捉和建模变量之间复杂的关系。</p>
+</li>
+<li>
+<p><strong>应用领域</strong>：基于其数学性质和现实世界中的普遍性，高斯分布被广泛应用于自然科学、工程技术、社会科学等领域，包括但不限于统计学的各种测试、机器学习中的算法、自然界现象的建模等。</p>
+</li>
+</ol>
+<p>通过理解中心极限定理和协方差的基本概念，我们可以更深入地理解高斯分布的本质及其在实际中的应用。高斯分布的重要性不仅在于其自身的数学性质，也在于它作为一种模型能够有效地描述和解释现实世界中的许多现象。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/slam/">SLAM</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/slam14-ch2/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Slam14 Ch2</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/know/3d-visual-perception/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>3D视觉感知</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

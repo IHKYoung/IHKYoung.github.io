@@ -2,24 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>🌟知识 on AhaKnow</title>
-    <link>http://ahaknow.com/posts/know/</link>
+    <link>https://ahaknow.com/posts/know/</link>
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 06 Apr 2024 21:13:29 +0800</lastBuildDate>
-    <atom:link href="http://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 09 Apr 2024 16:03:13 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Slam14 Ch2</title>
+      <link>https://ahaknow.com/posts/know/slam14-ch2/</link>
+      <pubDate>Tue, 09 Apr 2024 16:03:13 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/slam14-ch2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SLAM十四讲第一讲：预备知识</title>
+      <link>https://ahaknow.com/posts/know/slam14-ch1/</link>
+      <pubDate>Mon, 08 Apr 2024 20:27:50 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/slam14-ch1/</guid>
+      <description>边做题边学习</description>
+    </item>
+    <item>
+      <title>3D视觉感知</title>
+      <link>https://ahaknow.com/posts/know/3d-visual-perception/</link>
+      <pubDate>Sun, 07 Apr 2024 10:09:54 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/3d-visual-perception/</guid>
+      <description>从现状到发展</description>
+    </item>
     <item>
       <title>二维平面下的坐标系变换</title>
-      <link>http://ahaknow.com/posts/know/2d-coordinate-transformation/</link>
+      <link>https://ahaknow.com/posts/know/2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
-      <guid>http://ahaknow.com/posts/know/2d-coordinate-transformation/</guid>
+      <guid>https://ahaknow.com/posts/know/2d-coordinate-transformation/</guid>
       <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
     </item>
     <item>
       <title>博客自定义：实现Mac风格的代码栏</title>
-      <link>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/</link>
+      <link>https://ahaknow.com/posts/know/blogmac-style-code/</link>
       <pubDate>Wed, 27 Mar 2024 20:39:16 +0800</pubDate>
-      <guid>http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/</guid>
+      <guid>https://ahaknow.com/posts/know/blogmac-style-code/</guid>
       <description>就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现</description>
     </item>
   </channel>

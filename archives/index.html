@@ -1,16 +1,43 @@
 <!DOCTYPE html>
-<script type="text/javascript"
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [['$','$'], ['\(','\)']],
-        displayMath: [['$$','$$'], ['\[','\]']],
-      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
     });
+
 </script>
-<html lang="zh" dir="auto">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<html lang="zh" dir="zh-cn">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,16 +46,16 @@
 <meta name="keywords" content="">
 <meta name="description" content="archives">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="http://ahaknow.com/archives/">
+<link rel="canonical" href="https://ahaknow.com/archives/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://ahaknow.com/Q.gif">
-<link rel="icon" type="image/png" sizes="16x16" href="http://ahaknow.com/Q.gif">
-<link rel="icon" type="image/png" sizes="32x32" href="http://ahaknow.com/Q.gif">
-<link rel="apple-touch-icon" href="http://ahaknow.com/Q.gif">
-<link rel="mask-icon" href="http://ahaknow.com/Q.gif">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="http://ahaknow.com/archives/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/archives/">
 <noscript>
     <style>
         #theme-toggle,
@@ -68,7 +95,7 @@
 </noscript><meta property="og:title" content="⏱️ 时间线" />
 <meta property="og:description" content="archives" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://ahaknow.com/archives/" /><meta property="article:section" content="" />
+<meta property="og:url" content="https://ahaknow.com/archives/" /><meta property="article:section" content="" />
 
 
 
@@ -86,7 +113,7 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "⏱️ 时间线",
-      "item": "http://ahaknow.com/archives/"
+      "item": "https://ahaknow.com/archives/"
     }
   ]
 }
@@ -112,24 +139,24 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://ahaknow.com/archives/"
+    "@id": "https://ahaknow.com/archives/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "AhaKnow",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://ahaknow.com/Q.gif"
+      "url": "https://ahaknow.com/Q.gif"
     }
   }
 }
 </script>
     
-
-
+    
+    
 </head>
 
-<body class="list" id="top">
+<body class=" list" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -144,8 +171,8 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
-                <img src="http://ahaknow.com/Q.gif" alt="" aria-label="logo"
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
                     height="35">AhaKnow</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -172,32 +199,32 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://ahaknow.com/" title="🏡主页">
+                <a href="https://ahaknow.com/" title="🏡主页">
                     <span>🏡主页</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/posts" title="🚀天天向上">
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
                     <span>🚀天天向上</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/archives" title="⏱️时间线">
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
                     <span class="active">⏱️时间线</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/tags" title="🏷️标签">
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
                     <span>🏷️标签</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/categories" title="🖇归档">
+                <a href="https://ahaknow.com/categories" title="🖇归档">
                     <span>🖇归档</span>
                 </a>
             </li>
             <li>
-                <a href="http://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                <a href="https://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
                     <span>🔍搜索</span>
                 </a>
             </li>
@@ -212,16 +239,34 @@
   </h1>
 </header>
 <div class="archive-year">
-  <h2 class="archive-year-header">2024<sup class="archive-count">&nbsp;&nbsp;3</sup>
+  <h2 class="archive-year-header">2024<sup class="archive-count">&nbsp;&nbsp;6</sup>
   </h2>
   <div class="archive-month">
-    <h3 class="archive-month-header">四月<sup class="archive-count">&nbsp;&nbsp;1</sup></h3>
+    <h3 class="archive-month-header">四月<sup class="archive-count">&nbsp;&nbsp;4</sup></h3>
     <div class="archive-posts">
+      <div class="archive-entry">
+        <h3 class="archive-entry-title entry-hint-parent">Slam14 Ch2
+        </h3>
+        <div class="archive-meta"><span title='2024-04-09 16:03:13 +0800 CST'>2024-04-09</span>&nbsp;·&nbsp;0 分钟&nbsp;·&nbsp;YOUNG</div>
+        <a class="entry-link" aria-label="post link to Slam14 Ch2" href="https://ahaknow.com/posts/know/slam14-ch2/"></a>
+      </div>
+      <div class="archive-entry">
+        <h3 class="archive-entry-title entry-hint-parent">SLAM十四讲第一讲：预备知识
+        </h3>
+        <div class="archive-meta"><span title='2024-04-08 20:27:50 +0800 CST'>2024-04-08</span>&nbsp;·&nbsp;7 分钟&nbsp;·&nbsp;YOUNG</div>
+        <a class="entry-link" aria-label="post link to SLAM十四讲第一讲：预备知识" href="https://ahaknow.com/posts/know/slam14-ch1/"></a>
+      </div>
+      <div class="archive-entry">
+        <h3 class="archive-entry-title entry-hint-parent">3D视觉感知
+        </h3>
+        <div class="archive-meta"><span title='2024-04-07 10:09:54 +0800 CST'>2024-04-07</span>&nbsp;·&nbsp;8 分钟&nbsp;·&nbsp;YOUNG</div>
+        <a class="entry-link" aria-label="post link to 3D视觉感知" href="https://ahaknow.com/posts/know/3d-visual-perception/"></a>
+      </div>
       <div class="archive-entry">
         <h3 class="archive-entry-title entry-hint-parent">二维平面下的坐标系变换
         </h3>
         <div class="archive-meta"><span title='2024-04-06 21:13:29 +0800 CST'>2024-04-06</span>&nbsp;·&nbsp;8 分钟&nbsp;·&nbsp;YOUNG</div>
-        <a class="entry-link" aria-label="post link to 二维平面下的坐标系变换" href="http://ahaknow.com/posts/know/2d-coordinate-transformation/"></a>
+        <a class="entry-link" aria-label="post link to 二维平面下的坐标系变换" href="https://ahaknow.com/posts/know/2d-coordinate-transformation/"></a>
       </div>
     </div>
   </div>
@@ -232,21 +277,21 @@
         <h3 class="archive-entry-title entry-hint-parent">博客自定义：实现Mac风格的代码栏
         </h3>
         <div class="archive-meta"><span title='2024-03-27 20:39:16 +0800 CST'>2024-03-27</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;YOUNG</div>
-        <a class="entry-link" aria-label="post link to 博客自定义：实现Mac风格的代码栏" href="http://ahaknow.com/posts/know/%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%9E%E7%8E%B0mac%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A0%8F/"></a>
+        <a class="entry-link" aria-label="post link to 博客自定义：实现Mac风格的代码栏" href="https://ahaknow.com/posts/know/blogmac-style-code/"></a>
       </div>
       <div class="archive-entry">
         <h3 class="archive-entry-title entry-hint-parent">折腾博客是为了更好地专注在写作上？
         </h3>
         <div class="archive-meta"><span title='2024-03-27 17:01:29 +0800 CST'>2024-03-27</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;YOUNG</div>
-        <a class="entry-link" aria-label="post link to 折腾博客是为了更好地专注在写作上？" href="http://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/"></a>
+        <a class="entry-link" aria-label="post link to 折腾博客是为了更好地专注在写作上？" href="https://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/"></a>
       </div>
     </div>
   </div>
 </div>
-    </main>
-    
+</main>
+
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://ahaknow.com/">AhaKnow</a></span>
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
