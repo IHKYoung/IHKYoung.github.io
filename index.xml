@@ -23,7 +23,7 @@
       <description>博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一</description>
     </item>
     <item>
-      <title>Slam14 Ch2</title>
+      <title>SLAM十四讲第二讲：初识SLAM</title>
       <link>https://ahaknow.com/posts/know/slam14-ch2/</link>
       <pubDate>Tue, 09 Apr 2024 16:03:13 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/slam14-ch2/</guid>
