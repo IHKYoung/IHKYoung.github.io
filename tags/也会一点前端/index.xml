@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>前端开发 on AhaKnow</title>
-    <link>https://ahaknow.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
-    <description>Recent content in 前端开发 on AhaKnow</description>
+    <title>也会一点前端 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/%E4%B9%9F%E4%BC%9A%E4%B8%80%E7%82%B9%E5%89%8D%E7%AB%AF/</link>
+    <description>Recent content in 也会一点前端 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 09 Apr 2024 21:25:15 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ahaknow.com/tags/%E4%B9%9F%E4%BC%9A%E4%B8%80%E7%82%B9%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客优化：自定义字体加速显示</title>
       <link>https://ahaknow.com/posts/know/blogfont-display-acceleration/</link>

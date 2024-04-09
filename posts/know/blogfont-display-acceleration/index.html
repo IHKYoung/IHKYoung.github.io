@@ -43,7 +43,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>博客优化：自定义字体加速显示 | AhaKnow</title>
-<meta name="keywords" content="前端开发">
+<meta name="keywords" content="也会一点前端">
 <meta name="description" content="博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一">
 <meta name="author" content="YOUNG">
 <link rel="canonical" href="https://ahaknow.com/posts/know/blogfont-display-acceleration/">
@@ -138,7 +138,7 @@
   "name": "博客优化：自定义字体加速显示",
   "description": "博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一",
   "keywords": [
-    "前端开发"
+    "也会一点前端"
   ],
   "articleBody": " 博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。\n压缩字体 先显示后加载 压缩字体 TrueType Font (TTF) 常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。\nWeb Open Font Format (WOFF) WOFF是专门为Web设计的字体格式，2009年成为W3C的推荐标准。WOFF是基于TTF和OpenType字体格式的，但提供了更好的压缩和额外的元数据支持。WOFF存在两个版本：WOFF 1.0和WOFF 2.0。WOFF 2.0使用了更高效的压缩算法，文件大小比WOFF 1.0更小。\n总结 TTF是一种通用的字体格式，广泛用于各种操作系统和设备，提供了高质量的矢量字体展示。而WOFF是为Web设计的字体格式，它优化了文件大小和加载性能，特别适合在线使用。选择哪种格式取决于你的具体需求：如果你需要确保字体在各种环境中的广泛兼容性，TTF可能是更好的选择；如果你主要关注网页性能和加载速度，WOFF将是更优的选择。\n在MacOS上直接本地转换ttf字体。\n安装woff2工具：\nbrew install woff2 使用以下命令将TTF字体文件转换为WOFF2格式：\nwoff2_compress path/to/your/font.ttf 这会生成一个与原始TTF文件同名，但扩展名为.woff2的文件。例如，如果源文件名为font.ttf，输出文件将会是font.woff2。\n先显示后加载 这里主要是CSS的工作：\n在CSS文件中使用@font-face规则引入转换后的WOFF2字体文件，并通过font-display: swap;属性设置字体显示策略。这样做可以确保文本在字体文件下载完成之前使用回退字体显示，从而提升页面的可用性和性能。\n@font-face { font-family: 'MyCustomFont'; src: url('MyFont.woff2') format('woff2'); font-display: swap; /* 使用回退字体直到自定义字体加载完毕 */ } 这里，font-display: swap;指示浏览器在自定义字体加载期间使用回退字体，一旦自定义字体加载完毕立即切换。这有助于改善首次内容渲染时间（FCP）和最大内容绘制（LCP）等性能指标。\n也可以使用Web Font Loader，这里就是JavaScript的工作了：\nWeb Font Loader允许添加事件回调和控制字体加载的行为，简单的使用方式如下（需要配合CSS中的@font-face）：\n\u003cscript src=\"https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js\"\u003e\u003c/script\u003e \u003cscript\u003e WebFont.load({ custom: { families: ['MyCustomFont'], urls: ['path/to/your/css/file.css'] // CSS文件的路径（可以不特别设置） } }); \u003c/script\u003e ",
   "wordCount" : "994",
@@ -385,7 +385,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a></li>
+      <li><a href="https://ahaknow.com/tags/%E4%B9%9F%E4%BC%9A%E4%B8%80%E7%82%B9%E5%89%8D%E7%AB%AF/">也会一点前端</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://ahaknow.com/posts/know/techmp4-audio-track-repair/">
