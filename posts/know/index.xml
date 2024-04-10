@@ -6,8 +6,15 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 09 Apr 2024 22:40:15 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Apr 2024 13:04:34 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>技术：一个正则表达式的小例子</title>
+      <link>https://ahaknow.com/posts/know/techa-regex-example/</link>
+      <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/techa-regex-example/</guid>
+      <description>我想重命名一个文件（手动操作是不可能的，懒！） 将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1</description>
+    </item>
     <item>
       <title>技术：MP4的音轨修复</title>
       <link>https://ahaknow.com/posts/know/techmp4-audio-track-repair/</link>
