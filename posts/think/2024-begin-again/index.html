@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>折腾博客是为了更好地专注在写作上？ | AhaKnow</title>
+<meta name="keywords" content="思考写作">
+<meta name="description" content="以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，">
+<meta name="author" content="YOUNG">
+<link rel="canonical" href="https://ahaknow.com/posts/think/2024-begin-again/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/think/2024-begin-again/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="折腾博客是为了更好地专注在写作上？" />
+<meta property="og:description" content="以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/think/2024-begin-again/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-27T17:01:29+08:00" />
+<meta property="article:modified_time" content="2024-03-27T17:01:29+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="折腾博客是为了更好地专注在写作上？"/>
+<meta name="twitter:description" content="以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "💡思考",
+      "item": "https://ahaknow.com/posts/think/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "折腾博客是为了更好地专注在写作上？",
+      "item": "https://ahaknow.com/posts/think/2024-begin-again/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "折腾博客是为了更好地专注在写作上？",
+  "name": "折腾博客是为了更好地专注在写作上？",
+  "description": "以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，",
+  "keywords": [
+    "思考写作"
+  ],
+  "articleBody": "以下是心路历程：\n为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？\n纠结于用什么博客框架，Hexo？Hugo？Halo？甚至想学JS框架自己做一个！\n最终还是回归了Hugo，因为markdown写完，直接编译，然后push就OK了；\n但是，又纠结起要不要自己租个服务器！国内服务器要备案（想想当年怎么在腾讯云备案的，又怎么气鼓鼓说再也不干这事了），so考虑香港服务器，一台服务器只是用来放博客嘛？（当然可以有很多用处，个人邮箱、下载器等等等）……\n就是一个静态博客啊，Github不就够了！！\n……\n好吧，老老实实Gitub + Hugo（当然可以Vercel自动部署，暂时用不到，Gitub Page就可以了）\n只是为了写作输出，又觉得直接的Hugo模版不够满意，再次变成了重学HTML、CSS、JS，自己动手改……\n改了一些，比如：Mac窗户风格的代码栏（甚至灵机一动还模拟鼠标放置显示关闭、最小化、最大化的效果）\n但是还是有不满意的：比如：标题下面的显示，太单调；目录能不能放置在两边，等等等等……无底深渊！\n算了，先写一篇正经的博客出来吧，剩下的想法之后慢慢补充！\n写博客到底为了啥？ 我是典型的属于“本末倒置”，不管用啥，哪怕就是文本直接展示，写博客的核心就是写啊！哪里是说：哦，这个博客引擎不行，自己写一个；那个框架看着不错，要不要换一个。重点是写先把文章写出来啊！\n就比如再写这篇文章之前，还在纠结，要不要再完善一下博客的外观……是啊，等你都完善了，菜都凉了，结果就是工具做好了，然后没有工作了，这不是搞笑嘛！放到写博客就是，兴致过去了，说要重新拾起来在写，然后精力全放在怎么把博客弄得好看点，最终精力用光了，博客又没写成，于是一年又一年，没了。\n写博客啊，你得先写再考虑展示啊！\n另外一个就是，不能拖，打死不能拖，脑袋里有想法了就写下来，不然一定会忘，不会再想起来的！血的教训！\n因此，现在我需要做的就是：\n把这两天折腾博客的东西记录下来，总结下来，沉淀下来，虽然少，但积少成多！\n以及，此前的博文写得断断续续的，也需要整理再拿出来，或者直接存着吧，今天开始，好好记录！不要停！\n",
+  "wordCount" : "902",
+  "inLanguage": "zh",
+  "datePublished": "2024-03-27T17:01:29+08:00",
+  "dateModified": "2024-03-27T17:01:29+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "YOUNG"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/think/2024-begin-again/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
+                    <span>🔍搜索</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/think/">💡思考</a></div>
+    <h1 class="post-title entry-hint-parent">
+      折腾博客是为了更好地专注在写作上？
+    </h1>
+    <div class="post-meta"><span title='2024-03-27 17:01:29 +0800 CST'>2024-03-27</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;902 字&nbsp;·&nbsp;YOUNG
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%86%99%e5%8d%9a%e5%ae%a2%e5%88%b0%e5%ba%95%e4%b8%ba%e4%ba%86%e5%95%a5" aria-label="写博客到底为了啥？">写博客到底为了啥？</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><p>以下是心路历程：</p>
+<blockquote>
+<p>为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？</p>
+<p>纠结于用什么博客框架，Hexo？Hugo？Halo？甚至想学JS框架自己做一个！</p>
+<p>最终还是回归了Hugo，因为markdown写完，直接编译，然后push就OK了；</p>
+<p>但是，又纠结起要不要自己租个服务器！国内服务器要备案（想想当年怎么在腾讯云备案的，又怎么气鼓鼓说再也不干这事了），so考虑香港服务器，一台服务器只是用来放博客嘛？（当然可以有很多用处，个人邮箱、下载器等等等）……</p>
+<p>就是一个静态博客啊，Github不就够了！！</p>
+<p>……</p>
+<p>好吧，老老实实Gitub + Hugo（当然可以Vercel自动部署，暂时用不到，Gitub Page就可以了）</p>
+<p>只是为了写作输出，又觉得直接的Hugo模版不够满意，再次变成了重学HTML、CSS、JS，自己动手改……</p>
+<p>改了一些，比如：Mac窗户风格的代码栏（甚至灵机一动还模拟鼠标放置显示关闭、最小化、最大化的效果）</p>
+<p>但是还是有不满意的：比如：标题下面的显示，太单调；目录能不能放置在两边，等等等等……无底深渊！</p>
+<p><mark>算了，先写一篇正经的博客出来吧，剩下的想法之后慢慢补充！</mark></p>
+</blockquote>
+<h2 id="写博客到底为了啥">写博客到底为了啥？<a hidden class="anchor" aria-hidden="true" href="#写博客到底为了啥">#</a></h2>
+<p>我是典型的属于“本末倒置”，不管用啥，哪怕就是文本直接展示，写博客的核心就是写啊！哪里是说：哦，这个博客引擎不行，自己写一个；那个框架看着不错，要不要换一个。重点是写先把文章写出来啊！</p>
+<p>就比如再写这篇文章之前，还在纠结，要不要再完善一下博客的外观……是啊，等你都完善了，菜都凉了，结果就是<mark>工具做好了，然后没有工作了，这不是搞笑嘛！</mark>放到写博客就是，<mark>兴致过去了，说要重新拾起来在写，然后精力全放在怎么把博客弄得好看点，最终精力用光了，博客又没写成，于是一年又一年，没了。</mark></p>
+<p>写博客啊，你得先写再考虑展示啊！</p>
+<p>另外一个就是，<mark>不能拖，打死不能拖，脑袋里有想法了就写下来，不然一定会忘，不会再想起来的！血的教训！</mark></p>
+<p>因此，现在我需要做的就是：</p>
+<blockquote>
+<p>把这两天折腾博客的东西记录下来，总结下来，沉淀下来，虽然少，但积少成多！</p>
+<p>以及，此前的博文写得断断续续的，也需要整理再拿出来，或者直接存着吧，今天开始，好好记录！不要停！</p>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/%E6%80%9D%E8%80%83%E5%86%99%E4%BD%9C/">思考写作</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/blog-mac-style-code/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>博客自定义：实现Mac风格的代码栏</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

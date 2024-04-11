@@ -6,27 +6,55 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 10 Apr 2024 13:04:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 11 Apr 2024 12:14:57 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Blog：Hugo写作小技巧 </title>
+      <link>https://ahaknow.com/posts/know/blog-tips/</link>
+      <pubDate>Thu, 11 Apr 2024 12:14:57 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/blog-tips/</guid>
+      <description>记录一些实用Hugo写博客的小技巧。 —— 因为如果当时不记录，那么日后肯定不会再记录的！（懒！） 使用Archetype预设模版 在使用 hugo new 命令创</description>
+    </item>
+    <item>
+      <title>Leetcode：26删除有序数组中的重复项</title>
+      <link>https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
+      <description>给你一个 非严格递增排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返</description>
+    </item>
+    <item>
+      <title>Leetcode：27移除元素</title>
+      <link>https://ahaknow.com/posts/know/leetcode-27-remove-element/</link>
+      <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
+      <description>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并</description>
+    </item>
+    <item>
+      <title>Leetcode：88合并两个有序数组</title>
+      <link>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
+      <description>LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ 给你两个按 非递减顺序 排列的整数数组 nums1 和</description>
+    </item>
+    <item>
       <title>技术：一个正则表达式的小例子</title>
-      <link>https://ahaknow.com/posts/know/techa-regex-example/</link>
+      <link>https://ahaknow.com/posts/know/tech-a-regex-example/</link>
       <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/techa-regex-example/</guid>
+      <guid>https://ahaknow.com/posts/know/tech-a-regex-example/</guid>
       <description>我想重命名一个文件（手动操作是不可能的，懒！） 将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1</description>
     </item>
     <item>
       <title>技术：MP4的音轨修复</title>
-      <link>https://ahaknow.com/posts/know/techmp4-audio-track-repair/</link>
+      <link>https://ahaknow.com/posts/know/tech-mp4-audio-track-repair/</link>
       <pubDate>Tue, 09 Apr 2024 22:40:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/techmp4-audio-track-repair/</guid>
+      <guid>https://ahaknow.com/posts/know/tech-mp4-audio-track-repair/</guid>
       <description>又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好</description>
     </item>
     <item>
       <title>博客优化：自定义字体加速显示</title>
-      <link>https://ahaknow.com/posts/know/blogfont-display-acceleration/</link>
+      <link>https://ahaknow.com/posts/know/blog-font-display-acceleration/</link>
       <pubDate>Tue, 09 Apr 2024 21:25:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/blogfont-display-acceleration/</guid>
+      <guid>https://ahaknow.com/posts/know/blog-font-display-acceleration/</guid>
       <description>博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一</description>
     </item>
     <item>
@@ -59,16 +87,16 @@
     </item>
     <item>
       <title>博客自定义：实现Mac风格的代码栏</title>
-      <link>https://ahaknow.com/posts/know/blogmac-style-code/</link>
+      <link>https://ahaknow.com/posts/know/blog-mac-style-code/</link>
       <pubDate>Wed, 27 Mar 2024 20:39:16 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/blogmac-style-code/</guid>
+      <guid>https://ahaknow.com/posts/know/blog-mac-style-code/</guid>
       <description>就是要实现下面这种效果： # 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？ 对于前端开发来说，最好的学习方式就是阅读源码学习： 直接看实现</description>
     </item>
     <item>
       <title>折腾博客是为了更好地专注在写作上？</title>
-      <link>https://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/</link>
+      <link>https://ahaknow.com/posts/think/2024-begin-again/</link>
       <pubDate>Wed, 27 Mar 2024 17:01:29 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/</guid>
+      <guid>https://ahaknow.com/posts/think/2024-begin-again/</guid>
       <description>以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，</description>
     </item>
     <item>

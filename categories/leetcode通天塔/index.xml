@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LeetCode通天塔 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/leetcode%E9%80%9A%E5%A4%A9%E5%A1%94/</link>
+    <description>Recent content in LeetCode通天塔 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 11 Apr 2024 11:41:10 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/leetcode%E9%80%9A%E5%A4%A9%E5%A1%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode：26删除有序数组中的重复项</title>
+      <link>https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
+      <description>给你一个 非严格递增排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返</description>
+    </item>
+    <item>
+      <title>Leetcode：27移除元素</title>
+      <link>https://ahaknow.com/posts/know/leetcode-27-remove-element/</link>
+      <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
+      <description>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。 不要使用额外的数组空间，你必须仅使用 O(1) 额外空间并</description>
+    </item>
+    <item>
+      <title>Leetcode：88合并两个有序数组</title>
+      <link>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
+      <description>LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ 给你两个按 非递减顺序 排列的整数数组 nums1 和</description>
+    </item>
+  </channel>
+</rss>
