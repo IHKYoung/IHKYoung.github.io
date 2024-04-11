@@ -71,5 +71,12 @@
       <guid>https://ahaknow.com/posts/think/%E6%8A%98%E8%85%BE%E5%8D%9A%E5%AE%A2%E6%98%AF%E4%B8%BA%E4%BA%86%E6%9B%B4%E5%A5%BD%E5%9C%B0%E4%B8%93%E6%B3%A8%E5%9C%A8%E5%86%99%E4%BD%9C%E4%B8%8A/</guid>
       <description>以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，</description>
     </item>
+    <item>
+      <title>🧰 医疗箱</title>
+      <link>https://ahaknow.com/toolkits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://ahaknow.com/toolkits/</guid>
+      <description>开发者的日常用药指南</description>
+    </item>
   </channel>
 </rss>

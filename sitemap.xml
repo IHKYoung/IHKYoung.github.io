@@ -38,19 +38,16 @@
     <loc>https://ahaknow.com/categories/%E8%87%AA%E6%88%91%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-04-09T21:25:15+08:00</lastmod>
   </url><url>
-    <loc>https://ahaknow.com/tags/slam/</loc>
+    <loc>https://ahaknow.com/posts/know/slam14-ch2/</loc>
     <lastmod>2024-04-09T16:03:13+08:00</lastmod>
   </url><url>
-    <loc>https://ahaknow.com/posts/know/slam14-ch2/</loc>
+    <loc>https://ahaknow.com/tags/slam%E5%B1%A0%E9%BE%99%E4%B9%8B%E8%B7%AF/</loc>
     <lastmod>2024-04-09T16:03:13+08:00</lastmod>
   </url><url>
     <loc>https://ahaknow.com/posts/know/slam14-ch1/</loc>
     <lastmod>2024-04-08T20:27:50+08:00</lastmod>
   </url><url>
     <loc>https://ahaknow.com/posts/know/3d-visual-perception/</loc>
-    <lastmod>2024-04-07T10:09:54+08:00</lastmod>
-  </url><url>
-    <loc>https://ahaknow.com/tags/%E8%A7%86%E8%A7%89%E6%84%9F%E7%9F%A5/</loc>
     <lastmod>2024-04-07T10:09:54+08:00</lastmod>
   </url><url>
     <loc>https://ahaknow.com/posts/know/2d-coordinate-transformation/</loc>
@@ -80,5 +77,7 @@
     <loc>https://ahaknow.com/search/</loc>
   </url><url>
     <loc>https://ahaknow.com/posts/life/</loc>
+  </url><url>
+    <loc>https://ahaknow.com/toolkits/</loc>
   </url>
 </urlset>

@@ -43,7 +43,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>SLAM十四讲第一讲：预备知识 | AhaKnow</title>
-<meta name="keywords" content="SLAM">
+<meta name="keywords" content="SLAM屠龙之路">
 <meta name="description" content="边做题边学习">
 <meta name="author" content="YOUNG">
 <link rel="canonical" href="https://ahaknow.com/posts/know/slam14-ch1/">
@@ -138,7 +138,7 @@
   "name": "SLAM十四讲第一讲：预备知识",
   "description": "边做题边学习",
   "keywords": [
-    "SLAM"
+    "SLAM屠龙之路"
   ],
   "articleBody": "第一讲里没有具体需要好好理解的部分，不过自测题目题目值得过一遍。\n1.线性方程Ax=b的求解 有线性方程$Ax=b$，若已知$A,b$，需要求解$x$，该如何求解？这对$A$和$b$有哪些要求？\n（提示：从$A$的维度和秩的角度来分析）\n这个问题很简单，但是值得全面地分析和理解：\n首先假设$A$是一个$m \\times n$矩阵，$x$是一个$n \\times 1$的列向量，$b$是一个$m \\times 1$的列向量。这里的$m$表示方程的数量，$n$表示未知数的数量。\n先从矩阵的秩出发来理解，以列的角度看，矩阵的秩表示了所有列向量线性组合所能达到的空间范围，对于方程$Ax=b$，如果向量$b$在矩阵$A$的列空间中（$b$可以被$A$的列向量线性表示），那么存在至少一个解$x$使得$Ax=b$，因此就有了下面的判断性质（比较矩阵$A$和增广矩阵$A|b$秩的关系）：\n$rank(A) = rank(A|b)$：表明向量$b$在矩阵$A$的列空间中，因此至少存在一个解$x$使得$Ax=b$。 $rank(A) \u003c rank(A|b)$：表明$b$不在$A$的列空间中，因此没有解。 然后再分析$rank(A)$来确定解的情况，是有唯一解还是存在多个解：\n如果$rank(A)=n$（未知数的数量，也就是列的数量），则$A$的所有列向量都是线性独立的，意味着对于给定的$b$，存在唯一的$x$满足$Ax=b$。 如果$rank(A)",
   "wordCount" : "5811",
@@ -233,6 +233,11 @@
             <li>
                 <a href="https://ahaknow.com/categories" title="🖇归档">
                     <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
                 </a>
             </li>
             <li>
@@ -706,7 +711,7 @@ $$</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/slam/">SLAM</a></li>
+      <li><a href="https://ahaknow.com/tags/slam%E5%B1%A0%E9%BE%99%E4%B9%8B%E8%B7%AF/">SLAM屠龙之路</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://ahaknow.com/posts/know/slam14-ch2/">
