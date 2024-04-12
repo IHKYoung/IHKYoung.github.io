@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>📓日记 on AhaKnow</title>
-    <link>https://ahaknow.com/posts/diary/</link>
-    <description>Recent content in 📓日记 on AhaKnow</description>
+    <title>痛定思痛 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/%E7%97%9B%E5%AE%9A%E6%80%9D%E7%97%9B/</link>
+    <description>Recent content in 痛定思痛 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 12 Apr 2024 10:35:31 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/posts/diary/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ahaknow.com/tags/%E7%97%9B%E5%AE%9A%E6%80%9D%E7%97%9B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2024年的第一篇记录</title>
       <link>https://ahaknow.com/posts/diary/2024_first/</link>
