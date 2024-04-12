@@ -44,7 +44,7 @@
 <meta name="robots" content="index, follow">
 <title>Leetcode：88合并两个有序数组 | AhaKnow</title>
 <meta name="keywords" content="双指针思想">
-<meta name="description" content="LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ 给你两个按 非递减顺序 排列的整数数组 nums1 和">
+<meta name="description" content="LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,">
 <meta name="author" content="YOUNG">
 <link rel="canonical" href="https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -93,7 +93,7 @@
 
     </style>
 </noscript><meta property="og:title" content="Leetcode：88合并两个有序数组" />
-<meta property="og:description" content="LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ 给你两个按 非递减顺序 排列的整数数组 nums1 和" />
+<meta property="og:description" content="LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n," />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-11T10:19:57+08:00" />
@@ -101,7 +101,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode：88合并两个有序数组"/>
-<meta name="twitter:description" content="LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ 给你两个按 非递减顺序 排列的整数数组 nums1 和"/>
+<meta name="twitter:description" content="LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,"/>
 
 
 <script type="application/ld+json">
@@ -136,12 +136,12 @@
   "@type": "BlogPosting",
   "headline": "Leetcode：88合并两个有序数组",
   "name": "Leetcode：88合并两个有序数组",
-  "description": "LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ 给你两个按 非递减顺序 排列的整数数组 nums1 和",
+  "description": "LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,",
   "keywords": [
     "双指针思想"
   ],
-  "articleBody": " LeetCode上“最简单”的一道题了吧？\n长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！\n给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。\n请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。\n注意: 最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。\n示例 1：\n输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 输出：[1,2,2,3,5,6] 解释：需要合并 [1,2,3] 和 [2,5,6] 。 合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。 示例 2：\n输入：nums1 = [1], m = 1, nums2 = [], n = 0 输出：[1] 解释：需要合并 [1] 和 [] 。 合并结果是 [1] 。 示例 3：\n输入：nums1 = [0], m = 0, nums2 = [1], n = 1 输出：[1] 解释：需要合并的数组是 [] 和 [1] 。 合并结果是 [1] 。 注意，因为 m = 0 ，所以 nums1 中没有元素。nums1 中仅存的 0 仅仅是为了确保合并结果可以顺利存放到 nums1 中。 提示：\nnums1.length == m + n nums2.length == n 0 \u003c= m, n \u003c= 200 1 \u003c= m + n \u003c= 200 -109 \u003c= nums1[i], nums2[j] \u003c= 109 直接使用“双指针”的写法！\n（你还记得你多年未写算法题，想到了双指针，结果一上来写了两个for的蠢事嘛🤣）\n🥬直接上菜 从两个数组的末尾开始，每次取两者之中较大的数，放到 nums1 的合适位置。这样，当 nums2 被完全复制到 nums1 后，合并就完成了，因为 nums1 和 nums2 本来就是有序的。\n下面是详细的步骤：\n初始化两个指针 p1 和 p2 分别指向 nums1 和 nums2 的有数值的末尾，即 p1 = m - 1, p2 = n - 1。同时，初始化 p 指向 nums1 的末尾，即 p = m + n - 1。 比较 p1 和 p2 指向的值，将较大的值放在 p 位置上，并移动指针 p 和被选中的 p1 或 p2。 如果 p2 \u003e= 0 而 p1 \u003c 0，意味着 nums1 已经被遍历完，但 nums2 还有元素未被复制过去，此时直接将 nums2 的剩余元素复制到 nums1 的前面。 如果 p1 \u003e= 0 而 p2 \u003c 0，意味着 nums2 已经被遍历完，nums1 的剩余元素已经在正确的位置，不需要做任何操作。 下面是用C++实现的代码示例：\n// 88. Merge Sorted Array #include #include using namespace std; // 逆向双指针 class Solution { public: void merge(vector\u003cint\u003e\u0026 nums1, int m, vector\u003cint\u003e\u0026 nums2, int n) { // 确定终点指针 // 合并后留下nums1数组 int p1 = m - 1, p2 = n - 1, p = m + n - 1; // 因为已经排序，逆向考虑就是从大往小 while (p1 \u003e= 0 \u0026\u0026 p2 \u003e= 0) { if (nums1[p1] \u003e nums2[p2]) { // 从后往前，先安排大的 nums1[p--] = nums1[p1--]; } else { nums1[p--] = nums2[p2--]; } } // //这时候再看p1和p2谁大于零 // 其实只要看p2是不是大于零就行，因为是从nums2合并到nums1 while (p2 \u003e= 0) { nums1[p--] = nums2[p2--]; } } }; // 这道题可以直接把两个vector加起来，然后一个sort()解决 这段代码通过从后向前遍历 nums1 和 nums2，避免了合并时覆盖 nums1 中未被检查的元素，同时减少了需要移动元素的次数。\n时间复杂度为 O(m+n)，空间复杂度为 O(1)，因为它不需要额外的存储空间。\n",
-  "wordCount" : "1126",
+  "articleBody": " LeetCode上“最简单”的一道题了吧？\n长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！\nYou are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.\nMerge nums1 and nums2 into a single array sorted in non-decreasing order.\nThe final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.\nExample 1:\nInput: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 Output: [1,2,2,3,5,6] Explanation: The arrays we are merging are [1,2,3] and [2,5,6]. The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1. Example 2:\nInput: nums1 = [1], m = 1, nums2 = [], n = 0 Output: [1] Explanation: The arrays we are merging are [1] and []. The result of the merge is [1]. Example 3:\nInput: nums1 = [0], m = 0, nums2 = [1], n = 1 Output: [1] Explanation: The arrays we are merging are [] and [1]. The result of the merge is [1]. Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1. Constraints:\nnums1.length == m + n nums2.length == n 0 \u003c= m, n \u003c= 200 1 \u003c= m + n \u003c= 200 -109 \u003c= nums1[i], nums2[j] \u003c= 109 给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。\n请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。\n注意: 最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。\n示例 1：\n输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3 输出：[1,2,2,3,5,6] 解释：需要合并 [1,2,3] 和 [2,5,6] 。 合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。 示例 2：\n输入：nums1 = [1], m = 1, nums2 = [], n = 0 输出：[1] 解释：需要合并 [1] 和 [] 。 合并结果是 [1] 。 示例 3：\n输入：nums1 = [0], m = 0, nums2 = [1], n = 1 输出：[1] 解释：需要合并的数组是 [] 和 [1] 。 合并结果是 [1] 。 注意，因为 m = 0 ，所以 nums1 中没有元素。nums1 中仅存的 0 仅仅是为了确保合并结果可以顺利存放到 nums1 中。 提示：\nnums1.length == m + n nums2.length == n 0 \u003c= m, n \u003c= 200 1 \u003c= m + n \u003c= 200 -109 \u003c= nums1[i], nums2[j] \u003c= 109 直接使用“双指针”的写法！\n（你还记得你多年未写算法题，想到了双指针，结果一上来写了两个for的蠢事嘛🤣）\n🥬直接上菜 从两个数组的末尾开始，每次取两者之中较大的数，放到 nums1 的合适位置。这样，当 nums2 被完全复制到 nums1 后，合并就完成了，因为 nums1 和 nums2 本来就是有序的。\n下面是详细的步骤：\n初始化两个指针 p1 和 p2 分别指向 nums1 和 nums2 的有数值的末尾，即 p1 = m - 1, p2 = n - 1。同时，初始化 p 指向 nums1 的末尾，即 p = m + n - 1。 比较 p1 和 p2 指向的值，将较大的值放在 p 位置上，并移动指针 p 和被选中的 p1 或 p2。 如果 p2 \u003e= 0 而 p1 \u003c 0，意味着 nums1 已经被遍历完，但 nums2 还有元素未被复制过去，此时直接将 nums2 的剩余元素复制到 nums1 的前面。 如果 p1 \u003e= 0 而 p2 \u003c 0，意味着 nums2 已经被遍历完，nums1 的剩余元素已经在正确的位置，不需要做任何操作。 下面是用C++实现的代码示例：\n// 88. Merge Sorted Array #include #include using namespace std; // 逆向双指针 class Solution { public: void merge(vector\u003cint\u003e\u0026 nums1, int m, vector\u003cint\u003e\u0026 nums2, int n) { // 确定终点指针 // 合并后留下nums1数组 int p1 = m - 1, p2 = n - 1, p = m + n - 1; // 因为已经排序，逆向考虑就是从大往小 while (p1 \u003e= 0 \u0026\u0026 p2 \u003e= 0) { if (nums1[p1] \u003e nums2[p2]) { // 从后往前，先安排大的 nums1[p--] = nums1[p1--]; } else { nums1[p--] = nums2[p2--]; } } // //这时候再看p1和p2谁大于零 // 其实只要看p2是不是大于零就行，因为是从nums2合并到nums1 while (p2 \u003e= 0) { nums1[p--] = nums2[p2--]; } } }; // 这道题可以直接把两个vector加起来，然后一个sort()解决 这段代码通过从后向前遍历 nums1 和 nums2，避免了合并时覆盖 nums1 中未被检查的元素，同时减少了需要移动元素的次数。\n时间复杂度为 O(m+n)，空间复杂度为 O(1)，因为它不需要额外的存储空间。\n",
+  "wordCount" : "1391",
   "inLanguage": "zh",
   "datePublished": "2024-04-11T10:19:57+08:00",
   "dateModified": "2024-04-11T10:19:57+08:00",
@@ -241,8 +241,8 @@
                 </a>
             </li>
             <li>
-                <a href="https://ahaknow.com/search" title="🔍搜索 (Alt &#43; /)" accesskey=/>
-                    <span>🔍搜索</span>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
                 </a>
             </li>
         </ul>
@@ -298,7 +298,7 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1126 字
+        <span>1391 字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -330,6 +330,33 @@
 <p>LeetCode上“最简单”的一道题了吧？</p>
 <p><mark>长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！</mark></p>
 </blockquote>
+<p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>
+<p><strong>Merge</strong> <code>nums1</code> and <code>nums2</code> into a single array sorted in <strong>non-decreasing order</strong>.</p>
+<p>The final sorted array should not be returned by the function, but instead be <em>stored inside the array</em> <code>nums1</code>. To accommodate this, <code>nums1</code> has a length of <code>m + n</code>, where the first <code>m</code> elements denote the elements that should be merged, and the last <code>n</code> elements are set to <code>0</code> and should be ignored. <code>nums2</code> has a length of <code>n</code>.</p>
+<p><strong>Example 1:</strong></p>
+<pre tabindex="0"><code>Input: nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+Output: [1,2,2,3,5,6]
+Explanation: The arrays we are merging are [1,2,3] and [2,5,6].
+The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
+</code></pre><p><strong>Example 2:</strong></p>
+<pre tabindex="0"><code>Input: nums1 = [1], m = 1, nums2 = [], n = 0
+Output: [1]
+Explanation: The arrays we are merging are [1] and [].
+The result of the merge is [1].
+</code></pre><p><strong>Example 3:</strong></p>
+<pre tabindex="0"><code>Input: nums1 = [0], m = 0, nums2 = [1], n = 1
+Output: [1]
+Explanation: The arrays we are merging are [] and [1].
+The result of the merge is [1].
+Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
+</code></pre><p><strong>Constraints:</strong></p>
+<ul>
+<li><code>nums1.length == m + n</code></li>
+<li><code>nums2.length == n</code></li>
+<li><code>0 &lt;= m, n &lt;= 200</code></li>
+<li><code>1 &lt;= m + n &lt;= 200</code></li>
+<li><code>-109 &lt;= nums1[i], nums2[j] &lt;= 109</code></li>
+</ul>
 <p>给你两个按 <strong>非递减顺序</strong> 排列的整数数组 <code>nums1</code> 和 <code>nums2</code>，另有两个整数 <code>m</code> 和 <code>n</code> ，分别表示 <code>nums1</code> 和 <code>nums2</code> 中的元素数目。</p>
 <p>请你 <strong>合并</strong> <code>nums2</code> 到 <code>nums1</code> 中，使合并后的数组同样按 <strong>非递减顺序</strong> 排列。</p>
 <p><strong>注意</strong>: 最终，合并后数组不应由函数返回，而是存储在数组 <code>nums1</code> 中。为了应对这种情况，<code>nums1</code> 的初始长度为 <code>m + n</code>，其中前 <code>m</code> 个元素表示应合并的元素，后 <code>n</code> 个元素为 <code>0</code> ，应忽略。<code>nums2</code> 的长度为 <code>n</code> 。</p>
