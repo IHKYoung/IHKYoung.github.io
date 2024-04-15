@@ -142,8 +142,8 @@
   "keywords": [
     "CSS技巧"
   ],
-  "articleBody": " 博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。\n压缩字体 先显示后加载 压缩字体 TrueType Font (TTF) 常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。\nWeb Open Font Format (WOFF) WOFF是专门为Web设计的字体格式，2009年成为W3C的推荐标准。WOFF是基于TTF和OpenType字体格式的，但提供了更好的压缩和额外的元数据支持。WOFF存在两个版本：WOFF 1.0和WOFF 2.0。WOFF 2.0使用了更高效的压缩算法，文件大小比WOFF 1.0更小。\n总结 TTF是一种通用的字体格式，广泛用于各种操作系统和设备，提供了高质量的矢量字体展示。而WOFF是为Web设计的字体格式，它优化了文件大小和加载性能，特别适合在线使用。选择哪种格式取决于你的具体需求：如果你需要确保字体在各种环境中的广泛兼容性，TTF可能是更好的选择；如果你主要关注网页性能和加载速度，WOFF将是更优的选择。\n在MacOS上直接本地转换ttf字体。\n安装woff2工具：\nbrew install woff2 使用以下命令将TTF字体文件转换为WOFF2格式：\nwoff2_compress path/to/your/font.ttf 这会生成一个与原始TTF文件同名，但扩展名为.woff2的文件。例如，如果源文件名为font.ttf，输出文件将会是font.woff2。\n先显示后加载 这里主要是CSS的工作：\n在CSS文件中使用@font-face规则引入转换后的WOFF2字体文件，并通过font-display: swap;属性设置字体显示策略。这样做可以确保文本在字体文件下载完成之前使用回退字体显示，从而提升页面的可用性和性能。\n@font-face { font-family: 'MyCustomFont'; src: url('MyFont.woff2') format('woff2'); font-display: swap; /* 使用回退字体直到自定义字体加载完毕 */ } 这里，font-display: swap;指示浏览器在自定义字体加载期间使用回退字体，一旦自定义字体加载完毕立即切换。这有助于改善首次内容渲染时间（FCP）和最大内容绘制（LCP）等性能指标。\n也可以使用Web Font Loader，这里就是JavaScript的工作了：\nWeb Font Loader允许添加事件回调和控制字体加载的行为，简单的使用方式如下（需要配合CSS中的@font-face）：\n\u003cscript src=\"https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js\"\u003e\u003c/script\u003e \u003cscript\u003e WebFont.load({ custom: { families: ['MyCustomFont'], urls: ['path/to/your/css/file.css'] // CSS文件的路径（可以不特别设置） } }); \u003c/script\u003e 使用jsDelivr实现CDN加速 jsDelivr 是一个免费的开源内容分发网络（CDN），它能够提供对GitHub、npm、WordPress插件等的直接加速服务。这是通过jsDelivr与这些平台的集成以及其在全球多个地点的服务器网络实现的。下面详细解释一下为什么和如何jsDelivr能够直接加速GitHub的内容。\n1. 如何工作\njsDelivr 是设计来优化项目文件的交付速度和可靠性的。它通过缓存和分发静态文件（如JavaScript库、CSS样式表和字体文件等）来实现这一点。当开发者将他们的代码托管在GitHub或npm上时，jsDelivr 可以直接链接到这些资源，并通过其全球分布的CDN网络提供这些资源。\n2. 全球CDN网络\njsDelivr 使用多个CDN提供商，包括Cloudflare、Fastly和Quantil。这意味着它不依赖于单一的CDN提供商，而是能够通过多个网络提供数据，从而确保在全球范围内的高可用性和速度。这种多CDN路由策略使得jsDelivr在处理大量请求、尤其是在流量高峰时，可以提供更加稳定和快速的服务。\n3. GitHub和npm集成\njsDelivr 对GitHub和npm有特别的支持。开发者只需通过简单的URL格式，就可以直接引用在GitHub仓库或npm包中的文件。jsDelivr会自动处理这些文件的CDN分发。\nGitHub：可以直接引用任何GitHub仓库中的文件，jsDelivr 会处理路径并通过其CDN提供这些文件。 npm：可以引用任何npm包中的文件，同样通过CDN加速分发。 4. 性能优化\njsDelivr 不仅仅提供文件的CDN加速，还对文件进行了优化处理。例如，它可以自动压缩文件以减少文件大小，从而加快加载速度。此外，它还提供了一个可以合并多个文件的功能，减少了网页加载时的请求数量。\n5. 易用性和无成本\njsDelivr 是完全免费的服务，为开发者和网站提供了一个零成本的解决方案来优化其资源的分发。它的设置非常简单，只需要修改文件的URL即可开始使用，无需复杂的配置。\n通过GitHub和jsDelivr实现字体文件（如WOFF2格式）的CDN加速：\n步骤 1: 准备字体文件 首先，确保拥有字体文件的使用权，并且该字体文件已经是WOFF2格式。WOFF2是一种为网络优化的字体格式，具有良好的压缩率和快速的加载性能。\n步骤 2: 上传字体文件到GitHub 创建一个新的GitHub仓库（如果还没有的话）。\n将WOFF2字体文件上传到这个仓库中。可以直接在GitHub网站上进行上传，或者使用Git命令行工具。\n例如，如果字体文件名为 example.woff2，可以在仓库的根目录或任何一个子目录中放置这个文件。\n步骤 3: 使用jsDelivr jsDelivr是一个免费的开源CDN服务，它可以提供GitHub仓库中静态文件的CDN支持。\n获取GitHub文件的URL路径。这通常是：\nhttps://github.com///blob/main/path/to/your/font.woff2 其中 是你的GitHub用户名， 是你的仓库名，path/to/your/font.woff2 是文件在仓库中的路径。\n将GitHub链接转换为jsDelivr链接。jsDelivr为GitHub项目提供了一个特别的URL格式，用于CDN加速。将上述URL按以下格式改写：\nhttps://cdn.jsdelivr.net/gh///path/to/your/font.woff2 步骤 4: 在网页中使用字体 在HTML或CSS文件中，使用新的jsDelivr CDN链接来引用字体文件。例如，在CSS中，可以这样指定字体：\n@font-face { font-family: 'MyCustomFont'; src: url('https://cdn.jsdelivr.net/gh/username/repository/path/to/your/font.woff2') format('woff2'); font-weight: normal; font-style: normal; } 这里，font-family 是给字体起的名字，用于后续在CSS中引用。\n",
-  "wordCount" : "2414",
+  "articleBody": " 博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。\n压缩字体 先显示后加载 使用CDN加速 压缩字体 TrueType Font (TTF) 常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。\nWeb Open Font Format (WOFF) WOFF是专门为Web设计的字体格式，2009年成为W3C的推荐标准。WOFF是基于TTF和OpenType字体格式的，但提供了更好的压缩和额外的元数据支持。WOFF存在两个版本：WOFF 1.0和WOFF 2.0。WOFF 2.0使用了更高效的压缩算法，文件大小比WOFF 1.0更小。\nTTF是一种通用的字体格式，广泛用于各种操作系统和设备，提供了高质量的矢量字体展示。而WOFF是为Web设计的字体格式，它优化了文件大小和加载性能，特别适合在线使用。选择哪种格式取决于你的具体需求：如果你需要确保字体在各种环境中的广泛兼容性，TTF可能是更好的选择；如果你主要关注网页性能和加载速度，WOFF将是更优的选择。\n在MacOS上直接本地转换ttf字体。\n安装woff2工具：\nbrew install woff2 使用以下命令将TTF字体文件转换为WOFF2格式：\nwoff2_compress path/to/your/font.ttf 这会生成一个与原始TTF文件同名，但扩展名为.woff2的文件。例如，如果源文件名为font.ttf，输出文件将会是font.woff2。\n先显示后加载 这里主要是CSS的工作：\n在CSS文件中使用@font-face规则引入转换后的WOFF2字体文件，并通过font-display: swap;属性设置字体显示策略。这样做可以确保文本在字体文件下载完成之前使用回退字体显示，从而提升页面的可用性和性能。\n@font-face { font-family: 'MyCustomFont'; src: url('MyFont.woff2') format('woff2'); font-display: swap; /* 使用回退字体直到自定义字体加载完毕 */ } 这里，font-display: swap;指示浏览器在自定义字体加载期间使用回退字体，一旦自定义字体加载完毕立即切换。这有助于改善首次内容渲染时间（FCP）和最大内容绘制（LCP）等性能指标。\n也可以使用Web Font Loader，这里就是JavaScript的工作了：\nWeb Font Loader允许添加事件回调和控制字体加载的行为，简单的使用方式如下（需要配合CSS中的@font-face）：\n\u003cscript src=\"https://ajax.googleapis.com/ajax/libs/webfont/1.6.28/webfont.js\"\u003e\u003c/script\u003e \u003cscript\u003e WebFont.load({ custom: { families: ['MyCustomFont'], urls: ['path/to/your/css/file.css'] // CSS文件的路径（可以不特别设置） } }); \u003c/script\u003e 使用jsDelivr实现CDN加速 jsDelivr 是一个免费的开源内容分发网络（CDN），它能够提供对GitHub、npm、WordPress插件等的直接加速服务。这是通过jsDelivr与这些平台的集成以及其在全球多个地点的服务器网络实现的。下面详细解释一下为什么和如何jsDelivr能够直接加速GitHub的内容。\n1. 如何工作\njsDelivr 是设计来优化项目文件的交付速度和可靠性的。它通过缓存和分发静态文件（如JavaScript库、CSS样式表和字体文件等）来实现这一点。当开发者将他们的代码托管在GitHub或npm上时，jsDelivr 可以直接链接到这些资源，并通过其全球分布的CDN网络提供这些资源。\n2. 全球CDN网络\njsDelivr 使用多个CDN提供商，包括Cloudflare、Fastly和Quantil。这意味着它不依赖于单一的CDN提供商，而是能够通过多个网络提供数据，从而确保在全球范围内的高可用性和速度。这种多CDN路由策略使得jsDelivr在处理大量请求、尤其是在流量高峰时，可以提供更加稳定和快速的服务。\n3. GitHub和npm集成\njsDelivr 对GitHub和npm有特别的支持。开发者只需通过简单的URL格式，就可以直接引用在GitHub仓库或npm包中的文件。jsDelivr会自动处理这些文件的CDN分发。\nGitHub：可以直接引用任何GitHub仓库中的文件，jsDelivr 会处理路径并通过其CDN提供这些文件。 npm：可以引用任何npm包中的文件，同样通过CDN加速分发。 4. 性能优化\njsDelivr 不仅仅提供文件的CDN加速，还对文件进行了优化处理。例如，它可以自动压缩文件以减少文件大小，从而加快加载速度。此外，它还提供了一个可以合并多个文件的功能，减少了网页加载时的请求数量。\n5. 易用性和无成本\njsDelivr 是完全免费的服务，为开发者和网站提供了一个零成本的解决方案来优化其资源的分发。它的设置非常简单，只需要修改文件的URL即可开始使用，无需复杂的配置。\n通过GitHub和jsDelivr实现字体文件（如WOFF2格式）的CDN加速：\n步骤 1: 准备字体文件 首先，确保拥有字体文件的使用权，并且该字体文件已经是WOFF2格式。WOFF2是一种为网络优化的字体格式，具有良好的压缩率和快速的加载性能。\n步骤 2: 上传字体文件到GitHub 创建一个新的GitHub仓库（如果还没有的话）。\n将WOFF2字体文件上传到这个仓库中。可以直接在GitHub网站上进行上传，或者使用Git命令行工具。\n例如，如果字体文件名为 example.woff2，可以在仓库的根目录或任何一个子目录中放置这个文件。\n步骤 3: 使用jsDelivr jsDelivr是一个免费的开源CDN服务，它可以提供GitHub仓库中静态文件的CDN支持。\n获取GitHub文件的URL路径。这通常是：\nhttps://github.com///blob/main/path/to/your/font.woff2 其中 是你的GitHub用户名， 是你的仓库名，path/to/your/font.woff2 是文件在仓库中的路径。\n将GitHub链接转换为jsDelivr链接。jsDelivr为GitHub项目提供了一个特别的URL格式，用于CDN加速。将上述URL按以下格式改写：\nhttps://cdn.jsdelivr.net/gh///path/to/your/font.woff2 步骤 4: 在网页中使用字体 在HTML或CSS文件中，使用新的jsDelivr CDN链接来引用字体文件。例如，在CSS中，可以这样指定字体：\n@font-face { font-family: 'MyCustomFont'; src: url('https://cdn.jsdelivr.net/gh/username/repository/path/to/your/font.woff2') format('woff2'); font-weight: normal; font-style: normal; } 这里，font-family 是给字体起的名字，用于后续在CSS中引用。\n",
+  "wordCount" : "2419",
   "inLanguage": "zh",
   "datePublished": "2024-04-09T21:25:15+08:00",
   "dateModified": "2024-04-15T21:25:15+08:00",
@@ -302,7 +302,7 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2414 字
+        <span>2419 字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -345,8 +345,6 @@
                 <li>
                     <a href="#web-open-font-format-woff" aria-label="Web Open Font Format (WOFF)">Web Open Font Format (WOFF)</a></li></ul>
                 </li>
-                <li>
-                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a></li>
                 <li>
                     <a href="#%e5%85%88%e6%98%be%e7%a4%ba%e5%90%8e%e5%8a%a0%e8%bd%bd" aria-label="先显示后加载">先显示后加载</a></li>
                 <li>
@@ -432,6 +430,7 @@
 <ul>
 <li>压缩字体</li>
 <li>先显示后加载</li>
+<li>使用CDN加速</li>
 </ul>
 </blockquote>
 <h3 id="压缩字体">压缩字体<a hidden class="anchor" aria-hidden="true" href="#压缩字体">#</a></h3>
@@ -439,7 +438,6 @@
 <p>常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。</p>
 <h4 id="web-open-font-format-woff">Web Open Font Format (WOFF)<a hidden class="anchor" aria-hidden="true" href="#web-open-font-format-woff">#</a></h4>
 <p>WOFF是专门为Web设计的字体格式，2009年成为W3C的推荐标准。WOFF是基于TTF和OpenType字体格式的，但提供了更好的压缩和额外的元数据支持。WOFF存在两个版本：WOFF 1.0和WOFF 2.0。WOFF 2.0使用了更高效的压缩算法，文件大小比WOFF 1.0更小。</p>
-<h3 id="总结">总结<a hidden class="anchor" aria-hidden="true" href="#总结">#</a></h3>
 <p>TTF是一种通用的字体格式，广泛用于各种操作系统和设备，提供了高质量的矢量字体展示。而WOFF是为Web设计的字体格式，它优化了文件大小和加载性能，特别适合在线使用。选择哪种格式取决于你的具体需求：如果你需要确保字体在各种环境中的广泛兼容性，TTF可能是更好的选择；如果你主要关注网页性能和加载速度，WOFF将是更优的选择。</p>
 <p>在MacOS上直接本地转换ttf字体。</p>
 <p>安装<code>woff2</code>工具：</p>
