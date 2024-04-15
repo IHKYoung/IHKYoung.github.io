@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 12 Apr 2024 16:03:13 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Apr 2024 09:27:11 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode 169 Majority Element</title>
+      <link>https://ahaknow.com/posts/know/leetcode-169-majority-element/</link>
+      <pubDate>Mon, 15 Apr 2024 09:27:11 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-169-majority-element/</guid>
+      <description> Boyer-Moore 投票算法</description>
+    </item>
     <item>
       <title>Leetcode：80. 删除有序数组中的重复项 II</title>
       <link>https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</link>
