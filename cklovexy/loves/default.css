@@ -1,6 +1,6 @@
 @font-face {
 	font-family: "LXGW";
-	src: url("./LXGW.woff2") format("woff2");
+	src: url('https://cdn.jsdelivr.net/gh/IHKYoung/CKResources/fonts/LXGW.woff2') format('woff2');
 	font-display: swap; /* Use fallback font until the custom font is loaded */
 }
 
