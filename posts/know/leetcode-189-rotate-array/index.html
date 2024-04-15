@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Leetcode：189. 轮转数组 | AhaKnow</title>
+<meta name="keywords" content="">
+<meta name="description" content="Given an integer array nums, rotate the array to the right by k steps, where k is non-negative. Example 1: Input: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4] Explanation: rotate 1 steps to the right: [7,1,2,3,4,5,6] rotate 2 steps to the right: [6,7,1,2,3,4,5] rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2: Input: nums = [-1,-100,3,99], k = 2 Output: [3,99,-1,-100] Explanation: rotate 1 steps to the right: [99,-1,-100,3]">
+<meta name="author" content="YOUNG">
+<link rel="canonical" href="https://ahaknow.com/posts/know/leetcode-189-rotate-array/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/leetcode-189-rotate-array/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Leetcode：189. 轮转数组" />
+<meta property="og:description" content="Given an integer array nums, rotate the array to the right by k steps, where k is non-negative. Example 1: Input: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4] Explanation: rotate 1 steps to the right: [7,1,2,3,4,5,6] rotate 2 steps to the right: [6,7,1,2,3,4,5] rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2: Input: nums = [-1,-100,3,99], k = 2 Output: [3,99,-1,-100] Explanation: rotate 1 steps to the right: [99,-1,-100,3]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/leetcode-189-rotate-array/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-15T11:36:04+08:00" />
+<meta property="article:modified_time" content="2024-04-15T11:36:04+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode：189. 轮转数组"/>
+<meta name="twitter:description" content="Given an integer array nums, rotate the array to the right by k steps, where k is non-negative. Example 1: Input: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4] Explanation: rotate 1 steps to the right: [7,1,2,3,4,5,6] rotate 2 steps to the right: [6,7,1,2,3,4,5] rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2: Input: nums = [-1,-100,3,99], k = 2 Output: [3,99,-1,-100] Explanation: rotate 1 steps to the right: [99,-1,-100,3]"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟知识",
+      "item": "https://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Leetcode：189. 轮转数组",
+      "item": "https://ahaknow.com/posts/know/leetcode-189-rotate-array/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Leetcode：189. 轮转数组",
+  "name": "Leetcode：189. 轮转数组",
+  "description": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative. Example 1: Input: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4] Explanation: rotate 1 steps to the right: [7,1,2,3,4,5,6] rotate 2 steps to the right: [6,7,1,2,3,4,5] rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2: Input: nums = [-1,-100,3,99], k = 2 Output: [3,99,-1,-100] Explanation: rotate 1 steps to the right: [99,-1,-100,3]",
+  "keywords": [
+    
+  ],
+  "articleBody": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.\nExample 1:\nInput: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4] Explanation: rotate 1 steps to the right: [7,1,2,3,4,5,6] rotate 2 steps to the right: [6,7,1,2,3,4,5] rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2:\nInput: nums = [-1,-100,3,99], k = 2 Output: [3,99,-1,-100] Explanation: rotate 1 steps to the right: [99,-1,-100,3] rotate 2 steps to the right: [3,99,-1,-100] Constraints:\n1 \u003c= nums.length \u003c= 105 -231 \u003c= nums[i] \u003c= 231 - 1 0 \u003c= k \u003c= 105 Follow up:\nTry to come up with as many solutions as you can. There are at least three different ways to solve this problem. Could you do it in-place with O(1) extra space? 给定一个整数数组 nums，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。\n示例 1:\n输入: nums = [1,2,3,4,5,6,7], k = 3 输出: [5,6,7,1,2,3,4] 解释: 向右轮转 1 步: [7,1,2,3,4,5,6] 向右轮转 2 步: [6,7,1,2,3,4,5] 向右轮转 3 步: [5,6,7,1,2,3,4] 示例 2:\n输入：nums = [-1,-100,3,99], k = 2 输出：[3,99,-1,-100] 解释: 向右轮转 1 步: [99,-1,-100,3] 向右轮转 2 步: [3,99,-1,-100] 提示：\n1 \u003c= nums.length \u003c= 105 -231 \u003c= nums[i] \u003c= 231 - 1 0 \u003c= k \u003c= 105 进阶：\n尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题。 你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？ 轮转数组，比较直接的方法就是重新开辟了一个新数组，然后复制过去，这种方法能够解决问题，但是不够巧妙。\n再进一步想，可以环状替换，这种方法就比较有意思，需要一个额外的中间变量，然后实现一种环状的，前后衔接的，依次交替的更换（这种方法稍微有点复杂，动手笔画理解得可能更好）。\n另外一种就比较奇特，**通过多次整体翻转的策略，**这个算法将在下文中仔细说明。\n🌽上菜 方法一：使用额外数组 可以创建一个新的数组来重新排列元素。\n遍历原数组，将每个元素放置到 (i + k) % n 的位置上。 将新数组复制回原数组。 这种方法的空间复杂度是 O(n)。\n方法二：环状替换 这种方法可以不使用额外的空间，直接在原数组上操作：\n从某个位置开始，将其元素放到正确的位置上，同时把目标位置的原元素保存下来。 继续操作新位置的元素，直到回到起始位置。 如果数组有多于一个的独立循环（例如，数组长度和 k 的最大公约数大于1），需要从数组中不同的位置开始，直到每个元素都被移动过。 这种方法的空间复杂度是 O(1)，因为它是原地操作。\n用实际的例子来理解“环状替换”：\n环状替换举例 1 2 3 4 需要移动 2 位，变成 3 4 1 2\n从下标0开始，start = 0，prev = nums[0] = 1；\n需要替换的在0 + 2的位置，next = 2，temp = nums[2] = 3；\n发生替换（使用prev）：1 2 1 4；更新：prev = temp = 3；current = next = 2；\n循环继续；\ncurrent = 2；需要替换的在0 + 2的位置（与nums.size()取模），current = 0；temp = nums[0] = 1；\n发生替换（使用prev）：3 2 1 4；\n此时current == start，说明这一轮遍历结束，start 需要更新；\n循环中止，start + 1；\n从下标1开始，start = 1，prev = nums[1] = 2；\n需要替换的在1 + 2的位置，next = 3，temp = nums[3] = 4；\n发生替换（使用prev）：3 2 1 2；更新：prev = temp = 4；current = next = 3；\n循环继续；\ncurrent = 3；需要替换的在3 + 2的位置（与nums.size()取模），current = 1；temp = nums[1] = 2；\n发生替换（使用prev）：3 4 1 2；\n此时current == start，说明这一轮遍历结束，start 需要更新；\n循环中止，start + 1；\n此时已经完成排序了，可以退出程序了。\n具体的循环退出依据可以通过数组长度和轮转次数的最大公约数得到。\n环状替换中的GCD（最大公约数） 当将数组中的每个元素向右移动 k 个位置时，可以通过 $i \\rightarrow (i + k) % n$ 的映射关系来理解每个元素的新位置，其中 i 是原始索引，n 是数组的长度。\n但是使用这种映射，得需要知道这种循环结构何时会回到起点，也就是形成一个闭合的循环。\n循环长度和返回起点：\n当从某个索引 start 开始，不断应用 $i \\rightarrow (i + k) % n$ 映射，我们想要知道什么时候会回到 start 索引。这就意味着寻找最小的正整数 m，使得 $(start + m \\cdot k) % n = start$。简化后得到 $(m \\cdot k) % n = 0$，即 $m \\cdot k$ 应该是 n 的倍数。 最小的 m 值：\n要找到最小的 m，使得 $m \\cdot k$ 是 n 的倍数，等价于找到最小的 m 使得 $\\frac{m \\cdot k}{n}$ 是一个整数。这意味着 m 是一个特定的值，使得 $m \\cdot k$ 能够整除 n。这就需要 k 中的任何可能因子已经在 n 中有对应的因子以保证整除。 GCD（最大公约数）是 k 和 n 的共同最大因子。当我们通过 GCD 来除 n 和 k，实际上是在移除两者共有的所有因子，所得的比例（k/GCD 和 n/GCD）是最简形式，没有更多的公共因子。 使用 GCD，我们可以重新定义 k 和 n： $k’ = \\frac{k}{\\text{gcd}(k, n)}$ $n’ = \\frac{n}{\\text{gcd}(k, n)}$ 现在 $k’$ 和 $n’$ 互质（即没有共同因子），因此最小的 m 使得 $(m \\cdot k’) % n’ = 0$ 就是 n'，即 $n / \\text{gcd}(k, n)$。 因此，$m = \\frac{n}{\\text{gcd}(k, n)}$ 是使得 $(i + m \\cdot k) % n = i$ 成立的最小 m 值，这里的 gcd 表示 k 和 n 的最大公约数。 循环的数量：\n如果从数组中的每个 start 点开始都运行一个循环，通过 k 和 n 的最大公约数可以知道，从一个给定的起点开始，会在经过 $n / \\text{gcd}(k, n)$ 步后回到起点。 因此，要遍历所有可能的起点（确保每个元素都被移动到正确的位置），需要从 gcd(k, n) 个不同的起点开始，每个起点所经历的循环都是这个全覆盖循环的独立的一部分。 假设 n = 12 和 k = 8：\n$\\text{gcd}(12, 8) = 4$。 从 0 开始的循环会经过索引 $0 \\rightarrow 8 \\rightarrow 4 \\rightarrow 0$，形成一个长度为3的循环。 因为 gcd 是 4，可以从 0, 1, 2, 3 这四个起点开始（这里也可以观察出：起点4是没必要，因为已经出现在起点为0的循环中了），每个起点都会形成一个独立的循环，这些循环共同覆盖整个数组。 方法三：反转数组 使用数组反转可以巧妙地实现旋转，而不需要额外的空间：\n反转整个数组：这一步把数组的头部移到尾部，尾部移到头部。 反转前 k % n 个元素：由于整个数组已经被反转，最初的最后 k % n 个元素现在位于数组的前部。再次反转这部分可以恢复它们的原始顺序。 反转剩余的 n - k % n 个元素：这样可以恢复这部分元素的原始顺序。 这同样是一个空间复杂度为 O(1) 的原地算法。\n举例说明 假设数组为 [1,2,3,4,5,6,7]，需要向右移动 k = 3 步。\n初始数组：[1,2,3,4,5,6,7] 反转整个数组：[7,6,5,4,3,2,1] 反转前 k % n = 3 个元素：[5,6,7,4,3,2,1] 反转剩余 n - k = 4 个元素：[5,6,7,1,2,3,4] 不够轮转的k 是多少，整个操作只涉及三次数组遍历，因此时间复杂度为 (O(n))，而且不需要额外的存储空间，空间复杂度为 (O(1))。\n核心思想 这里需要细品的是：\n同样反转两次，可以复原操作 所以先整体反转，再局部反转 代码实现 ",
+  "wordCount" : "2518",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-15T11:36:04+08:00",
+  "dateModified": "2024-04-15T11:36:04+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "YOUNG"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/know/leetcode-189-rotate-array/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Leetcode：189. 轮转数组
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-04-15
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-15
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2518 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>6 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>YOUNG
+            &nbsp;&nbsp;
+        </span>
+    </span>
+</span>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%8a%e8%8f%9c" aria-label="🌽上菜">🌽上菜</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e4%b8%80%e4%bd%bf%e7%94%a8%e9%a2%9d%e5%a4%96%e6%95%b0%e7%bb%84" aria-label="方法一：使用额外数组">方法一：使用额外数组</a></li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e4%ba%8c%e7%8e%af%e7%8a%b6%e6%9b%bf%e6%8d%a2" aria-label="方法二：环状替换">方法二：环状替换</a><ul>
+                        
+                <li>
+                    <a href="#%e7%8e%af%e7%8a%b6%e6%9b%bf%e6%8d%a2%e4%b8%be%e4%be%8b" aria-label="环状替换举例">环状替换举例</a></li>
+                <li>
+                    <a href="#%e7%8e%af%e7%8a%b6%e6%9b%bf%e6%8d%a2%e4%b8%ad%e7%9a%84gcd%e6%9c%80%e5%a4%a7%e5%85%ac%e7%ba%a6%e6%95%b0" aria-label="环状替换中的GCD（最大公约数）">环状替换中的GCD（最大公约数）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%96%b9%e6%b3%95%e4%b8%89%e5%8f%8d%e8%bd%ac%e6%95%b0%e7%bb%84" aria-label="方法三：反转数组">方法三：反转数组</a><ul>
+                        
+                <li>
+                    <a href="#%e4%b8%be%e4%be%8b%e8%af%b4%e6%98%8e" aria-label="举例说明">举例说明</a></li>
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e6%80%9d%e6%83%b3" aria-label="核心思想">核心思想</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0" aria-label="代码实现">代码实现</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><p>Given an integer array <code>nums</code>, rotate the array to the right by <code>k</code> steps, where <code>k</code> is non-negative.</p>
+<p><strong>Example 1:</strong></p>
+<pre tabindex="0"><code>Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+</code></pre><p><strong>Example 2:</strong></p>
+<pre tabindex="0"><code>Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+Explanation: 
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+</code></pre><p><strong>Constraints:</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 105</code></li>
+<li><code>-231 &lt;= nums[i] &lt;= 231 - 1</code></li>
+<li><code>0 &lt;= k &lt;= 105</code></li>
+</ul>
+<p><strong>Follow up:</strong></p>
+<ul>
+<li>Try to come up with as many solutions as you can. There are at least <strong>three</strong> different ways to solve this problem.</li>
+<li>Could you do it in-place with <code>O(1)</code> extra space?</li>
+</ul>
+<hr>
+<p>给定一个整数数组 <code>nums</code>，将数组中的元素向右轮转 <code>k</code> 个位置，其中 <code>k</code> 是非负数。</p>
+<p><strong>示例 1:</strong></p>
+<pre tabindex="0"><code>输入: nums = [1,2,3,4,5,6,7], k = 3
+输出: [5,6,7,1,2,3,4]
+解释:
+向右轮转 1 步: [7,1,2,3,4,5,6]
+向右轮转 2 步: [6,7,1,2,3,4,5]
+向右轮转 3 步: [5,6,7,1,2,3,4]
+</code></pre><p><strong>示例 2:</strong></p>
+<pre tabindex="0"><code>输入：nums = [-1,-100,3,99], k = 2
+输出：[3,99,-1,-100]
+解释: 
+向右轮转 1 步: [99,-1,-100,3]
+向右轮转 2 步: [3,99,-1,-100]
+</code></pre><p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 105</code></li>
+<li><code>-231 &lt;= nums[i] &lt;= 231 - 1</code></li>
+<li><code>0 &lt;= k &lt;= 105</code></li>
+</ul>
+<p><strong>进阶：</strong></p>
+<ul>
+<li>尽可能想出更多的解决方案，至少有 <strong>三种</strong> 不同的方法可以解决这个问题。</li>
+<li>你可以使用空间复杂度为 <code>O(1)</code> 的 <strong>原地</strong> 算法解决这个问题吗？</li>
+</ul>
+<hr>
+<blockquote>
+<p>轮转数组，比较直接的方法就是重新开辟了一个新数组，然后复制过去，这种方法能够解决问题，但是不够巧妙。</p>
+<p>再进一步想，可以<strong>环状替换</strong>，这种方法就比较有意思，需要一个额外的中间变量，然后实现一种环状的，前后衔接的，依次交替的更换（这种方法稍微有点复杂，动手笔画理解得可能更好）。</p>
+<p>另外一种就比较奇特，**通过多次整体翻转的策略，**这个算法将在下文中仔细说明。</p>
+</blockquote>
+<h3 id="上菜">🌽上菜<a hidden class="anchor" aria-hidden="true" href="#上菜">#</a></h3>
+<h3 id="方法一使用额外数组">方法一：使用额外数组<a hidden class="anchor" aria-hidden="true" href="#方法一使用额外数组">#</a></h3>
+<p>可以创建一个新的数组来重新排列元素。</p>
+<ol>
+<li>遍历原数组，将每个元素放置到 <code>(i + k) % n</code> 的位置上。</li>
+<li>将新数组复制回原数组。</li>
+</ol>
+<p>这种方法的空间复杂度是 O(n)。</p>
+<h3 id="方法二环状替换">方法二：环状替换<a hidden class="anchor" aria-hidden="true" href="#方法二环状替换">#</a></h3>
+<p>这种方法可以不使用额外的空间，直接在原数组上操作：</p>
+<ol>
+<li>从某个位置开始，将其元素放到正确的位置上，同时把目标位置的原元素保存下来。</li>
+<li>继续操作新位置的元素，直到回到起始位置。</li>
+<li>如果数组有多于一个的独立循环（例如，数组长度和 k 的最大公约数大于1），需要从数组中不同的位置开始，直到每个元素都被移动过。</li>
+</ol>
+<p>这种方法的空间复杂度是 O(1)，因为它是原地操作。</p>
+<p>用实际的例子来理解“环状替换”：</p>
+<h4 id="环状替换举例">环状替换举例<a hidden class="anchor" aria-hidden="true" href="#环状替换举例">#</a></h4>
+<hr>
+<p>1 2 3 4 需要移动 2 位，变成 3 4 1 2</p>
+<p>从下标0开始，start = 0，<strong>prev = nums[0] = 1</strong>；</p>
+<p>需要替换的在0 + 2的位置，next = 2，temp = nums[2] = 3；</p>
+<p>发生替换（使用prev）：1 2 1 4；更新：prev = temp = 3；current = next = 2；</p>
+<p>循环继续；</p>
+<hr>
+<p>current = 2；需要替换的在0 + 2的位置（与nums.size()取模），current = 0；<strong>temp = nums[0] = 1</strong>；</p>
+<p>发生替换（使用prev）：3 2 1 4；</p>
+<p>此时current == start，说明这一轮遍历结束，start 需要更新；</p>
+<p>循环中止，start + 1；</p>
+<hr>
+<p>从下标1开始，start = 1，<strong>prev = nums[1] = 2</strong>；</p>
+<p>需要替换的在1 + 2的位置，next = 3，temp = nums[3] = 4；</p>
+<p>发生替换（使用prev）：3 2 1 2；更新：prev = temp = 4；current = next = 3；</p>
+<p>循环继续；</p>
+<hr>
+<p>current = 3；需要替换的在3 + 2的位置（与nums.size()取模），current = 1；<strong>temp = nums[1] = 2</strong>；</p>
+<p>发生替换（使用prev）：3 4 1 2；</p>
+<p>此时current == start，说明这一轮遍历结束，start 需要更新；</p>
+<p>循环中止，start + 1；</p>
+<p>此时已经完成排序了，可以退出程序了。</p>
+<p><strong>具体的循环退出依据可以通过数组长度和轮转次数的最大公约数得到。</strong></p>
+<h4 id="环状替换中的gcd最大公约数">环状替换中的GCD（最大公约数）<a hidden class="anchor" aria-hidden="true" href="#环状替换中的gcd最大公约数">#</a></h4>
+<p>当将数组中的每个元素向右移动 <code>k</code> 个位置时，可以通过 $i \rightarrow (i + k) % n$ 的映射关系来理解每个元素的新位置，其中 <code>i</code> 是原始索引，<code>n</code> 是数组的长度。</p>
+<p>但是使用这种映射，得需要知道这种循环结构何时会回到起点，也就是形成一个闭合的循环。</p>
+<ol>
+<li>
+<p><strong>循环长度和返回起点</strong>：</p>
+<ul>
+<li>当从某个索引 <code>start</code> 开始，不断应用 $i \rightarrow (i + k) % n$ 映射，我们想要知道什么时候会回到 <code>start</code> 索引。这就意味着寻找最小的正整数 <code>m</code>，使得 $(start + m \cdot k) % n = start$。简化后得到 $(m \cdot k) % n = 0$，即 $m \cdot k$ 应该是 <code>n</code> 的倍数。</li>
+</ul>
+</li>
+<li>
+<p><strong>最小的 <code>m</code> 值</strong>：</p>
+<ul>
+<li>要找到最小的 <code>m</code>，使得 $m \cdot k$ 是 <code>n</code> 的倍数，等价于找到最小的 <code>m</code> 使得 $\frac{m \cdot k}{n}$ 是一个整数。这意味着 <code>m</code> 是一个特定的值，使得 $m \cdot k$ 能够整除 <code>n</code>。这就需要 <code>k</code> 中的任何可能因子已经在 <code>n</code> 中有对应的因子以保证整除。</li>
+<li>GCD（最大公约数）是 <code>k</code> 和 <code>n</code> 的共同最大因子。当我们通过 GCD 来除 <code>n</code> 和 <code>k</code>，<strong>实际上是在移除两者共有的所有因子</strong>，所得的比例（<code>k/GCD</code> 和 <code>n/GCD</code>）是最简形式，没有更多的公共因子。</li>
+<li>使用 GCD，我们可以重新定义 <code>k</code> 和 <code>n</code>：
+<ul>
+<li>$k&rsquo; = \frac{k}{\text{gcd}(k, n)}$</li>
+<li>$n&rsquo; = \frac{n}{\text{gcd}(k, n)}$</li>
+</ul>
+</li>
+<li>现在 $k&rsquo;$ 和 $n&rsquo;$ 互质（即没有共同因子），因此最小的 <code>m</code> 使得 $(m \cdot k&rsquo;) % n&rsquo; = 0$ 就是 <code>n'</code>，即 $n / \text{gcd}(k, n)$。</li>
+<li>因此，$m = \frac{n}{\text{gcd}(k, n)}$ 是使得 $(i + m \cdot k) % n = i$ 成立的最小 <code>m</code> 值，这里的 gcd 表示 <code>k</code> 和 <code>n</code> 的最大公约数。</li>
+</ul>
+</li>
+<li>
+<p><strong>循环的数量</strong>：</p>
+<ul>
+<li>如果从数组中的每个 <code>start</code> 点开始都运行一个循环，通过 <code>k</code> 和 <code>n</code> 的最大公约数可以知道，从一个给定的起点开始，会在经过 $n / \text{gcd}(k, n)$ 步后回到起点。</li>
+<li>因此，要遍历所有可能的起点（确保每个元素都被移动到正确的位置），需要从 <code>gcd(k, n)</code> 个不同的起点开始，每个起点所经历的循环都是这个全覆盖循环的<strong>独立</strong>的一部分。</li>
+</ul>
+</li>
+</ol>
+<p>假设 <code>n = 12</code> 和 <code>k = 8</code>：</p>
+<ul>
+<li>$\text{gcd}(12, 8) = 4$。</li>
+<li>从 0 开始的循环会经过索引 $0 \rightarrow 8 \rightarrow 4 \rightarrow 0$，形成一个长度为3的循环。</li>
+<li>因为 gcd 是 4，可以从 <code>0, 1, 2, 3</code> 这四个起点开始（<strong>这里也可以观察出：起点4是没必要，因为已经出现在起点为0的循环中了</strong>），每个起点都会形成一个独立的循环，这些循环共同覆盖整个数组。</li>
+</ul>
+<h3 id="方法三反转数组">方法三：反转数组<a hidden class="anchor" aria-hidden="true" href="#方法三反转数组">#</a></h3>
+<p>使用数组反转可以巧妙地实现旋转，而不需要额外的空间：</p>
+<ol>
+<li><strong>反转整个数组</strong>：这一步把数组的头部移到尾部，尾部移到头部。</li>
+<li><strong>反转前 <code>k % n</code> 个元素</strong>：由于整个数组已经被反转，最初的最后 <code>k % n</code> 个元素现在位于数组的前部。再次反转这部分可以恢复它们的原始顺序。</li>
+<li><strong>反转剩余的 <code>n - k % n</code> 个元素</strong>：这样可以恢复这部分元素的原始顺序。</li>
+</ol>
+<p>这同样是一个空间复杂度为 O(1) 的原地算法。</p>
+<h4 id="举例说明">举例说明<a hidden class="anchor" aria-hidden="true" href="#举例说明">#</a></h4>
+<p>假设数组为 <code>[1,2,3,4,5,6,7]</code>，需要向右移动 <code>k = 3</code> 步。</p>
+<ol>
+<li><strong>初始数组</strong>：<code>[1,2,3,4,5,6,7]</code></li>
+<li><strong>反转整个数组</strong>：<code>[7,6,5,4,3,2,1]</code></li>
+<li><strong>反转前 <code>k % n = 3</code> 个元素</strong>：<code>[5,6,7,4,3,2,1]</code></li>
+<li><strong>反转剩余 <code>n - k = 4</code> 个元素</strong>：<code>[5,6,7,1,2,3,4]</code></li>
+</ol>
+<p>不够轮转的<code>k</code> 是多少，整个操作只涉及三次数组遍历，因此时间复杂度为 (O(n))，而且不需要额外的存储空间，空间复杂度为 (O(1))。</p>
+<h4 id="核心思想">核心思想<a hidden class="anchor" aria-hidden="true" href="#核心思想">#</a></h4>
+<p>这里需要细品的是：</p>
+<ol>
+<li><strong>同样反转两次，可以复原操作</strong></li>
+<li>所以先整体反转，再局部反转</li>
+</ol>
+<h3 id="代码实现">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现">#</a></h3>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://ahaknow.com/posts/know/leetcode-169-majority-element/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Leetcode：169. 多数元素</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

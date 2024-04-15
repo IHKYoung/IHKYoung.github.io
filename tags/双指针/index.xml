@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>双指针 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+    <description>Recent content in 双指针 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 12 Apr 2024 13:19:53 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode：80. 删除有序数组中的重复项 II</title>
+      <link>https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</link>
+      <pubDate>Fri, 12 Apr 2024 13:19:53 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</guid>
+      <description>一道值得反复品味的经典双指针算法</description>
+    </item>
+    <item>
+      <title>Leetcode：26删除有序数组中的重复项</title>
+      <link>https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
+      <description>Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums. Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things: Change the array nums such that the first</description>
+    </item>
+    <item>
+      <title>Leetcode：27移除元素</title>
+      <link>https://ahaknow.com/posts/know/leetcode-27-remove-element/</link>
+      <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
+      <description>Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val. Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things: Change the array nums such that</description>
+    </item>
+    <item>
+      <title>Leetcode：88合并两个有序数组</title>
+      <link>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
+      <description>LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,</description>
+    </item>
+  </channel>
+</rss>

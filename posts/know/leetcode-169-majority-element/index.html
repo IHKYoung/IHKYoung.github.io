@@ -37,13 +37,15 @@
 <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+
+
 <html lang="zh" dir="zh-cn">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Leetcode 169 Majority Element | AhaKnow</title>
-<meta name="keywords" content="计数思想">
+<title>Leetcode：169. 多数元素 | AhaKnow</title>
+<meta name="keywords" content="">
 <meta name="description" content=" Boyer-Moore 投票算法">
 <meta name="author" content="YOUNG">
 <link rel="canonical" href="https://ahaknow.com/posts/know/leetcode-169-majority-element/">
@@ -92,7 +94,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Leetcode 169 Majority Element" />
+</noscript><meta property="og:title" content="Leetcode：169. 多数元素" />
 <meta property="og:description" content=" Boyer-Moore 投票算法" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/leetcode-169-majority-element/" /><meta property="article:section" content="posts" />
@@ -100,7 +102,7 @@
 <meta property="article:modified_time" content="2024-04-15T09:27:11+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Leetcode 169 Majority Element"/>
+<meta name="twitter:title" content="Leetcode：169. 多数元素"/>
 <meta name="twitter:description" content=" Boyer-Moore 投票算法"/>
 
 
@@ -124,7 +126,7 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Leetcode 169 Majority Element",
+      "name": "Leetcode：169. 多数元素",
       "item": "https://ahaknow.com/posts/know/leetcode-169-majority-element/"
     }
   ]
@@ -134,11 +136,11 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Leetcode 169 Majority Element",
-  "name": "Leetcode 169 Majority Element",
+  "headline": "Leetcode：169. 多数元素",
+  "name": "Leetcode：169. 多数元素",
   "description": " Boyer-Moore 投票算法",
   "keywords": [
-    "计数思想"
+    
   ],
   "articleBody": "Given an array nums of size n, return the majority element.\nThe majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.\nExample 1:\nInput: nums = [3,2,3] Output: 3 Example 2:\nInput: nums = [2,2,1,1,1,2,2] Output: 2 Constraints:\nn == nums.length 1 \u003c= n \u003c= 5 * 104 -109 \u003c= nums[i] \u003c= 109 Follow-up: Could you solve the problem in linear time and in O(1) space?\n给定一个大小为 n 的数组 nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。\n你可以假设数组是非空的，并且给定的数组总是存在多数元素。\n示例 1：\n输入：nums = [3,2,3] 输出：3 示例 2：\n输入：nums = [2,2,1,1,1,2,2] 输出：2 提示：\nn == nums.length 1 \u003c= n \u003c= 5 * 104 -109 \u003c= nums[i] \u003c= 109 进阶： 尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。\n第一反应是分别计数，这种方法显然有点笨。。。\n因为题目想找出现次数最多的数字（这种题目要求大于一半数量，说明肯定有大于一半数量存在的），其实可以这样，不用分别计数，而是按照顺序依次“增减”计数，比如：\n1 1 2 2 1 1\n最开始遇到1，遇到1就计数+1，遇到不是1就计数-1，如果这个数字大于一半数量，那么增增减减之后，一定也还是大于零\n🌽上菜 在这个问题中，需要找到一个出现次数超过 ⌊n/2⌋ 次的多数元素。对于这种问题，有一种非常高效的解决方法，称为 Boyer-Moore 投票算法。这种算法可以在 O(n) 时间复杂度内找到多数元素，并且其空间复杂度为 O(1)。\nBoyer-Moore 投票算法 其核心思想是通过一种巧妙的方式取消掉非多数元素的计数，来找到多数元素。具体步骤如下：\n初始化：设置两个变量，candidate（候选人）初始化为任意值，count（计数）初始化为 0。 第一遍遍历：遍历数组 nums。 如果 count 为 0，设当前元素为 candidate。 如果当前元素等于 candidate，增加 count。 否则减少 count。 第二遍遍历：验证 candidate 是否为多数元素（这一步在题目中可以省略，因为题目保证了总是存在多数元素）。 计算 candidate 的出现次数。 如果出现次数大于 ⌊n/2⌋，返回 candidate。 直觉的理解：\n每次在找到两个不同的元素时就将它们“抵消”。如果一个元素的数量超过总数的一半，那么即使它与其他所有不同的元素进行抵消，最后仍然会剩余该元素，因为它的数量多于其他所有元素的总和。\n但是要注意这个算法成立的关键前提：数组中存在一个多数元素，其出现次数严格大于数组长度的一半。\n实现代码（C++） // 169. Majority Element #include #include using namespace std; class Solution { public: int majorityElement(vector\u003cint\u003e\u0026 nums) { int candidate; int count = 0; for (int num : nums) { // 说明增增减减之后又回到零 if (count == 0) { candidate = num; } count += (candidate == num) ? 1 : -1; } // 由于题目限制，下面的判断可以省略（但其实很必要） // count = 0; // for (int num : nums) { // if (num == candidate) { // count++; // } // } // if (count \u003e nums.size() / 2) return candidate; return candidate; } }; ",
   "wordCount" : "1025",
@@ -254,7 +256,7 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      Leetcode 169 Majority Element
+      Leetcode：169. 多数元素
     </h1>
     <div class="post-description">
        Boyer-Moore 投票算法
@@ -315,14 +317,6 @@
         <span class="fa fa-user-o"></span>
         <span>YOUNG
             &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E8%AE%A1%E6%95%B0%E6%80%9D%E6%83%B3/" style="color: var(--secondary)!important;">计数思想</a>
-            </span>
         </span>
     </span>
 </span>
@@ -432,9 +426,13 @@ Output: 2
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E8%AE%A1%E6%95%B0%E6%80%9D%E6%83%B3/">计数思想</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/leetcode-189-rotate-array/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Leetcode：189. 轮转数组</span>
+  </a>
   <a class="next" href="https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/">
     <span class="title">下一页 »</span>
     <br>

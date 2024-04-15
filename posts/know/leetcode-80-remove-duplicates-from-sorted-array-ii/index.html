@@ -37,13 +37,15 @@
 <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+
+
 <html lang="zh" dir="zh-cn">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Leetcode：80. 删除有序数组中的重复项 II | AhaKnow</title>
-<meta name="keywords" content="双指针思想">
+<meta name="keywords" content="双指针">
 <meta name="description" content="一道值得反复品味的经典双指针算法">
 <meta name="author" content="YOUNG">
 <link rel="canonical" href="https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/">
@@ -138,7 +140,7 @@
   "name": "Leetcode：80. 删除有序数组中的重复项 II",
   "description": "一道值得反复品味的经典双指针算法",
   "keywords": [
-    "双指针思想"
+    "双指针"
   ],
   "articleBody": "Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.\nSince it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.\nReturn k after placing the final result in the first k slots of nums.\nDo not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.\nCustom Judge:\nThe judge will test your solution with the following code:\nint[] nums = [...]; // Input array int[] expectedNums = [...]; // The expected answer with correct length int k = removeDuplicates(nums); // Calls your implementation assert k == expectedNums.length; for (int i = 0; i \u003c k; i++) { assert nums[i] == expectedNums[i]; } If all assertions pass, then your solution will be accepted.\nExample 1:\nInput: nums = [1,1,1,2,2,3] Output: 5, nums = [1,1,2,2,3,_] Explanation: Your function should return k = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively. It does not matter what you leave beyond the returned k (hence they are underscores). Example 2:\nInput: nums = [0,0,1,1,1,1,2,3,3] Output: 7, nums = [0,0,1,1,2,3,3,_,_] Explanation: Your function should return k = 7, with the first seven elements of nums being 0, 0, 1, 1, 2, 3 and 3 respectively. It does not matter what you leave beyond the returned k (hence they are underscores). Constraints:\n1 \u003c= nums.length \u003c= 3 * 104 -104 \u003c= nums[i] \u003c= 104 nums is sorted in non-decreasing order. 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使得出现次数超过两次的元素只出现两次 ，返回删除后数组的新长度。\n不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。\n说明：\n为什么返回数值是整数，但输出的答案是数组呢？\n请注意，输入数组是以 「引用」 方式传递的，这意味着在函数里修改输入数组对于调用者是可见的。\n你可以想象内部操作如下:\n// nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝 int len = removeDuplicates(nums); // 在函数里修改输入数组对于调用者是可见的。 // 根据你的函数返回的长度, 它会打印出数组中 该长度范围内 的所有元素。 for (int i = 0; i \u003c len; i++) { print(nums[i]); } 示例 1：\n输入：nums = [1,1,1,2,2,3] 输出：5, nums = [1,1,2,2,3] 解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3。 不需要考虑数组中超出新长度后面的元素。 示例 2：\n输入：nums = [0,0,1,1,1,1,2,3,3] 输出：7, nums = [0,0,1,1,2,3,3] 解释：函数应返回新长度 length = 7, 并且原数组的前七个元素被修改为 0, 0, 1, 1, 2, 3, 3。不需要考虑数组中超出新长度后面的元素。 提示：\n1 \u003c= nums.length \u003c= 3 * 104 -104 \u003c= nums[i] \u003c= 104 nums 已按升序排列 这和上一题的区别就是重复的元素只出现两次\n其实解题的本质和上一题是一样的，还是使用双指针，但是实现逻辑上稍有不同，需要注意‼️\n不管是只出现两次还是n次，\n因为是升序排列，只能出现一次是比较一次，那么只能出现两次那就判断两次\n但比较一次可以简化为比较不同，比较两次则要保证不受到原地替换的影响，在逻辑上有巧妙之处。\n🥬上菜 这个问题是前一个问题的一个变体，不同之处在于需要保留每个元素最多两次，而不是一次。因此，仍然可以采用双指针的方法来解决这个问题，只是需要对比较逻辑做一些调整，以确保每个元素最多出现两次。\n解题思路：\n使用两个指针 slow 和 fast。其中 slow 指针用来指示处理后的数组的末尾位置，而 fast 指针用来遍历整个数组。 需要确保 slow 指向的新数组中，每个元素最多出现两次。这可以通过比较 nums[fast] 与 nums[slow-2]（而不是 nums[slow-1]）来实现，因为这次是允许每个元素出现两次。 当 fast 指针指向的元素与 slow-2 指针指向的元素不同，或者 slow 小于2（意味着还没有填充两个元素）时，将 nums[fast] 的值复制到 nums[slow]，然后递增 slow。 需要特别注意： if (nums[fast] != nums[slow - 2])，与之前的写法不同！\n具体代码实现（C++）如下：\n#include using namespace std; int removeDuplicates(vector\u003cint\u003e\u0026 nums) { if (nums.size() \u003c= 2) return nums.size(); int slow = 2; // 因为允许元素最多出现两次，所以从索引2开始检查 for (int fast = 2; fast \u003c nums.size(); ++fast) { if (nums[fast] != nums[slow - 2]) { nums[slow++] = nums[fast]; } } return slow; } 这段代码有效地在原地修改了数组，同时只使用了 O(1) 的额外空间。时间复杂度为 O(n)，因为只需要需要遍历一次数组。空间复杂度为 O(1)，因为没有使用额外的存储空间，只是在原数组上进行了操作。\n💣特别注意 在处理有序数组中删除重复元素，并保留最多两个重复元素的情景中，使用 if (nums[fast] != nums[slow - 2]) 和使用 if (nums[fast - 2] != nums[fast]) 进行判断有本质的不同，主要因为这两种判断方式所依赖的逻辑和数组的修改方式不同。\nif (nums[fast] != nums[slow - 2]) 这种判断方式是在原地修改数组，通过保持一个 slow 指针来跟踪应该写入的位置。这个条件检查的是当前正在遍历的元素（由 fast 指针指示）是否与 slow - 2 位置的元素不同。这样可以确保每个元素最多出现两次。当数组中前两个元素已经存在时，这种方法可以保证不会超过两个相同的元素被连续保留。\n优点：\n它允许在已经有两个元素的情况下继续放置新元素，只要新元素与 slow - 2 的元素不同。 if (nums[fast - 2] != nums[fast]) 这种方法的关键在于比较当前元素与它前面第二个元素是否不同。这种方法适用于检查整个数组并判断哪些元素应该被保留，不适合在使用 slow 和 fast 指针原地修改数组的情境。在初始数组中，如果用这种判断方法，那么从第三个元素开始，每个元素都要与它前面的第二个元素比较，如果相同，则说明它是第三次或更多次重复出现。\n问题：\n这种方法假设每个元素的前两个元素已经确定并且正确地处理过，这在初始化阶段并不总是成立。 在使用双指针进行原地操作时，这种判断不能正确地更新 slow 指针的位置，因为它基于遍历过程中之前的元素的状态，而在 slow 和 fast 指针操作中，我们需要基于动态更新的数组状态进行判断。 if (nums[fast] != nums[slow - 2]) 是针对双指针原地修改数组设计的，能有效处理只保留最多两个重复元素的要求，而 if (nums[fast - 2] != nums[fast]) 更多的是一种检查方式，用于理解和分析，但不适合直接用于双指针原地修改数组的具体实现。\n举例说明 如果是if (nums[fast - 2] != nums[fast]):\n1 1 1 2 2 3 ⬆快 ⬆快-2 ⬆慢 快指针与快-2指针相同，快指针继续循环，慢指针位置不变 1 1 1 2 2 3 ⬆快 ⬆快-2 ⬆慢 快指针与快-2指针不相同，发生替换，并触发一次慢指针的增加 1 1 2 2 2 3 ⬆慢 1 1 2 2 2 3 注意由于慢指针的替换，导致此时原始数组发生变化 ⬆快 ⬆快-2 ⬆慢 快指针与快-2指针相同，快指针继续循环，慢指针位置不变 1 1 2 2 2 3 ⬆快 ⬆快-2 ⬆慢 快指针与快-2指针不相同，发生替换，并触发一次慢指针的增加 1 1 2 3 2 3 ⬆慢 结果错误❌ 如果是if (nums[fast] != nums[slow - 2])：\n1 1 1 2 2 3 ⬆快 ⬆慢-2 ⬆慢 快指针与慢-2指针相同，快指针继续循环，慢指针位置不变 1 1 1 2 2 3 ⬆快 ⬆慢-2 ⬆慢 快指针与慢-2指针不相同，发生替换，并触发一次慢指针的增加 1 1 2 2 2 3 ⬆慢 1 1 2 2 2 3 注意由于慢指针的替换，导致此时原始数组发生变化 ⬆快 ⬆慢-2 ⬆慢 快指针与慢-2指针不相同，发生替换，并触发一次慢指针的增加 1 1 2 2 2 3 ⬆慢 1 1 2 2 2 3 ⬆快 ⬆慢-2 ⬆慢 快指针与慢-2指针不相同，发生替换，并触发一次慢指针的增加 1 1 2 2 3 3 ⬆慢 快指针到头，循环结束 结果正确✅ 🌟与上一题的区别 对于上一题，即移除所有重复的元素使每个元素只出现一次的情况，使用 if (nums[fast] != nums[fast - 1]) 对结果没有影响，分析如下：\n原地操作 在数组操作中，“原地”意味着不需要额外的空间来存储输出，仅允许使用常数级别的额外空间。在使用 if (nums[fast] != nums[fast - 1]) 的双指针策略中，直接在输入数组 nums 上进行修改，不需要额外的存储空间（除了几个指针变量）。这是一种原地操作，因为它直接在原数组上进行元素的重写和覆盖，没有使用新的数组结构来存储结果。\n使用 if (nums[fast] != nums[fast - 1])也可以的原因 这个条件是用来检查当前快指针 fast 指向的元素是否与它前一个元素相同。这里的关键是理解我们的目标是保证数组中每个元素只出现一次。由于数组是有序的，所有的重复元素都会连续出现。因此，只需要检查当前元素是否与前一个元素不同：\n如果 不同，则表示当前元素是一个新的元素，应该被保留。这时你就将当前 fast 指向的元素复制到 slow 指针的位置，然后递增 slow。 如果 相同，则快指针 fast 继续向前移动，直到找到一个不同的元素。 如果是 if (nums[fast] != nums[slow - 1]) 效果也一样。\n在只允许每个元素出现一次的问题中，关注的是确保不复制相同的元素到 slow 指向的位置。而在允许每个元素出现两次的问题中，关注点则是允许至多两个重复元素。\nslow - 2的关键在于：保证slow-2到slow之间是相同的元素，并且用fast指针进行比较时，是有一个比较参考，而不是自己和自己比（有点需要意会的意思，慢慢品）\n",
   "wordCount" : "3111",
@@ -321,7 +323,7 @@
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%9D%E6%83%B3/" style="color: var(--secondary)!important;">双指针思想</a>
+                <a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="color: var(--secondary)!important;">双指针</a>
             </span>
         </span>
     </span>
@@ -614,13 +616,13 @@ for (int i = 0; i &lt; len; i++) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%9D%E6%83%B3/">双指针思想</a></li>
+      <li><a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://ahaknow.com/posts/know/leetcode-169-majority-element/">
     <span class="title">« 上一页</span>
     <br>
-    <span>Leetcode 169 Majority Element</span>
+    <span>Leetcode：169. 多数元素</span>
   </a>
   <a class="next" href="https://ahaknow.com/posts/know/blog-todo/">
     <span class="title">下一页 »</span>

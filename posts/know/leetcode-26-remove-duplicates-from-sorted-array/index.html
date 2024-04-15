@@ -37,13 +37,15 @@
 <script type="text/javascript" id="MathJax-script" async
         src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
+
+
 <html lang="zh" dir="zh-cn">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Leetcode：26删除有序数组中的重复项 | AhaKnow</title>
-<meta name="keywords" content="双指针思想">
+<meta name="keywords" content="双指针">
 <meta name="description" content="Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums. Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things: Change the array nums such that the first">
 <meta name="author" content="YOUNG">
 <link rel="canonical" href="https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/">
@@ -138,7 +140,7 @@
   "name": "Leetcode：26删除有序数组中的重复项",
   "description": "Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums. Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things: Change the array nums such that the first",
   "keywords": [
-    "双指针思想"
+    "双指针"
   ],
   "articleBody": "Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.\nConsider the number of unique elements of nums to be k, to get accepted, you need to do the following things:\nChange the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums. Return k. Custom Judge:\nThe judge will test your solution with the following code:\nint[] nums = [...]; // Input array int[] expectedNums = [...]; // The expected answer with correct length int k = removeDuplicates(nums); // Calls your implementation assert k == expectedNums.length; for (int i = 0; i \u003c k; i++) { assert nums[i] == expectedNums[i]; } If all assertions pass, then your solution will be accepted.\nExample 1:\nInput: nums = [1,1,2] Output: 2, nums = [1,2,_] Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively. It does not matter what you leave beyond the returned k (hence they are underscores). Example 2:\nInput: nums = [0,0,1,1,1,2,2,3,3,4] Output: 5, nums = [0,1,2,3,4,_,_,_,_,_] Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively. It does not matter what you leave beyond the returned k (hence they are underscores). Constraints:\n1 \u003c= nums.length \u003c= 3 * 104 -100 \u003c= nums[i] \u003c= 100 nums is sorted in non-decreasing order. 给你一个 非严格递增排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。然后返回 nums 中唯一元素的个数。\n考虑 nums 的唯一元素的数量为 k ，你需要做以下事情确保你的题解可以被通过：\n更改数组 nums ，使 nums 的前 k 个元素包含唯一元素，并按照它们最初在 nums 中出现的顺序排列。nums 的其余元素与 nums 的大小不重要。 返回 k 。 判题标准:\n系统会用下面的代码来测试你的题解:\nint[] nums = [...]; // 输入数组 int[] expectedNums = [...]; // 长度正确的期望答案 int k = removeDuplicates(nums); // 调用 assert k == expectedNums.length; for (int i = 0; i \u003c k; i++) { assert nums[i] == expectedNums[i]; } 如果所有断言都通过，那么您的题解将被 通过。\n示例 1：\n输入：nums = [1,1,2] 输出：2, nums = [1,2,_] 解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。 示例 2：\n输入：nums = [0,0,1,1,1,2,2,3,3,4] 输出：5, nums = [0,1,2,3,4] 解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。 提示：\n1 \u003c= nums.length \u003c= 3 * 104 -104 \u003c= nums[i] \u003c= 104 nums 已按 非严格递增 排列 “非严格递增”的意思是指：序列已经按照从小到大排序了，只不过有些元素重复了，所以是非严格递增；\n有序数列的问题，还是用双指针，只不过指针的用处稍微不同。\n快指针用来判断前后元素是否相同，慢指针用来按照需求保留。\n🥬上菜 这个问题可以使用类似于LeetCode26的解决方案，即使用双指针法。这次也是使用快慢指针，但是有一点不同：当快指针指向的元素与慢指针指向的元素相同时，只移动快指针，以跳过重复的元素；当快慢指针指向的元素不同，将快指针的元素复制到慢指针的下一个位置，然后同时移动快慢指针。\n这样处理后，数组的前 k 个元素就是唯一的元素，并且保持了它们最初的相对顺序，其中 k 是返回的数组长度。\n下面是具体步骤：\n如果数组的长度 n 小于等于1，则直接返回 n（因为没有重复元素需要删除）。 初始化两个指针 slow = 1 和 fast = 1。 当 fast 小于数组长度时，比较 nums[fast] 和 nums[fast - 1]： 如果 nums[fast] 不等于 nums[fast - 1]，说明遇到了一个新的元素，就将 nums[fast] 的值复制到 nums[slow]，然后 slow 增加1。 否则，快指针 fast 继续前进，直到找到一个不同的元素。 当数组遍历完成后，slow 指针的位置就是新数组的长度。 下面是用C++实现的代码示例：\n// 26. Remove Duplicates from Sorted Array #include #include using namespace std; class Solution { public: int removeDuplicates(vector\u003cint\u003e\u0026 nums) { if (nums.size() \u003c= 1) return nums.size(); int slow = 1; for (int fast = 1; fast \u003c nums.size(); fast++) { if (nums[fast - 1] != nums[fast]) { nums[slow++] = nums[fast]; } } return slow; } }; // 这道题也可以直接使用vector的earse()和unique() // nums.erase(unique(nums.begin(), nums.end()), nums.end()); 这段代码通过双指针法高效地实现了原地删除数组中的重复项，且只使用了 O(1) 的额外空间。由于 nums 是非严格递增排列的，可以确保所有的重复项都是连续出现的，这让问题变得更加简单。\n",
   "wordCount" : "1390",
@@ -318,7 +320,7 @@
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%9D%E6%83%B3/" style="color: var(--secondary)!important;">双指针思想</a>
+                <a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="color: var(--secondary)!important;">双指针</a>
             </span>
         </span>
     </span>
@@ -445,7 +447,7 @@ for (int i = 0; i &lt; k; i++) {
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88%E6%80%9D%E6%83%B3/">双指针思想</a></li>
+      <li><a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">双指针</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://ahaknow.com/posts/know/blog-tips/">
