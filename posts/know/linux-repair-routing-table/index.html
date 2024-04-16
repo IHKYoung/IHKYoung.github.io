@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Linux：上不了网了之路由表修复 | AhaKnow</title>
+<meta name="keywords" content="路由表">
+<meta name="description" content="连接一个网口设备，导致上不了网，咋怎？">
+<meta name="author" content="YOUNG">
+<link rel="canonical" href="https://ahaknow.com/posts/know/linux-repair-routing-table/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/linux-repair-routing-table/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Linux：上不了网了之路由表修复" />
+<meta property="og:description" content="连接一个网口设备，导致上不了网，咋怎？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/linux-repair-routing-table/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-16T11:04:42+08:00" />
+<meta property="article:modified_time" content="2024-04-16T11:04:42+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux：上不了网了之路由表修复"/>
+<meta name="twitter:description" content="连接一个网口设备，导致上不了网，咋怎？"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟知识",
+      "item": "https://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Linux：上不了网了之路由表修复",
+      "item": "https://ahaknow.com/posts/know/linux-repair-routing-table/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux：上不了网了之路由表修复",
+  "name": "Linux：上不了网了之路由表修复",
+  "description": "连接一个网口设备，导致上不了网，咋怎？",
+  "keywords": [
+    "路由表"
+  ],
+  "articleBody": " 问题描述：\nLinux同时连接局域网，网段是172.27.0.x，以及连接网口的相机设备，网段是192.168.80.x。\nLinux启动后出现这种情况：\n可以连接相机，但无法上网 将相机的网线拔掉后，就能够上网了 简单的分析一下，应该是网络占用的问题。\n先把问题解决了 下面具体来分析\n通过route -n来查看路由表信息：\n❯ route -n Kernel IP routing table Destination Gateway Genmask Flags Metric Ref Use Iface 0.0.0.0 192.168.80.1 0.0.0.0 UG 0 0 0 eno1 0.0.0.0 172.27.0.1 0.0.0.0 UG 101 0 0 eno1 169.254.0.0 0.0.0.0 255.255.0.0 U 1000 0 0 enx0826ae3c0c7b 172.17.0.0 0.0.0.0 255.255.0.0 U 0 0 0 docker0 172.27.0.0 0.0.0.0 255.255.255.0 U 101 0 0 eno1 192.168.80.0 0.0.0.0 255.255.255.0 U 100 0 0 enx0826ae3c0c7b 可以看出来有两个设备，一个是eno1，局域网网线，另一个是enx0826ae3c0c7b，网口的相机。\n为啥会上不了网捏？\n观察这个路由表的可以发现有一个重复的混乱项：\nDestination 为 0.0.0.0 但是 Gateway 却有两个，就是这里导致的，这时候的解决方法就是，先清除默认路由，然后再配置一个正确的默认路由。\n步骤1：清除错误的默认路由\n首先，删除所有默认路由：\nsudo ip route del default 步骤2：添加正确的默认路由\n将默认路由设置为通过网关`172.27.0.1，并指定合适的度量值：\nsudo ip route add default via 172.27.0.1 dev eno1 metric 0 步骤3：验证路由表\n再次检查路由表，确保只有一个默认路由，并且其他路由按预期配置：\nroute -n 这个时候得到的应该就是正确的路由表了：\n❯ route -n Kernel IP routing table Destination Gateway Genmask Flags Metric Ref Use Iface 0.0.0.0 172.27.0.1 0.0.0.0 UG 0 0 0 eno1 0.0.0.0 172.27.0.1 0.0.0.0 UG 101 0 0 eno1 169.254.0.0 0.0.0.0 255.255.0.0 U 1000 0 0 enx0826ae3c0c7b 172.17.0.0 0.0.0.0 255.255.0.0 U 0 0 0 docker0 172.27.0.0 0.0.0.0 255.255.255.0 U 101 0 0 eno1 192.168.80.0 0.0.0.0 255.255.255.0 U 100 0 0 enx0826ae3c0c7b 另一种思路 在路由表中，metric值用于定义路由的优先级。当存在多条到达同一个目的地的路由时，metric值较小的路由将被优先选择用于数据传输。因此，metric是一种决定路径选择的方法，尤其在多个网络接口可用时这一点非常重要。\nMetric 的含义和作用 含义：metric值是一个数字，用于表示路由的优先级。数字越小，该路由的优先级越高。 作用： 选择最优路径：在多条路由可达同一目的地的情况下，路由器根据metric值选择metric最小的路由作为最佳路径。 负载均衡：在某些配置中，可以故意设置相同的metric值给不同的路由，以实现负载均衡。 避免路由循环：适当的metric值配置可以帮助避免路由循环，特别是在复杂的网络拓扑中。 Metric 值的选择 比如，metric值为0, 101, 100, 1000等，这些都是用来区分不同路由条目的相对优先级。例如：\nMetric 为 0：通常表示该路由具有最高的优先级，系统将优先通过这个路由发送数据。 Metric 为 101 或 100：这些值较高，表示路由的优先级较低。如果默认路由（metric 为 0 的路由）不可用，系统可能会考虑使用这些路由。 Metric 为 1000：更高的metric值，通常用于备份路由，只有在其他较低metric值的路由全都不可用时，才会被使用。 因此上述的问题还可以通过更改路由的优先级来解决\n现在问题解决了，但是解决了一时，解决不了一世，如果Linux主机重新启动，那么又会恢复为原来的设置，怎么办呢？\n那就设置一个自动化的启动项！\n自动化的“一劳永逸” 创建一个自定义的systemd服务，可以通过调整systemd服务来确保在执行路由删除和添加操作之前，网络接口已经正确初始化。此外，还可以加入条件判断，只在默认路由存在时尝试删除它。\n修改 Systemd 服务文件： 编辑之前创建的systemd服务文件，添加条件判断和依赖关系，确保在执行路由操作前网络接口已准备好。\nsudo vim /etc/systemd/system/setdefaultgateway.service 修改服务文件，加入网络在线的条件和执行命令前的检查：\n[Unit] Description=Set default gateway Wants=network-online.target After=network-online.target [Service] Type=oneshot ExecStartPre=/bin/sh -c 'ip route | grep -q default \u0026\u0026 ip route del default' ExecStart=/sbin/ip route add default via 172.27.0.1 dev eno1 metric 0 RemainAfterExit=yes [Install] WantedBy=multi-user.target 这里ExecStartPre行用于检查是否存在默认路由，并且只有在存在的情况下才尝试删除它。这样可以避免因为尝试删除一个不存在的路由而导致服务失败。\n重新加载和启动服务： 加载新的配置并重新启动服务：\nsudo systemctl daemon-reload sudo systemctl restart setdefaultgateway 检查服务状态： 确保服务现在能够成功执行，不再报错：\nsudo systemctl status setdefaultgateway 通过确保在网络接口准备好后执行命令，并且只在默认路由存在时尝试删除它，能够避免服务启动时遇到的“RTNETLINK answers: No such process”错误。\n服务文件的部分解释 [Unit]部分： Description: 仅为此服务提供描述，说明其用途。 Wants: 这一行指定了此服务想要的其他单位（unit）。network-online.target是一个特殊的目标，代表网络配置已完全完成且互联网连接已建立。 After: 这一行确保了在network-online.target之后才启动这个服务。也就是说，只有在网络确实可用之后，此服务才会运行其命令。 这两个设置（Wants和After）确保了网络服务在尝试修改路由表之前已经完全启动和激活。这是非常重要的，因为如果在网络接口还没有激活的情况下尝试设置路由，可能会导致命令失败。\n[Service]部分： Type=oneshot: 这意味着这个服务在启动时运行一次然后结束，不会持续运行。 ExecStartPre: 这是在主命令（ExecStart）执行之前运行的命令。它的作用是检查当前路由表中是否存在默认路由： /bin/sh -c 'ip route | grep -q default \u0026\u0026 ip route del default'：这条命令会首先查找是否存在默认路由，如果存在（grep -q default 返回0），则执行删除默认路由的命令（ip route del default）。这里使用grep -q是为了静默模式，只返回存在与否的状态码而不输出文本。 ExecStart: 这是服务的主命令，用于添加新的默认路由。如果前面的默认路由已被删除，这条命令会无障碍地设置新的默认路由。 RemainAfterExit=yes: 通常用于Type=oneshot的服务，指示即使服务的主进程已经结束，此服务的状态依旧被视为激活。 这种配置方式，特别是ExecStartPre命令的使用，是为了确保修改默认路由时不会因为旧的路由设置存在而出现冲突或错误。通过这样的安排，服务在执行任何操作之前确保了网络接口的可用性和清理了可能存在的冲突配置，从而使得默认网关的设置更加可靠和稳定。\n",
+  "wordCount" : "2296",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-16T11:04:42+08:00",
+  "dateModified": "2024-04-16T11:04:42+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "YOUNG"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/know/linux-repair-routing-table/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Linux：上不了网了之路由表修复
+    </h1>
+    <div class="post-description">
+      连接一个网口设备，导致上不了网，咋怎？
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-04-16
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-16
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2296 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>YOUNG
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E8%B7%AF%E7%94%B1%E8%A1%A8/" style="color: var(--secondary)!important;">路由表</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%85%88%e6%8a%8a%e9%97%ae%e9%a2%98%e8%a7%a3%e5%86%b3%e4%ba%86" aria-label="先把问题解决了">先把问题解决了</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8f%a6%e4%b8%80%e7%a7%8d%e6%80%9d%e8%b7%af" aria-label="另一种思路">另一种思路</a><ul>
+                        
+                <li>
+                    <a href="#metric-%e7%9a%84%e5%90%ab%e4%b9%89%e5%92%8c%e4%bd%9c%e7%94%a8" aria-label="Metric 的含义和作用">Metric 的含义和作用</a></li>
+                <li>
+                    <a href="#metric-%e5%80%bc%e7%9a%84%e9%80%89%e6%8b%a9" aria-label="Metric 值的选择">Metric 值的选择</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%87%aa%e5%8a%a8%e5%8c%96%e7%9a%84%e4%b8%80%e5%8a%b3%e6%b0%b8%e9%80%b8" aria-label="自动化的“一劳永逸”">自动化的“一劳永逸”</a><ul>
+                        
+                <li>
+                    <a href="#%e6%9c%8d%e5%8a%a1%e6%96%87%e4%bb%b6%e7%9a%84%e9%83%a8%e5%88%86%e8%a7%a3%e9%87%8a" aria-label="服务文件的部分解释">服务文件的部分解释</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><blockquote>
+<p><strong>问题描述：</strong></p>
+<p>Linux同时连接局域网，网段是172.27.0.x，以及连接网口的相机设备，网段是192.168.80.x。</p>
+<p>Linux启动后出现这种情况：</p>
+<ul>
+<li>可以连接相机，但无法上网</li>
+<li>将相机的网线拔掉后，就能够上网了</li>
+</ul>
+<p>简单的分析一下，应该是网络占用的问题。</p>
+</blockquote>
+<h2 id="先把问题解决了">先把问题解决了<a hidden class="anchor" aria-hidden="true" href="#先把问题解决了">#</a></h2>
+<p><strong>下面具体来分析</strong></p>
+<p>通过<code>route -n</code>来查看路由表信息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ route -n
+</span></span><span class="line"><span class="cl">Kernel IP routing table
+</span></span><span class="line"><span class="cl">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+</span></span><span class="line"><span class="cl">0.0.0.0         192.168.80.1    0.0.0.0         UG    <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> eno1
+</span></span><span class="line"><span class="cl">0.0.0.0         172.27.0.1      0.0.0.0         UG    <span class="m">101</span>    <span class="m">0</span>        <span class="m">0</span> eno1
+</span></span><span class="line"><span class="cl">169.254.0.0     0.0.0.0         255.255.0.0     U     <span class="m">1000</span>   <span class="m">0</span>        <span class="m">0</span> enx0826ae3c0c7b
+</span></span><span class="line"><span class="cl">172.17.0.0      0.0.0.0         255.255.0.0     U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> docker0
+</span></span><span class="line"><span class="cl">172.27.0.0      0.0.0.0         255.255.255.0   U     <span class="m">101</span>    <span class="m">0</span>        <span class="m">0</span> eno1
+</span></span><span class="line"><span class="cl">192.168.80.0    0.0.0.0         255.255.255.0   U     <span class="m">100</span>    <span class="m">0</span>        <span class="m">0</span> enx0826ae3c0c7b
+</span></span></code></pre></div><p>可以看出来有两个设备，一个是<code>eno1</code>，局域网网线，另一个是<code>enx0826ae3c0c7b</code>，网口的相机。</p>
+<p>为啥会上不了网捏？</p>
+<p><strong>观察这个路由表的可以发现有一个重复的混乱项：</strong></p>
+<p><code>Destination</code> 为 <code>0.0.0.0</code> 但是 <code>Gateway</code> 却有两个，就是这里导致的，这时候的解决方法就是，先清除默认路由，然后再配置一个正确的默认路由。</p>
+<p>步骤1：清除错误的默认路由</p>
+<p>首先，删除所有默认路由：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip route del default
+</span></span></code></pre></div><p>步骤2：添加正确的默认路由</p>
+<p>将默认路由设置为通过网关`172.27.0.1，并指定合适的度量值：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo ip route add default via 172.27.0.1 dev eno1 metric <span class="m">0</span>
+</span></span></code></pre></div><p>步骤3：验证路由表</p>
+<p>再次检查路由表，确保只有一个默认路由，并且其他路由按预期配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">route -n
+</span></span></code></pre></div><p>这个时候得到的应该就是正确的路由表了：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ route -n
+</span></span><span class="line"><span class="cl">Kernel IP routing table
+</span></span><span class="line"><span class="cl">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+</span></span><span class="line"><span class="cl">0.0.0.0         172.27.0.1      0.0.0.0         UG    <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> eno1
+</span></span><span class="line"><span class="cl">0.0.0.0         172.27.0.1      0.0.0.0         UG    <span class="m">101</span>    <span class="m">0</span>        <span class="m">0</span> eno1
+</span></span><span class="line"><span class="cl">169.254.0.0     0.0.0.0         255.255.0.0     U     <span class="m">1000</span>   <span class="m">0</span>        <span class="m">0</span> enx0826ae3c0c7b
+</span></span><span class="line"><span class="cl">172.17.0.0      0.0.0.0         255.255.0.0     U     <span class="m">0</span>      <span class="m">0</span>        <span class="m">0</span> docker0
+</span></span><span class="line"><span class="cl">172.27.0.0      0.0.0.0         255.255.255.0   U     <span class="m">101</span>    <span class="m">0</span>        <span class="m">0</span> eno1
+</span></span><span class="line"><span class="cl">192.168.80.0    0.0.0.0         255.255.255.0   U     <span class="m">100</span>    <span class="m">0</span>        <span class="m">0</span> enx0826ae3c0c7b
+</span></span></code></pre></div><h3 id="另一种思路">另一种思路<a hidden class="anchor" aria-hidden="true" href="#另一种思路">#</a></h3>
+<p>在路由表中，<code>metric</code>值用于定义路由的优先级。当存在多条到达同一个目的地的路由时，<code>metric</code>值较小的路由将被优先选择用于数据传输。因此，<code>metric</code>是一种决定路径选择的方法，尤其在多个网络接口可用时这一点非常重要。</p>
+<h4 id="metric-的含义和作用">Metric 的含义和作用<a hidden class="anchor" aria-hidden="true" href="#metric-的含义和作用">#</a></h4>
+<ul>
+<li><strong>含义</strong>：<code>metric</code>值是一个数字，用于表示路由的优先级。数字越小，该路由的优先级越高。</li>
+<li><strong>作用</strong>：
+<ul>
+<li><strong>选择最优路径</strong>：在多条路由可达同一目的地的情况下，路由器根据<code>metric</code>值选择<code>metric</code>最小的路由作为最佳路径。</li>
+<li><strong>负载均衡</strong>：在某些配置中，可以故意设置相同的<code>metric</code>值给不同的路由，以实现负载均衡。</li>
+<li><strong>避免路由循环</strong>：适当的<code>metric</code>值配置可以帮助避免路由循环，特别是在复杂的网络拓扑中。</li>
+</ul>
+</li>
+</ul>
+<h4 id="metric-值的选择">Metric 值的选择<a hidden class="anchor" aria-hidden="true" href="#metric-值的选择">#</a></h4>
+<p>比如，<code>metric</code>值为0, 101, 100, 1000等，这些都是用来区分不同路由条目的相对优先级。例如：</p>
+<ul>
+<li><strong>Metric 为 0</strong>：通常表示该路由具有最高的优先级，系统将优先通过这个路由发送数据。</li>
+<li><strong>Metric 为 101 或 100</strong>：这些值较高，表示路由的优先级较低。如果默认路由（metric 为 0 的路由）不可用，系统可能会考虑使用这些路由。</li>
+<li><strong>Metric 为 1000</strong>：更高的<code>metric</code>值，通常用于备份路由，只有在其他较低<code>metric</code>值的路由全都不可用时，才会被使用。</li>
+</ul>
+<p><mark>因此上述的问题还可以通过更改路由的优先级来解决</mark></p>
+<hr>
+<p><mark>现在问题解决了，但是解决了一时，解决不了一世，如果Linux主机重新启动，那么又会恢复为原来的设置，怎么办呢？</mark></p>
+<p><strong>那就设置一个自动化的启动项！</strong></p>
+<h2 id="自动化的一劳永逸">自动化的“一劳永逸”<a hidden class="anchor" aria-hidden="true" href="#自动化的一劳永逸">#</a></h2>
+<p>创建一个自定义的<code>systemd</code>服务，可以通过调整<code>systemd</code>服务来确保在执行路由删除和添加操作之前，网络接口已经正确初始化。此外，还可以加入条件判断，只在默认路由存在时尝试删除它。</p>
+<ol>
+<li>
+<p><strong>修改 Systemd 服务文件</strong>：
+编辑之前创建的<code>systemd</code>服务文件，添加条件判断和依赖关系，确保在执行路由操作前网络接口已准备好。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo vim /etc/systemd/system/setdefaultgateway.service
+</span></span></code></pre></div><p>修改服务文件，加入网络在线的条件和执行命令前的检查：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">[Unit]
+</span></span><span class="line"><span class="cl">Description=Set default gateway
+</span></span><span class="line"><span class="cl">Wants=network-online.target
+</span></span><span class="line"><span class="cl">After=network-online.target
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Service]
+</span></span><span class="line"><span class="cl">Type=oneshot
+</span></span><span class="line"><span class="cl">ExecStartPre=/bin/sh -c &#39;ip route | grep -q default &amp;&amp; ip route del default&#39;
+</span></span><span class="line"><span class="cl">ExecStart=/sbin/ip route add default via 172.27.0.1 dev eno1 metric 0
+</span></span><span class="line"><span class="cl">RemainAfterExit=yes
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Install]
+</span></span><span class="line"><span class="cl">WantedBy=multi-user.target
+</span></span></code></pre></div><p>这里<code>ExecStartPre</code>行用于检查是否存在默认路由，并且只有在存在的情况下才尝试删除它。这样可以避免因为尝试删除一个不存在的路由而导致服务失败。</p>
+</li>
+<li>
+<p><strong>重新加载和启动服务</strong>：
+加载新的配置并重新启动服务：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl daemon-reload
+</span></span><span class="line"><span class="cl">sudo systemctl restart setdefaultgateway
+</span></span></code></pre></div></li>
+<li>
+<p><strong>检查服务状态</strong>：
+确保服务现在能够成功执行，不再报错：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo systemctl status setdefaultgateway
+</span></span></code></pre></div></li>
+</ol>
+<p>通过确保在网络接口准备好后执行命令，并且只在默认路由存在时尝试删除它，能够避免服务启动时遇到的“RTNETLINK answers: No such process”错误。</p>
+<h3 id="服务文件的部分解释">服务文件的部分解释<a hidden class="anchor" aria-hidden="true" href="#服务文件的部分解释">#</a></h3>
+<ol>
+<li><strong>[Unit]部分</strong>：
+<ul>
+<li><code>Description</code>: 仅为此服务提供描述，说明其用途。</li>
+<li><code>Wants</code>: 这一行指定了此服务想要的其他单位（unit）。<code>network-online.target</code>是一个特殊的目标，代表网络配置已完全完成且互联网连接已建立。</li>
+<li><code>After</code>: 这一行确保了在<code>network-online.target</code>之后才启动这个服务。也就是说，只有在网络确实可用之后，此服务才会运行其命令。</li>
+</ul>
+</li>
+</ol>
+<p>这两个设置（<code>Wants</code>和<code>After</code>）确保了网络服务在尝试修改路由表之前已经完全启动和激活。这是非常重要的，因为如果在网络接口还没有激活的情况下尝试设置路由，可能会导致命令失败。</p>
+<ol start="2">
+<li><strong>[Service]部分</strong>：
+<ul>
+<li><code>Type=oneshot</code>: 这意味着这个服务在启动时运行一次然后结束，不会持续运行。</li>
+<li><code>ExecStartPre</code>: 这是在主命令（<code>ExecStart</code>）执行之前运行的命令。它的作用是检查当前路由表中是否存在默认路由：
+<ul>
+<li><code>/bin/sh -c 'ip route | grep -q default &amp;&amp; ip route del default'</code>：这条命令会首先查找是否存在默认路由，如果存在（<code>grep -q default</code> 返回0），则执行删除默认路由的命令（<code>ip route del default</code>）。这里使用<code>grep -q</code>是为了静默模式，只返回存在与否的状态码而不输出文本。</li>
+</ul>
+</li>
+<li><code>ExecStart</code>: 这是服务的主命令，用于添加新的默认路由。如果前面的默认路由已被删除，这条命令会无障碍地设置新的默认路由。</li>
+<li><code>RemainAfterExit=yes</code>: 通常用于<code>Type=oneshot</code>的服务，指示即使服务的主进程已经结束，此服务的状态依旧被视为激活。</li>
+</ul>
+</li>
+</ol>
+<p>这种配置方式，特别是<code>ExecStartPre</code>命令的使用，是为了确保修改默认路由时不会因为旧的路由设置存在而出现冲突或错误。通过这样的安排，服务在执行任何操作之前确保了网络接口的可用性和清理了可能存在的冲突配置，从而使得默认网关的设置更加可靠和稳定。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/%E8%B7%AF%E7%94%B1%E8%A1%A8/">路由表</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://ahaknow.com/posts/know/leetcode-189-rotate-array/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>Leetcode：189. 轮转数组</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux成神之路 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/linux%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/</link>
+    <description>Recent content in Linux成神之路 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 16 Apr 2024 11:04:42 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/linux%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux：上不了网了之路由表修复</title>
+      <link>https://ahaknow.com/posts/know/linux-repair-routing-table/</link>
+      <pubDate>Tue, 16 Apr 2024 11:04:42 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-repair-routing-table/</guid>
+      <description>连接一个网口设备，导致上不了网，咋怎？</description>
+    </item>
+  </channel>
+</rss>

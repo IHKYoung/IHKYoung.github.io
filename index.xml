@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 15 Apr 2024 21:25:15 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2024 11:04:42 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux：上不了网了之路由表修复</title>
+      <link>https://ahaknow.com/posts/know/linux-repair-routing-table/</link>
+      <pubDate>Tue, 16 Apr 2024 11:04:42 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-repair-routing-table/</guid>
+      <description>连接一个网口设备，导致上不了网，咋怎？</description>
+    </item>
     <item>
       <title>Leetcode：189. 轮转数组</title>
       <link>https://ahaknow.com/posts/know/leetcode-189-rotate-array/</link>
@@ -126,6 +133,13 @@
       <pubDate>Wed, 27 Mar 2024 17:01:29 +0800</pubDate>
       <guid>https://ahaknow.com/posts/think/2024-begin-again/</guid>
       <description>以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，</description>
+    </item>
+    <item>
+      <title>创新的主人还是重复的奴隶？</title>
+      <link>https://ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</link>
+      <pubDate>Mon, 19 Feb 2024 10:50:57 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</guid>
+      <description>引子： 做了一个实时展示的小程序，一开始做的比较粗糙，每次呢，也就是每天的早上，都需要手动去执行，然后用鼠标去一点点调整展示窗口的大小和排列，</description>
     </item>
     <item>
       <title>2024年的第一篇记录</title>

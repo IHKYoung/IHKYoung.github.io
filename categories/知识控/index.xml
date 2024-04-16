@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>💡思考 on AhaKnow</title>
-    <link>https://ahaknow.com/posts/think/</link>
-    <description>Recent content in 💡思考 on AhaKnow</description>
+    <title>知识控 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</link>
+    <description>Recent content in 知识控 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 27 Mar 2024 17:01:29 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/posts/think/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>折腾博客是为了更好地专注在写作上？</title>
-      <link>https://ahaknow.com/posts/think/2024-begin-again/</link>
-      <pubDate>Wed, 27 Mar 2024 17:01:29 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/think/2024-begin-again/</guid>
-      <description>以下是心路历程： 为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？ 纠结于用什么博客框架，</description>
-    </item>
+    <lastBuildDate>Mon, 19 Feb 2024 10:50:57 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>创新的主人还是重复的奴隶？</title>
       <link>https://ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</link>
