@@ -6,8 +6,15 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 16 Apr 2024 11:04:42 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 10:13:39 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git：分支的基本操作</title>
+      <link>https://ahaknow.com/posts/know/git-branch-basic/</link>
+      <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/git-branch-basic/</guid>
+      <description>使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远</description>
+    </item>
     <item>
       <title>Linux：上不了网了之路由表修复</title>
       <link>https://ahaknow.com/posts/know/linux-repair-routing-table/</link>

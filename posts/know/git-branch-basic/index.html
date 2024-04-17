@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Blog：奇思妙想待办项 | AhaKnow</title>
-<meta name="keywords" content="">
-<meta name="description" content="我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，其">
+<title>Git：分支的基本操作 | AhaKnow</title>
+<meta name="keywords" content="分支管理">
+<meta name="description" content="使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远">
 <meta name="author" content="YOUNG">
-<link rel="canonical" href="https://ahaknow.com/posts/know/blog-todo/">
+<link rel="canonical" href="https://ahaknow.com/posts/know/git-branch-basic/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
@@ -57,7 +57,7 @@
 <link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/blog-todo/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/git-branch-basic/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,16 +94,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Blog：奇思妙想待办项" />
-<meta property="og:description" content="我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，其" />
+</noscript><meta property="og:title" content="Git：分支的基本操作" />
+<meta property="og:description" content="使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ahaknow.com/posts/know/blog-todo/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-12T11:29:40+08:00" />
-<meta property="article:modified_time" content="2024-04-12T11:29:40+08:00" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/git-branch-basic/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-17T10:13:39+08:00" />
+<meta property="article:modified_time" content="2024-04-17T10:13:39+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Blog：奇思妙想待办项"/>
-<meta name="twitter:description" content="我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，其"/>
+<meta name="twitter:title" content="Git：分支的基本操作"/>
+<meta name="twitter:description" content="使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远"/>
 
 
 <script type="application/ld+json">
@@ -126,8 +126,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Blog：奇思妙想待办项",
-      "item": "https://ahaknow.com/posts/know/blog-todo/"
+      "name": "Git：分支的基本操作",
+      "item": "https://ahaknow.com/posts/know/git-branch-basic/"
     }
   ]
 }
@@ -136,24 +136,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Blog：奇思妙想待办项",
-  "name": "Blog：奇思妙想待办项",
-  "description": "我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，其",
+  "headline": "Git：分支的基本操作",
+  "name": "Git：分支的基本操作",
+  "description": "使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远",
   "keywords": [
-    
+    "分支管理"
   ],
-  "articleBody": " 我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，其实这种方法有时候并不好，容易“本末倒置”，原本的事到最后没做好。\n所以，再次把一写博客的灵感记录下来，然后一件一件事情按部就班完成了再来处理这里。\n在此之前已经实现了很多想法，比如一些美化操作（哼，徒有外表，华而不实！！），就不记录了；之后新产生的，在此记录。\n文章元数据显示等美化 时间线按照最近更新时间排序 Hugo里面时间计算的原理需要优化（公式优化） Hugo的模版页面自定义 使用jsDelivr配合Github实现文件读取加速 文章缩略截断的字数修改 ",
-  "wordCount" : "293",
+  "articleBody": " 使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。\ngit branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远程分支 git branch -r 3. 列出所有本地和远程分支 git branch -a 4. 创建新分支 创建新分支但不切换到该分支：\ngit branch feature-x 这会创建一个名为feature-x的分支，但依然停留在当前分支。\n5. 删除分支 删除本地分支：\ngit branch -d feature-x 这个命令会安全地删除分支，只在这个分支已经被合并到当前分支时允许删除。如果分支还有未合并的更改，需要强制删除可以使用-D选项：\ngit branch -D feature-x 6. 重命名分支 如果你需要重命名当前分支：\ngit branch -m new-branch-name 如果要重命名其他分支（不在该分支上时）：\ngit branch -m old-branch-name new-branch-name 实际操作中的应用 通常会这样使用git branch来创建新分支：\ngit checkout develop # 确保你在develop分支 git pull origin develop # 拉取最新的develop分支 git branch feature-x # 创建新分支feature-x git checkout feature-x # 切换到新分支feature-x 这里的步骤可以简化为一个命令，使用git checkout -b同时创建并切换分支：\ngit checkout -b feature-x develop 这条命令直接基于develop分支创建并切换到feature-x分支。\n",
+  "wordCount" : "454",
   "inLanguage": "zh",
-  "datePublished": "2024-04-12T11:29:40+08:00",
-  "dateModified": "2024-04-12T11:29:40+08:00",
+  "datePublished": "2024-04-17T10:13:39+08:00",
+  "dateModified": "2024-04-17T10:13:39+08:00",
   "author":[{
     "@type": "Person",
     "name": "YOUNG"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ahaknow.com/posts/know/blog-todo/"
+    "@id": "https://ahaknow.com/posts/know/git-branch-basic/"
   },
   "publisher": {
     "@type": "Organization",
@@ -256,7 +256,7 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      Blog：奇思妙想待办项
+      Git：分支的基本操作
     </h1>
     <div class="post-meta">
 
@@ -288,19 +288,19 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2024-04-12
+            <span>2024-04-17
                 &nbsp;&nbsp;
             </span>
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-12
+        <span>2024-04-17
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>293 字
+        <span>454 字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -316,43 +316,155 @@
             &nbsp;&nbsp;
         </span>
     </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" style="color: var(--secondary)!important;">分支管理</a>
+            </span>
+        </span>
+    </span>
 </span>
 
 </div>
-  </header> 
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#git-branch%e7%b3%bb%e5%88%97%e6%93%8d%e4%bd%9c" aria-label="git branch系列操作">git branch系列操作</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af" aria-label="1. 列出所有本地分支">1. 列出所有本地分支</a></li>
+                <li>
+                    <a href="#2-%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af" aria-label="2. 列出所有远程分支">2. 列出所有远程分支</a></li>
+                <li>
+                    <a href="#3-%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89%e6%9c%ac%e5%9c%b0%e5%92%8c%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af" aria-label="3. 列出所有本地和远程分支">3. 列出所有本地和远程分支</a></li>
+                <li>
+                    <a href="#4-%e5%88%9b%e5%bb%ba%e6%96%b0%e5%88%86%e6%94%af" aria-label="4. 创建新分支">4. 创建新分支</a></li>
+                <li>
+                    <a href="#5-%e5%88%a0%e9%99%a4%e5%88%86%e6%94%af" aria-label="5. 删除分支">5. 删除分支</a></li>
+                <li>
+                    <a href="#6-%e9%87%8d%e5%91%bd%e5%90%8d%e5%88%86%e6%94%af" aria-label="6. 重命名分支">6. 重命名分支</a></li>
+                <li>
+                    <a href="#%e5%ae%9e%e9%99%85%e6%93%8d%e4%bd%9c%e4%b8%ad%e7%9a%84%e5%ba%94%e7%94%a8" aria-label="实际操作中的应用">实际操作中的应用</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
   <div class="post-content"><blockquote>
-<p>我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，<strong>其实这种方法有时候并不好，容易“本末倒置”，原本的事到最后没做好。</strong></p>
-<p>所以，再次把一写博客的灵感记录下来，然后一件一件事情按部就班完成了再来处理这里。</p>
+<p>使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。</p>
 </blockquote>
-<p>在此之前已经实现了很多想法，比如一些美化操作（哼，徒有外表，华而不实！！），就不记录了；之后新产生的，在此记录。</p>
-<ul>
-<li><del>文章元数据显示等美化</del></li>
-</ul>
-<hr>
-<ol>
-<li>时间线按照最近更新时间排序</li>
-<li>Hugo里面时间计算的原理需要优化（公式优化）</li>
-<li>Hugo的模版页面自定义</li>
-<li>使用jsDelivr配合Github实现文件读取加速</li>
-<li>文章缩略截断的字数修改</li>
-</ol>
+<h2 id="git-branch系列操作">git branch系列操作<a hidden class="anchor" aria-hidden="true" href="#git-branch系列操作">#</a></h2>
+<h3 id="1-列出所有本地分支">1. 列出所有本地分支<a hidden class="anchor" aria-hidden="true" href="#1-列出所有本地分支">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch
+</span></span></code></pre></div><h3 id="2-列出所有远程分支">2. 列出所有远程分支<a hidden class="anchor" aria-hidden="true" href="#2-列出所有远程分支">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -r
+</span></span></code></pre></div><h3 id="3-列出所有本地和远程分支">3. 列出所有本地和远程分支<a hidden class="anchor" aria-hidden="true" href="#3-列出所有本地和远程分支">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -a
+</span></span></code></pre></div><h3 id="4-创建新分支">4. 创建新分支<a hidden class="anchor" aria-hidden="true" href="#4-创建新分支">#</a></h3>
+<p>创建新分支但不切换到该分支：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch feature-x
+</span></span></code></pre></div><p>这会创建一个名为<code>feature-x</code>的分支，但依然停留在当前分支。</p>
+<h3 id="5-删除分支">5. 删除分支<a hidden class="anchor" aria-hidden="true" href="#5-删除分支">#</a></h3>
+<p>删除本地分支：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -d feature-x
+</span></span></code></pre></div><p>这个命令会安全地删除分支，只在这个分支已经被合并到当前分支时允许删除。如果分支还有未合并的更改，需要强制删除可以使用<code>-D</code>选项：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -D feature-x
+</span></span></code></pre></div><h3 id="6-重命名分支">6. 重命名分支<a hidden class="anchor" aria-hidden="true" href="#6-重命名分支">#</a></h3>
+<p>如果你需要重命名当前分支：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -m new-branch-name
+</span></span></code></pre></div><p>如果要重命名其他分支（不在该分支上时）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -m old-branch-name new-branch-name
+</span></span></code></pre></div><h3 id="实际操作中的应用">实际操作中的应用<a hidden class="anchor" aria-hidden="true" href="#实际操作中的应用">#</a></h3>
+<p>通常会这样使用<code>git branch</code>来创建新分支：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout develop       <span class="c1"># 确保你在develop分支</span>
+</span></span><span class="line"><span class="cl">git pull origin develop    <span class="c1"># 拉取最新的develop分支</span>
+</span></span><span class="line"><span class="cl">git branch feature-x       <span class="c1"># 创建新分支feature-x</span>
+</span></span><span class="line"><span class="cl">git checkout feature-x     <span class="c1"># 切换到新分支feature-x</span>
+</span></span></code></pre></div><p>这里的步骤可以简化为一个命令，使用<code>git checkout -b</code>同时创建并切换分支：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout -b feature-x develop
+</span></span></code></pre></div><p>这条命令直接基于<code>develop</code>分支创建并切换到<code>feature-x</code>分支。</p>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">分支管理</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/">
-    <span class="title">« 上一页</span>
-    <br>
-    <span>Leetcode：80. 删除有序数组中的重复项 II</span>
-  </a>
-  <a class="next" href="https://ahaknow.com/posts/know/blog-tips/">
+  <a class="next" href="https://ahaknow.com/posts/know/linux-repair-routing-table/">
     <span class="title">下一页 »</span>
     <br>
-    <span>Blog：Hugo写作小技巧 </span>
+    <span>Linux：上不了网了之路由表修复</span>
   </a>
 </nav>
 
