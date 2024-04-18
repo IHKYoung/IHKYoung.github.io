@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>还得是C&#43;&#43; on AhaKnow</title>
-    <link>https://ahaknow.com/categories/%E8%BF%98%E5%BE%97%E6%98%AFc&#43;&#43;/</link>
-    <description>Recent content in 还得是C&#43;&#43; on AhaKnow</description>
+    <title>H.264 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/h.264/</link>
+    <description>Recent content in H.264 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 18 Apr 2024 14:43:01 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/categories/%E8%BF%98%E5%BE%97%E6%98%AFc++/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ahaknow.com/tags/h.264/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
       <link>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</link>
       <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</guid>
       <description>在上一篇打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。 彩色图像采用H.264编码 -&amp;gt; 那就需要按照H</description>
-    </item>
-    <item>
-      <title>开发实战：解析二进制文件</title>
-      <link>https://ahaknow.com/posts/know/parse-binary-file/</link>
-      <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/parse-binary-file/</guid>
-      <description>需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。 解析需要按照一定的规则，比如：如何确定数据的头（Hea</description>
     </item>
   </channel>
 </rss>

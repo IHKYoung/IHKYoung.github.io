@@ -6,8 +6,15 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 17 Apr 2024 16:34:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2024 14:43:01 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
+      <link>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</link>
+      <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</guid>
+      <description>在上一篇打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。 彩色图像采用H.264编码 -&amp;gt; 那就需要按照H</description>
+    </item>
     <item>
       <title>开发实战：解析二进制文件</title>
       <link>https://ahaknow.com/posts/know/parse-binary-file/</link>
