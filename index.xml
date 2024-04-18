@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 17 Apr 2024 10:13:39 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2024 16:34:35 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：解析二进制文件</title>
+      <link>https://ahaknow.com/posts/know/parse-binary-file/</link>
+      <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/parse-binary-file/</guid>
+      <description>需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。 解析需要按照一定的规则，比如：如何确定数据的头（Hea</description>
+    </item>
     <item>
       <title>Git：分支的基本操作</title>
       <link>https://ahaknow.com/posts/know/git-branch-basic/</link>
