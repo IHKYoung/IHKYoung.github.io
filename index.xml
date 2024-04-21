@@ -6,8 +6,22 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 18 Apr 2024 14:43:01 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2024 22:36:36 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shell基础操作：移动文件</title>
+      <link>https://ahaknow.com/posts/know/shell-move-file/</link>
+      <pubDate>Sun, 21 Apr 2024 22:36:36 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/shell-move-file/</guid>
+      <description>主打一个“懒”字！ 移动文件啊，重命名啥的，动手拖拖不行嘛？！ 不行！用键盘，用命令行！ 比如： 想要移动 ZYC01981 - 01.jpg，同时又想把 - 01 后缀给去掉</description>
+    </item>
+    <item>
+      <title>高质量编程指南：C/C&#43;&#43;试题</title>
+      <link>https://ahaknow.com/posts/know/c-c&#43;&#43;-exam/</link>
+      <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/c-c&#43;&#43;-exam/</guid>
+      <description>本试题仅用于考查 C++/C 程序员的基本编程技能。内容限于 C++/C 常用语法，不涉及数据结构、算法以及深奥的语法。考试成绩能反映出考生的编程质量以及对 C++/C 的理解</description>
+    </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
       <link>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</link>
