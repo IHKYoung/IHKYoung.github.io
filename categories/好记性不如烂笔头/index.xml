@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>好记性不如烂笔头 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/</link>
+    <description>Recent content in 好记性不如烂笔头 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 24 Apr 2024 11:07:22 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>前人笔记收集录</title>
+      <link>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</link>
+      <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
+      <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>TensorRT：最简明的安装流程</title>
+      <link>https://ahaknow.com/posts/know/note-install-tensorrt/</link>
+      <pubDate>Wed, 24 Apr 2024 11:07:22 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-install-tensorrt/</guid>
+      <description>以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。 因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，</description>
+    </item>
+    <item>
+      <title>Shell：操作移动文件</title>
+      <link>https://ahaknow.com/posts/know/note-shell-move-file/</link>
+      <pubDate>Sun, 21 Apr 2024 22:36:36 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-shell-move-file/</guid>
+      <description>主打一个“懒”字！ 移动文件啊，重命名啥的，动手拖拖不行嘛？！ 不行！用键盘，用命令行！ 比如： 想要移动 ZYC01981 - 01.jpg，同时又想把 - 01 后缀给去掉</description>
+    </item>
+    <item>
+      <title>Git：分支的基本操作</title>
+      <link>https://ahaknow.com/posts/know/note-git-branch-basic/</link>
+      <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
+      <description>使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远</description>
+    </item>
+    <item>
+      <title>Python：一个正则表达式的小例子</title>
+      <link>https://ahaknow.com/posts/know/note-a-regex-example/</link>
+      <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-a-regex-example/</guid>
+      <description>我想重命名一个文件（手动操作是不可能的，懒！） 将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1</description>
+    </item>
+  </channel>
+</rss>

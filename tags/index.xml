@@ -6,13 +6,27 @@
     <description>Recent content in 🏷️ 标签 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 23 Apr 2024 17:00:23 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2024 13:00:28 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>未标签</title>
-      <link>https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/</link>
+      <title>Grub</title>
+      <link>https://ahaknow.com/tags/grub/</link>
+      <pubDate>Wed, 24 Apr 2024 13:00:28 +0800</pubDate>
+      <guid>https://ahaknow.com/tags/grub/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TensorRT</title>
+      <link>https://ahaknow.com/tags/tensorrt/</link>
+      <pubDate>Wed, 24 Apr 2024 11:07:22 +0800</pubDate>
+      <guid>https://ahaknow.com/tags/tensorrt/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>日志管理</title>
+      <link>https://ahaknow.com/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/</link>
       <pubDate>Tue, 23 Apr 2024 17:00:23 +0800</pubDate>
-      <guid>https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/</guid>
+      <guid>https://ahaknow.com/tags/%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86/</guid>
       <description></description>
     </item>
     <item>
@@ -100,24 +114,24 @@
       <description></description>
     </item>
     <item>
-      <title>Linux基础</title>
-      <link>https://ahaknow.com/tags/linux%E5%9F%BA%E7%A1%80/</link>
+      <title>Linux</title>
+      <link>https://ahaknow.com/tags/linux/</link>
       <pubDate>Mon, 08 Apr 2024 20:27:50 +0800</pubDate>
-      <guid>https://ahaknow.com/tags/linux%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://ahaknow.com/tags/linux/</guid>
       <description></description>
     </item>
     <item>
-      <title>Vim操作</title>
-      <link>https://ahaknow.com/tags/vim%E6%93%8D%E4%BD%9C/</link>
+      <title>Vim</title>
+      <link>https://ahaknow.com/tags/vim/</link>
       <pubDate>Mon, 08 Apr 2024 20:27:50 +0800</pubDate>
-      <guid>https://ahaknow.com/tags/vim%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://ahaknow.com/tags/vim/</guid>
       <description></description>
     </item>
     <item>
-      <title>数学基础</title>
-      <link>https://ahaknow.com/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</link>
+      <title>数学</title>
+      <link>https://ahaknow.com/tags/%E6%95%B0%E5%AD%A6/</link>
       <pubDate>Mon, 08 Apr 2024 20:27:50 +0800</pubDate>
-      <guid>https://ahaknow.com/tags/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/</guid>
+      <guid>https://ahaknow.com/tags/%E6%95%B0%E5%AD%A6/</guid>
       <description></description>
     </item>
     <item>

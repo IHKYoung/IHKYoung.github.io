@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>边学边用 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/</link>
+    <description>Recent content in 边学边用 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Apr 2024 17:00:23 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：使用Spdlog管理调试信息</title>
+      <link>https://ahaknow.com/posts/know/dev-spdlog-usage/</link>
+      <pubDate>Tue, 23 Apr 2024 17:00:23 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-spdlog-usage/</guid>
+      <description>此前写代码，习惯性 std::cout 和 std::cerr 这种直接可视化的打印，然后满屏密密麻麻的打印信息，而如果不需要了，就会在代码大段大段的注释，非常不美观，甚至可以说是</description>
+    </item>
+    <item>
+      <title>Git：分支的基本操作</title>
+      <link>https://ahaknow.com/posts/know/note-git-branch-basic/</link>
+      <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
+      <description>使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远</description>
+    </item>
+  </channel>
+</rss>

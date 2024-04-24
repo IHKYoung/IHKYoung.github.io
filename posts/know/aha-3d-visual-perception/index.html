@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>3D视觉感知 | AhaKnow</title>
+<meta name="keywords" content="机器视觉">
+<meta name="description" content="从现状到发展">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="https://ahaknow.com/posts/know/aha-3d-visual-perception/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/aha-3d-visual-perception/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="3D视觉感知" />
+<meta property="og:description" content="从现状到发展" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/aha-3d-visual-perception/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-07T10:09:54+08:00" />
+<meta property="article:modified_time" content="2024-04-07T10:09:54+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="3D视觉感知"/>
+<meta name="twitter:description" content="从现状到发展"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟知识",
+      "item": "https://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "3D视觉感知",
+      "item": "https://ahaknow.com/posts/know/aha-3d-visual-perception/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "3D视觉感知",
+  "name": "3D视觉感知",
+  "description": "从现状到发展",
+  "keywords": [
+    "机器视觉"
+  ],
+  "articleBody": " 引子：\n我们生活的世界是三维的，在三维世界中对物体的感知拥有明确的距离感，比如键盘在手的前面，显示器在键盘的前面，那么显示器就在手的更前面（这里的“前”或者“后”属于自定义的界定，也可以认为键盘在手的后面，显示器在手的更后面），而如果通过相机将这个三维世界中的场景拍成一张照片，此时三维空间中的所有距离层次就一起被“拍”进了二维图像中，形象地比喻就是将立体的空间“压”成一张了平面的表达，从此表达空间深度的维度就丢失了，并且这个过程在自然状态下是不可逆的。\n而当我们谈到三维空间（Three-dimensional space，以下称3D）的视觉感知时，则必然与深度（距离层次感）脱不开关系，也就是说，当我们用视觉（人可以用眼睛+大脑，机器可以用图像传感器+软件算法）去感知周围的环境时，只有同时获取到了深度，才有资格去讨论3D的视觉感知，否则还是停留在2D平面图像的层次。\n因此在讨论“3D视觉感知的发展”时可以将关注点聚焦在两处：\n如何提高机器视觉系统获取深度信息的精度和可靠性？（如何获得更高精度的深度信息？） 在融合图像和深度信息后，能够推动哪些3D视觉感知技术的发展？（在拥有图像和深度信息后，我们能继续做什么？） 机器视觉的深度获取 首先，我们讨论的是机器的视觉系统，关于机器视觉的定义，简言之，就是通过“某些设备”让机器能够“看到”周围的环境，在不具体追溯这些设备的软硬件实现时，我们以“相机”这个更为广泛的概念进行代替，也就是说，通过相机（相机内部还需要算法和软件支持）可以让机器“看到”这个世界，而相机实现的不同，则可以让机器看待这个世界的方式也发生改变。\n因此，比较直观地获取深度的方式是直接通过相机软硬件这个载体来实现，在这里只进行简要的介绍，因为以下的每一种相机在具体讨论时都需要大篇幅的内容进行结构、原理和方法的说明。\n从相机的角度来看，获取图像深度的方式可以分为两大类型：\n一种是通过硬件的物理测量，比如向三维空间中发射特殊的光源，这个光源接触到物体发生反射后可以回到接收装置，通过测量光源的来回传播时间获得距离信息的飞行时间原理（Time of Flight，TOF）的深度相机，以及向三维空间中投射具有特殊形状的光源，通过测量计算这些光源在物体表面发生的形变来获得距离信息的结构光原理（Structured Light）的深度相机； 另一种则是通过图像中的几何学关系计算得到，专业的表达是多视图几何（Multiple View Geometry），具体的实现可以是一个相机拍摄的多个连续场景图像，或者是两个或多个相机拍摄的同一个场景图像，其中较为成熟的是通过两个平行相机实现的双目立体视觉（Binocular Stereo Vision）相机。 具体到每一种类型的深度相机，都有其各自的关注点来提高相机获取深度的精度，在此暂不深究。从另一个角度出发，如果没有这些额外的软硬件支持，只能通过相机拍摄二维图像，怎么得到图像的深度信息呢？\n在当下能够通过数据驱动解决复杂问题的大背景下，利用机器学习（更具体一点是深度学习）直接从二维图像中估计出深度是一种技术趋势，比如在paperswithcode.com上检索“Depth Estimation”可以看到很多开源的算法和模型，并且所依赖的数据也不再限制，利用单张图像或者多张图像都有相应的方法。因此更直观的想法就是在相机中嵌入深度学习技术直接从图像中估计出深度信息，从而也就避免了采用额外硬件设备所需要的校准、标定等繁杂的维护工作。\n在深度学习里有一条基本认知是：“数据决定了深度学习的上限，而模型只是逼近这个上限而已”。也就是说，想要通过深度学习完善地解决直接的图像深度估计问题，一个好的模型固然重要，但更为关键是拥有驱动这个模型完好运转的数据燃料，并且数据的质量决定了模型效果，那么怎样获得这些高质量的数据呢？\n上文介绍的通过硬件物理测量和通过图像几何学关系获取深度的两种相机，这些在市场中已经有成熟的产品投入应用，如果用它们得到的深度数据来驱动深度学习，从理论上来讲，最理想的状态也不过是达到了深度相机的最高精度效果，并且物理测量或者几何计算本身就具有的偏差还会对模型的效果产生负面影响。\n因此，从数据驱动的深度学习方法估计图像深度的这一方向切入，如果想要让模型的结果更精确从而获取更可靠的深度信息，还需要从数据上下功夫，具体可实践的方式是使用3D仿真，通过模拟相机和构建3D场景产生所需求的且完全准确的深度信息，可以采用的工具和软件包括：\n3D建模和动画软件：Blender； 游戏物理引擎：Unity 3D，Unreal Engine； 机器人仿真器（开源）：Gazebo Sim； 自动驾驶仿真器（开源）：CARLA。 而随着人工智能的发展，特别是生成式人工智能（Generative AI）的技术，将人工智能自己生成内容的技术融入到3D仿真生成也将成为一种新趋势。\n3D视觉感知技术 有了图像深度（用Z表示）之后，我们能做什么呢？\n首先能够从二维图像恢复出三维的空间关系，图像中每一个像素点(x,y)可以通过投影关系恢复到三维空间中的点(X,Y,Z)，将这些三维的点组合起来就构成了点云（Point Cloud）。 通过点云可以分析出哪些是可以移动的区域，哪些区域不平坦；以及哪些是空间中的阻挡自身运动的障碍物，这些障碍物与自身的实时距离等，这个过程体现的就是三维空间的感知。 由于从三维空间“拍”进二维图像的过程中，距离相机更近的物体会挡住其身后的物体，因此在从二维图像恢复到三维空间时，那些被挡住的部分自然也不会呈现出来，而想要从图像中恢复出一个空间的完整样貌，就需要很多张拍摄到这个空间各个角落的图像一起“组合”，共同“拼接”来还原，这个过程就叫做三维空间的场景重建。 以上的过程在具体实现中会涉及到较多的数学原理推导，在这里没有具体展开说明，但从本质的理解出发，在拥有图像深度之后，视觉的感知就完整了，下面从移动机器人和智能驾驶两个领域来谈一谈3D视觉感知技术的具体应用。\n移动机器人领域 一般而言，移动机器人是在一个区域内运行的，也就是说，移动机器人需要拥有这个区域的地图信息，然后在已有地图的基础上再完成感知、定位、路径规划和导航，甚至在实际应用时还需要考虑对地图的更新。机器人的定位和建图可以通过SLAM（Simultaneous Localization And Mapping）技术来实现，SLAM中也需要知道深度信息，比如视觉SLAM在只提供图像的情况下时通过几何学关系来计算出深度，而如果能够同时提供足够精确的深度信息，那么SLAM的建图和定位精度也会更加准确。\n在3D视觉下，机器人可以做到对物体更加准确和丰富的感知，不仅是对物体实现简单的位置测距，在一些算法的支持下，还能够对特定的物体实现姿态的估计，在同时拥有物体的位置和姿态后，就可以展开定位、抓取等后续的操作。同时利用三维空间的场景重建技术，还能够将机器人所处的三维空间模型恢复出来，以这个三维场景为基础，可以继续构建更丰富的地图形式，以及结合3D检测分割等技术实现更具体的环境感知。\n智能驾驶领域 行驶状态中的车辆是实时运动的，并且车辆所在的道路环境也是实时变化，因此即使没有预先加载的高精度地图，智能驾驶的车辆也应该能够通过视觉或者其他传感器感知到周围环境中其他车辆或者物体的状况变化从而调整自身，这是业界常说的“轻地图，重感知”。\n智能驾驶的车辆，不同于移动机器人在一个区域内运行，也不会像移动机器人一样为了补全视野的盲区而在一个范围内来回打转，车辆的运行轨迹基本是持续向前的，因此对于3D视觉的感知更倾向于实时的呈现，通过相机持续拍摄车辆周围可以获得视频流，而同时拥有了图像深度后，这个平面图像的视频流就可以转换为三维空间的点云运动流，这个转换的过程不涉及深度学习。对点云空间也可以同样进行检测、分割等处理，从而获得周围环境的实时道路状况信息。\n近几年兴起的Occupancy Networks（占用网络）是上述描绘场景的一种近似表达，特别是MonoScene，通过一个网络模型实现了从单张图像中获取深度和语义信息再以三维栅格网络方式呈现的流程，从一定意义上掀起了占用网络的热潮。而从本质出发，如果拥有图像中每一个像素对应的精确深度，那么不管是高密度的三维空间点云还是数据量更低的栅格化网格，都可以顺畅地实现。\n3D视觉感知的本质前提是拥有足够精确的第三维度信息，也就是深度，而后再开展以3D视觉为主导的感知技术才能如鱼得水。现如今虽然说人工智能是大趋势，深度学习方法可以解决很多问题，但要驱动深度学习方法完好运转还需要充足且高质量的数据驱动，不管是先获得精确深度信息还是说直接的3D视觉感知，当应用深度学习方法时，都离不开数据。\n总的来说，3D视觉的核心是先恢复出了准确可靠的深度信息，而后再进行更具体的感知任务。一种思路是从相机本身考虑，但可能目前几种深度相机有理论的上限或者实际应用的瓶颈难以继续突破深度测量的精度和可靠性，另一种思路是完全的数据驱动，首先拥有足够量级的精准深度数据，而后不断优化深度学习的模型来达到最佳效果。3D视觉感知技术的应用也是一样，在拥有准确深度后，很多传统的感知任务都会锦上添花，当然也可以将3D视觉感知作为一个整体，在只有图像输入的情况下实现3D视觉的感知，这里就回到了应用深度学习方法解决的思路，模型优化固然重要，更必要还是高质量数据驱动。\n",
+  "wordCount" : "3804",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-07T10:09:54+08:00",
+  "dateModified": "2024-04-07T10:09:54+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/know/aha-3d-visual-perception/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title entry-hint-parent">
+      3D视觉感知
+    </h1>
+    <div class="post-description">
+      从现状到发展
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-04-07
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-07
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3804 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="color: var(--secondary)!important;">机器视觉</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%9c%ba%e5%99%a8%e8%a7%86%e8%a7%89%e7%9a%84%e6%b7%b1%e5%ba%a6%e8%8e%b7%e5%8f%96" aria-label="机器视觉的深度获取">机器视觉的深度获取</a></li>
+                <li>
+                    <a href="#3d%e8%a7%86%e8%a7%89%e6%84%9f%e7%9f%a5%e6%8a%80%e6%9c%af" aria-label="3D视觉感知技术">3D视觉感知技术</a><ul>
+                        
+                <li>
+                    <a href="#%e7%a7%bb%e5%8a%a8%e6%9c%ba%e5%99%a8%e4%ba%ba%e9%a2%86%e5%9f%9f" aria-label="移动机器人领域">移动机器人领域</a></li>
+                <li>
+                    <a href="#%e6%99%ba%e8%83%bd%e9%a9%be%e9%a9%b6%e9%a2%86%e5%9f%9f" aria-label="智能驾驶领域">智能驾驶领域</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><blockquote>
+<p><strong>引子</strong>：</p>
+<p>我们生活的世界是三维的，在三维世界中对物体的感知拥有明确的距离感，比如键盘在手的前面，显示器在键盘的前面，那么显示器就在手的更前面（这里的“前”或者“后”属于自定义的界定，也可以认为键盘在手的后面，显示器在手的更后面），而如果通过相机将这个三维世界中的场景拍成一张照片，此时三维空间中的所有距离层次就一起被“拍”进了二维图像中，形象地比喻就是将立体的空间“压”成一张了平面的表达，从此表达空间深度的维度就丢失了，并且这个过程在自然状态下是不可逆的。</p>
+<p>而当我们谈到三维空间（Three-dimensional space，以下称3D）的视觉感知时，则必然与深度（距离层次感）脱不开关系，也就是说，当我们用视觉（人可以用眼睛+大脑，机器可以用图像传感器+软件算法）去感知周围的环境时，只有同时获取到了深度，才有资格去讨论3D的视觉感知，否则还是停留在2D平面图像的层次。</p>
+<p>因此在讨论“3D视觉感知的发展”时可以将关注点聚焦在两处：</p>
+<ol>
+<li><strong>如何提高机器视觉系统获取深度信息的精度和可靠性？（如何获得更高精度的深度信息？）</strong></li>
+<li><strong>在融合图像和深度信息后，能够推动哪些3D视觉感知技术的发展？（在拥有图像和深度信息后，我们能继续做什么？）</strong></li>
+</ol>
+</blockquote>
+<h2 id="机器视觉的深度获取">机器视觉的深度获取<a hidden class="anchor" aria-hidden="true" href="#机器视觉的深度获取">#</a></h2>
+<p>首先，我们讨论的是机器的视觉系统，关于机器视觉的定义，简言之，就是通过“某些设备”让机器能够“看到”周围的环境，在不具体追溯这些设备的软硬件实现时，我们以“相机”这个更为广泛的概念进行代替，也就是说，通过相机（相机内部还需要算法和软件支持）可以让机器“看到”这个世界，<strong>而相机实现的不同，则可以让机器看待这个世界的方式也发生改变。</strong></p>
+<p>因此，比较直观地获取深度的方式是直接通过相机软硬件这个载体来实现，在这里只进行简要的介绍，因为以下的每一种相机在具体讨论时都需要大篇幅的内容进行结构、原理和方法的说明。</p>
+<p>从相机的角度来看，获取图像深度的方式可以分为两大类型：</p>
+<ul>
+<li>一种是通过硬件的物理测量，比如向三维空间中发射特殊的光源，这个光源接触到物体发生反射后可以回到接收装置，通过测量光源的来回传播时间获得距离信息的飞行时间原理（Time of Flight，TOF）的深度相机，以及向三维空间中投射具有特殊形状的光源，通过测量计算这些光源在物体表面发生的形变来获得距离信息的结构光原理（Structured Light）的深度相机；</li>
+<li>另一种则是通过图像中的几何学关系计算得到，专业的表达是多视图几何（Multiple View Geometry），具体的实现可以是一个相机拍摄的多个连续场景图像，或者是两个或多个相机拍摄的同一个场景图像，其中较为成熟的是通过两个平行相机实现的双目立体视觉（Binocular Stereo Vision）相机。</li>
+</ul>
+<p>具体到每一种类型的深度相机，都有其各自的关注点来提高相机获取深度的精度，在此暂不深究。从另一个角度出发，如果没有这些额外的软硬件支持，只能通过相机拍摄二维图像，怎么得到图像的深度信息呢？</p>
+<p>在当下能够通过数据驱动解决复杂问题的大背景下，利用机器学习（更具体一点是深度学习）直接从二维图像中估计出深度是一种技术趋势，比如在paperswithcode.com上检索“Depth Estimation”可以看到很多开源的算法和模型，并且所依赖的数据也不再限制，利用单张图像或者多张图像都有相应的方法。因此更直观的想法就是在相机中嵌入深度学习技术直接从图像中估计出深度信息，从而也就避免了采用额外硬件设备所需要的校准、标定等繁杂的维护工作。</p>
+<p>在深度学习里有一条基本认知是：<strong>“数据决定了深度学习的上限，而模型只是逼近这个上限而已”</strong>。也就是说，想要通过深度学习完善地解决直接的图像深度估计问题，一个好的模型固然重要，但更为关键是拥有驱动这个模型完好运转的数据燃料，并且数据的质量决定了模型效果，那么怎样获得这些高质量的数据呢？</p>
+<p>上文介绍的通过硬件物理测量和通过图像几何学关系获取深度的两种相机，这些在市场中已经有成熟的产品投入应用，如果用它们得到的深度数据来驱动深度学习，从理论上来讲，最理想的状态也不过是达到了深度相机的最高精度效果，并且物理测量或者几何计算本身就具有的偏差还会对模型的效果产生负面影响。</p>
+<p>因此，从数据驱动的深度学习方法估计图像深度的这一方向切入，如果想要让模型的结果更精确从而获取更可靠的深度信息，还需要从数据上下功夫，具体可实践的方式是使用3D仿真，通过模拟相机和构建3D场景产生所需求的且完全准确的深度信息，可以采用的工具和软件包括：</p>
+<ul>
+<li>3D建模和动画软件：Blender；</li>
+<li>游戏物理引擎：Unity 3D，Unreal Engine；</li>
+<li>机器人仿真器（开源）：Gazebo Sim；</li>
+<li>自动驾驶仿真器（开源）：CARLA。</li>
+</ul>
+<p>而随着人工智能的发展，特别是生成式人工智能（Generative AI）的技术，将人工智能自己生成内容的技术融入到3D仿真生成也将成为一种新趋势。</p>
+<h2 id="3d视觉感知技术">3D视觉感知技术<a hidden class="anchor" aria-hidden="true" href="#3d视觉感知技术">#</a></h2>
+<p>有了图像深度（用Z表示）之后，我们能做什么呢？</p>
+<ol>
+<li>首先能够从二维图像恢复出三维的空间关系，图像中每一个像素点(x,y)可以通过投影关系恢复到三维空间中的点(X,Y,Z)，将这些三维的点组合起来就构成了<strong>点云（Point Cloud）</strong>。</li>
+<li>通过点云可以分析出哪些是可以移动的区域，哪些区域不平坦；以及哪些是空间中的阻挡自身运动的障碍物，这些障碍物与自身的实时距离等，这个过程体现的就是<strong>三维空间的感知</strong>。</li>
+<li>由于从三维空间“拍”进二维图像的过程中，距离相机更近的物体会挡住其身后的物体，因此在从二维图像恢复到三维空间时，那些被挡住的部分自然也不会呈现出来，而想要从图像中恢复出一个空间的完整样貌，就需要很多张拍摄到这个空间各个角落的图像一起“组合”，共同“拼接”来还原，这个过程就叫做<strong>三维空间的场景重建</strong>。</li>
+</ol>
+<p>以上的过程在具体实现中会涉及到较多的数学原理推导，在这里没有具体展开说明，但从本质的理解出发，在拥有图像深度之后，视觉的感知就完整了，下面从移动机器人和智能驾驶两个领域来谈一谈3D视觉感知技术的具体应用。</p>
+<h3 id="移动机器人领域">移动机器人领域<a hidden class="anchor" aria-hidden="true" href="#移动机器人领域">#</a></h3>
+<p>一般而言，移动机器人是在一个区域内运行的，也就是说，移动机器人需要拥有这个区域的地图信息，然后在已有地图的基础上再完成感知、定位、路径规划和导航，甚至在实际应用时还需要考虑对地图的更新。机器人的定位和建图可以通过SLAM（Simultaneous Localization And Mapping）技术来实现，SLAM中也需要知道深度信息，比如视觉SLAM在只提供图像的情况下时通过几何学关系来计算出深度，而如果能够同时提供足够精确的深度信息，那么SLAM的建图和定位精度也会更加准确。</p>
+<p>在3D视觉下，机器人可以做到对物体更加准确和丰富的感知，不仅是对物体实现简单的位置测距，在一些算法的支持下，还能够对特定的物体实现姿态的估计，在同时拥有物体的位置和姿态后，就可以展开定位、抓取等后续的操作。同时利用三维空间的场景重建技术，还能够将机器人所处的三维空间模型恢复出来，以这个三维场景为基础，可以继续构建更丰富的地图形式，以及结合3D检测分割等技术实现更具体的环境感知。</p>
+<h3 id="智能驾驶领域">智能驾驶领域<a hidden class="anchor" aria-hidden="true" href="#智能驾驶领域">#</a></h3>
+<p>行驶状态中的车辆是实时运动的，并且车辆所在的道路环境也是实时变化，因此即使没有预先加载的高精度地图，智能驾驶的车辆也应该能够通过视觉或者其他传感器感知到周围环境中其他车辆或者物体的状况变化从而调整自身，这是业界常说的“轻地图，重感知”。</p>
+<p>智能驾驶的车辆，不同于移动机器人在一个区域内运行，也不会像移动机器人一样为了补全视野的盲区而在一个范围内来回打转，车辆的运行轨迹基本是持续向前的，因此对于3D视觉的感知更倾向于<strong>实时的呈现</strong>，通过相机持续拍摄车辆周围可以获得视频流，而同时拥有了图像深度后，这个平面图像的视频流就可以转换为三维空间的点云运动流，这个转换的过程不涉及深度学习。对点云空间也可以同样进行检测、分割等处理，从而获得周围环境的实时道路状况信息。</p>
+<p>近几年兴起的Occupancy Networks（占用网络）是上述描绘场景的一种近似表达，特别是MonoScene，通过一个网络模型实现了从单张图像中获取深度和语义信息再以三维栅格网络方式呈现的流程，从一定意义上掀起了占用网络的热潮。而从本质出发，如果拥有图像中每一个像素对应的精确深度，那么不管是高密度的三维空间点云还是数据量更低的栅格化网格，都可以顺畅地实现。</p>
+<p>3D视觉感知的本质前提是拥有足够精确的第三维度信息，也就是深度，而后再开展以3D视觉为主导的感知技术才能如鱼得水。现如今虽然说人工智能是大趋势，深度学习方法可以解决很多问题，但要驱动深度学习方法完好运转还需要充足且高质量的数据驱动，不管是先获得精确深度信息还是说直接的3D视觉感知，当应用深度学习方法时，都离不开数据。</p>
+<hr>
+<p>总的来说，3D视觉的核心是先恢复出了准确可靠的深度信息，而后再进行更具体的感知任务。一种思路是从相机本身考虑，但可能目前几种深度相机有理论的上限或者实际应用的瓶颈难以继续突破深度测量的精度和可靠性，另一种思路是完全的数据驱动，首先拥有足够量级的精准深度数据，而后不断优化深度学习的模型来达到最佳效果。3D视觉感知技术的应用也是一样，在拥有准确深度后，很多传统的感知任务都会锦上添花，当然也可以将3D视觉感知作为一个整体，在只有图像输入的情况下实现3D视觉的感知，这里就回到了应用深度学习方法解决的思路，模型优化固然重要，更必要还是高质量数据驱动。</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/">机器视觉</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/slam14-ch1/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>SLAM十四讲第一讲：预备知识</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>二维平面下的坐标系变换</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

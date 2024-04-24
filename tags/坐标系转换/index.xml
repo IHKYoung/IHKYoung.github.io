@@ -10,9 +10,9 @@
     <atom:link href="https://ahaknow.com/tags/%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>二维平面下的坐标系变换</title>
-      <link>https://ahaknow.com/posts/know/2d-coordinate-transformation/</link>
+      <link>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/2d-coordinate-transformation/</guid>
+      <guid>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
       <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
     </item>
   </channel>

@@ -6,76 +6,97 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Apr 2024 10:26:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2024 15:16:10 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
-      <link>https://ahaknow.com/posts/know/one-sows-and-another-reaps/</link>
+      <link>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</link>
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/one-sows-and-another-reaps/</guid>
+      <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
     </item>
     <item>
-      <title>Spdlog Usage</title>
-      <link>https://ahaknow.com/posts/know/spdlog-usage/</link>
+      <title>Linux：创建具有权限限制的新用户</title>
+      <link>https://ahaknow.com/posts/know/linux-limit-user/</link>
+      <pubDate>Wed, 24 Apr 2024 15:16:10 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-limit-user/</guid>
+      <description>创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新</description>
+    </item>
+    <item>
+      <title>Linux：内核启动不了之后</title>
+      <link>https://ahaknow.com/posts/know/linux-kernel/</link>
+      <pubDate>Wed, 24 Apr 2024 13:00:28 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-kernel/</guid>
+      <description>遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。 1. 查看当前运行的内核 在终端运行以下命令： uname -r 会得到下面这样的信</description>
+    </item>
+    <item>
+      <title>TensorRT：最简明的安装流程</title>
+      <link>https://ahaknow.com/posts/know/note-install-tensorrt/</link>
+      <pubDate>Wed, 24 Apr 2024 11:07:22 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-install-tensorrt/</guid>
+      <description>以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。 因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，</description>
+    </item>
+    <item>
+      <title>开发实战：使用Spdlog管理调试信息</title>
+      <link>https://ahaknow.com/posts/know/dev-spdlog-usage/</link>
       <pubDate>Tue, 23 Apr 2024 17:00:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/spdlog-usage/</guid>
-      <description></description>
+      <guid>https://ahaknow.com/posts/know/dev-spdlog-usage/</guid>
+      <description>此前写代码，习惯性 std::cout 和 std::cerr 这种直接可视化的打印，然后满屏密密麻麻的打印信息，而如果不需要了，就会在代码大段大段的注释，非常不美观，甚至可以说是</description>
     </item>
     <item>
       <title>开发实战：项目中的CMake技巧</title>
-      <link>https://ahaknow.com/posts/know/project-cmake/</link>
+      <link>https://ahaknow.com/posts/know/dev-project-cmake/</link>
       <pubDate>Mon, 22 Apr 2024 22:57:28 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/project-cmake/</guid>
+      <guid>https://ahaknow.com/posts/know/dev-project-cmake/</guid>
       <description></description>
     </item>
     <item>
       <title>开发实战：给代码属上大名</title>
-      <link>https://ahaknow.com/posts/know/auto-code-copyright/</link>
+      <link>https://ahaknow.com/posts/know/dev-auto-code-copyright/</link>
       <pubDate>Mon, 22 Apr 2024 16:52:02 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/auto-code-copyright/</guid>
+      <guid>https://ahaknow.com/posts/know/dev-auto-code-copyright/</guid>
       <description>关于代码💩山，已经不忍直视。。。 只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。 所以呢，得给代码属个大名。 vscode用的久了，以此为</description>
     </item>
     <item>
       <title>开发实战：通过TCP Socket进行实施字节流解析</title>
-      <link>https://ahaknow.com/posts/know/parse-tcp-socket-byte-stream-file/</link>
+      <link>https://ahaknow.com/posts/know/dev-parse-tcp-socket-byte-stream-file/</link>
       <pubDate>Mon, 22 Apr 2024 13:59:25 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/parse-tcp-socket-byte-stream-file/</guid>
+      <guid>https://ahaknow.com/posts/know/dev-parse-tcp-socket-byte-stream-file/</guid>
       <description></description>
     </item>
     <item>
-      <title>Shell基础操作：移动文件</title>
-      <link>https://ahaknow.com/posts/know/shell-move-file/</link>
+      <title>Shell：操作移动文件</title>
+      <link>https://ahaknow.com/posts/know/note-shell-move-file/</link>
       <pubDate>Sun, 21 Apr 2024 22:36:36 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/shell-move-file/</guid>
+      <guid>https://ahaknow.com/posts/know/note-shell-move-file/</guid>
       <description>主打一个“懒”字！ 移动文件啊，重命名啥的，动手拖拖不行嘛？！ 不行！用键盘，用命令行！ 比如： 想要移动 ZYC01981 - 01.jpg，同时又想把 - 01 后缀给去掉</description>
     </item>
     <item>
-      <title>高质量编程指南：C/C&#43;&#43;试题</title>
-      <link>https://ahaknow.com/posts/know/c-c&#43;&#43;-exam/</link>
+      <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
+      <link>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</link>
       <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/c-c&#43;&#43;-exam/</guid>
+      <guid>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</guid>
       <description>本试题仅用于考查 C++/C 程序员的基本编程技能。内容限于 C++/C 常用语法，不涉及数据结构、算法以及深奥的语法。考试成绩能反映出考生的编程质量以及对 C++/C 的理解</description>
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
-      <link>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</link>
+      <link>https://ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</link>
       <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/decode-h.264-lz4-image-frames/</guid>
+      <guid>https://ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</guid>
       <description>在上一篇打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。 彩色图像采用H.264编码 -&amp;gt; 那就需要按照H</description>
     </item>
     <item>
       <title>开发实战：解析二进制文件</title>
-      <link>https://ahaknow.com/posts/know/parse-binary-file/</link>
+      <link>https://ahaknow.com/posts/know/dev-parse-binary-file/</link>
       <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/parse-binary-file/</guid>
+      <guid>https://ahaknow.com/posts/know/dev-parse-binary-file/</guid>
       <description>需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。 解析需要按照一定的规则，比如：如何确定数据的头（Hea</description>
     </item>
     <item>
       <title>Git：分支的基本操作</title>
-      <link>https://ahaknow.com/posts/know/git-branch-basic/</link>
+      <link>https://ahaknow.com/posts/know/note-git-branch-basic/</link>
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-branch-basic/</guid>
+      <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
       <description>使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。 git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远</description>
     </item>
     <item>
@@ -142,17 +163,17 @@
       <description>LeetCode上“最简单”的一道题了吧？ 长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！ You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n,</description>
     </item>
     <item>
-      <title>技术：一个正则表达式的小例子</title>
-      <link>https://ahaknow.com/posts/know/tech-a-regex-example/</link>
+      <title>Python：一个正则表达式的小例子</title>
+      <link>https://ahaknow.com/posts/know/note-a-regex-example/</link>
       <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/tech-a-regex-example/</guid>
+      <guid>https://ahaknow.com/posts/know/note-a-regex-example/</guid>
       <description>我想重命名一个文件（手动操作是不可能的，懒！） 将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1</description>
     </item>
     <item>
-      <title>技术：MP4的音轨修复</title>
-      <link>https://ahaknow.com/posts/know/tech-mp4-audio-track-repair/</link>
+      <title>Python：MP4的音轨修复</title>
+      <link>https://ahaknow.com/posts/know/note-mp4-audio-track-repair/</link>
       <pubDate>Tue, 09 Apr 2024 22:40:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/tech-mp4-audio-track-repair/</guid>
+      <guid>https://ahaknow.com/posts/know/note-mp4-audio-track-repair/</guid>
       <description>又干了一件：“为了一碟醋，包了一锅饺子”的事。。。 就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好</description>
     </item>
     <item>
@@ -178,16 +199,16 @@
     </item>
     <item>
       <title>3D视觉感知</title>
-      <link>https://ahaknow.com/posts/know/3d-visual-perception/</link>
+      <link>https://ahaknow.com/posts/know/aha-3d-visual-perception/</link>
       <pubDate>Sun, 07 Apr 2024 10:09:54 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/3d-visual-perception/</guid>
+      <guid>https://ahaknow.com/posts/know/aha-3d-visual-perception/</guid>
       <description>从现状到发展</description>
     </item>
     <item>
       <title>二维平面下的坐标系变换</title>
-      <link>https://ahaknow.com/posts/know/2d-coordinate-transformation/</link>
+      <link>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/2d-coordinate-transformation/</guid>
+      <guid>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
       <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
     </item>
     <item>

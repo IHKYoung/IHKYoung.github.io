@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>二维平面下的坐标系变换 | AhaKnow</title>
+<meta name="keywords" content="差速机器人, 坐标系转换">
+<meta name="description" content="以实际的移动机器人为例，学习坐标系变换的数学原理">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="二维平面下的坐标系变换" />
+<meta property="og:description" content="以实际的移动机器人为例，学习坐标系变换的数学原理" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-06T21:13:29+08:00" />
+<meta property="article:modified_time" content="2024-04-06T21:13:29+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="二维平面下的坐标系变换"/>
+<meta name="twitter:description" content="以实际的移动机器人为例，学习坐标系变换的数学原理"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟知识",
+      "item": "https://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "二维平面下的坐标系变换",
+      "item": "https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "二维平面下的坐标系变换",
+  "name": "二维平面下的坐标系变换",
+  "description": "以实际的移动机器人为例，学习坐标系变换的数学原理",
+  "keywords": [
+    "差速机器人", "坐标系转换"
+  ],
+  "articleBody": " 问题的描述是这样的（用我理解后的语言来表达）：\n以搭载2D激光雷达（2D-Lidar）的扫地机器人为例，只考虑在二维平面下的关系。世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$，雷达坐标系的方向轴与机器人坐标系一致，雷达搭载在机器人上，用机器人坐标系$O_C$的坐标表达，雷达的位置为$(xlc, ylc)$，现在空间中有一个物体点P，通过2D雷达对其测量（雷达旋转方向为逆时针），得到对应的角度$angle$和距离$dis$，现在假设扫地机器人运动的角速度是$w_c$，线速度是$v_c$，在$t_0$时刻时，机器人坐标系$O_C$与世界坐标系$O_W$重合，这里的角度单位都是弧度，距离单位都是米。\n现在给这样一组数据，问在$t_1$时刻时，物体点P在世界坐标系$O_W$下的坐标：\nangle、dis、xlc、ylc、 vc、wc、t1\n需要理解的前提 首先，对于输入数据的理解：可以将测试数据作为一个验证情况，因为，当世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$之间的关系表达明确时，不管带入什么测试数据，都应该是满足的。\n另外，有一个常识需要补充：在C++环境以及处理物体学、数学分析等进行三角函数计算时，使用的都是弧度制， 1弧度 $\\frac{180}{\\pi}$度，1 度 = $\\frac{\\pi}{180}$弧度。\ndouble degrees = 90.0; double radians = degrees * (M_PI / 180.0); double sinValue = sin(radians); // 使用弧度 🌟进行一步一步拆解 t时间后机器人运动的位置 首先需要理解，扫地机器人是怎么运动的，在这里知道机器人运动同时拥有角速度$w_c$，线速度$v_c$。\n一般情况下，移动机器人是通过控制两个并行轮子的速度差（差速）进行旋转的。两个轮子速度相同时，移动机器人将直线运动，两个轮子速度不同时，移动机器人将绕着某一点进行旋转运动，这个点就是即时转动中心（Instantaneous Center of Rotation, 简称 ICC）。\n也就是说，机器人此时的运动模型是一个圆弧运动，运动的半径$R = \\frac{v_c}{w_c}$，运动的角度可以通过$\\theta = w \\cdot t$得到，而对于机器人中心点的位置情况则可以通过极坐标的关系来得到，也就是机器人中心为一点，绕着ICC为原点，进行半径为R的圆周运动，转动了$\\theta = w \\cdot t$角度，那么转动$t$时间后机器人中心点的位置以XY坐标系（笛卡尔坐标系）表达就是：\n$X_{t} = R \\sin(w_c \\cdot t)$ $Y_{t} = R (1 - \\cos(w_c \\cdot t))$ 由此假设以机器人坐标系$O_C$原点来计算，那么在t时间后，$O_C$原点的坐标在世界坐标系$O_W$上的表达为：\n$X_{W_C} = R \\sin(w_c \\cdot t)$ $Y_{W_C} = R (1 - \\cos(w_c \\cdot t))$ 即时转动中心（Instantaneous Center of Rotation） 在任意给定瞬间，一个在平面上进行复合运动（即同时包含平移和旋转）的物体看起来是围绕一个假想点进行旋转，这个点就是即时转动中心。\n这个点可能位于物体内部，也可能位于物体外部（取决于左右轮的速度），甚至可能无限远（这种情况下，物体的运动可以看作是纯平移）。\n假设一个通过两个并行轮子进行差速驱动的移动机器人，左右轮子的速度分别为$V_l$和$V_r$，两轮中心之间距离为$L$，那么可以定义机器人的线速度$v_c$和角速度$w_c$如下：\n线速度$v_c$，表示机器人移动时机器人中心点的速度，通过左右轮速度的平均值来估计： $$ v_c = \\frac{V_r + V_l}{2} $$ 角速度$w_c$描述了机器人绕ICC的旋转速度，可以通过左右轮速度差与轮距的比值来计算（通过$v = \\omega \\cdot r$得到）： $$ w_c = \\frac{V_r - V_l}{L} $$ 机器人绕ICC的圆弧运动半径$R$（从ICC到机器人中心的距离），根据$v = \\omega \\cdot r$可以得到： $$ R = \\frac{v_c}{w_c} $$\n将上述定义的$v_c$和$w_c$代入到$R$的公式中可以得到： $$ R = \\frac{\\frac{V_r + V_l}{2}}{\\frac{V_r - V_l}{L}} $$ $$ R = \\frac{L}{2} \\cdot \\frac{V_r + V_l}{V_r - V_l} $$\n另一种数学解释 对于ICC的计算，在任意瞬间，机器人的左右轮到ICC的距离固不变，形成一个圆周运动。假设右轮比左轮快，那么ICC位于机器人左侧，ICC距离机器人的中心点为$R$。\n由于机器人的左右两个轮子绕ICC的旋转半径不同，但是它们完成一次完整旋转所需的时间相同，因此有：\n左轮的圆周速度是$V_l$，旋转半径是$R - \\frac{L}{2}$。 右轮的圆周速度是$V_r$，旋转半径是$R + \\frac{L}{2}$。 根据圆周运动的速度公式$v = \\omega \\cdot r$，得到：\n$V_l = w_c \\cdot (R - \\frac{L}{2})$ $V_r = w_c \\cdot (R + \\frac{L}{2})$ 将$w_c$带入解方程可以得到：\n$$ R = \\frac{L}{2} \\cdot \\frac{V_r + V_l}{V_r - V_l} $$\n但是更直观的方式是利用角速度和线速度的定义来直接求解$R$，如下：\n$$ w_c = \\frac{V_r - V_l}{L} \\Rightarrow w_c \\cdot L = V_r - V_l $$\n并且\n$$ v_c = \\frac{V_r + V_l}{2} $$\n而$R$可以理解为机器人（中心点）绕ICC旋转的半径，其线速度$v_c$与角速度$w_c$之间存在如下关系：\n$$ R = \\frac{v_c}{w_c} $$\n圆周运动中的位置计算 对于绕ICC的圆周运动，可以用极坐标系下的圆方程来描述物体的位置。在极坐标系中，一个点的位置由它到原点的距离（半径$R$）和一个角度（$\\theta$）来定义。\n将ICC视为原点，则机器人中心就是这个点，其位置转换为笛卡尔坐标系来表示就是：\n$X = R \\sin(\\theta)$ $Y = R - R \\cos(\\theta) = R (1 - \\cos(\\theta))$ 物体点P在机器人坐标系$O_C$的表达 将2D-Lidar看作为一个点，也就是原点$O_L$，那么在雷达坐标系$O_L$下，物体点P可以直接通过三角关系得到在雷达坐标系$O_L$的表达：\n$X_{L_p} = dis \\cdot \\cos(angle)$ $Y_{L_p} = dis \\cdot \\sin(angle)$ 而雷达坐标系$O_L$和机器人坐标系$O_C$只相差了一个平移关系，也就是$(xlc, ylc)$，因此可以将平移的量加上得到在机器人坐标系$O_C$的表达\n$X_{C_p} = dis \\cdot \\cos(angle) + xlc$ $Y_{C_p} = dis \\cdot \\sin(angle) + ylc$ 物体点P在世界坐标系$O_W$的表达 因为机器人坐标系$O_C$和世界坐标系$O_W$相差了一个旋转，机器人坐标系$O_C$从与世界坐标系$O_W$重合的状态，通过逆时针旋转$\\theta = w \\cdot t$得到现在的状态。\n也就是说，以机器人坐标系$O_C$的表达的物体点P也需要通过这个**逆时针旋转$\\theta = w \\cdot t$**得到在当世界坐标系$O_W$的表达；\n因此世界坐标系$O_W$的物体点P为$(X_{W_p},Y_{W_p})$可以通过$(X_{C_p},Y_{C_p})$应用上逆时针旋转，再加上$O_C$的偏移得到。\n$X_{W_p} = X_{C_p} \\cdot \\cos{\\theta} - Y_{C_p} \\cdot \\sin{\\theta} + X_{W_C}$\n$X_{W_p} = X_{C_p} \\cdot \\sin{\\theta} + Y_{C_p} \\cdot \\cos{\\theta} + Y_{W_C}$\n注意，逆时针为正（以右手坐标系来看，X轴朝左，Y轴朝上）\n逆时针旋转角度 $\\theta$ 的旋转矩阵的证明 从二维旋转的基本几何出发。假设我们有一个点 $P$，在原点 $O$ 的坐标系中的初始位置为 $P(x, y)$，需要求出 $P$ 绕原点逆时针旋转角度 $\\theta$ 后的新位置 $P’(x’, y’)$：\n旋转前，点 $P$ 的位置可以由极坐标 $r$（原点到 $P$ 的距离）和 $\\phi$（$x$ 轴到 $OP$ 的角度）确定。在笛卡尔坐标系中，有：\n$x = r\\cos(\\phi)$ $y = r\\sin(\\phi)$ 当 $P$ 绕原点逆时针旋转 $\\theta$ 后，它的新位置 $P’$ 可以用新的极坐标 $r$ 和新的角度 $\\phi + \\theta$ 来表示（$r$ 保持不变，因为旋转不改变原点到 $P$ 的距离）。因此，旋转后的坐标为：\n$x’ = r\\cos(\\phi + \\theta)$ $y’ = r\\sin(\\phi + \\theta)$ 使用三角恒等式 $\\cos(a + b) = \\cos(a)\\cos(b) - \\sin(a)\\sin(b)$ 和 $\\sin(a + b) = \\sin(a)\\cos(b) + \\cos(a)\\sin(b)$，我们可以将 $x’$ 和 $y’$ 重写为：\n$x’ = r\\cos(\\phi)\\cos(\\theta) - r\\sin(\\phi)\\sin(\\theta)$ $y’ = r\\sin(\\phi)\\cos(\\theta) + r\\cos(\\phi)\\sin(\\theta)$ 将 $x = r\\cos(\\phi)$ 和 $y = r\\sin(\\phi)$，代入得到：\n$x’ = x\\cos(\\theta) - y\\sin(\\theta)$ $y’ = x\\sin(\\theta) + y\\cos(\\theta)$ 将上述方程写成矩阵形式，得到：\n$$ \\begin{bmatrix} x’ \\ y’ \\end{bmatrix} = \\begin{bmatrix} \\cos(\\theta) \u0026 -\\sin(\\theta) \\\\ \\sin(\\theta) \u0026 \\cos(\\theta) \\end{bmatrix} \\begin{bmatrix} x \\ y \\end{bmatrix} $$ 这个矩阵就是逆时针旋转角度 $\\theta$ 的旋转矩阵 $R(\\theta)$，能够将任何给定的点在二维平面上逆时针旋转 $\\theta$ 角度，而不改变点到原点的距离。\n如果旋转是顺时针方向的，角度 $\\theta$ 将被视为负值，以右手坐标系来看，X轴朝左，Y轴朝上时，逆时针旋转是正方向，顺时针旋转则是负方向。\n顺时针旋转角度 $\\theta$ 的旋转矩阵可以通过将逆时针旋转矩阵中的角度 $\\theta$ 替换为它的负值 $-\\theta$ 来得到，因为 $\\cos(-\\theta) = \\cos(\\theta)$ 和 $\\sin(-\\theta) = -\\sin(\\theta)$。这意味着，对于顺时针旋转，旋转矩阵 $R_{cw}(\\theta)$ 是：\n$$ R_{cw}(\\theta) = \\begin{bmatrix} \\cos(-\\theta) \u0026 -\\sin(-\\theta) \\\\ \\sin(-\\theta) \u0026 \\cos(-\\theta) \\end{bmatrix} $$ 使用三角函数的性质 $\\cos(-\\theta) = \\cos(\\theta)$ 和 $\\sin(-\\theta) = -\\sin(\\theta)$，得到：\n$$ R_{cw}(\\theta) = \\begin{bmatrix} \\cos(\\theta) \u0026 \\sin(\\theta) \\\\ -\\sin(\\theta) \u0026 \\cos(\\theta) \\end{bmatrix} $$ 因此，顺时针旋转矩阵直接使用正角度 $\\theta$ 为：\n$$ R_{cw}(\\theta) = \\begin{bmatrix} \\cos(\\theta) \u0026 \\sin(\\theta) \\\\ -\\sin(\\theta) \u0026 \\cos(\\theta) \\end{bmatrix} $$ 这个矩阵可以用来将任何给定的点在二维平面上顺时针旋转 $\\theta$ 角度，这与逆时针旋转从形式上看只是$\\sin(\\theta)$的正负号相反。\n完整的C++实现 #include #include int main() { // jj double angle, dis, xlc, ylc, vc, wc, t1; std::cin \u003e\u003e angle \u003e\u003e dis \u003e\u003e xlc \u003e\u003e ylc \u003e\u003e vc \u003e\u003e wc \u003e\u003e t1; // angle为弧度制，wc为弧度/s // dis为距离，vc为m/s // 起点(0, 0), 角速度wc, 线速度vc // 经过t1时间 double delta_v = vc * t1; double delta_w = wc * t1; // 机器人坐标系Oc，世界坐标Ow double Xwc, Ywc; double R = vc / wc; Xwc = R * sin(delta_w); Ywc = R * (1 - cos(delta_w)); // 打印Xwc, Ywc // std::cout \u003c\u003c Xwc \u003c\u003c ' ' \u003c\u003c Ywc \u003c\u003c std::endl; // 求P点在世界坐标系Ow的坐标 // 先求P点在Oc的坐标 double Xcp, Ycp; Xcp = xlc + dis * cos(angle); Ycp = ylc + dis * sin(angle); // 打印Xcp, Ycp // std::cout \u003c\u003c Xcp \u003c\u003c ' ' \u003c\u003c Ycp \u003c\u003c std::endl; // 再求P点在Ow的坐标 double Xwp, Ywp; Xwp = cos(delta_w) * Xcp - sin(delta_w) * Ycp + Xwc; Ywp = sin(delta_w) * Xcp + cos(delta_w) * Ycp + Ywc; // 打印Xwp, Ywp std::cout \u003c\u003c Xwp \u003c\u003c ' ' \u003c\u003c Ywp \u003c\u003c std::endl; return 0; } ",
+  "wordCount" : "3589",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-06T21:13:29+08:00",
+  "dateModified": "2024-04-06T21:13:29+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title entry-hint-parent">
+      二维平面下的坐标系变换
+    </h1>
+    <div class="post-description">
+      以实际的移动机器人为例，学习坐标系变换的数学原理
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-04-06
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-06
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3589 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E5%B7%AE%E9%80%9F%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="color: var(--secondary)!important;">差速机器人</a>
+                &nbsp;<a href="https://ahaknow.com/tags/%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/" style="color: var(--secondary)!important;">坐标系转换</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%9c%80%e8%a6%81%e7%90%86%e8%a7%a3%e7%9a%84%e5%89%8d%e6%8f%90" aria-label="需要理解的前提">需要理解的前提</a></li>
+                <li>
+                    <a href="#%e8%bf%9b%e8%a1%8c%e4%b8%80%e6%ad%a5%e4%b8%80%e6%ad%a5%e6%8b%86%e8%a7%a3" aria-label="🌟进行一步一步拆解">🌟进行一步一步拆解</a><ul>
+                        
+                <li>
+                    <a href="#t%e6%97%b6%e9%97%b4%e5%90%8e%e6%9c%ba%e5%99%a8%e4%ba%ba%e8%bf%90%e5%8a%a8%e7%9a%84%e4%bd%8d%e7%bd%ae" aria-label="t时间后机器人运动的位置">t时间后机器人运动的位置</a><ul>
+                        
+                <li>
+                    <a href="#%e5%8d%b3%e6%97%b6%e8%bd%ac%e5%8a%a8%e4%b8%ad%e5%bf%83instantaneous-center-of-rotation" aria-label="即时转动中心（Instantaneous Center of Rotation）">即时转动中心（Instantaneous Center of Rotation）</a></li>
+                <li>
+                    <a href="#%e5%8f%a6%e4%b8%80%e7%a7%8d%e6%95%b0%e5%ad%a6%e8%a7%a3%e9%87%8a" aria-label="另一种数学解释">另一种数学解释</a></li>
+                <li>
+                    <a href="#%e5%9c%86%e5%91%a8%e8%bf%90%e5%8a%a8%e4%b8%ad%e7%9a%84%e4%bd%8d%e7%bd%ae%e8%ae%a1%e7%ae%97" aria-label="圆周运动中的位置计算">圆周运动中的位置计算</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%89%a9%e4%bd%93%e7%82%b9p%e5%9c%a8%e6%9c%ba%e5%99%a8%e4%ba%ba%e5%9d%90%e6%a0%87%e7%b3%bbo_c%e7%9a%84%e8%a1%a8%e8%be%be" aria-label="物体点P在机器人坐标系$O_C$的表达">物体点P在机器人坐标系$O_C$的表达</a></li>
+                <li>
+                    <a href="#%e7%89%a9%e4%bd%93%e7%82%b9p%e5%9c%a8%e4%b8%96%e7%95%8c%e5%9d%90%e6%a0%87%e7%b3%bbo_w%e7%9a%84%e8%a1%a8%e8%be%be" aria-label="物体点P在世界坐标系$O_W$的表达">物体点P在世界坐标系$O_W$的表达</a><ul>
+                        
+                <li>
+                    <a href="#%e9%80%86%e6%97%b6%e9%92%88%e6%97%8b%e8%bd%ac%e8%a7%92%e5%ba%a6-theta-%e7%9a%84%e6%97%8b%e8%bd%ac%e7%9f%a9%e9%98%b5%e7%9a%84%e8%af%81%e6%98%8e" aria-label="逆时针旋转角度 $\theta$ 的旋转矩阵的证明">逆时针旋转角度 $\theta$ 的旋转矩阵的证明</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%ae%8c%e6%95%b4%e7%9a%84c%e5%ae%9e%e7%8e%b0" aria-label="完整的C&#43;&#43;实现">完整的C++实现</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><blockquote>
+<p>问题的描述是这样的（用我理解后的语言来表达）：</p>
+<p>以搭载2D激光雷达（2D-Lidar）的扫地机器人为例，只考虑在二维平面下的关系。世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$，雷达坐标系的方向轴与机器人坐标系一致，雷达搭载在机器人上，用机器人坐标系$O_C$的坐标表达，雷达的位置为$(xlc, ylc)$，现在空间中有一个物体点P，通过2D雷达对其测量（雷达旋转方向为逆时针），得到对应的角度$angle$和距离$dis$，现在假设扫地机器人运动的角速度是$w_c$，线速度是$v_c$，在$t_0$时刻时，机器人坐标系$O_C$与世界坐标系$O_W$重合，这里的角度单位都是弧度，距离单位都是米。</p>
+<p>现在给这样一组数据，问在$t_1$时刻时，物体点P在世界坐标系$O_W$下的坐标：</p>
+<p><code>angle、dis、xlc、ylc、 vc、wc、t1</code></p>
+</blockquote>
+<p><img loading="lazy" src="../images/robot.png" alt=""  />
+</p>
+<h2 id="需要理解的前提">需要理解的前提<a hidden class="anchor" aria-hidden="true" href="#需要理解的前提">#</a></h2>
+<p>首先，对于输入数据的理解：可以将测试数据作为一个验证情况，<strong>因为，当世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$之间的关系表达明确时，不管带入什么测试数据，都应该是满足的。</strong></p>
+<p>另外，有一个常识需要补充：在C++环境以及处理物体学、数学分析等进行三角函数计算时，使用的都是弧度制， 1弧度 $\frac{180}{\pi}$度，1 度 = $\frac{\pi}{180}$弧度。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">degrees</span> <span class="o">=</span> <span class="mf">90.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">radians</span> <span class="o">=</span> <span class="n">degrees</span> <span class="o">*</span> <span class="p">(</span><span class="n">M_PI</span> <span class="o">/</span> <span class="mf">180.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="n">sinValue</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">radians</span><span class="p">);</span>  <span class="c1">// 使用弧度
+</span></span></span></code></pre></div><h2 id="进行一步一步拆解">🌟进行一步一步拆解<a hidden class="anchor" aria-hidden="true" href="#进行一步一步拆解">#</a></h2>
+<h3 id="t时间后机器人运动的位置">t时间后机器人运动的位置<a hidden class="anchor" aria-hidden="true" href="#t时间后机器人运动的位置">#</a></h3>
+<p>首先需要理解，<strong>扫地机器人是怎么运动的</strong>，在这里知道机器人运动同时拥有角速度$w_c$，线速度$v_c$。</p>
+<p><strong>一般情况下，移动机器人是通过控制两个并行轮子的速度差（差速）进行旋转的。两个轮子速度相同时，移动机器人将直线运动，两个轮子速度不同时，移动机器人将<em>绕着某一点</em>进行旋转运动，这个点就是即时转动中心（Instantaneous Center of Rotation, 简称 ICC）。</strong></p>
+<p>也就是说，机器人此时的运动模型是一个<strong>圆弧运动</strong>，运动的半径$R = \frac{v_c}{w_c}$，运动的角度可以通过$\theta = w \cdot t$得到，而对于机器人中心点的位置情况则可以通过极坐标的关系来得到，也就是机器人中心为一点，绕着ICC为原点，进行半径为R的圆周运动，转动了$\theta = w \cdot t$角度，那么转动$t$时间后机器人中心点的位置以XY坐标系（笛卡尔坐标系）表达就是：</p>
+<ul>
+<li>$X_{t} = R \sin(w_c \cdot t)$</li>
+<li>$Y_{t} = R (1 - \cos(w_c \cdot t))$</li>
+</ul>
+<p>由此假设以机器人坐标系$O_C$原点来计算，那么在t时间后，$O_C$原点的坐标在世界坐标系$O_W$上的表达为：</p>
+<ul>
+<li>$X_{W_C} = R \sin(w_c \cdot t)$</li>
+<li>$Y_{W_C} = R (1 - \cos(w_c \cdot t))$</li>
+</ul>
+<hr>
+<h4 id="即时转动中心instantaneous-center-of-rotation">即时转动中心（Instantaneous Center of Rotation）<a hidden class="anchor" aria-hidden="true" href="#即时转动中心instantaneous-center-of-rotation">#</a></h4>
+<blockquote>
+<p>在任意给定瞬间，一个在平面上进行复合运动（即同时包含平移和旋转）的物体看起来是围绕一个假想点进行旋转，这个点就是即时转动中心。</p>
+<p>这个点可能位于物体内部，也可能位于物体外部（取决于左右轮的速度），甚至可能无限远（这种情况下，物体的运动可以看作是纯平移）。</p>
+</blockquote>
+<p>假设一个通过两个并行轮子进行差速驱动的移动机器人，左右轮子的速度分别为$V_l$和$V_r$，两轮中心之间距离为$L$，那么可以定义机器人的线速度$v_c$和角速度$w_c$如下：</p>
+<ul>
+<li>线速度$v_c$，表示机器人移动时机器人中心点的速度，通过左右轮速度的平均值来估计：
+$$ v_c = \frac{V_r + V_l}{2} $$</li>
+<li>角速度$w_c$描述了机器人绕ICC的旋转速度，可以通过左右轮速度差与轮距的比值来计算（通过$v = \omega \cdot r$得到）：
+$$ w_c = \frac{V_r - V_l}{L} $$</li>
+</ul>
+<p>机器人绕ICC的圆弧运动半径$R$（从ICC到机器人中心的距离），根据$v = \omega \cdot r$可以得到：
+$$ R = \frac{v_c}{w_c} $$</p>
+<p>将上述定义的$v_c$和$w_c$代入到$R$的公式中可以得到：
+$$ R = \frac{\frac{V_r + V_l}{2}}{\frac{V_r - V_l}{L}} $$
+$$ R = \frac{L}{2} \cdot \frac{V_r + V_l}{V_r - V_l} $$</p>
+<h4 id="另一种数学解释">另一种数学解释<a hidden class="anchor" aria-hidden="true" href="#另一种数学解释">#</a></h4>
+<p>对于ICC的计算，在任意瞬间，机器人的左右轮到ICC的距离固不变，形成一个圆周运动。假设右轮比左轮快，那么ICC位于机器人左侧，ICC距离机器人的中心点为$R$。</p>
+<p>由于机器人的左右两个轮子绕ICC的旋转半径不同，但是它们完成一次完整旋转所需的时间相同，因此有：</p>
+<ul>
+<li>左轮的圆周速度是$V_l$，旋转半径是$R - \frac{L}{2}$。</li>
+<li>右轮的圆周速度是$V_r$，旋转半径是$R + \frac{L}{2}$。</li>
+</ul>
+<p>根据圆周运动的速度公式$v = \omega \cdot r$，得到：</p>
+<ul>
+<li>$V_l = w_c \cdot (R - \frac{L}{2})$</li>
+<li>$V_r = w_c \cdot (R + \frac{L}{2})$</li>
+</ul>
+<p>将$w_c$带入解方程可以得到：</p>
+<p>$$ R = \frac{L}{2} \cdot \frac{V_r + V_l}{V_r - V_l} $$</p>
+<p><strong>但是更直观的方式是利用角速度和线速度的定义</strong>来直接求解$R$，如下：</p>
+<p>$$ w_c = \frac{V_r - V_l}{L} \Rightarrow w_c \cdot L = V_r - V_l $$</p>
+<p>并且</p>
+<p>$$ v_c = \frac{V_r + V_l}{2} $$</p>
+<p>而$R$可以理解为机器人（中心点）绕ICC旋转的半径，其线速度$v_c$与角速度$w_c$之间存在如下关系：</p>
+<p>$$ R = \frac{v_c}{w_c} $$</p>
+<h4 id="圆周运动中的位置计算">圆周运动中的位置计算<a hidden class="anchor" aria-hidden="true" href="#圆周运动中的位置计算">#</a></h4>
+<p>对于绕ICC的圆周运动，可以用极坐标系下的圆方程来描述物体的位置。在极坐标系中，<strong>一个点</strong>的位置由它到原点的距离（半径$R$）和一个角度（$\theta$）来定义。</p>
+<p>将ICC视为原点，则机器人中心就是<strong>这个点</strong>，其位置转换为笛卡尔坐标系来表示就是：</p>
+<ul>
+<li>$X = R \sin(\theta)$</li>
+<li>$Y = R - R \cos(\theta) = R (1 - \cos(\theta))$</li>
+</ul>
+<hr>
+<h3 id="物体点p在机器人坐标系o_c的表达">物体点P在机器人坐标系$O_C$的表达<a hidden class="anchor" aria-hidden="true" href="#物体点p在机器人坐标系o_c的表达">#</a></h3>
+<p>将2D-Lidar看作为一个点，也就是原点$O_L$，那么在雷达坐标系$O_L$下，物体点P可以直接通过三角关系得到在雷达坐标系$O_L$的表达：</p>
+<ul>
+<li>$X_{L_p} = dis \cdot \cos(angle)$</li>
+<li>$Y_{L_p} = dis \cdot \sin(angle)$</li>
+</ul>
+<p>而雷达坐标系$O_L$和机器人坐标系$O_C$只相差了一个<strong>平移关系，也就是$(xlc, ylc)$</strong>，因此可以将平移的量加上得到在机器人坐标系$O_C$的表达</p>
+<ul>
+<li>$X_{C_p} = dis \cdot \cos(angle) + xlc$</li>
+<li>$Y_{C_p} = dis \cdot \sin(angle) + ylc$</li>
+</ul>
+<h3 id="物体点p在世界坐标系o_w的表达">物体点P在世界坐标系$O_W$的表达<a hidden class="anchor" aria-hidden="true" href="#物体点p在世界坐标系o_w的表达">#</a></h3>
+<p>因为机器人坐标系$O_C$和世界坐标系$O_W$相差了一个旋转，机器人坐标系$O_C$从与世界坐标系$O_W$重合的状态，通过<strong>逆时针旋转</strong>$\theta = w \cdot t$得到现在的状态。</p>
+<p>也就是说，以机器人坐标系$O_C$的表达的物体点P也需要通过这个**逆时针旋转$\theta = w \cdot t$**得到在当世界坐标系$O_W$的表达；</p>
+<p>因此世界坐标系$O_W$的物体点P为$(X_{W_p},Y_{W_p})$可以通过$(X_{C_p},Y_{C_p})$应用上逆时针旋转，再加上$O_C$的偏移得到。</p>
+<ul>
+<li>
+<p>$X_{W_p} = X_{C_p} \cdot \cos{\theta} - Y_{C_p} \cdot \sin{\theta} + X_{W_C}$</p>
+</li>
+<li>
+<p>$X_{W_p} = X_{C_p} \cdot \sin{\theta} + Y_{C_p} \cdot \cos{\theta} + Y_{W_C}$</p>
+</li>
+</ul>
+<p><strong>注意，逆时针为正（以右手坐标系来看，X轴朝左，Y轴朝上）</strong></p>
+<hr>
+<h4 id="逆时针旋转角度-theta-的旋转矩阵的证明">逆时针旋转角度 $\theta$ 的旋转矩阵的证明<a hidden class="anchor" aria-hidden="true" href="#逆时针旋转角度-theta-的旋转矩阵的证明">#</a></h4>
+<p>从二维旋转的基本几何出发。假设我们有一个点 $P$，在原点 $O$ 的坐标系中的初始位置为 $P(x, y)$，需要求出 $P$ 绕原点逆时针旋转角度 $\theta$ 后的新位置 $P&rsquo;(x&rsquo;, y&rsquo;)$：</p>
+<p>旋转前，点 $P$ 的位置可以由极坐标 $r$（原点到 $P$ 的距离）和 $\phi$（$x$ 轴到 $OP$ 的角度）确定。在笛卡尔坐标系中，有：</p>
+<ul>
+<li>$x = r\cos(\phi)$</li>
+<li>$y = r\sin(\phi)$</li>
+</ul>
+<p>当 $P$ 绕原点逆时针旋转 $\theta$ 后，它的新位置 $P&rsquo;$ 可以用新的极坐标 $r$ 和新的角度 $\phi + \theta$ 来表示（$r$ 保持不变，因为旋转不改变原点到 $P$ 的距离）。因此，旋转后的坐标为：</p>
+<ul>
+<li>$x&rsquo; = r\cos(\phi + \theta)$</li>
+<li>$y&rsquo; = r\sin(\phi + \theta)$</li>
+</ul>
+<p>使用三角恒等式 $\cos(a + b) = \cos(a)\cos(b) - \sin(a)\sin(b)$ 和 $\sin(a + b) = \sin(a)\cos(b) + \cos(a)\sin(b)$，我们可以将 $x&rsquo;$ 和 $y&rsquo;$ 重写为：</p>
+<ul>
+<li>$x&rsquo; = r\cos(\phi)\cos(\theta) - r\sin(\phi)\sin(\theta)$</li>
+<li>$y&rsquo; = r\sin(\phi)\cos(\theta) + r\cos(\phi)\sin(\theta)$</li>
+</ul>
+<p>将 $x = r\cos(\phi)$ 和 $y = r\sin(\phi)$，代入得到：</p>
+<ul>
+<li>$x&rsquo; = x\cos(\theta) - y\sin(\theta)$</li>
+<li>$y&rsquo; = x\sin(\theta) + y\cos(\theta)$</li>
+</ul>
+<p>将上述方程写成矩阵形式，得到：</p>
+<p>$$
+\begin{bmatrix} x&rsquo; \ y&rsquo; \end{bmatrix} = \begin{bmatrix} \cos(\theta) &amp; -\sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) \end{bmatrix} \begin{bmatrix} x \ y \end{bmatrix}
+$$
+这个矩阵就是逆时针旋转角度 $\theta$ 的旋转矩阵 $R(\theta)$，能够将任何给定的点在二维平面上逆时针旋转 $\theta$ 角度，而不改变点到原点的距离。</p>
+<p>如果旋转是顺时针方向的，角度 $\theta$ 将被视为负值，以右手坐标系来看，X轴朝左，Y轴朝上时，逆时针旋转是正方向，顺时针旋转则是负方向。</p>
+<p>顺时针旋转角度 $\theta$ 的旋转矩阵可以通过将逆时针旋转矩阵中的角度 $\theta$ 替换为它的负值 $-\theta$ 来得到，因为 $\cos(-\theta) = \cos(\theta)$ 和 $\sin(-\theta) = -\sin(\theta)$。这意味着，对于顺时针旋转，旋转矩阵 $R_{cw}(\theta)$ 是：</p>
+<p>$$
+R_{cw}(\theta) = \begin{bmatrix} \cos(-\theta) &amp; -\sin(-\theta) \\ \sin(-\theta) &amp; \cos(-\theta) \end{bmatrix}
+$$
+使用三角函数的性质 $\cos(-\theta) = \cos(\theta)$ 和 $\sin(-\theta) = -\sin(\theta)$，得到：</p>
+<p>$$
+R_{cw}(\theta) = \begin{bmatrix} \cos(\theta) &amp; \sin(\theta) \\ -\sin(\theta) &amp; \cos(\theta) \end{bmatrix}
+$$
+因此，顺时针旋转矩阵直接使用正角度 $\theta$ 为：</p>
+<p>$$
+R_{cw}(\theta) = \begin{bmatrix} \cos(\theta) &amp; \sin(\theta) \\ -\sin(\theta) &amp; \cos(\theta) \end{bmatrix}
+$$
+这个矩阵可以用来将任何给定的点在二维平面上顺时针旋转 $\theta$ 角度，<strong>这与逆时针旋转从形式上看只是$\sin(\theta)$的正负号相反。</strong></p>
+<hr>
+<h3 id="完整的c实现">完整的C++实现<a hidden class="anchor" aria-hidden="true" href="#完整的c实现">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// jj
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">double</span> <span class="n">angle</span><span class="p">,</span> <span class="n">dis</span><span class="p">,</span> <span class="n">xlc</span><span class="p">,</span> <span class="n">ylc</span><span class="p">,</span> <span class="n">vc</span><span class="p">,</span> <span class="n">wc</span><span class="p">,</span> <span class="n">t1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">angle</span> <span class="o">&gt;&gt;</span> <span class="n">dis</span> <span class="o">&gt;&gt;</span> <span class="n">xlc</span> <span class="o">&gt;&gt;</span> <span class="n">ylc</span> <span class="o">&gt;&gt;</span> <span class="n">vc</span> <span class="o">&gt;&gt;</span> <span class="n">wc</span> <span class="o">&gt;&gt;</span> <span class="n">t1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// angle为弧度制，wc为弧度/s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// dis为距离，vc为m/s
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 起点(0, 0), 角速度wc, 线速度vc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 经过t1时间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">double</span> <span class="n">delta_v</span> <span class="o">=</span> <span class="n">vc</span> <span class="o">*</span> <span class="n">t1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">delta_w</span> <span class="o">=</span> <span class="n">wc</span> <span class="o">*</span> <span class="n">t1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 机器人坐标系Oc，世界坐标Ow
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">double</span> <span class="n">Xwc</span><span class="p">,</span> <span class="n">Ywc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">R</span> <span class="o">=</span> <span class="n">vc</span> <span class="o">/</span> <span class="n">wc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Xwc</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">delta_w</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ywc</span> <span class="o">=</span> <span class="n">R</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">cos</span><span class="p">(</span><span class="n">delta_w</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印Xwc, Ywc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// std::cout &lt;&lt; Xwc &lt;&lt; &#39; &#39; &lt;&lt; Ywc &lt;&lt; std::endl; 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 求P点在世界坐标系Ow的坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 先求P点在Oc的坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">double</span> <span class="n">Xcp</span><span class="p">,</span> <span class="n">Ycp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Xcp</span> <span class="o">=</span> <span class="n">xlc</span> <span class="o">+</span> <span class="n">dis</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ycp</span> <span class="o">=</span> <span class="n">ylc</span> <span class="o">+</span> <span class="n">dis</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印Xcp, Ycp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// std::cout &lt;&lt; Xcp &lt;&lt; &#39; &#39; &lt;&lt; Ycp &lt;&lt; std::endl;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// 再求P点在Ow的坐标
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">double</span> <span class="n">Xwp</span><span class="p">,</span> <span class="n">Ywp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Xwp</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">delta_w</span><span class="p">)</span> <span class="o">*</span> <span class="n">Xcp</span> <span class="o">-</span> <span class="n">sin</span><span class="p">(</span><span class="n">delta_w</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ycp</span> <span class="o">+</span> <span class="n">Xwc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ywp</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">delta_w</span><span class="p">)</span> <span class="o">*</span> <span class="n">Xcp</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="n">delta_w</span><span class="p">)</span> <span class="o">*</span> <span class="n">Ycp</span> <span class="o">+</span> <span class="n">Ywc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 打印Xwp, Ywp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Xwp</span> <span class="o">&lt;&lt;</span> <span class="sc">&#39; &#39;</span> <span class="o">&lt;&lt;</span> <span class="n">Ywp</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/%E5%B7%AE%E9%80%9F%E6%9C%BA%E5%99%A8%E4%BA%BA/">差速机器人</a></li>
+      <li><a href="https://ahaknow.com/tags/%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/">坐标系转换</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/aha-3d-visual-perception/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>3D视觉感知</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/know/blog-mac-style-code/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>博客自定义：实现Mac风格的代码栏</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2024 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
