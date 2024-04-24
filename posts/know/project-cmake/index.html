@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>高质量编程指南 | AhaKnow</title>
+<title>开发实战：项目中的CMake技巧 | AhaKnow</title>
 <meta name="keywords" content="">
-<meta name="description" content="想到了就记下来，想写的就好好写，日进一步，亦有点滴欣喜～">
+<meta name="description" content="开发实战：项目中的CMake技巧 - AhaKnow">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="https://ahaknow.com/categories/%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">
+<link rel="canonical" href="https://ahaknow.com/posts/know/project-cmake/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
@@ -57,8 +57,7 @@
 <link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://ahaknow.com/categories/%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/index.xml">
-<link rel="alternate" hreflang="zh" href="https://ahaknow.com/categories/%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/project-cmake/">
 <noscript>
     <style>
         #theme-toggle,
@@ -95,21 +94,83 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="高质量编程指南" />
-<meta property="og:description" content="想到了就记下来，想写的就好好写，日进一步，亦有点滴欣喜～" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ahaknow.com/categories/%E9%AB%98%E8%B4%A8%E9%87%8F%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/" />
+</noscript><meta property="og:title" content="开发实战：项目中的CMake技巧" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/project-cmake/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-22T22:57:28+08:00" />
+<meta property="article:modified_time" content="2024-04-22T22:57:28+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="高质量编程指南"/>
-<meta name="twitter:description" content="想到了就记下来，想写的就好好写，日进一步，亦有点滴欣喜～"/>
+<meta name="twitter:title" content="开发实战：项目中的CMake技巧"/>
+<meta name="twitter:description" content=""/>
 
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟知识",
+      "item": "https://ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "开发实战：项目中的CMake技巧",
+      "item": "https://ahaknow.com/posts/know/project-cmake/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "开发实战：项目中的CMake技巧",
+  "name": "开发实战：项目中的CMake技巧",
+  "description": "",
+  "keywords": [
+    
+  ],
+  "articleBody": " ",
+  "wordCount" : "0",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-22T22:57:28+08:00",
+  "dateModified": "2024-04-22T22:57:28+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/know/project-cmake/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
     
     
     
 </head>
 
-<body class=" list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -189,22 +250,15 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/categories/">🖇️ 归档</a></div>
-  <h1>
-    高质量编程指南
-  </h1>
-</header>
+<main class="main">
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">高质量编程指南：C/C&#43;&#43;试题
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>本试题仅用于考查 C&#43;&#43;/C 程序员的基本编程技能。内容限于 C&#43;&#43;/C 常用语法，不涉及数据结构、算法以及深奥的语法。考试成绩能反映出考生的编程质量以及对 C&#43;&#43;/C 的理解...</p>
-  </div>
-  <footer class="entry-footer">
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <h1 class="post-title entry-hint-parent">
+      开发实战：项目中的CMake技巧
+    </h1>
+    <div class="post-meta">
 
 
 
@@ -234,44 +288,61 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2024-04-20
+            <span>2024-04-22
                 &nbsp;&nbsp;
             </span>
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-20
+        <span>2024-04-22
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>298 字
+        <span>0 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1 分钟
+        <span>0 分钟
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_5">
         <span class="fa fa-user-o"></span>
-        <span>YOUNG
+        <span>CKYoung
             &nbsp;&nbsp;
         </span>
     </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E8%80%83%E9%A2%98/" style="color: var(--secondary)!important;">考题</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to 高质量编程指南：C/C&#43;&#43;试题" href="https://ahaknow.com/posts/know/c-c&#43;&#43;-exam/"></a>
+</span>
+
+</div>
+  </header> 
+  <div class="post-content"><blockquote>
+</blockquote>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/spdlog-usage/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Spdlog Usage</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/know/auto-code-copyright/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>开发实战：给代码属上大名</span>
+  </a>
+</nav>
+
+  </footer>
 </article>
 </main>
 
@@ -342,6 +413,90 @@
         }
     })
 
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
 </script>
 
 

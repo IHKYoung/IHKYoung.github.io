@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>考题 on AhaKnow</title>
-    <link>https://ahaknow.com/tags/%E8%80%83%E9%A2%98/</link>
-    <description>Recent content in 考题 on AhaKnow</description>
+    <title>测测自己有几分 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/%E6%B5%8B%E6%B5%8B%E8%87%AA%E5%B7%B1%E6%9C%89%E5%87%A0%E5%88%86/</link>
+    <description>Recent content in 测测自己有几分 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 20 Apr 2024 19:21:42 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/tags/%E8%80%83%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ahaknow.com/categories/%E6%B5%8B%E6%B5%8B%E8%87%AA%E5%B7%B1%E6%9C%89%E5%87%A0%E5%88%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>高质量编程指南：C/C&#43;&#43;试题</title>
       <link>https://ahaknow.com/posts/know/c-c&#43;&#43;-exam/</link>
