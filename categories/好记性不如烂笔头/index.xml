@@ -6,7 +6,7 @@
     <description>Recent content in 好记性不如烂笔头 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Apr 2024 11:07:22 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Apr 2024 15:41:46 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>Protobuf：安装指定版本</title>
+      <link>https://ahaknow.com/posts/know/note-install-protobuf/</link>
+      <pubDate>Sat, 27 Apr 2024 15:41:46 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-install-protobuf/</guid>
+      <description>第一次接触Protobuf，遇到了系统版本与编译文件版本不统一的情况，以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来</description>
     </item>
     <item>
       <title>TensorRT：最简明的安装流程</title>
@@ -38,9 +45,9 @@
     </item>
     <item>
       <title>Python：一个正则表达式的小例子</title>
-      <link>https://ahaknow.com/posts/know/note-a-regex-example/</link>
+      <link>https://ahaknow.com/posts/know/note-regex-example/</link>
       <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/note-a-regex-example/</guid>
+      <guid>https://ahaknow.com/posts/know/note-regex-example/</guid>
       <description>我想重命名一个文件（手动操作是不可能的，懒！） 将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1</description>
     </item>
   </channel>

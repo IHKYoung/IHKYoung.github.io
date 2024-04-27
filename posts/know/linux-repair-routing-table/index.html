@@ -99,7 +99,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/linux-repair-routing-table/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-16T11:04:42+08:00" />
-<meta property="article:modified_time" content="2024-04-16T11:04:42+08:00" />
+<meta property="article:modified_time" content="2024-04-24T11:04:42+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux：上不了网了之路由表修复"/>
@@ -142,11 +142,11 @@
   "keywords": [
     "路由表"
   ],
-  "articleBody": " 问题描述：\nLinux同时连接局域网，网段是172.27.0.x，以及连接网口的相机设备，网段是192.168.80.x。\nLinux启动后出现这种情况：\n可以连接相机，但无法上网 将相机的网线拔掉后，就能够上网了 简单的分析一下，应该是网络占用的问题。\n先把问题解决了 下面具体来分析\n通过route -n来查看路由表信息：\n❯ route -n Kernel IP routing table Destination Gateway Genmask Flags Metric Ref Use Iface 0.0.0.0 192.168.80.1 0.0.0.0 UG 0 0 0 eno1 0.0.0.0 172.27.0.1 0.0.0.0 UG 101 0 0 eno1 169.254.0.0 0.0.0.0 255.255.0.0 U 1000 0 0 enx0826ae3c0c7b 172.17.0.0 0.0.0.0 255.255.0.0 U 0 0 0 docker0 172.27.0.0 0.0.0.0 255.255.255.0 U 101 0 0 eno1 192.168.80.0 0.0.0.0 255.255.255.0 U 100 0 0 enx0826ae3c0c7b 可以看出来有两个设备，一个是eno1，局域网网线，另一个是enx0826ae3c0c7b，网口的相机。\n为啥会上不了网捏？\n观察这个路由表的可以发现有一个重复的混乱项：\nDestination 为 0.0.0.0 但是 Gateway 却有两个，就是这里导致的，这时候的解决方法就是，先清除默认路由，然后再配置一个正确的默认路由。\n步骤1：清除错误的默认路由\n首先，删除所有默认路由：\nsudo ip route del default 步骤2：添加正确的默认路由\n将默认路由设置为通过网关`172.27.0.1，并指定合适的度量值：\nsudo ip route add default via 172.27.0.1 dev eno1 metric 0 步骤3：验证路由表\n再次检查路由表，确保只有一个默认路由，并且其他路由按预期配置：\nroute -n 这个时候得到的应该就是正确的路由表了：\n❯ route -n Kernel IP routing table Destination Gateway Genmask Flags Metric Ref Use Iface 0.0.0.0 172.27.0.1 0.0.0.0 UG 0 0 0 eno1 0.0.0.0 172.27.0.1 0.0.0.0 UG 101 0 0 eno1 169.254.0.0 0.0.0.0 255.255.0.0 U 1000 0 0 enx0826ae3c0c7b 172.17.0.0 0.0.0.0 255.255.0.0 U 0 0 0 docker0 172.27.0.0 0.0.0.0 255.255.255.0 U 101 0 0 eno1 192.168.80.0 0.0.0.0 255.255.255.0 U 100 0 0 enx0826ae3c0c7b 另一种思路 在路由表中，metric值用于定义路由的优先级。当存在多条到达同一个目的地的路由时，metric值较小的路由将被优先选择用于数据传输。因此，metric是一种决定路径选择的方法，尤其在多个网络接口可用时这一点非常重要。\nMetric 的含义和作用 含义：metric值是一个数字，用于表示路由的优先级。数字越小，该路由的优先级越高。 作用： 选择最优路径：在多条路由可达同一目的地的情况下，路由器根据metric值选择metric最小的路由作为最佳路径。 负载均衡：在某些配置中，可以故意设置相同的metric值给不同的路由，以实现负载均衡。 避免路由循环：适当的metric值配置可以帮助避免路由循环，特别是在复杂的网络拓扑中。 Metric 值的选择 比如，metric值为0, 101, 100, 1000等，这些都是用来区分不同路由条目的相对优先级。例如：\nMetric 为 0：通常表示该路由具有最高的优先级，系统将优先通过这个路由发送数据。 Metric 为 101 或 100：这些值较高，表示路由的优先级较低。如果默认路由（metric 为 0 的路由）不可用，系统可能会考虑使用这些路由。 Metric 为 1000：更高的metric值，通常用于备份路由，只有在其他较低metric值的路由全都不可用时，才会被使用。 因此上述的问题还可以通过更改路由的优先级来解决\n现在问题解决了，但是解决了一时，解决不了一世，如果Linux主机重新启动，那么又会恢复为原来的设置，怎么办呢？\n那就设置一个自动化的启动项！\n自动化的“一劳永逸” 创建一个自定义的systemd服务，可以通过调整systemd服务来确保在执行路由删除和添加操作之前，网络接口已经正确初始化。此外，还可以加入条件判断，只在默认路由存在时尝试删除它。\n修改 Systemd 服务文件： 编辑之前创建的systemd服务文件，添加条件判断和依赖关系，确保在执行路由操作前网络接口已准备好。\nsudo vim /etc/systemd/system/setdefaultgateway.service 修改服务文件，加入网络在线的条件和执行命令前的检查：\n[Unit] Description=Set default gateway Wants=network-online.target After=network-online.target [Service] Type=oneshot ExecStartPre=/bin/sh -c 'ip route | grep -q default \u0026\u0026 ip route del default' ExecStart=/sbin/ip route add default via 172.27.0.1 dev eno1 metric 0 RemainAfterExit=yes [Install] WantedBy=multi-user.target 这里ExecStartPre行用于检查是否存在默认路由，并且只有在存在的情况下才尝试删除它。这样可以避免因为尝试删除一个不存在的路由而导致服务失败。\n重新加载和启动服务： 加载新的配置并重新启动服务：\nsudo systemctl daemon-reload sudo systemctl restart setdefaultgateway 检查服务状态： 确保服务现在能够成功执行，不再报错：\nsudo systemctl status setdefaultgateway 通过确保在网络接口准备好后执行命令，并且只在默认路由存在时尝试删除它，能够避免服务启动时遇到的“RTNETLINK answers: No such process”错误。\n服务文件的部分解释 [Unit]部分： Description: 仅为此服务提供描述，说明其用途。 Wants: 这一行指定了此服务想要的其他单位（unit）。network-online.target是一个特殊的目标，代表网络配置已完全完成且互联网连接已建立。 After: 这一行确保了在network-online.target之后才启动这个服务。也就是说，只有在网络确实可用之后，此服务才会运行其命令。 这两个设置（Wants和After）确保了网络服务在尝试修改路由表之前已经完全启动和激活。这是非常重要的，因为如果在网络接口还没有激活的情况下尝试设置路由，可能会导致命令失败。\n[Service]部分： Type=oneshot: 这意味着这个服务在启动时运行一次然后结束，不会持续运行。 ExecStartPre: 这是在主命令（ExecStart）执行之前运行的命令。它的作用是检查当前路由表中是否存在默认路由： /bin/sh -c 'ip route | grep -q default \u0026\u0026 ip route del default'：这条命令会首先查找是否存在默认路由，如果存在（grep -q default 返回0），则执行删除默认路由的命令（ip route del default）。这里使用grep -q是为了静默模式，只返回存在与否的状态码而不输出文本。 ExecStart: 这是服务的主命令，用于添加新的默认路由。如果前面的默认路由已被删除，这条命令会无障碍地设置新的默认路由。 RemainAfterExit=yes: 通常用于Type=oneshot的服务，指示即使服务的主进程已经结束，此服务的状态依旧被视为激活。 这种配置方式，特别是ExecStartPre命令的使用，是为了确保修改默认路由时不会因为旧的路由设置存在而出现冲突或错误。通过这样的安排，服务在执行任何操作之前确保了网络接口的可用性和清理了可能存在的冲突配置，从而使得默认网关的设置更加可靠和稳定。\n",
-  "wordCount" : "2296",
+  "articleBody": " 问题描述：\nLinux同时连接局域网，网段是172.27.0.x，以及连接网口的相机设备，网段是192.168.80.x。\nLinux启动后出现这种情况：\n可以连接相机，但无法上网 将相机的网线拔掉后，就能够上网了 简单的分析一下，应该是网络占用的问题。\n先把问题解决了 sudo apt-get install net-tools 下面具体来分析\n通过route -n来查看路由表信息：\n❯ route -n Kernel IP routing table Destination Gateway Genmask Flags Metric Ref Use Iface 0.0.0.0 192.168.80.1 0.0.0.0 UG 0 0 0 eno1 0.0.0.0 172.27.0.1 0.0.0.0 UG 101 0 0 eno1 169.254.0.0 0.0.0.0 255.255.0.0 U 1000 0 0 enx0826ae3c0c7b 172.17.0.0 0.0.0.0 255.255.0.0 U 0 0 0 docker0 172.27.0.0 0.0.0.0 255.255.255.0 U 101 0 0 eno1 192.168.80.0 0.0.0.0 255.255.255.0 U 100 0 0 enx0826ae3c0c7b 可以看出来有两个设备，一个是eno1，局域网网线，另一个是enx0826ae3c0c7b，网口的相机。\n为啥会上不了网捏？\n观察这个路由表的可以发现有一个重复的混乱项：\nDestination 为 0.0.0.0 但是 Gateway 却有两个，就是这里导致的，这时候的解决方法就是，先清除默认路由，然后再配置一个正确的默认路由。\n步骤1：清除错误的默认路由\n首先，删除所有默认路由：\nsudo ip route del default 步骤2：添加正确的默认路由\n将默认路由设置为通过网关`172.27.0.1，并指定合适的度量值：\nsudo ip route add default via 172.27.0.1 dev eno1 metric 0 步骤3：验证路由表\n再次检查路由表，确保只有一个默认路由，并且其他路由按预期配置：\nroute -n 这个时候得到的应该就是正确的路由表了：\n❯ route -n Kernel IP routing table Destination Gateway Genmask Flags Metric Ref Use Iface 0.0.0.0 172.27.0.1 0.0.0.0 UG 0 0 0 eno1 0.0.0.0 172.27.0.1 0.0.0.0 UG 101 0 0 eno1 169.254.0.0 0.0.0.0 255.255.0.0 U 1000 0 0 enx0826ae3c0c7b 172.17.0.0 0.0.0.0 255.255.0.0 U 0 0 0 docker0 172.27.0.0 0.0.0.0 255.255.255.0 U 101 0 0 eno1 192.168.80.0 0.0.0.0 255.255.255.0 U 100 0 0 enx0826ae3c0c7b 另一种思路 在路由表中，metric值用于定义路由的优先级。当存在多条到达同一个目的地的路由时，metric值较小的路由将被优先选择用于数据传输。因此，metric是一种决定路径选择的方法，尤其在多个网络接口可用时这一点非常重要。\nMetric 的含义和作用 含义：metric值是一个数字，用于表示路由的优先级。数字越小，该路由的优先级越高。 作用： 选择最优路径：在多条路由可达同一目的地的情况下，路由器根据metric值选择metric最小的路由作为最佳路径。 负载均衡：在某些配置中，可以故意设置相同的metric值给不同的路由，以实现负载均衡。 避免路由循环：适当的metric值配置可以帮助避免路由循环，特别是在复杂的网络拓扑中。 Metric 值的选择 比如，metric值为0, 101, 100, 1000等，这些都是用来区分不同路由条目的相对优先级。例如：\nMetric 为 0：通常表示该路由具有最高的优先级，系统将优先通过这个路由发送数据。 Metric 为 101 或 100：这些值较高，表示路由的优先级较低。如果默认路由（metric 为 0 的路由）不可用，系统可能会考虑使用这些路由。 Metric 为 1000：更高的metric值，通常用于备份路由，只有在其他较低metric值的路由全都不可用时，才会被使用。 因此上述的问题还可以通过更改路由的优先级来解决\n现在问题解决了，但是解决了一时，解决不了一世，如果Linux主机重新启动，那么又会恢复为原来的设置，怎么办呢？\n那就设置一个自动化的启动项！\n自动化的“一劳永逸” 创建一个自定义的systemd服务，可以通过调整systemd服务来确保在执行路由删除和添加操作之前，网络接口已经正确初始化。此外，还可以加入条件判断，只在默认路由存在时尝试删除它。\n修改 Systemd 服务文件： 编辑之前创建的systemd服务文件，添加条件判断和依赖关系，确保在执行路由操作前网络接口已准备好。\nsudo vim /etc/systemd/system/setdefaultgateway.service 修改服务文件，加入网络在线的条件和执行命令前的检查：\n[Unit] Description=Set default gateway Wants=network-online.target After=network-online.target [Service] Type=oneshot ExecStartPre=/bin/sh -c 'ip route | grep -q default \u0026\u0026 ip route del default' ExecStart=/sbin/ip route add default via 172.27.0.1 dev eno1 metric 0 RemainAfterExit=yes [Install] WantedBy=multi-user.target 这里ExecStartPre行用于检查是否存在默认路由，并且只有在存在的情况下才尝试删除它。这样可以避免因为尝试删除一个不存在的路由而导致服务失败。\n重新加载和启动服务： 加载新的配置并重新启动服务：\nsudo systemctl daemon-reload sudo systemctl restart setdefaultgateway 检查服务状态： 确保服务现在能够成功执行，不再报错：\nsudo systemctl status setdefaultgateway 通过确保在网络接口准备好后执行命令，并且只在默认路由存在时尝试删除它，能够避免服务启动时遇到的“RTNETLINK answers: No such process”错误。\n服务文件的部分解释 [Unit]部分： Description: 仅为此服务提供描述，说明其用途。 Wants: 这一行指定了此服务想要的其他单位（unit）。network-online.target是一个特殊的目标，代表网络配置已完全完成且互联网连接已建立。 After: 这一行确保了在network-online.target之后才启动这个服务。也就是说，只有在网络确实可用之后，此服务才会运行其命令。 这两个设置（Wants和After）确保了网络服务在尝试修改路由表之前已经完全启动和激活。这是非常重要的，因为如果在网络接口还没有激活的情况下尝试设置路由，可能会导致命令失败。\n[Service]部分： Type=oneshot: 这意味着这个服务在启动时运行一次然后结束，不会持续运行。 ExecStartPre: 这是在主命令（ExecStart）执行之前运行的命令。它的作用是检查当前路由表中是否存在默认路由： /bin/sh -c 'ip route | grep -q default \u0026\u0026 ip route del default'：这条命令会首先查找是否存在默认路由，如果存在（grep -q default 返回0），则执行删除默认路由的命令（ip route del default）。这里使用grep -q是为了静默模式，只返回存在与否的状态码而不输出文本。 ExecStart: 这是服务的主命令，用于添加新的默认路由。如果前面的默认路由已被删除，这条命令会无障碍地设置新的默认路由。 RemainAfterExit=yes: 通常用于Type=oneshot的服务，指示即使服务的主进程已经结束，此服务的状态依旧被视为激活。 这种配置方式，特别是ExecStartPre命令的使用，是为了确保修改默认路由时不会因为旧的路由设置存在而出现冲突或错误。通过这样的安排，服务在执行任何操作之前确保了网络接口的可用性和清理了可能存在的冲突配置，从而使得默认网关的设置更加可靠和稳定。\n",
+  "wordCount" : "2300",
   "inLanguage": "zh",
   "datePublished": "2024-04-16T11:04:42+08:00",
-  "dateModified": "2024-04-16T11:04:42+08:00",
+  "dateModified": "2024-04-24T11:04:42+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -287,11 +287,13 @@
 
 
 
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2024-04-16
+            <span>2024-04-24
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -303,7 +305,7 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2296 字
+        <span>2300 字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -433,7 +435,8 @@
 <p>简单的分析一下，应该是网络占用的问题。</p>
 </blockquote>
 <h2 id="先把问题解决了">先把问题解决了<a hidden class="anchor" aria-hidden="true" href="#先把问题解决了">#</a></h2>
-<p><strong>下面具体来分析</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt-get install net-tools
+</span></span></code></pre></div><p><strong>下面具体来分析</strong></p>
 <p>通过<code>route -n</code>来查看路由表信息：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">❯ route -n
 </span></span><span class="line"><span class="cl">Kernel IP routing table

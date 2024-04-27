@@ -13,7 +13,7 @@
       <link>https://ahaknow.com/posts/know/dev-project-cmake/</link>
       <pubDate>Mon, 22 Apr 2024 22:57:28 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/dev-project-cmake/</guid>
-      <description></description>
+      <description>一个“好看”的CMake管理应该是这样的： ├── CMakeLists.txt ├── main_class.cpp ├── main.cpp ├── model │ ├── seg_0415.onnx │ └── seg_0415.trt ├── Parser │ ├── CMakeLists.txt │ ├── data_frame_parser.cpp │ └── data_frame_parser.h ├── RoadSeg</description>
     </item>
   </channel>
 </rss>

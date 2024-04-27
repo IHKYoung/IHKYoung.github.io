@@ -46,7 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>开发实战：项目中的CMake技巧 | AhaKnow</title>
 <meta name="keywords" content="">
-<meta name="description" content="开发实战：项目中的CMake技巧 - AhaKnow">
+<meta name="description" content="一个“好看”的CMake管理应该是这样的： ├── CMakeLists.txt ├── main_class.cpp ├── main.cpp ├── model │ ├── seg_0415.onnx │ └── seg_0415.trt ├── Parser │ ├── CMakeLists.txt │ ├── data_frame_parser.cpp │ └── data_frame_parser.h ├── RoadSeg">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://ahaknow.com/posts/know/dev-project-cmake/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -95,7 +95,7 @@
 
     </style>
 </noscript><meta property="og:title" content="开发实战：项目中的CMake技巧" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="一个“好看”的CMake管理应该是这样的： ├── CMakeLists.txt ├── main_class.cpp ├── main.cpp ├── model │ ├── seg_0415.onnx │ └── seg_0415.trt ├── Parser │ ├── CMakeLists.txt │ ├── data_frame_parser.cpp │ └── data_frame_parser.h ├── RoadSeg" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/dev-project-cmake/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-22T22:57:28+08:00" />
@@ -103,7 +103,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="开发实战：项目中的CMake技巧"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="一个“好看”的CMake管理应该是这样的： ├── CMakeLists.txt ├── main_class.cpp ├── main.cpp ├── model │ ├── seg_0415.onnx │ └── seg_0415.trt ├── Parser │ ├── CMakeLists.txt │ ├── data_frame_parser.cpp │ └── data_frame_parser.h ├── RoadSeg"/>
 
 
 <script type="application/ld+json">
@@ -138,12 +138,12 @@
   "@type": "BlogPosting",
   "headline": "开发实战：项目中的CMake技巧",
   "name": "开发实战：项目中的CMake技巧",
-  "description": "",
+  "description": "一个“好看”的CMake管理应该是这样的： ├── CMakeLists.txt ├── main_class.cpp ├── main.cpp ├── model │ ├── seg_0415.onnx │ └── seg_0415.trt ├── Parser │ ├── CMakeLists.txt │ ├── data_frame_parser.cpp │ └── data_frame_parser.h ├── RoadSeg",
   "keywords": [
     
   ],
-  "articleBody": " ",
-  "wordCount" : "0",
+  "articleBody": "一个“好看”的CMake管理应该是这样的：\n├── CMakeLists.txt ├── main_class.cpp ├── main.cpp ├── model │ ├── seg_0415.onnx │ └── seg_0415.trt ├── Parser │ ├── CMakeLists.txt │ ├── data_frame_parser.cpp │ └── data_frame_parser.h ├── RoadSeg │ ├── CMakeLists.txt │ ├── road_segmentation.cpp │ └── road_segmentation.hpp ├── TCPClient │ ├── CMakeLists.txt │ ├── tcp_frame_client.cpp │ └── tcp_frame_client.h ├── Test │ ├── main_simple.cpp │ ├── ptr_mat.cpp │ └── test_main.cpp └── Utils ├── CMakeLists.txt ├── logger.cpp └── logger.h 具体而言，比如Parser下面的CMakeLists.txt：\nfind_package(OpenCV REQUIRED) find_package(PCL REQUIRED) # Find FFmpeg components find_package(PkgConfig REQUIRED) pkg_check_modules(AVCODEC REQUIRED libavcodec) pkg_check_modules(AVFORMAT REQUIRED libavformat) pkg_check_modules(SWSCALE REQUIRED libswscale) pkg_check_modules(AVUTIL REQUIRED libavutil) include_directories( ${OpenCV_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS} ${AVCODEC_INCLUDE_DIRS} ${AVFORMAT_INCLUDE_DIRS} ${SWSCALE_INCLUDE_DIRS} ${AVUTIL_INCLUDE_DIRS} /usr/include ${CMAKE_SOURCE_DIR}/Utils ) # 添加Parser库 add_library(Parser SHARED data_frame_parser.cpp data_frame_parser.h ) target_include_directories(Parser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ) target_link_libraries(Parser ${AVCODEC_LIBRARIES} ${AVFORMAT_LIBRARIES} ${SWSCALE_LIBRARIES} ${AVUTIL_LIBRARIES} ${OpenCV_LIBS} ${PCL_LIBRARIES} lz4 Utils ) 而main函数的CMakeLists.txt就可以很简洁了:\ncmake_minimum_required(VERSION 3.10) project(DataFrameParser) set(CMAKE_CXX_STANDARD 20) set(CMAKE_CXX_STANDARD_REQUIRED True) option(BUILD_SHARED_LIBS \"Build libraries as shared libraries\" ON) # 添加子目录 add_subdirectory(Utils) add_subdirectory(Parser) add_subdirectory(TCPClient) add_subdirectory(AI) add_subdirectory(RoadSeg) add_executable(DataFrameParser main_class.cpp) target_link_libraries(DataFrameParser Parser TCPClient AI4FS RoadSeg ) ",
+  "wordCount" : "294",
   "inLanguage": "zh",
   "datePublished": "2024-04-22T22:57:28+08:00",
   "dateModified": "2024-04-22T22:57:28+08:00",
@@ -300,13 +300,13 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>0 字
+        <span>294 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>0 分钟
+        <span>1 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -320,9 +320,99 @@
 
 </div>
   </header> 
-  <div class="post-content"><blockquote>
-</blockquote>
-
+  <div class="post-content"><p>一个“好看”的CMake管理应该是这样的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">├── main_class.cpp
+</span></span><span class="line"><span class="cl">├── main.cpp
+</span></span><span class="line"><span class="cl">├── model
+</span></span><span class="line"><span class="cl">│   ├── seg_0415.onnx
+</span></span><span class="line"><span class="cl">│   └── seg_0415.trt
+</span></span><span class="line"><span class="cl">├── Parser
+</span></span><span class="line"><span class="cl">│   ├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">│   ├── data_frame_parser.cpp
+</span></span><span class="line"><span class="cl">│   └── data_frame_parser.h
+</span></span><span class="line"><span class="cl">├── RoadSeg
+</span></span><span class="line"><span class="cl">│   ├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">│   ├── road_segmentation.cpp
+</span></span><span class="line"><span class="cl">│   └── road_segmentation.hpp
+</span></span><span class="line"><span class="cl">├── TCPClient
+</span></span><span class="line"><span class="cl">│   ├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">│   ├── tcp_frame_client.cpp
+</span></span><span class="line"><span class="cl">│   └── tcp_frame_client.h
+</span></span><span class="line"><span class="cl">├── Test
+</span></span><span class="line"><span class="cl">│   ├── main_simple.cpp
+</span></span><span class="line"><span class="cl">│   ├── ptr_mat.cpp
+</span></span><span class="line"><span class="cl">│   └── test_main.cpp
+</span></span><span class="line"><span class="cl">└── Utils
+</span></span><span class="line"><span class="cl">    ├── CMakeLists.txt
+</span></span><span class="line"><span class="cl">    ├── logger.cpp
+</span></span><span class="line"><span class="cl">    └── logger.h
+</span></span></code></pre></div><p>具体而言，比如Parser下面的CMakeLists.txt：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PCL</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Find FFmpeg components
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PkgConfig</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVCODEC</span> <span class="s">REQUIRED</span> <span class="s">libavcodec</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVFORMAT</span> <span class="s">REQUIRED</span> <span class="s">libavformat</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">SWSCALE</span> <span class="s">REQUIRED</span> <span class="s">libswscale</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVUTIL</span> <span class="s">REQUIRED</span> <span class="s">libavutil</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">include_directories</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">OpenCV_INCLUDE_DIRS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">PCL_INCLUDE_DIRS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVCODEC_INCLUDE_DIRS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVFORMAT_INCLUDE_DIRS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">SWSCALE_INCLUDE_DIRS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVUTIL_INCLUDE_DIRS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="s">/usr/include</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">CMAKE_SOURCE_DIR</span><span class="o">}</span><span class="s">/Utils</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 添加Parser库
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">add_library</span><span class="p">(</span><span class="s">Parser</span> <span class="s">SHARED</span>
+</span></span><span class="line"><span class="cl">    <span class="s">data_frame_parser.cpp</span>
+</span></span><span class="line"><span class="cl">    <span class="s">data_frame_parser.h</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_include_directories</span><span class="p">(</span><span class="s">Parser</span> <span class="s">PUBLIC</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">Parser</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVCODEC_LIBRARIES</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVFORMAT_LIBRARIES</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">SWSCALE_LIBRARIES</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVUTIL_LIBRARIES</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">OpenCV_LIBS</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">PCL_LIBRARIES</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl">    <span class="s">lz4</span>
+</span></span><span class="line"><span class="cl">    <span class="s">Utils</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
+</span></span></span></code></pre></div><p>而main函数的CMakeLists.txt就可以很简洁了:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.10</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">project</span><span class="p">(</span><span class="s">DataFrameParser</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">option</span><span class="p">(</span><span class="s">BUILD_SHARED_LIBS</span> <span class="s2">&#34;Build libraries as shared libraries&#34;</span> <span class="s">ON</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 添加子目录
+</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">Utils</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">Parser</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">TCPClient</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">AI</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">RoadSeg</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_executable</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">main_class.cpp</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">DataFrameParser</span>
+</span></span><span class="line"><span class="cl">    <span class="s">Parser</span>
+</span></span><span class="line"><span class="cl">    <span class="s">TCPClient</span>
+</span></span><span class="line"><span class="cl">    <span class="s">AI4FS</span>
+</span></span><span class="line"><span class="cl">    <span class="s">RoadSeg</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
+</span></span></span></code></pre></div>
 
   </div>
 

@@ -10,9 +10,9 @@
     <atom:link href="https://ahaknow.com/categories/%E6%B2%A1%E6%9C%89python%E5%81%9A%E4%B8%8D%E5%88%B0/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python：一个正则表达式的小例子</title>
-      <link>https://ahaknow.com/posts/know/note-a-regex-example/</link>
+      <link>https://ahaknow.com/posts/know/note-regex-example/</link>
       <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/note-a-regex-example/</guid>
+      <guid>https://ahaknow.com/posts/know/note-regex-example/</guid>
       <description>我想重命名一个文件（手动操作是不可能的，懒！） 将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1</description>
     </item>
     <item>
