@@ -6,13 +6,20 @@
     <description>Recent content in Linux成神之路 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Apr 2024 15:16:10 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Apr 2024 22:27:17 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/linux%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Linux：打包压缩相关的基本使用</title>
+      <link>https://ahaknow.com/posts/know/linux-tar-usage/</link>
+      <pubDate>Sat, 27 Apr 2024 22:27:17 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-tar-usage/</guid>
+      <description>tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到</description>
+    </item>
+    <item>
       <title>Linux：创建具有权限限制的新用户</title>
-      <link>https://ahaknow.com/posts/know/linux-limit-user/</link>
+      <link>https://ahaknow.com/posts/know/linux-create-user/</link>
       <pubDate>Wed, 24 Apr 2024 15:16:10 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/linux-limit-user/</guid>
+      <guid>https://ahaknow.com/posts/know/linux-create-user/</guid>
       <description>创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新</description>
     </item>
     <item>

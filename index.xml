@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Apr 2024 15:41:46 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2024 14:02:22 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,20 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>开发实战：为什么要将函数实现与头文件分离</title>
+      <link>https://ahaknow.com/posts/know/dev-header-source/</link>
+      <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-header-source/</guid>
+      <description>在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C++代码的时候，将函数实现直接写在头文件里，会怎么</description>
+    </item>
+    <item>
+      <title>Linux：打包压缩相关的基本使用</title>
+      <link>https://ahaknow.com/posts/know/linux-tar-usage/</link>
+      <pubDate>Sat, 27 Apr 2024 22:27:17 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-tar-usage/</guid>
+      <description>tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到</description>
     </item>
     <item>
       <title>Protobuf：安装指定版本</title>
@@ -38,9 +52,9 @@
     </item>
     <item>
       <title>Linux：创建具有权限限制的新用户</title>
-      <link>https://ahaknow.com/posts/know/linux-limit-user/</link>
+      <link>https://ahaknow.com/posts/know/linux-create-user/</link>
       <pubDate>Wed, 24 Apr 2024 15:16:10 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/linux-limit-user/</guid>
+      <guid>https://ahaknow.com/posts/know/linux-create-user/</guid>
       <description>创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新</description>
     </item>
     <item>

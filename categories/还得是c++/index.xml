@@ -6,8 +6,15 @@
     <description>Recent content in 还得是C&#43;&#43; on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 22 Apr 2024 13:59:25 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 28 Apr 2024 14:02:22 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/%E8%BF%98%E5%BE%97%E6%98%AFc++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：为什么要将函数实现与头文件分离</title>
+      <link>https://ahaknow.com/posts/know/dev-header-source/</link>
+      <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-header-source/</guid>
+      <description>在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C++代码的时候，将函数实现直接写在头文件里，会怎么</description>
+    </item>
     <item>
       <title>开发实战：通过TCP Socket进行实施字节流解析</title>
       <link>https://ahaknow.com/posts/know/dev-parse-tcp-socket-byte-stream-file/</link>

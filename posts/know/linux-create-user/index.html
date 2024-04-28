@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>前人笔记收集录 | AhaKnow</title>
+<title>Linux：创建具有权限限制的新用户 | AhaKnow</title>
 <meta name="keywords" content="">
-<meta name="description" content="前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以">
+<meta name="description" content="创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/">
+<link rel="canonical" href="https://ahaknow.com/posts/know/linux-create-user/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
@@ -57,7 +57,7 @@
 <link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/linux-create-user/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,16 +94,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="前人笔记收集录" />
-<meta property="og:description" content="前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以" />
+</noscript><meta property="og:title" content="Linux：创建具有权限限制的新用户" />
+<meta property="og:description" content="创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-24T10:26:36+08:00" />
-<meta property="article:modified_time" content="2024-04-24T10:26:36+08:00" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/linux-create-user/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-24T15:16:10+08:00" />
+<meta property="article:modified_time" content="2024-04-24T15:16:10+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="前人笔记收集录"/>
-<meta name="twitter:description" content="前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以"/>
+<meta name="twitter:title" content="Linux：创建具有权限限制的新用户"/>
+<meta name="twitter:description" content="创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新"/>
 
 
 <script type="application/ld+json">
@@ -126,8 +126,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "前人笔记收集录",
-      "item": "https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/"
+      "name": "Linux：创建具有权限限制的新用户",
+      "item": "https://ahaknow.com/posts/know/linux-create-user/"
     }
   ]
 }
@@ -136,24 +136,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "前人笔记收集录",
-  "name": "前人笔记收集录",
-  "description": "前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以",
+  "headline": "Linux：创建具有权限限制的新用户",
+  "name": "Linux：创建具有权限限制的新用户",
+  "description": "创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行： 1. 创建新用户 使用useradd命令创建一个新",
   "keywords": [
     
   ],
-  "articleBody": " 前人栽树，后人乘凉。 或者说，不造轮子要造车。\n总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！\nGithub添加Waka记录 可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～\n官方文档\n初学者指南\n",
-  "wordCount" : "120",
+  "articleBody": "创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：\n1. 创建新用户 使用useradd命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为newuser的用户：\nsudo useradd -m newuser -s /bin/bash 这里-m选项表示创建用户的主目录，-s指定用户的默认shell。\n2. 设置密码 为新用户设置密码：\nsudo passwd newuser 系统会提示你输入和确认密码。\n3. 限制用户权限 避免将用户添加到sudo或root组来限制其权限。你可以通过不将用户添加到这些组来保持其权限尽可能低。\n4. 设置文件和目录权限 确保其他用户的目录不对新用户开放写权限。可以设置目录权限使其仅对所有者或特定组开放：\n设置其他用户的主目录权限，禁止新用户访问：\nsudo chmod o-rwx /home/otheruser 这里o-rwx表示删除其他用户（not group or owner）的读、写和执行权限。\n你也可以更改其他用户目录的组并限制访问权限：\nsudo chgrp -R somegroup /home/otheruser sudo chmod -R o-rwx /home/otheruser 5. 使用文件系统访问控制列表（ACL） 如果需要更细粒度的权限控制，可以使用ACL来设置谁可以访问特定的文件和目录：\nsudo setfacl -m u:newuser:rx /some/otheruser/directory 这里，setfacl命令设置newuser只有读和执行权限到/some/otheruser/directory。\n",
+  "wordCount" : "503",
   "inLanguage": "zh",
-  "datePublished": "2024-04-24T10:26:36+08:00",
-  "dateModified": "2024-04-24T10:26:36+08:00",
+  "datePublished": "2024-04-24T15:16:10+08:00",
+  "dateModified": "2024-04-24T15:16:10+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/"
+    "@id": "https://ahaknow.com/posts/know/linux-create-user/"
   },
   "publisher": {
     "@type": "Organization",
@@ -256,7 +256,7 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      前人笔记收集录
+      Linux：创建具有权限限制的新用户
     </h1>
     <div class="post-meta">
 
@@ -300,13 +300,13 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>120 字
+        <span>503 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1 分钟
+        <span>2 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -328,7 +328,15 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#github%e6%b7%bb%e5%8a%a0waka%e8%ae%b0%e5%bd%95" aria-label="Github添加Waka记录">Github添加Waka记录</a>
+                    <a href="#1-%e5%88%9b%e5%bb%ba%e6%96%b0%e7%94%a8%e6%88%b7" aria-label="1. 创建新用户">1. 创建新用户</a></li>
+                <li>
+                    <a href="#2-%e8%ae%be%e7%bd%ae%e5%af%86%e7%a0%81" aria-label="2. 设置密码">2. 设置密码</a></li>
+                <li>
+                    <a href="#3-%e9%99%90%e5%88%b6%e7%94%a8%e6%88%b7%e6%9d%83%e9%99%90" aria-label="3. 限制用户权限">3. 限制用户权限</a></li>
+                <li>
+                    <a href="#4-%e8%ae%be%e7%bd%ae%e6%96%87%e4%bb%b6%e5%92%8c%e7%9b%ae%e5%bd%95%e6%9d%83%e9%99%90" aria-label="4. 设置文件和目录权限">4. 设置文件和目录权限</a></li>
+                <li>
+                    <a href="#5-%e4%bd%bf%e7%94%a8%e6%96%87%e4%bb%b6%e7%b3%bb%e7%bb%9f%e8%ae%bf%e9%97%ae%e6%8e%a7%e5%88%b6%e5%88%97%e8%a1%a8acl" aria-label="5. 使用文件系统访问控制列表（ACL）">5. 使用文件系统访问控制列表（ACL）</a>
                 </li>
             </ul>
         </div>
@@ -394,14 +402,35 @@
         return rect.top + win.pageYOffset;
     }
 </script>
-  <div class="post-content"><blockquote>
-<p>前人栽树，后人乘凉。 或者说，不造轮子要造车。</p>
-<p>总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！</p>
-</blockquote>
-<h3 id="github添加waka记录">Github添加Waka记录<a hidden class="anchor" aria-hidden="true" href="#github添加waka记录">#</a></h3>
-<p>可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～</p>
-<p><a href="https://github.com/marketplace/actions/profile-readme-development-stats">官方文档</a></p>
-<p><a href="https://www.omegaatt.com/blogs/develop/2023/wakatime_experience.html">初学者指南</a></p>
+  <div class="post-content"><p>创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：</p>
+<h3 id="1-创建新用户">1. 创建新用户<a hidden class="anchor" aria-hidden="true" href="#1-创建新用户">#</a></h3>
+<p>使用<code>useradd</code>命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为<code>newuser</code>的用户：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo useradd -m newuser -s /bin/bash
+</span></span></code></pre></div><p>这里<code>-m</code>选项表示创建用户的主目录，<code>-s</code>指定用户的默认shell。</p>
+<h3 id="2-设置密码">2. 设置密码<a hidden class="anchor" aria-hidden="true" href="#2-设置密码">#</a></h3>
+<p>为新用户设置密码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo passwd newuser
+</span></span></code></pre></div><p>系统会提示你输入和确认密码。</p>
+<h3 id="3-限制用户权限">3. 限制用户权限<a hidden class="anchor" aria-hidden="true" href="#3-限制用户权限">#</a></h3>
+<p>避免将用户添加到<code>sudo</code>或<code>root</code>组来限制其权限。你可以通过不将用户添加到这些组来保持其权限尽可能低。</p>
+<h3 id="4-设置文件和目录权限">4. 设置文件和目录权限<a hidden class="anchor" aria-hidden="true" href="#4-设置文件和目录权限">#</a></h3>
+<p>确保其他用户的目录不对新用户开放写权限。可以设置目录权限使其仅对所有者或特定组开放：</p>
+<ul>
+<li>
+<p>设置其他用户的主目录权限，禁止新用户访问：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chmod o-rwx /home/otheruser
+</span></span></code></pre></div><p>这里<code>o-rwx</code>表示删除其他用户（not group or owner）的读、写和执行权限。</p>
+</li>
+<li>
+<p>你也可以更改其他用户目录的组并限制访问权限：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo chgrp -R somegroup /home/otheruser
+</span></span><span class="line"><span class="cl">sudo chmod -R o-rwx /home/otheruser
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="5-使用文件系统访问控制列表acl">5. 使用文件系统访问控制列表（ACL）<a hidden class="anchor" aria-hidden="true" href="#5-使用文件系统访问控制列表acl">#</a></h3>
+<p>如果需要更细粒度的权限控制，可以使用ACL来设置谁可以访问特定的文件和目录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo setfacl -m u:newuser:rx /some/otheruser/directory
+</span></span></code></pre></div><p>这里，<code>setfacl</code>命令设置<code>newuser</code>只有读和执行权限到<code>/some/otheruser/directory</code>。</p>
 
 
   </div>
@@ -410,10 +439,15 @@
     <ul class="post-tags">
     </ul>
 <nav class="paginav">
-  <a class="next" href="https://ahaknow.com/posts/know/dev-header-source/">
+  <a class="prev" href="https://ahaknow.com/posts/know/dev-static-vs-dynamic-library/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Dev Static vs Dynamic Library</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/know/linux-kernel/">
     <span class="title">下一页 »</span>
     <br>
-    <span>开发实战：为什么要将函数实现与头文件分离</span>
+    <span>Linux：内核启动不了之后</span>
   </a>
 </nav>
 

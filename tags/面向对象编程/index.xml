@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>面向对象编程 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</link>
+    <description>Recent content in 面向对象编程 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 28 Apr 2024 14:02:22 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：为什么要将函数实现与头文件分离</title>
+      <link>https://ahaknow.com/posts/know/dev-header-source/</link>
+      <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-header-source/</guid>
+      <description>在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C++代码的时候，将函数实现直接写在头文件里，会怎么</description>
+    </item>
+  </channel>
+</rss>

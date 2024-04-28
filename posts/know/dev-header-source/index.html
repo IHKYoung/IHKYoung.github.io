@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>前人笔记收集录 | AhaKnow</title>
-<meta name="keywords" content="">
-<meta name="description" content="前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以">
+<title>开发实战：为什么要将函数实现与头文件分离 | AhaKnow</title>
+<meta name="keywords" content="面向对象编程">
+<meta name="description" content="在写C&#43;&#43;工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C&#43;&#43;代码的时候，将函数实现直接写在头文件里，会怎么">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/">
+<link rel="canonical" href="https://ahaknow.com/posts/know/dev-header-source/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
@@ -57,7 +57,7 @@
 <link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/dev-header-source/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,16 +94,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="前人笔记收集录" />
-<meta property="og:description" content="前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以" />
+</noscript><meta property="og:title" content="开发实战：为什么要将函数实现与头文件分离" />
+<meta property="og:description" content="在写C&#43;&#43;工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C&#43;&#43;代码的时候，将函数实现直接写在头文件里，会怎么" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-24T10:26:36+08:00" />
-<meta property="article:modified_time" content="2024-04-24T10:26:36+08:00" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/dev-header-source/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-28T14:02:22+08:00" />
+<meta property="article:modified_time" content="2024-04-28T14:02:22+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="前人笔记收集录"/>
-<meta name="twitter:description" content="前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以"/>
+<meta name="twitter:title" content="开发实战：为什么要将函数实现与头文件分离"/>
+<meta name="twitter:description" content="在写C&#43;&#43;工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C&#43;&#43;代码的时候，将函数实现直接写在头文件里，会怎么"/>
 
 
 <script type="application/ld+json">
@@ -126,8 +126,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "前人笔记收集录",
-      "item": "https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/"
+      "name": "开发实战：为什么要将函数实现与头文件分离",
+      "item": "https://ahaknow.com/posts/know/dev-header-source/"
     }
   ]
 }
@@ -136,24 +136,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "前人笔记收集录",
-  "name": "前人笔记收集录",
-  "description": "前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以",
+  "headline": "开发实战：为什么要将函数实现与头文件分离",
+  "name": "开发实战：为什么要将函数实现与头文件分离",
+  "description": "在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。 今天被问到了这个问题： “在写C++代码的时候，将函数实现直接写在头文件里，会怎么",
   "keywords": [
-    
+    "面向对象编程"
   ],
-  "articleBody": " 前人栽树，后人乘凉。 或者说，不造轮子要造车。\n总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！\nGithub添加Waka记录 可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～\n官方文档\n初学者指南\n",
-  "wordCount" : "120",
+  "articleBody": " 在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。\n今天被问到了这个问题：\n“在写C++代码的时候，将函数实现直接写在头文件里，会怎么样，有什么不好的地方？为什么要将函数的实现单独写在源文件”\n我的第一反应想到的，我实际开发时就这样做的，为啥这样做呢？编译比较快？编译比较省事？……\n但似乎没有一个透彻的理解，需要在这里重新梳理一下。\n从代码编译的角度来重新理解（CMake进行编译系统管理的时候，也有一套比较好的实践方式）\nC++编译角度的理解 在C++编程中，编译过程通常包括预处理、编译、汇编和链接这几个阶段。每个阶段都在为最终生成可执行文件做准备，而在这些过程中，头文件和源文件的角色和影响各不相同。\n1. 预处理阶段 在这一阶段，预处理器处理源代码中的预处理指令，如#include、#define、条件编译指令#ifdef、#ifndef等。特别是#include指令，它会将头文件的内容直接包含到源文件中。如果没有适当的头文件保护，如#ifndef、#define、#endif，头文件可能被重复包含，导致预处理后的源文件中出现重复的内容。\n2. 编译阶段 在这一阶段，编译器将预处理后的源代码（现在已经包含了头文件中的内容，就是已经展开了所有的#include等）转换成汇编代码。如果实现代码（函数定义等）包含在头文件中，且头文件被多个源文件包含，那么就会导致：\n代码膨胀且编译时间增加：每个源文件（.cpp文件）在编译时都会包含它使用的所有头文件（.h文件），导致生成的目标文件体积增大。如果头文件中包含了大量的函数实现，每次这些头文件被包含时，这些代码都需要被重新编译。因此，如果多个源文件包括同一个包含大量实现的头文件，这些源文件每次编译时都会重新编译头文件中的实现代码，从而显著增加整体编译时间。并且，每次头文件被修改，所有包含该头文件的源文件都必须重新编译，哪怕是一个小改动，也会导致大量的重复编译工作。\n多重定义错误（在链接阶段发生）：如果头文件中包含函数或变量的实现（而不是仅仅声明），并且这个头文件被多个源文件包括，那么每个源文件都会尝试定义这些函数或变量。在后续链接这些源文件生成可执行文件或库文件时，链接器会发现同一个函数或变量被定义了多次，这会导致链接错误，具体表现为“multiple definition”错误。\n3. 汇编阶段 编译器生成的汇编代码被转换成机器可执行的代码，形成目标文件。这一阶段主要是编译器的工作，不涉及头文件和源文件的分离问题。\n4. 链接阶段 链接器将所有的目标文件以及所需的库文件链接成一个单独的可执行文件或库文件。如果多个目标文件包含同一个全局符号（函数或变量）的定义，链接器会检测到多重定义错误。这通常是因为头文件中包含了不应该存在的定义，并被多个源文件包括所导致。可以使用inline关键字或将模板定义放在头文件中可以避免多重定义问题，因为内联函数和模板被设计为可以在多个文件中安全地重复定义。\n最佳实践 函数声明与实现分离：在头文件中只声明函数和类，而在源文件中提供具体的实现。这是最基本的规则，有助于减少编译时间、避免多重定义问题，并提高代码的可读性和维护性。 使用inline关键字：对于需要在头文件中定义的小函数，可以使用inline关键字。inline函数通知编译器每次调用函数时尝试将函数体插入到每个调用点，以减少函数调用的开销。不过，滥用inline也可能导致代码膨胀。 模板实现：由于模板的特殊性，模板定义通常包括在头文件中。但应当小心控制模板实现的复杂度，避免导致所有上述问题。 ",
+  "wordCount" : "1460",
   "inLanguage": "zh",
-  "datePublished": "2024-04-24T10:26:36+08:00",
-  "dateModified": "2024-04-24T10:26:36+08:00",
+  "datePublished": "2024-04-28T14:02:22+08:00",
+  "dateModified": "2024-04-28T14:02:22+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/"
+    "@id": "https://ahaknow.com/posts/know/dev-header-source/"
   },
   "publisher": {
     "@type": "Organization",
@@ -256,7 +256,7 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      前人笔记收集录
+      开发实战：为什么要将函数实现与头文件分离
     </h1>
     <div class="post-meta">
 
@@ -288,25 +288,25 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2024-04-24
+            <span>2024-04-28
                 &nbsp;&nbsp;
             </span>
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-24
+        <span>2024-04-28
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>120 字
+        <span>1460 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1 分钟
+        <span>3 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -314,6 +314,14 @@
         <span class="fa fa-user-o"></span>
         <span>CKYoung
             &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/" style="color: var(--secondary)!important;">面向对象编程</a>
+            </span>
         </span>
     </span>
 </span>
@@ -328,8 +336,21 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#github%e6%b7%bb%e5%8a%a0waka%e8%ae%b0%e5%bd%95" aria-label="Github添加Waka记录">Github添加Waka记录</a>
+                    <a href="#c%e7%bc%96%e8%af%91%e8%a7%92%e5%ba%a6%e7%9a%84%e7%90%86%e8%a7%a3" aria-label="C&#43;&#43;编译角度的理解">C++编译角度的理解</a><ul>
+                        
+                <li>
+                    <a href="#1-%e9%a2%84%e5%a4%84%e7%90%86%e9%98%b6%e6%ae%b5" aria-label="1. 预处理阶段">1. 预处理阶段</a></li>
+                <li>
+                    <a href="#2-%e7%bc%96%e8%af%91%e9%98%b6%e6%ae%b5" aria-label="2. 编译阶段">2. 编译阶段</a></li>
+                <li>
+                    <a href="#3-%e6%b1%87%e7%bc%96%e9%98%b6%e6%ae%b5" aria-label="3. 汇编阶段">3. 汇编阶段</a></li>
+                <li>
+                    <a href="#4-%e9%93%be%e6%8e%a5%e9%98%b6%e6%ae%b5" aria-label="4. 链接阶段">4. 链接阶段</a></li>
+                <li>
+                    <a href="#%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5" aria-label="最佳实践">最佳实践</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
         </details>
@@ -395,25 +416,55 @@
     }
 </script>
   <div class="post-content"><blockquote>
-<p>前人栽树，后人乘凉。 或者说，不造轮子要造车。</p>
-<p>总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！</p>
+<p>在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。</p>
+<p>今天被问到了这个问题：</p>
+<p>“在写C++代码的时候，将函数实现直接写在头文件里，会怎么样，有什么不好的地方？为什么要将函数的实现单独写在源文件”</p>
+<p>我的第一反应想到的，我实际开发时就这样做的，为啥这样做呢？编译比较快？编译比较省事？……</p>
+<p>但似乎没有一个透彻的理解，需要在这里重新梳理一下。</p>
 </blockquote>
-<h3 id="github添加waka记录">Github添加Waka记录<a hidden class="anchor" aria-hidden="true" href="#github添加waka记录">#</a></h3>
-<p>可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～</p>
-<p><a href="https://github.com/marketplace/actions/profile-readme-development-stats">官方文档</a></p>
-<p><a href="https://www.omegaatt.com/blogs/develop/2023/wakatime_experience.html">初学者指南</a></p>
+<p><strong>从代码编译的角度来重新理解（CMake进行编译系统管理的时候，也有一套<a href="../dev-project-cmake">比较好的实践方式</a>）</strong></p>
+<h2 id="c编译角度的理解">C++编译角度的理解<a hidden class="anchor" aria-hidden="true" href="#c编译角度的理解">#</a></h2>
+<p>在C++编程中，编译过程通常包括<strong>预处理、编译、汇编和链接</strong>这几个阶段。每个阶段都在为最终生成可执行文件做准备，而在这些过程中，头文件和源文件的角色和影响各不相同。</p>
+<h3 id="1-预处理阶段">1. 预处理阶段<a hidden class="anchor" aria-hidden="true" href="#1-预处理阶段">#</a></h3>
+<p>在这一阶段，预处理器处理源代码中的预处理指令，如<code>#include</code>、<code>#define</code>、条件编译指令<code>#ifdef</code>、<code>#ifndef</code>等。特别是<code>#include</code>指令，它会将头文件的内容直接包含到源文件中。如果没有适当的头文件保护，如<code>#ifndef</code>、<code>#define</code>、<code>#endif</code>，<strong>头文件可能被重复包含</strong>，导致预处理后的源文件中出现重复的内容。</p>
+<h3 id="2-编译阶段">2. 编译阶段<a hidden class="anchor" aria-hidden="true" href="#2-编译阶段">#</a></h3>
+<p>在这一阶段，编译器将预处理后的源代码（现在已经包含了头文件中的内容，就是已经展开了所有的<code>#include</code>等）转换成汇编代码。如果实现代码（函数定义等）包含在头文件中，且头文件被多个源文件包含，那么就会导致：</p>
+<ul>
+<li>
+<p><strong>代码膨胀且编译时间增加</strong>：每个源文件（<code>.cpp</code>文件）在编译时都会包含它使用的所有头文件（<code>.h</code>文件），导致生成的目标文件体积增大。如果头文件中包含了大量的函数实现，<strong>每次这些头文件被包含时，这些代码都需要被重新编译</strong>。因此，如果多个源文件包括同一个包含大量实现的头文件，这些源文件每次编译时都会重新编译头文件中的实现代码，从而显著增加整体编译时间。并且，每次头文件被修改，所有包含该头文件的源文件都必须重新编译，哪怕是一个小改动，也会导致大量的重复编译工作。</p>
+</li>
+<li>
+<p><strong>多重定义错误（在链接阶段发生）</strong>：如果头文件中包含函数或变量的实现（而不是仅仅声明），并且这个头文件被多个源文件包括，<strong>那么每个源文件都会尝试定义这些函数或变量</strong>。在后续链接这些源文件生成可执行文件或库文件时，<strong>链接器会发现同一个函数或变量被定义了多次</strong>，这会导致链接错误，具体表现为“multiple definition”错误。</p>
+</li>
+</ul>
+<h3 id="3-汇编阶段">3. 汇编阶段<a hidden class="anchor" aria-hidden="true" href="#3-汇编阶段">#</a></h3>
+<p>编译器生成的汇编代码被转换成机器可执行的代码，形成目标文件。这一阶段主要是编译器的工作，不涉及头文件和源文件的分离问题。</p>
+<h3 id="4-链接阶段">4. 链接阶段<a hidden class="anchor" aria-hidden="true" href="#4-链接阶段">#</a></h3>
+<p>链接器将所有的目标文件以及所需的库文件链接成一个单独的可执行文件或库文件。如果多个目标文件包含同一个全局符号（函数或变量）的定义，链接器会检测到<strong>多重定义错误</strong>。这通常是因为头文件中包含了不应该存在的定义，并被多个源文件包括所导致。可以使用<code>inline</code>关键字或将模板定义放在头文件中可以避免多重定义问题，因为内联函数和模板被设计为可以在多个文件中安全地重复定义。</p>
+<h3 id="最佳实践">最佳实践<a hidden class="anchor" aria-hidden="true" href="#最佳实践">#</a></h3>
+<ul>
+<li><strong>函数声明与实现分离</strong>：在头文件中只声明函数和类，而在源文件中提供具体的实现。这是最基本的规则，有助于减少编译时间、避免多重定义问题，并提高代码的可读性和维护性。</li>
+<li><strong>使用<code>inline</code>关键字</strong>：对于需要在头文件中定义的小函数，可以使用<code>inline</code>关键字。<code>inline</code>函数通知编译器每次调用函数时尝试将函数体插入到每个调用点，以减少函数调用的开销。<strong>不过，滥用<code>inline</code>也可能导致代码膨胀</strong>。</li>
+<li><strong>模板实现</strong>：由于模板的特殊性，模板定义通常包括在头文件中。但应当小心控制模板实现的复杂度，避免导致所有上述问题。</li>
+</ul>
 
 
   </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/">面向对象编程</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="https://ahaknow.com/posts/know/dev-header-source/">
+  <a class="prev" href="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>前人笔记收集录</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/know/linux-tar-usage/">
     <span class="title">下一页 »</span>
     <br>
-    <span>开发实战：为什么要将函数实现与头文件分离</span>
+    <span>Linux：打包压缩相关的基本使用</span>
   </a>
 </nav>
 
