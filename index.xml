@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Apr 2024 14:02:22 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2024 09:53:38 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>常识：记录一次机票改签😅</title>
+      <link>https://ahaknow.com/posts/life/smart-an-airplane-experience/</link>
+      <pubDate>Mon, 06 May 2024 09:53:38 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/life/smart-an-airplane-experience/</guid>
+      <description>时隔多年再次坐飞机，还没起飞呢就尴尬了。。。 “值机”是啥意思？ 感觉自己跟个傻子一样。。。 提前半小时到机场就可以的吧？😄 直接打车去机场好了～ …</description>
     </item>
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
