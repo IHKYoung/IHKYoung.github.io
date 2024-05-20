@@ -6,7 +6,7 @@
     <description>Recent content in 好记性不如烂笔头 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 27 Apr 2024 15:41:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2024 17:28:00 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>编程灵感时刻</title>
+      <link>https://ahaknow.com/posts/know/coding-inspiration-moments/</link>
+      <pubDate>Wed, 08 May 2024 17:28:00 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/coding-inspiration-moments/</guid>
+      <description></description>
     </item>
     <item>
       <title>Protobuf：安装指定版本</title>

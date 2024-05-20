@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CMake on AhaKnow</title>
+    <link>https://ahaknow.com/tags/cmake/</link>
+    <description>Recent content in CMake on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 20 May 2024 17:54:35 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：CMake实现可执行文件的安装与打包分发</title>
+      <link>https://ahaknow.com/posts/know/dev-cpack-release/</link>
+      <pubDate>Mon, 20 May 2024 17:54:35 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-cpack-release/</guid>
+      <description>就是代码写好了，肯定不能发源码出去，肯定发的是可执行文件，或者就依赖和可执行文件都打包好～ 如果是Github管理的话，甚至还要考虑一下Rel</description>
+    </item>
+  </channel>
+</rss>

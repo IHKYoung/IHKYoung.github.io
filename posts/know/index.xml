@@ -6,7 +6,7 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 28 Apr 2024 14:02:22 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 May 2024 17:54:35 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,20 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>开发实战：CMake实现可执行文件的安装与打包分发</title>
+      <link>https://ahaknow.com/posts/know/dev-cpack-release/</link>
+      <pubDate>Mon, 20 May 2024 17:54:35 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-cpack-release/</guid>
+      <description>就是代码写好了，肯定不能发源码出去，肯定发的是可执行文件，或者就依赖和可执行文件都打包好～ 如果是Github管理的话，甚至还要考虑一下Rel</description>
+    </item>
+    <item>
+      <title>编程灵感时刻</title>
+      <link>https://ahaknow.com/posts/know/coding-inspiration-moments/</link>
+      <pubDate>Wed, 08 May 2024 17:28:00 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/coding-inspiration-moments/</guid>
+      <description></description>
     </item>
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
