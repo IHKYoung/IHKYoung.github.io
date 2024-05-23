@@ -46,7 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>编程灵感时刻 | AhaKnow</title>
 <meta name="keywords" content="">
-<meta name="description" content="编程灵感时刻 - AhaKnow">
+<meta name="description" content="一些实用的小工具 获取时间C&#43;&#43;片段 // Unix时间戳 int64_t getTimestamp() { auto now = std::chrono::system_clock::now(); auto timestamp = std::chrono::time_point_cast&lt;std::chrono::nanoseconds&gt;(now).time_since_epoch().count(); return static_cast&lt;int64_t&gt;(timestamp); } 方便阅读的版本：年_月_日_时_分_秒 std::string getReadableTimestamp() { // 获取当前时间点 auto">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://ahaknow.com/posts/know/coding-inspiration-moments/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -95,7 +95,7 @@
 
     </style>
 </noscript><meta property="og:title" content="编程灵感时刻" />
-<meta property="og:description" content="" />
+<meta property="og:description" content="一些实用的小工具 获取时间C&#43;&#43;片段 // Unix时间戳 int64_t getTimestamp() { auto now = std::chrono::system_clock::now(); auto timestamp = std::chrono::time_point_cast&lt;std::chrono::nanoseconds&gt;(now).time_since_epoch().count(); return static_cast&lt;int64_t&gt;(timestamp); } 方便阅读的版本：年_月_日_时_分_秒 std::string getReadableTimestamp() { // 获取当前时间点 auto" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/coding-inspiration-moments/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-05-08T17:28:00+08:00" />
@@ -103,7 +103,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="编程灵感时刻"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:description" content="一些实用的小工具 获取时间C&#43;&#43;片段 // Unix时间戳 int64_t getTimestamp() { auto now = std::chrono::system_clock::now(); auto timestamp = std::chrono::time_point_cast&lt;std::chrono::nanoseconds&gt;(now).time_since_epoch().count(); return static_cast&lt;int64_t&gt;(timestamp); } 方便阅读的版本：年_月_日_时_分_秒 std::string getReadableTimestamp() { // 获取当前时间点 auto"/>
 
 
 <script type="application/ld+json">
@@ -138,12 +138,12 @@
   "@type": "BlogPosting",
   "headline": "编程灵感时刻",
   "name": "编程灵感时刻",
-  "description": "",
+  "description": "一些实用的小工具 获取时间C++片段 // Unix时间戳 int64_t getTimestamp() { auto now = std::chrono::system_clock::now(); auto timestamp = std::chrono::time_point_cast\u0026lt;std::chrono::nanoseconds\u0026gt;(now).time_since_epoch().count(); return static_cast\u0026lt;int64_t\u0026gt;(timestamp); } 方便阅读的版本：年_月_日_时_分_秒 std::string getReadableTimestamp() { // 获取当前时间点 auto",
   "keywords": [
     
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "一些实用的小工具 获取时间C++片段 // Unix时间戳 int64_t getTimestamp() { auto now = std::chrono::system_clock::now(); auto timestamp = std::chrono::time_point_cast\u003cstd::chrono::nanoseconds\u003e(now).time_since_epoch().count(); return static_cast\u003cint64_t\u003e(timestamp); } 方便阅读的版本：年_月_日_时_分_秒\nstd::string getReadableTimestamp() { // 获取当前时间点 auto now = std::chrono::system_clock::now(); // 转换为 time_t 类型 std::time_t now_c = std::chrono::system_clock::to_time_t(now); // 将 time_t 类型转换为 tm 结构体 std::tm now_tm = *std::localtime(\u0026now_c); // 使用 stringstream 生成格式化的时间字符串 std::stringstream ss; ss \u003c\u003c std::put_time(\u0026now_tm, \"%Y_%m_%d_%H_%M_%S\"); return ss.str(); } ",
+  "wordCount" : "124",
   "inLanguage": "zh",
   "datePublished": "2024-05-08T17:28:00+08:00",
   "dateModified": "2024-05-08T17:28:00+08:00",
@@ -300,13 +300,13 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>0 字
+        <span>124 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>0 分钟
+        <span>1 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -319,7 +319,112 @@
 </span>
 
 </div>
-  </header> 
+  </header> <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%b8%80%e4%ba%9b%e5%ae%9e%e7%94%a8%e7%9a%84%e5%b0%8f%e5%b7%a5%e5%85%b7" aria-label="一些实用的小工具">一些实用的小工具</a><ul>
+                        
+                <li>
+                    <a href="#%e8%8e%b7%e5%8f%96%e6%97%b6%e9%97%b4c%e7%89%87%e6%ae%b5" aria-label="获取时间C&#43;&#43;片段">获取时间C++片段</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+  <div class="post-content"><h2 id="一些实用的小工具">一些实用的小工具<a hidden class="anchor" aria-hidden="true" href="#一些实用的小工具">#</a></h2>
+<h3 id="获取时间c片段">获取时间C++片段<a hidden class="anchor" aria-hidden="true" href="#获取时间c片段">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// Unix时间戳
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int64_t</span> <span class="nf">getTimestamp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">system_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">time_point_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">nanoseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">now</span><span class="p">).</span><span class="n">time_since_epoch</span><span class="p">().</span><span class="n">count</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int64_t</span><span class="o">&gt;</span><span class="p">(</span><span class="n">timestamp</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>方便阅读的版本：<code>年_月_日_时_分_秒</code></strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">getReadableTimestamp</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 获取当前时间点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">auto</span> <span class="n">now</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">system_clock</span><span class="o">::</span><span class="n">now</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 转换为 time_t 类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">time_t</span> <span class="n">now_c</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">system_clock</span><span class="o">::</span><span class="n">to_time_t</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 将 time_t 类型转换为 tm 结构体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">tm</span> <span class="n">now_tm</span> <span class="o">=</span> <span class="o">*</span><span class="n">std</span><span class="o">::</span><span class="n">localtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now_c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用 stringstream 生成格式化的时间字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">put_time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">now_tm</span><span class="p">,</span> <span class="s">&#34;%Y_%m_%d_%H_%M_%S&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+  </div>
 
   <footer class="post-footer">
     <ul class="post-tags">

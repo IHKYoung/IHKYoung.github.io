@@ -20,7 +20,7 @@
       <link>https://ahaknow.com/posts/know/coding-inspiration-moments/</link>
       <pubDate>Wed, 08 May 2024 17:28:00 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/coding-inspiration-moments/</guid>
-      <description></description>
+      <description>一些实用的小工具 获取时间C++片段 // Unix时间戳 int64_t getTimestamp() { auto now = std::chrono::system_clock::now(); auto timestamp = std::chrono::time_point_cast&amp;lt;std::chrono::nanoseconds&amp;gt;(now).time_since_epoch().count(); return static_cast&amp;lt;int64_t&amp;gt;(timestamp); } 方便阅读的版本：年_月_日_时_分_秒 std::string getReadableTimestamp() { // 获取当前时间点 auto</description>
     </item>
     <item>
       <title>Protobuf：安装指定版本</title>
