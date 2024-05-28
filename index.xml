@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 23 May 2024 15:20:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 May 2024 11:33:46 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -16,7 +16,14 @@
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
     </item>
     <item>
-      <title>M.E.R.L.I.N. - “Mindful Entity for Research, Learning, and Intelligent Neurons”</title>
+      <title>Linux：测试硬盘读写速度</title>
+      <link>https://ahaknow.com/posts/know/linux-test-ssd/</link>
+      <pubDate>Tue, 28 May 2024 11:33:46 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-test-ssd/</guid>
+      <description>需要对Linux上的固态进行一个读写测试，我知道是可以dd方式直接测试的，这里再提供另一种方法。 fio 是一个强大的 I/O 性能测试工具，支持多种 I/O 引擎</description>
+    </item>
+    <item>
+      <title>你好～ Merlin</title>
       <link>https://ahaknow.com/posts/know/m.e.r.l.i.n./</link>
       <pubDate>Thu, 23 May 2024 15:20:14 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/m.e.r.l.i.n./</guid>
