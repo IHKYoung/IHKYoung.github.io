@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>未标签 on AhaKnow</title>
-    <link>https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/</link>
-    <description>Recent content in 未标签 on AhaKnow</description>
+    <title>Mutex on AhaKnow</title>
+    <link>https://ahaknow.com/tags/mutex/</link>
+    <description>Recent content in Mutex on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 29 May 2024 11:05:35 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ahaknow.com/tags/mutex/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Dev Mutex</title>
+      <title>开发实战：“锁”的机制</title>
       <link>https://ahaknow.com/posts/know/dev-mutex/</link>
       <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/dev-mutex/</guid>
