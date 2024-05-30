@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>解压缩 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/</link>
+    <description>Recent content in 解压缩 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 27 Apr 2024 22:27:17 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux：打包压缩相关的基本使用</title>
+      <link>https://ahaknow.com/posts/know/linux-tar-usage/</link>
+      <pubDate>Sat, 27 Apr 2024 22:27:17 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-tar-usage/</guid>
+      <description>tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到</description>
+    </item>
+  </channel>
+</rss>

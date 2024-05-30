@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>磁盘读写 on AhaKnow</title>
+    <link>https://ahaknow.com/tags/%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99/</link>
+    <description>Recent content in 磁盘读写 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 28 May 2024 11:33:46 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/tags/%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux：测试硬盘读写速度</title>
+      <link>https://ahaknow.com/posts/know/linux-test-ssd/</link>
+      <pubDate>Tue, 28 May 2024 11:33:46 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-test-ssd/</guid>
+      <description>需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。 在 Linux 上使</description>
+    </item>
+  </channel>
+</rss>

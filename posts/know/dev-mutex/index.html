@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Linux：打包压缩相关的基本使用 | AhaKnow</title>
-<meta name="keywords" content="解压缩">
-<meta name="description" content="tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到">
+<title>Dev Mutex | AhaKnow</title>
+<meta name="keywords" content="未标签">
+<meta name="description" content="Dev Mutex - AhaKnow">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="https://ahaknow.com/posts/know/linux-tar-usage/">
+<link rel="canonical" href="https://ahaknow.com/posts/know/dev-mutex/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
@@ -57,7 +57,7 @@
 <link rel="mask-icon" href="https://ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/linux-tar-usage/">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/know/dev-mutex/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,16 +94,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Linux：打包压缩相关的基本使用" />
-<meta property="og:description" content="tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到" />
+</noscript><meta property="og:title" content="Dev Mutex" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ahaknow.com/posts/know/linux-tar-usage/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-27T22:27:17+08:00" />
-<meta property="article:modified_time" content="2024-04-27T22:27:17+08:00" />
+<meta property="og:url" content="https://ahaknow.com/posts/know/dev-mutex/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-05-29T11:05:35+08:00" />
+<meta property="article:modified_time" content="2024-05-29T11:05:35+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux：打包压缩相关的基本使用"/>
-<meta name="twitter:description" content="tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到"/>
+<meta name="twitter:title" content="Dev Mutex"/>
+<meta name="twitter:description" content=""/>
 
 
 <script type="application/ld+json">
@@ -126,8 +126,8 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Linux：打包压缩相关的基本使用",
-      "item": "https://ahaknow.com/posts/know/linux-tar-usage/"
+      "name": "Dev Mutex",
+      "item": "https://ahaknow.com/posts/know/dev-mutex/"
     }
   ]
 }
@@ -136,24 +136,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Linux：打包压缩相关的基本使用",
-  "name": "Linux：打包压缩相关的基本使用",
-  "description": "tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。 tar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到",
+  "headline": "Dev Mutex",
+  "name": "Dev Mutex",
+  "description": "",
   "keywords": [
-    "解压缩"
+    "未标签"
   ],
-  "articleBody": " tar 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。\ntar 文件通常是文件档案的集合，而 tar 本身是 Tape Archive 的缩写，起初是用来将数据备份到磁带上。下面将介绍 tar 命令的基本用法，包括如何用它来压缩和解压缩文件，以及常见的压缩格式如 gz 的含义。\ntar 的基本用法 创建 tar 归档： 使用 -c 选项来创建一个新的归档文件。通常与 -f 选项结合使用，后者指定归档文件的名称。\ntar -cf archive.tar file1 file2 dir1 这条命令会创建一个名为 archive.tar 的归档文件，包含了 file1, file2 以及整个 dir1 目录。\n查看 tar 归档内容： 使用 -t 选项来查看归档中的内容，不会进行解压。\ntar -tf archive.tar 解压 tar 归档： 使用 -x 选项来解压归档。\ntar -xf archive.tar 这条命令会将 archive.tar 中的内容解压到当前目录。\n使用压缩 tar 支持多种压缩方式，如 gzip、bzip2 和 xz。压缩和解压缩归档可以减少存储空间和提高文件传输速度。\ngzip 压缩 (gz): -z 选项让 tar 使用 gzip 来压缩。扩展名通常为 .tar.gz 或 .tgz。\ntar -czf archive.tar.gz file1 dir1 解压 gzip 压缩的 tar 归档：\ntar -xzf archive.tar.gz bzip2 压缩 (bz2): -j 选项让 tar 使用 bzip2 压缩。扩展名为 .tar.bz2。\ntar -cjf archive.tar.bz2 file1 dir1 解压 bzip2 压缩的 tar 归档：\ntar -xjf archive.tar.bz2 xz 压缩 (xz): -J 选项让 tar 使用 xz 压缩。扩展名为 .tar.xz。\ntar -cJf archive.tar.xz file1 dir1 解压 xz 压缩的 tar 归档：\ntar -xJf archive.tar.xz 小技巧 使用 -v (verbose) 选项可以显示 tar 处理的详细信息，这对于调试或了解进度很有用。 使用 -p 选项（preserve permissions）来保留文件权限。 使用 --exclude 选项来在归档时排除特定的文件或目录。 ",
-  "wordCount" : "564",
+  "articleBody": "",
+  "wordCount" : "0",
   "inLanguage": "zh",
-  "datePublished": "2024-04-27T22:27:17+08:00",
-  "dateModified": "2024-04-27T22:27:17+08:00",
+  "datePublished": "2024-05-29T11:05:35+08:00",
+  "dateModified": "2024-05-29T11:05:35+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://ahaknow.com/posts/know/linux-tar-usage/"
+    "@id": "https://ahaknow.com/posts/know/dev-mutex/"
   },
   "publisher": {
     "@type": "Organization",
@@ -256,7 +256,7 @@
   <header class="post-header">
     <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
     <h1 class="post-title entry-hint-parent">
-      Linux：打包压缩相关的基本使用
+      Dev Mutex
     </h1>
     <div class="post-meta">
 
@@ -288,25 +288,25 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2024-04-27
+            <span>2024-05-29
                 &nbsp;&nbsp;
             </span>
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-27
+        <span>2024-05-29
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>564 字
+        <span>0 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>2 分钟
+        <span>0 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -320,165 +320,29 @@
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/" style="color: var(--secondary)!important;">解压缩</a>
+                <a href="https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/" style="color: var(--secondary)!important;">未标签</a>
             </span>
         </span>
     </span>
 </span>
 
 </div>
-  </header> <aside id="toc-container" class="toc-container wide">
-    <div class="toc">
-        <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">📚目录</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#tar-%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%94%a8%e6%b3%95" aria-label="tar 的基本用法">tar 的基本用法</a></li>
-                <li>
-                    <a href="#%e4%bd%bf%e7%94%a8%e5%8e%8b%e7%bc%a9" aria-label="使用压缩">使用压缩</a></li>
-                <li>
-                    <a href="#%e5%b0%8f%e6%8a%80%e5%b7%a7" aria-label="小技巧">小技巧</a>
-                </li>
-            </ul>
-        </div>
-        </details>
-    </div>
-</aside>
-<script>
-    let activeElement;
-    let elements;
-    window.addEventListener('DOMContentLoaded', function (event) {
-        checkTocPosition();
-
-        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
-        
-        activeElement = elements[0];
-        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
-        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-    }, false);
-
-    window.addEventListener('resize', function(event) {
-        checkTocPosition();
-    }, false);
-
-    window.addEventListener('scroll', () => {
-        
-        activeElement = Array.from(elements).find((element) => {
-            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
-                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
-                return element;
-            }
-        }) || activeElement
-
-        elements.forEach(element => {
-            const id = encodeURI(element.getAttribute('id')).toLowerCase();
-            if (element === activeElement){
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        })
-    }, false);
-
-    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
-    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
-    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
-
-    function checkTocPosition() {
-        const width = document.body.scrollWidth;
-
-        if (width - main - (toc * 2) - (gap * 4) > 0) {
-            document.getElementById("toc-container").classList.add("wide");
-        } else {
-            document.getElementById("toc-container").classList.remove("wide");
-        }
-    }
-
-    function getOffsetTop(element) {
-        if (!element.getClientRects().length) {
-            return 0;
-        }
-        let rect = element.getBoundingClientRect();
-        let win = element.ownerDocument.defaultView;
-        return rect.top + win.pageYOffset;
-    }
-</script>
-  <div class="post-content"><blockquote>
-<p><code>tar</code> 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。</p>
-<p>tar 文件通常是文件档案的集合，而 <code>tar</code> 本身是 Tape Archive 的缩写，起初是用来将数据备份到磁带上。下面将介绍 <code>tar</code> 命令的基本用法，包括如何用它来压缩和解压缩文件，以及常见的压缩格式如 gz 的含义。</p>
-</blockquote>
-<h3 id="tar-的基本用法">tar 的基本用法<a hidden class="anchor" aria-hidden="true" href="#tar-的基本用法">#</a></h3>
-<ol>
-<li>
-<p><strong>创建 tar 归档</strong>：
-使用 <code>-c</code> 选项来创建一个新的归档文件。通常与 <code>-f</code> 选项结合使用，后者指定归档文件的名称。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -cf archive.tar file1 file2 dir1
-</span></span></code></pre></div><p>这条命令会创建一个名为 <code>archive.tar</code> 的归档文件，包含了 <code>file1</code>, <code>file2</code> 以及整个 <code>dir1</code> 目录。</p>
-</li>
-<li>
-<p><strong>查看 tar 归档内容</strong>：
-使用 <code>-t</code> 选项来查看归档中的内容，不会进行解压。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -tf archive.tar
-</span></span></code></pre></div></li>
-<li>
-<p><strong>解压 tar 归档</strong>：
-使用 <code>-x</code> 选项来解压归档。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xf archive.tar
-</span></span></code></pre></div><p>这条命令会将 <code>archive.tar</code> 中的内容解压到当前目录。</p>
-</li>
-</ol>
-<h3 id="使用压缩">使用压缩<a hidden class="anchor" aria-hidden="true" href="#使用压缩">#</a></h3>
-<p><code>tar</code> 支持多种压缩方式，如 gzip、bzip2 和 xz。压缩和解压缩归档可以减少存储空间和提高文件传输速度。</p>
-<ol>
-<li>
-<p><strong>gzip 压缩</strong> (<code>gz</code>):
-<code>-z</code> 选项让 <code>tar</code> 使用 gzip 来压缩。扩展名通常为 <code>.tar.gz</code> 或 <code>.tgz</code>。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -czf archive.tar.gz file1 dir1
-</span></span></code></pre></div><p>解压 gzip 压缩的 tar 归档：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xzf archive.tar.gz
-</span></span></code></pre></div></li>
-<li>
-<p><strong>bzip2 压缩</strong> (<code>bz2</code>):
-<code>-j</code> 选项让 <code>tar</code> 使用 bzip2 压缩。扩展名为 <code>.tar.bz2</code>。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -cjf archive.tar.bz2 file1 dir1
-</span></span></code></pre></div><p>解压 bzip2 压缩的 tar 归档：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xjf archive.tar.bz2
-</span></span></code></pre></div></li>
-<li>
-<p><strong>xz 压缩</strong> (<code>xz</code>):
-<code>-J</code> 选项让 <code>tar</code> 使用 xz 压缩。扩展名为 <code>.tar.xz</code>。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -cJf archive.tar.xz file1 dir1
-</span></span></code></pre></div><p>解压 xz 压缩的 tar 归档：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tar -xJf archive.tar.xz
-</span></span></code></pre></div></li>
-</ol>
-<h3 id="小技巧">小技巧<a hidden class="anchor" aria-hidden="true" href="#小技巧">#</a></h3>
-<ul>
-<li>使用 <code>-v</code> (verbose) 选项可以显示 tar 处理的详细信息，这对于调试或了解进度很有用。</li>
-<li>使用 <code>-p</code> 选项（preserve permissions）来保留文件权限。</li>
-<li>使用 <code>--exclude</code> 选项来在归档时排除特定的文件或目录。</li>
-</ul>
-
-
-  </div>
+  </header> 
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/">解压缩</a></li>
+      <li><a href="https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/">未标签</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://ahaknow.com/posts/know/dev-header-source/">
+  <a class="prev" href="https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/">
     <span class="title">« 上一页</span>
     <br>
-    <span>开发实战：为什么要将函数实现与头文件分离</span>
+    <span>前人笔记收集录</span>
   </a>
-  <a class="next" href="https://ahaknow.com/posts/know/note-install-protobuf/">
+  <a class="next" href="https://ahaknow.com/posts/know/linux-test-ssd/">
     <span class="title">下一页 »</span>
     <br>
-    <span>Protobuf：安装指定版本</span>
+    <span>Linux：测试硬盘读写速度</span>
   </a>
 </nav>
 
