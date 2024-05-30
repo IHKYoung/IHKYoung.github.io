@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 29 May 2024 11:05:35 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2024 14:13:33 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>Linux：开不了机了？通过Grub启动！</title>
+      <link>https://ahaknow.com/posts/know/linux-grub-boot/</link>
+      <pubDate>Thu, 30 May 2024 14:13:33 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-grub-boot/</guid>
+      <description>事情是这样的： 我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时</description>
     </item>
     <item>
       <title>Dev Mutex</title>

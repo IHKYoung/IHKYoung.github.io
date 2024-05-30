@@ -6,8 +6,15 @@
     <description>Recent content in Grub on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 24 Apr 2024 13:00:28 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2024 14:13:33 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/tags/grub/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux：开不了机了？通过Grub启动！</title>
+      <link>https://ahaknow.com/posts/know/linux-grub-boot/</link>
+      <pubDate>Thu, 30 May 2024 14:13:33 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-grub-boot/</guid>
+      <description>事情是这样的： 我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时</description>
+    </item>
     <item>
       <title>Linux：内核启动不了之后</title>
       <link>https://ahaknow.com/posts/know/linux-kernel/</link>
