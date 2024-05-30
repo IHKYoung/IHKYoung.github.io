@@ -94,7 +94,10 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Linux：开不了机了？通过Grub启动！" />
+</noscript>
+  
+
+<meta property="og:title" content="Linux：开不了机了？通过Grub启动！" />
 <meta property="og:description" content="事情是这样的： 我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/linux-grub-boot/" /><meta property="article:section" content="posts" />
@@ -142,8 +145,8 @@
   "keywords": [
     "Grub"
   ],
-  "articleBody": " 事情是这样的：\n我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时进行选择。\n现在我直接把硬盘A取走了，再开机，于是乎，启动不了了。。。。\n开机之后直接进入grub\u003e界面。。。\n切入正题 我的想法是，能不能就在grub下实现启动（理论上肯定是可以的！），不借助所谓的Live CD或者USB环境。\n下面是具体步骤：\n列出所有分区：\ngrub\u003e ls 这将列出所有可用的设备和分区，例如：\n(hd0) (hd0,gpt1) (hd0,gpt2) 也可能不是这样，但类似。\n查找/boot目录： 检查每个分区，找到包含 /boot 目录的分区：\ngrub\u003e ls (hd0,gpt1)/ grub\u003e ls (hd0,gpt2)/ 看看 /boot 目录在哪个分区下，比如是在(hd0,gpt2)下面；进入 /boot 后，应该看到类似以下的文件列表：\nvmlinuz initrd.img 也可能是：vmlinuz-linux和initramfs-linux.img之类的文件\n获取启动设备UUID： 在GRUB命令行中，可以使用 ls -l 命令来查看设备的UUID。例如：\ngrub\u003e ls -l (hd0,gpt2) 这将列出分区的详细信息，包括UUID，这个UUID就可以作为设备名的标识。\n挂载启动： 加载内核并指定根文件系统：\ngrub\u003e linux (hd0,gpt2)/boot/vmlinuz root=UUID=your-uuid-here grub\u003e initrd (hd0,gpt2)/boot/initrd.img grub\u003e boot 注意vmlinuz可能会有区别，vmlinuz或者vmlinuz-linux；initrd.img也可能有区别，但肯定是init前缀加上img后缀。\n修复Grub：\n这时候能够进入Ubuntu系统了，需要永久修复一下Grub，比较快捷的方法是通过boot-repair工具：\nsudo add-apt-repository ppa:yannubuntu/boot-repair sudo apt update sudo apt install -y boot-repair boot-repair 选择“Recommended repair（推荐修复）”选项，按照提示操作。\n答疑解惑 GRUB是什么东西，能干嘛？ GRUB（GNU GRand Unified Bootloader）是一个通用的引导加载程序，用于启动操作系统。它可以引导多种操作系统，包括Linux、Windows和BSD。GRUB的主要功能和特点包括：\n多重引导：允许用户从多个操作系统中选择要启动的系统。 配置文件：使用一个配置文件（通常是grub.cfg），用户可以在该文件中定义引导菜单、内核参数等。 命令行界面：提供一个命令行界面，用户可以在引导过程中输入命令，以便进行手动引导或修复操作系统。 模块化设计：可以通过加载模块来扩展功能，如支持不同文件系统和设备。 initramfs-linux.img是什么东西？ initramfs（initial RAM filesystem）是一个临时的根文件系统，用于在系统启动时加载必要的驱动和模块。initramfs-linux.img文件通常包含以下内容：\n内核模块：用于支持启动时所需的硬件。 启动脚本：用于初始化系统并挂载实际的根文件系统。 用户空间工具：如busybox，用于提供基本的命令行工具。 在不同的Linux发行版上，这个文件的命名可能会有所不同。例如：\n在Ubuntu上，通常命名为initrd.img-，例如initrd.img-5.4.0-42-generic。 在Arch Linux上，通常命名为initramfs-linux.img。 vmlinuz-linux是什么？ vmlinuz是Linux内核的压缩版本，通常用于引导系统。文件名中的vmlinuz表示“压缩的虚拟内核”（compressed virtual kernel）。不同的Linux发行版可能使用不同的命名方式：\nvmlinuz：这是大多数发行版使用的通用名称，如Ubuntu和Debian。 vmlinuz-linux：在一些发行版中可能会使用更具体的名称，以区分不同的内核版本或配置，如Arch Linux。 总结 GRUB：引导加载程序，用于选择和启动操作系统，支持多重引导和命令行界面。 initramfs-linux.img：初始RAM文件系统，包含启动时所需的内核模块和脚本，用于加载实际的根文件系统。在不同的发行版上可能有不同的命名，如Ubuntu的initrd.img-。 vmlinuz-linux：压缩的Linux内核，用于引导系统。通常在不同的发行版上有不同的命名，如Ubuntu的vmlinuz或Arch Linux的vmlinuz-linux。 ",
-  "wordCount" : "1707",
+  "articleBody": " 事情是这样的：\n我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时进行选择。\n现在我直接把硬盘A取走了，再开机，于是乎，启动不了了。。。。\n开机之后直接进入grub\u003e界面。。。\n先说正题 我的想法是，能不能就在grub下实现启动（理论上肯定是可以的！），不借助所谓的Live CD或者USB环境。\n下面是具体步骤：\nGrub启动 列出所有分区：\ngrub\u003e ls 这将列出所有可用的设备和分区，例如：\n(hd0) (hd0,gpt1) (hd0,gpt2) 也可能不是这样，但类似。\n查找/boot目录： 检查每个分区，找到包含 /boot 目录的分区：\ngrub\u003e ls (hd0,gpt1)/ grub\u003e ls (hd0,gpt2)/ 看看 /boot 目录在哪个分区下，比如是在(hd0,gpt2)下面；进入 /boot 后，应该看到类似以下的文件列表：\nvmlinuz initrd.img 也可能是：vmlinuz-linux和initramfs-linux.img之类的文件\n获取启动设备UUID： 在GRUB命令行中，可以使用 ls -l 命令来查看设备的UUID。例如：\ngrub\u003e ls -l (hd0,gpt2) 这将列出分区的详细信息，包括UUID，这个UUID就可以作为设备名的标识。\n挂载启动： 加载内核并指定根文件系统：\ngrub\u003e linux (hd0,gpt2)/boot/vmlinuz root=UUID=your-uuid-here grub\u003e initrd (hd0,gpt2)/boot/initrd.img grub\u003e boot 注意vmlinuz可能会有区别，vmlinuz或者vmlinuz-linux；initrd.img也可能有区别，但肯定是init前缀加上img后缀。\n修复Grub 注意需要确认磁盘的设备名，因为已经启动了Ubuntu，可以通过 lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL 来查看：\nlsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL 得到的结果类似下面这样：\nNAME FSTYPE SIZE MOUNTPOINT LABEL loop0 squashfs 63.5M /snap/core20/2015 loop1 squashfs 4K /snap/bare/5 loop2 squashfs 74.1M /snap/core22/1033 loop3 squashfs 349.7M /snap/gnome-3-38-2004/143 loop4 squashfs 64M /snap/core20/2318 loop5 squashfs 497M /snap/gnome-42-2204/141 loop6 squashfs 91.7M /snap/gtk-common-themes/1535 loop7 squashfs 40.9M /snap/snapd/20092 loop8 squashfs 12.3M /snap/snap-store/959 loop9 squashfs 38.8M /snap/snapd/21759 loop10 squashfs 74.2M /snap/core22/1380 loop11 squashfs 54.2M /snap/snap-store/558 loop12 squashfs 485.5M /snap/gnome-42-2204/126 loop13 squashfs 349.7M /snap/gnome-3-38-2004/140 nvme0n1 931.5G ├─nvme0n1p1 vfat 193M └─nvme0n1p2 ext4 931.3G / 其中的vfat理论上讲就是efi所在的位置，如果不确定，可以在一开始grub\u003e命令的时候ls查看。\n创建挂载点（如果不存在）： sudo mkdir -p /boot/efi 挂载EFI分区： sudo mount /dev/nvme0n1p1 /boot/efi 验证挂载： df -h | grep /boot/efi 应该看到以下的输出：\n/dev/nvme0n1p1 200M 100M 100M 50% /boot/efi 安装GRUB到指定的设备： sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB /dev/nvme0n1 生成GRUB配置文件： sudo update-grub 重启系统： sudo reboot 答疑解惑 GRUB是什么东西，能干嘛？ GRUB（GNU GRand Unified Bootloader）是一个通用的引导加载程序，用于启动操作系统。它可以引导多种操作系统，包括Linux、Windows和BSD。GRUB的主要功能和特点包括：\n多重引导：允许用户从多个操作系统中选择要启动的系统。 配置文件：使用一个配置文件（通常是grub.cfg），用户可以在该文件中定义引导菜单、内核参数等。 命令行界面：提供一个命令行界面，用户可以在引导过程中输入命令，以便进行手动引导或修复操作系统。 模块化设计：可以通过加载模块来扩展功能，如支持不同文件系统和设备。 initramfs-linux.img是什么东西？ initramfs（initial RAM filesystem）是一个临时的根文件系统，用于在系统启动时加载必要的驱动和模块。initramfs-linux.img文件通常包含以下内容：\n内核模块：用于支持启动时所需的硬件。 启动脚本：用于初始化系统并挂载实际的根文件系统。 用户空间工具：如busybox，用于提供基本的命令行工具。 在不同的Linux发行版上，这个文件的命名可能会有所不同。例如：\n在Ubuntu上，通常命名为initrd.img-，例如initrd.img-5.4.0-42-generic。 在Arch Linux上，通常命名为initramfs-linux.img。 vmlinuz-linux是什么？ vmlinuz是Linux内核的压缩版本，通常用于引导系统。文件名中的vmlinuz表示“压缩的虚拟内核”（compressed virtual kernel）。不同的Linux发行版可能使用不同的命名方式：\nvmlinuz：这是大多数发行版使用的通用名称，如Ubuntu和Debian。 vmlinuz-linux：在一些发行版中可能会使用更具体的名称，以区分不同的内核版本或配置，如Arch Linux。 总结 GRUB：引导加载程序，用于选择和启动操作系统，支持多重引导和命令行界面。 initramfs-linux.img：初始RAM文件系统，包含启动时所需的内核模块和脚本，用于加载实际的根文件系统。在不同的发行版上可能有不同的命名，如Ubuntu的initrd.img-。 vmlinuz-linux：压缩的Linux内核，用于引导系统。通常在不同的发行版上有不同的命名，如Ubuntu的vmlinuz或Arch Linux的vmlinuz-linux。 ",
+  "wordCount" : "1898",
   "inLanguage": "zh",
   "datePublished": "2024-05-30T14:13:33+08:00",
   "dateModified": "2024-05-30T14:13:33+08:00",
@@ -300,7 +303,7 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1707 字
+        <span>1898 字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -336,7 +339,13 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#%e5%88%87%e5%85%a5%e6%ad%a3%e9%a2%98" aria-label="切入正题">切入正题</a></li>
+                    <a href="#%e5%85%88%e8%af%b4%e6%ad%a3%e9%a2%98" aria-label="先说正题">先说正题</a><ul>
+                        
+                <li>
+                    <a href="#grub%e5%90%af%e5%8a%a8" aria-label="Grub启动">Grub启动</a></li>
+                <li>
+                    <a href="#%e4%bf%ae%e5%a4%8dgrub" aria-label="修复Grub">修复Grub</a></li></ul>
+                </li>
                 <li>
                     <a href="#%e7%ad%94%e7%96%91%e8%a7%a3%e6%83%91" aria-label="答疑解惑">答疑解惑</a><ul>
                         
@@ -421,9 +430,10 @@
 <p>现在我直接把硬盘A取走了，再开机，于是乎，启动不了了。。。。</p>
 <p>开机之后直接进入grub&gt;界面。。。</p>
 </blockquote>
-<h2 id="切入正题">切入正题<a hidden class="anchor" aria-hidden="true" href="#切入正题">#</a></h2>
+<h2 id="先说正题">先说正题<a hidden class="anchor" aria-hidden="true" href="#先说正题">#</a></h2>
 <p>我的想法是，能不能就在grub下实现启动（理论上肯定是可以的！），不借助所谓的Live CD或者USB环境。</p>
 <p>下面是具体步骤：</p>
+<h3 id="grub启动">Grub启动<a hidden class="anchor" aria-hidden="true" href="#grub启动">#</a></h3>
 <ol>
 <li>
 <p><strong>列出所有分区</strong>：</p>
@@ -455,18 +465,57 @@
 </span></span><span class="line"><span class="cl">grub&gt; boot
 </span></span></code></pre></div><p><strong>注意vmlinuz可能会有区别，vmlinuz或者vmlinuz-linux；initrd.img也可能有区别，但肯定是init前缀加上img后缀。</strong></p>
 </li>
-<li>
-<p><strong>修复Grub：</strong></p>
-<p>这时候能够进入Ubuntu系统了，需要永久修复一下Grub，比较快捷的方法是通过boot-repair工具：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo add-apt-repository ppa:yannubuntu/boot-repair
-</span></span><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install -y boot-repair
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">boot-repair
-</span></span></code></pre></div><p>选择“Recommended repair（推荐修复）”选项，按照提示操作。</p>
-</li>
 </ol>
-<h2 id="答疑解惑">答疑解惑<a hidden class="anchor" aria-hidden="true" href="#答疑解惑">#</a></h2>
+<h3 id="修复grub">修复Grub<a hidden class="anchor" aria-hidden="true" href="#修复grub">#</a></h3>
+<p>注意需要确认磁盘的设备名，因为已经启动了Ubuntu，可以通过 <code>lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL</code> 来查看：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+</span></span></code></pre></div><p>得到的结果类似下面这样：</p>
+<pre tabindex="0"><code>NAME        FSTYPE     SIZE MOUNTPOINT                   LABEL
+loop0       squashfs  63.5M /snap/core20/2015            
+loop1       squashfs     4K /snap/bare/5                 
+loop2       squashfs  74.1M /snap/core22/1033            
+loop3       squashfs 349.7M /snap/gnome-3-38-2004/143    
+loop4       squashfs    64M /snap/core20/2318            
+loop5       squashfs   497M /snap/gnome-42-2204/141      
+loop6       squashfs  91.7M /snap/gtk-common-themes/1535 
+loop7       squashfs  40.9M /snap/snapd/20092            
+loop8       squashfs  12.3M /snap/snap-store/959         
+loop9       squashfs  38.8M /snap/snapd/21759            
+loop10      squashfs  74.2M /snap/core22/1380            
+loop11      squashfs  54.2M /snap/snap-store/558         
+loop12      squashfs 485.5M /snap/gnome-42-2204/126      
+loop13      squashfs 349.7M /snap/gnome-3-38-2004/140    
+nvme0n1              931.5G                              
+├─nvme0n1p1 vfat       193M             
+└─nvme0n1p2 ext4     931.3G /    
+</code></pre><p><strong>其中的vfat理论上讲就是efi所在的位置，如果不确定，可以在一开始grub&gt;命令的时候ls查看。</strong></p>
+<ol>
+<li><strong>创建挂载点（如果不存在）</strong>：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mkdir -p /boot/efi
+</span></span></code></pre></div><ol start="2">
+<li><strong>挂载EFI分区</strong>：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mount /dev/nvme0n1p1 /boot/efi
+</span></span></code></pre></div><ol start="3">
+<li><strong>验证挂载</strong>：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">df -h <span class="p">|</span> grep /boot/efi
+</span></span></code></pre></div><p>应该看到以下的输出：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/dev/nvme0n1p1    200M  100M  100M  50% /boot/efi
+</span></span></code></pre></div><ol start="4">
+<li><strong>安装GRUB到指定的设备</strong>：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/boot/efi --bootloader-id<span class="o">=</span>GRUB /dev/nvme0n1
+</span></span></code></pre></div><ol start="5">
+<li><strong>生成GRUB配置文件</strong>：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo update-grub
+</span></span></code></pre></div><ol start="6">
+<li><strong>重启系统</strong>：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo reboot
+</span></span></code></pre></div><h2 id="答疑解惑">答疑解惑<a hidden class="anchor" aria-hidden="true" href="#答疑解惑">#</a></h2>
 <h3 id="grub是什么东西能干嘛">GRUB是什么东西，能干嘛？<a hidden class="anchor" aria-hidden="true" href="#grub是什么东西能干嘛">#</a></h3>
 <p><strong>GRUB</strong>（GNU GRand Unified Bootloader）是一个通用的引导加载程序，用于启动操作系统。它可以引导多种操作系统，包括Linux、Windows和BSD。GRUB的主要功能和特点包括：</p>
 <ol>
