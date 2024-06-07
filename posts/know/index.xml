@@ -6,7 +6,7 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 30 May 2024 14:13:33 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2024 15:44:21 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,20 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>Linux：命令行方式查看硬盘信息</title>
+      <link>https://ahaknow.com/posts/know/linux-disk-info/</link>
+      <pubDate>Wed, 05 Jun 2024 15:44:21 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-disk-info/</guid>
+      <description>去年2023年，固态硬盘低谷的时候买了一个2T的，现在没啥用了，原本想着装移动版的MacOS系统的，但是看了看雷电3硬盘盒的读写速度，三星的</description>
+    </item>
+    <item>
+      <title>Linux：GPU环境崩了？从Nvidia驱动到TensorRT</title>
+      <link>https://ahaknow.com/posts/know/linux-cuda-kernel-conflict/</link>
+      <pubDate>Mon, 03 Jun 2024 16:26:02 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-cuda-kernel-conflict/</guid>
+      <description>遇到的问题是这样的： “莫名其妙，GPU驱动就没了，可能是因为update &amp;amp;&amp;amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没</description>
     </item>
     <item>
       <title>Linux：开不了机了？通过Grub启动！</title>

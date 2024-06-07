@@ -6,8 +6,22 @@
     <description>Recent content in Linux成神之路 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 30 May 2024 14:13:33 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2024 15:44:21 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/linux%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux：命令行方式查看硬盘信息</title>
+      <link>https://ahaknow.com/posts/know/linux-disk-info/</link>
+      <pubDate>Wed, 05 Jun 2024 15:44:21 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-disk-info/</guid>
+      <description>去年2023年，固态硬盘低谷的时候买了一个2T的，现在没啥用了，原本想着装移动版的MacOS系统的，但是看了看雷电3硬盘盒的读写速度，三星的</description>
+    </item>
+    <item>
+      <title>Linux：GPU环境崩了？从Nvidia驱动到TensorRT</title>
+      <link>https://ahaknow.com/posts/know/linux-cuda-kernel-conflict/</link>
+      <pubDate>Mon, 03 Jun 2024 16:26:02 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/linux-cuda-kernel-conflict/</guid>
+      <description>遇到的问题是这样的： “莫名其妙，GPU驱动就没了，可能是因为update &amp;amp;&amp;amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没</description>
+    </item>
     <item>
       <title>Linux：开不了机了？通过Grub启动！</title>
       <link>https://ahaknow.com/posts/know/linux-grub-boot/</link>
