@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Jun 2024 15:44:21 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 07 Jun 2024 14:18:21 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>Git：不小心git add . 之后</title>
+      <link>https://ahaknow.com/posts/know/note-git-unstage/</link>
+      <pubDate>Fri, 07 Jun 2024 14:18:21 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/note-git-unstage/</guid>
+      <description>一顿操作猛如虎，鬼使神差来了个git add . 并不想这样的，因为压根不是想要git管理的目录😂 怎么ctrl+z一下呢？ 具体操作 在Git中，有两个常</description>
     </item>
     <item>
       <title>Linux：命令行方式查看硬盘信息</title>
