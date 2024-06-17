@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>就喜欢苹果是吧 on AhaKnow</title>
+    <link>https://ahaknow.com/categories/%E5%B0%B1%E5%96%9C%E6%AC%A2%E8%8B%B9%E6%9E%9C%E6%98%AF%E5%90%A7/</link>
+    <description>Recent content in 就喜欢苹果是吧 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 17 Jun 2024 15:21:15 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/%E5%B0%B1%E5%96%9C%E6%AC%A2%E8%8B%B9%E6%9E%9C%E6%98%AF%E5%90%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac：闲得没事不要升级系统</title>
+      <link>https://ahaknow.com/posts/know/macos-do-not-upgrade/</link>
+      <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/macos-do-not-upgrade/</guid>
+      <description>反正就是，日常生产力的Mac，不要升级！ 这不升级了嘛，然后多了“查找本地网络设备”的选项，我没开，结果Mac作为超级终端本的ssh大法直接懵</description>
+    </item>
+  </channel>
+</rss>

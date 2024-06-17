@@ -6,7 +6,7 @@
     <description>Recent content in 🌟知识 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 07 Jun 2024 14:18:21 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jun 2024 15:21:15 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前人笔记收集录</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>Mac：闲得没事不要升级系统</title>
+      <link>https://ahaknow.com/posts/know/macos-do-not-upgrade/</link>
+      <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/macos-do-not-upgrade/</guid>
+      <description>反正就是，日常生产力的Mac，不要升级！ 这不升级了嘛，然后多了“查找本地网络设备”的选项，我没开，结果Mac作为超级终端本的ssh大法直接懵</description>
     </item>
     <item>
       <title>Git：不小心git add . 之后</title>
