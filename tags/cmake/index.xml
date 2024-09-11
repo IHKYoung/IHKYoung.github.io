@@ -6,7 +6,7 @@
     <description>Recent content in CMake on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 20 May 2024 17:54:35 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Sep 2024 23:50:24 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：CMake实现可执行文件的安装与打包分发</title>
