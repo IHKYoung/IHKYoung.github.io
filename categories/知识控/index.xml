@@ -6,8 +6,15 @@
     <description>Recent content in 知识控 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Sep 2024 23:50:24 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 29 Sep 2024 18:14:02 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>全栈开发：从Python脚本到独立的App（初稿）</title>
+      <link>https://ahaknow.com/posts/know/dev-python-to-app/</link>
+      <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-python-to-app/</guid>
+      <description>前言 怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？ 在这一部分之前，是改进和优化Python的训练脚本，其中涉</description>
+    </item>
     <item>
       <title>二维平面下的坐标系变换</title>
       <link>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>

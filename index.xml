@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 Sep 2024 23:50:24 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2024 20:16:50 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>站在前人的肩膀上：笔记收集录</title>
@@ -14,6 +14,20 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/notes-one-sows-and-another-reaps/</guid>
       <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ Github添加Waka记录 可以</description>
+    </item>
+    <item>
+      <title>慢慢来，比较快！</title>
+      <link>https://ahaknow.com/posts/diary/2024-10-09/</link>
+      <pubDate>Wed, 09 Oct 2024 20:16:50 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/diary/2024-10-09/</guid>
+      <description>很久没有写日记了呢！ 这个国庆结束的最后一天开始早睡的，今晚是第三次。 补充一次昨天的感想：当你想要去做的时候，你就是最有力量的！所以预约了半马</description>
+    </item>
+    <item>
+      <title>全栈开发：从Python脚本到独立的App（初稿）</title>
+      <link>https://ahaknow.com/posts/know/dev-python-to-app/</link>
+      <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/dev-python-to-app/</guid>
+      <description>前言 怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？ 在这一部分之前，是改进和优化Python的训练脚本，其中涉</description>
     </item>
     <item>
       <title>Mac：闲得没事不要升级系统</title>

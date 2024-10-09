@@ -8,6 +8,20 @@
     <language>zh-cn</language>
     <atom:link href="https://ahaknow.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>不如写写日记</title>
+      <link>https://ahaknow.com/categories/%E4%B8%8D%E5%A6%82%E5%86%99%E5%86%99%E6%97%A5%E8%AE%B0/</link>
+      <pubDate>Wed, 09 Oct 2024 20:16:50 +0800</pubDate>
+      <guid>https://ahaknow.com/categories/%E4%B8%8D%E5%A6%82%E5%86%99%E5%86%99%E6%97%A5%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>知识控</title>
+      <link>https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</link>
+      <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
+      <guid>https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>就喜欢苹果是吧</title>
       <link>https://ahaknow.com/categories/%E5%B0%B1%E5%96%9C%E6%AC%A2%E8%8B%B9%E6%9E%9C%E6%98%AF%E5%90%A7/</link>
       <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
@@ -103,20 +117,6 @@
       <link>https://ahaknow.com/categories/slam%E5%B1%A0%E9%BE%99%E4%B9%8B%E8%B7%AF/</link>
       <pubDate>Tue, 09 Apr 2024 16:03:13 +0800</pubDate>
       <guid>https://ahaknow.com/categories/slam%E5%B1%A0%E9%BE%99%E4%B9%8B%E8%B7%AF/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>知识控</title>
-      <link>https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</link>
-      <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
-      <guid>https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>不如写写日记</title>
-      <link>https://ahaknow.com/categories/%E4%B8%8D%E5%A6%82%E5%86%99%E5%86%99%E6%97%A5%E8%AE%B0/</link>
-      <pubDate>Fri, 26 Jan 2024 10:35:31 +0800</pubDate>
-      <guid>https://ahaknow.com/categories/%E4%B8%8D%E5%A6%82%E5%86%99%E5%86%99%E6%97%A5%E8%AE%B0/</guid>
       <description></description>
     </item>
   </channel>
