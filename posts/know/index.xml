@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>🌟知识 on AhaKnow</title>
+    <title>🌟识知 on AhaKnow</title>
     <link>https://ahaknow.com/posts/know/</link>
-    <description>Recent content in 🌟知识 on AhaKnow</description>
+    <description>Recent content in 🌟识知 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
@@ -14,8 +14,7 @@
       <guid>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
-置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;
-&lt;/blockquote&gt;
+置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;
 &lt;p&gt;如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地去拍没有限制，那么试想，这些一张张照片，能不能“组合”或者“还原”出我所见到的这个场景呢？这个场景要是立体的，三维的，生动活泼的，它允许我在这个“还原”出来的场景世界中去游览，观赏，就好像又回到了之前的那个真实场景中一样。能不能做到呢？&lt;/p&gt;</description>
     </item>
@@ -26,16 +25,22 @@
       <guid>https://ahaknow.com/posts/know/notes-one-sows-and-another-reaps/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;前人栽树，后人乘凉。 或者说，不造轮子要造车。&lt;/p&gt;
-&lt;p&gt;总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;github添加waka记录&#34;&gt;Github添加Waka记录&lt;/h3&gt;
 &lt;p&gt;可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～&lt;/p&gt;</description>
     </item>
     <item>
-      <title>🔐 Hugo 文章密码保护最佳实践</title>
-      <link>https://ahaknow.com/posts/know/hugo-password/</link>
+      <title>Aha</title>
+      <link>https://ahaknow.com/posts/know/hugo-password-page-plus/</link>
+      <pubDate>Tue, 11 Feb 2025 23:27:58 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/hugo-password-page-plus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>🔐 Hugo 文章密码保护初次实践</title>
+      <link>https://ahaknow.com/posts/know/hugo-password-page/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password/</guid>
+      <guid>https://ahaknow.com/posts/know/hugo-password-page/</guid>
       <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>
@@ -76,53 +81,21 @@
       <link>https://ahaknow.com/posts/know/aha-prompts/</link>
       <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/aha-prompts/</guid>
-      <description>&lt;h2 id=&#34;总结知识文档&#34;&gt;总结知识文档&lt;/h2&gt;</description>
-    </item>
-    <item>
-      <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
-      <link>https://ahaknow.com/posts/know/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
-      <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
-      <description>&lt;h2 id=&#34;-介绍&#34;&gt;&lt;strong&gt;📌 介绍&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;在软件开发过程中，我们常常需要将本地的 Git 仓库&lt;strong&gt;自动提交并推送&lt;/strong&gt;到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个&lt;strong&gt;适用于 Windows (Git Bash)、macOS 和 Linux&lt;/strong&gt; 的自动 &lt;code&gt;push&lt;/code&gt; 脚本，并详细解析其中的关键点。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
-      <link>https://ahaknow.com/posts/know/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
-      <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
-      <description>&lt;p&gt;%% 在使用 %% Git 进行 &lt;code&gt;git pull&lt;/code&gt;、&lt;code&gt;git merge&lt;/code&gt; 等操作时，常常会遇到各种冲突和错误。这份文档总结了 &lt;strong&gt;Git 合并相关问题&lt;/strong&gt;，提供了&lt;strong&gt;案例分析、解决方案&lt;/strong&gt;，并附上清晰的注释，帮助你快速解决问题。💡&lt;/p&gt;</description>
+      <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
+&lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;清晰地知道自己想要什么&lt;/li&gt;
+&lt;li&gt;准确地用语言文字将自己想要的表达出来&lt;br&gt;
+而不是：&lt;mark&gt;纵容自己的表达能力对话，而让AI去猜，AI猜对了，人就凉凉了&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://ahaknow.com/posts/know/-git-%E4%BB%93%E5%BA%93%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%84%9A%E6%9C%AC/</link>
+      <link>https://ahaknow.com/posts/know/git-auto-push/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/-git-%E4%BB%93%E5%BA%93%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://ahaknow.com/posts/know/git-auto-push/</guid>
       <description>&lt;h2 id=&#34;-git-仓库自动更新脚本---解决方案与步骤总结&#34;&gt;📝 &lt;strong&gt;Git 仓库自动更新脚本 - 解决方案与步骤总结&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 &lt;code&gt;GitAwesome&lt;/code&gt; 文件夹下的所有 Git 仓库。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>✨晕倒不死指南：Scoop包管理</title>
-      <link>https://ahaknow.com/posts/know/scoop%E5%8C%85%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Tue, 04 Feb 2025 13:09:08 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/scoop%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
-      <description>&lt;h2 id=&#34;1-scoop-简介-&#34;&gt;1. Scoop 简介 ✨&lt;/h2&gt;
-&lt;p&gt;Scoop 是 Windows 下的一个轻量级包管理器，其核心理念是“把命令行工具装进用户目录”，避免对系统全局进行修改。它与 apt（Debian/Ubuntu 等发行版的包管理器）有相似的用户体验，但在 Windows 环境中更为灵活、简单，并且免去了管理员权限的烦恼。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>🪄ChatGPT&amp;LLMs 中文调教指南🚀</title>
-      <link>https://ahaknow.com/posts/know/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Sat, 01 Feb 2025 18:22:55 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;p&gt;以下内容的原版出自 &lt;a href=&#34;https://github.com/f/awesome-chatgpt-prompts&#34;&gt;awesome-chatgpt-prompts&lt;/a&gt; 项目，在此特别感谢原者们的辛勤付出与贡献。本指南内容由 &lt;a href=&#34;https://github.com/IHKYoung&#34;&gt;CKYoung&lt;/a&gt; 翻译并润色，旨在为广大中文用户提供便捷、高效的参考资料。&lt;/p&gt;
-&lt;p&gt;废话不多说，正文开启：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Aha Linear Algebra</title>
-      <link>https://ahaknow.com/posts/know/aha-linear-algebra/</link>
-      <pubDate>Wed, 04 Dec 2024 22:47:54 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-linear-algebra/</guid>
-      <description></description>
     </item>
     <item>
       <title>全栈开发：从Python脚本到独立的App（初稿）</title>
@@ -149,8 +122,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;一顿操作猛如虎，鬼使神差来了个git add .&lt;/p&gt;
 &lt;p&gt;并不想这样的，因为压根不是想要git管理的目录😂&lt;/p&gt;
-&lt;p&gt;怎么ctrl+z一下呢？&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;怎么ctrl+z一下呢？&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;具体操作&#34;&gt;具体操作&lt;/h2&gt;
 &lt;p&gt;在Git中，有两个常见的操作可以撤销误操作的 &lt;code&gt;git add .&lt;/code&gt; ：取消暂存（unstage）和取消缓存（uncache）。这两个操作有些区别，下面将详细解释它们的区别和具体用法。&lt;/p&gt;</description>
     </item>
@@ -193,8 +165,7 @@
       <pubDate>Tue, 28 May 2024 11:33:46 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/linux-test-ssd/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;mark&gt;在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
@@ -278,15 +249,11 @@
       <pubDate>Wed, 24 Apr 2024 13:00:28 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/linux-kernel/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;1-查看当前运行的内核&#34;&gt;1. 查看当前运行的内核&lt;/h3&gt;
 &lt;p&gt;在终端运行以下命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;uname -r
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会得到下面这样的信息：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5.15.0-97-generic
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-列出所有安装的内核&#34;&gt;2. 列出所有安装的内核&lt;/h3&gt;
-&lt;p&gt;列出所有已安装的内核：&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会得到下面这样的信息：&lt;/p&gt;</description>
     </item>
     <item>
       <title>TensorRT：最简明的安装流程</title>
@@ -347,8 +314,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;关于代码💩山，已经不忍直视。。。&lt;/p&gt;
 &lt;p&gt;只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。&lt;/p&gt;
-&lt;p&gt;所以呢，得给代码属个大名。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;所以呢，得给代码属个大名。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不试试呢！）&lt;/p&gt;</description>
     </item>
     <item>
@@ -368,8 +334,7 @@
       <link>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</link>
       <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;本试题仅用于考查 C++/C 程序员的基本编程技能。内容限于 C++/C 常用语法，不涉及数据结构、算法以及深奥的语法。考试成绩能反映出考生的编程质量以及对 C++/C 的理解程度，但不能反映考生的智力和软件开发能力。&lt;/p&gt;</description>
+      <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
@@ -379,8 +344,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;在&lt;a href=&#34;../dev-parse-binary-file&#34;&gt;上一篇&lt;/a&gt;打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。&lt;/p&gt;
 &lt;p&gt;彩色图像采用H.264编码 -&amp;gt; 那就需要按照H.264解码&lt;/p&gt;
-&lt;p&gt;视差图像采用LZ4压缩 -&amp;gt; 视差图保存的16位无符号整数，采用LZ4解压缩（开源）&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;视差图像采用LZ4压缩 -&amp;gt; 视差图保存的16位无符号整数，采用LZ4解压缩（开源）&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;背景知识&#34;&gt;背景知识&lt;/h2&gt;
 &lt;h3 id=&#34;lz4&#34;&gt;LZ4&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://lz4.org/&#34;&gt;&lt;strong&gt;LZ4&lt;/strong&gt;&lt;/a&gt; 是一个非常快速的压缩算法，提供了实时压缩速度和非常快的解压缩速度，由 Yann Collet（FaceBook大佬） 开发。它属于无损压缩算法，意味着压缩后的数据可以完全恢复到其原始形态。LZ4 主要设计用于非常高速的场景（解压速度可以达到数GB每秒），例如实时数据传输、日志数据处理等。&lt;/p&gt;</description>
@@ -400,8 +364,7 @@
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;git-branch系列操作&#34;&gt;git branch系列操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-列出所有本地分支&#34;&gt;1. 列出所有本地分支&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch
@@ -469,8 +432,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
       <guid>https://ahaknow.com/posts/know/blog-tips/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;记录一些实用Hugo写博客的小技巧。&lt;/p&gt;
-&lt;p&gt;—— 因为如果当时不记录，那么日后肯定不会再记录的！（懒！）&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;—— 因为如果当时不记录，那么日后肯定不会再记录的！（懒！）&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;使用archetype预设模版&#34;&gt;使用Archetype预设模版&lt;/h2&gt;
 &lt;p&gt;在使用 &lt;code&gt;hugo new&lt;/code&gt; 命令创建新内容时，你可以指定使用特定的 &lt;a href=&#34;https://gohugo.io/content-management/archetypes/&#34;&gt;archetype&lt;/a&gt;。Archetype 是 Hugo 中的模板文件，用于预设新内容文件的元数据和结构。默认情况下，Hugo 会使用名为 &lt;code&gt;default.md&lt;/code&gt; 的 archetype，&lt;strong&gt;但可以创建和指定其他 archetype 来满足不同类型内容的需求。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
@@ -507,8 +469,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
       <guid>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;LeetCode上“最简单”的一道题了吧？&lt;/p&gt;
-&lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;You are given two integer arrays &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt;, sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, and two integers &lt;code&gt;m&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt;, representing the number of elements in &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt; respectively.&lt;/p&gt;</description>
     </item>
     <item>
@@ -528,14 +489,6 @@ rotate 2 steps to the right: [3,99,-1,-100]
       <description>&lt;blockquote&gt;
 &lt;p&gt;又干了一件：“为了一碟醋，包了一锅饺子”的事。。。&lt;/p&gt;
 &lt;p&gt;就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>博客优化：自定义字体加速显示</title>
-      <link>https://ahaknow.com/posts/know/blog-font-display-acceleration/</link>
-      <pubDate>Tue, 09 Apr 2024 21:25:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/blog-font-display-acceleration/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。&lt;/p&gt;</description>
     </item>
     <item>
       <title>SLAM十四讲第二讲：初识SLAM</title>

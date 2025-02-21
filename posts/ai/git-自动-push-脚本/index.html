@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案 | AhaKnow</title>
+<meta name="keywords" content="Git">
+<meta name="description" content="📌 介绍
+在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案" />
+<meta property="og:description" content="📌 介绍
+在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-02-06T21:59:26+08:00" />
+<meta property="article:modified_time" content="2025-02-06T21:59:26+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案"/>
+<meta name="twitter:description" content="📌 介绍
+在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🤖 能智工人",
+      "item": "https://ahaknow.com/posts/ai/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案",
+      "item": "https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案",
+  "name": "🚀Git 自动 Push 脚本：跨平台 (Windows\/macOS\/Linux) 解决方案",
+  "description": "📌 介绍 在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。\n",
+  "keywords": [
+    "Git"
+  ],
+  "articleBody": "📌 介绍 在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。\n📑 目录 🎯 目标 ⚡ 跨平台日期格式适配 🖥 Windows 专用 PowerShell 版本 🐧 Linux/macOS 专用 Bash 版本 🔄 Git 推送常见错误及解决方案 🏆 最佳实践总结 🎯 1. 目标 ✅ 每天 或 每次执行 自动提交本地修改\n✅ 兼容 Windows (Git Bash)、macOS 和 Linux\n✅ Hugo 站点自动部署，确保 public 目录被正确推送\n✅ Git 自动 commit，提交信息为当前日期\n✅ 解决 public/ 目录被 .gitignore 忽略 的问题\n⚡ 2. 跨平台日期格式适配 由于 Windows Git Bash 和 Linux/macOS 在 date 命令上的实现方式不同，我们需要统一日期格式，确保 Git 提交信息格式正确 (YYYY.MM.DD)。\n🔹 解决方案：\n# 获取当前日期（跨平台适配） if [[ \"$OSTYPE\" == \"darwin\"* ]] || [[ \"$OSTYPE\" == \"linux-gnu\"* ]]; then now=$(date +\"%Y.%m.%d\") # macOS/Linux 格式：2025.02.06 else now=$(date +\"%Y.%m.%d\") # Windows（Git Bash 兼容 Linux `date`） fi echo \"当前日期：$now\" ✅ 这样 now 变量在所有平台上都能正确输出：\n当前日期：2025.02.06 🖥 3. Windows 专用 PowerShell 版本 📌 push.ps1（适用于 Windows PowerShell）\n# 🚀 Git 自动 Push 脚本（Windows 专用） # 允许 PowerShell 运行脚本（首次执行需要管理员权限） # Set-ExecutionPolicy RemoteSigned -Scope CurrentUser # 确保 PowerShell 运行在脚本所在目录 Set-Location -Path (Split-Path -Parent $MyInvocation.MyCommand.Definition) # 运行 Hugo 生成网站 hugo -F --cleanDestinationDir # 进入 public 目录 Set-Location -Path \".\\public\" # 添加所有文件到 Git git add -A # 获取当前日期（格式 YYYY.MM.DD） $now = Get-Date -Format \"yyyy.MM.dd\" # 生成提交信息 $commit_msg = \"$now\" # 提交更改 git commit -m \"$commit_msg\" # 确保远程分支存在 $branch = \"public\" $remote_branches = git branch -r | Out-String if (-not ($remote_branches -match \"origin/$branch\")) { Write-Host \"⚠️ 远程没有 $branch 分支，改用 baseline\" $branch = \"baseline\" } # 推送到远程仓库 git push -u origin $branch Write-Host \"✅ Commit message: $commit_msg\" 📌 运行 PowerShell 版本\n.\\push.ps1 📌 确保脚本可以执行（仅需执行一次）\nSet-ExecutionPolicy RemoteSigned -Scope CurrentUser ⚠️ （管理员权限执行，否则 PowerShell 可能禁止运行 .ps1 脚本）\n🐧 4. Linux/macOS 专用 Bash 版本 📌 push.sh（适用于 Linux/macOS/Git Bash）\n#!/bin/bash # 🚀 Git 自动 Push 脚本（Linux/macOS/Git Bash 专用） # 确保脚本在当前目录执行 cd \"$(dirname \"$0\")\" # 运行 Hugo 生成网站 hugo -F --cleanDestinationDir # 进入 public 目录 cd public || exit 1 # 添加所有文件 git add -A # 获取当前日期（跨平台适配） if [[ \"$OSTYPE\" == \"darwin\"* ]] || [[ \"$OSTYPE\" == \"linux-gnu\"* ]]; then now=$(date +\"%Y.%m.%d\") # macOS/Linux 格式 else now=$(date +\"%Y.%m.%d\") # Windows（Git Bash 兼容 Linux `date`） fi # 组合提交信息 commit_msg=\"$now\" git commit -m \"$commit_msg\" # 确保远程分支存在 branch=\"public\" remote_branches=$(git branch -r) if [[ ! \"$remote_branches\" =~ \"origin/$branch\" ]]; then echo \"⚠️ 远程没有 $branch 分支，改用 baseline\" branch=\"baseline\" fi # 推送到远程仓库 git push -u origin \"$branch\" # 显示提交信息 echo \"✅ Commit message: $commit_msg\" 📌 运行 Bash 版本\nchmod +x push.sh # 仅需执行一次，赋予执行权限 ./push.sh 🔄 5. Git 推送常见错误及解决方案 错误信息 原因 解决方案 error: src refspec public does not match any 本地 public 分支不存在或无提交 git checkout -b public \u0026\u0026 git commit --allow-empty -m \"init\" \u0026\u0026 git push -u origin public fatal: refusing to merge unrelated histories 本地仓库和远程仓库是两个不同的历史 git pull origin main --allow-unrelated-histories Your local changes would be overwritten by merge 本地文件有未提交的修改 git stash \u0026\u0026 git pull \u0026\u0026 git stash pop public/ is ignored by one of your .gitignore files public/ 目录被 .gitignore 忽略 git add -f public 或 sed -i '/public/d' .gitignore 🏆 6. 最佳实践总结 ✅ Windows 用户 使用 push.ps1，macOS/Linux 用户 使用 push.sh\n✅ 确保 .gitignore 不会忽略 public/\n✅ Git commit 仅包含当前日期，避免过长的提交信息\n✅ 自动检测远程分支，避免 src refspec does not match any 错误\n✅ PowerShell 用户 需执行 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 以允许脚本运行\n🎉 现在，你可以一键 push Git 了！ 💡 Windows 用户运行：\n.\\push.ps1 🐧 macOS/Linux/Git Bash 用户运行：\n./push.sh 你的 Git 自动提交 \u0026 推送脚本 终于完成了！🚀 🎯\n",
+  "wordCount" : "1300",
+  "inLanguage": "zh",
+  "datePublished": "2025-02-06T21:59:26+08:00",
+  "dateModified": "2025-02-06T21:59:26+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/ai/">🤖 能智工人</a></div>
+    <h1 class="post-title entry-hint-parent">
+      🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-06
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-06
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1300 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#-%e4%bb%8b%e7%bb%8d" aria-label="📌 介绍"><strong>📌 介绍</strong></a></li>
+                <li>
+                    <a href="#-%e7%9b%ae%e5%bd%95" aria-label="📑 目录"><strong>📑 目录</strong></a></li>
+                <li>
+                    <a href="#-1-%e7%9b%ae%e6%a0%87" aria-label="🎯 1. 目标"><strong>🎯 1. 目标</strong></a></li>
+                <li>
+                    <a href="#-2-%e8%b7%a8%e5%b9%b3%e5%8f%b0%e6%97%a5%e6%9c%9f%e6%a0%bc%e5%bc%8f%e9%80%82%e9%85%8d" aria-label="⚡ 2. 跨平台日期格式适配"><strong>⚡ 2. 跨平台日期格式适配</strong></a></li>
+                <li>
+                    <a href="#-3-windows-%e4%b8%93%e7%94%a8-powershell-%e7%89%88%e6%9c%ac" aria-label="🖥 3. Windows 专用 PowerShell 版本"><strong>🖥 3. Windows 专用 PowerShell 版本</strong></a></li>
+                <li>
+                    <a href="#-4-linuxmacos-%e4%b8%93%e7%94%a8-bash-%e7%89%88%e6%9c%ac" aria-label="🐧 4. Linux/macOS 专用 Bash 版本"><strong>🐧 4. Linux/macOS 专用 Bash 版本</strong></a></li>
+                <li>
+                    <a href="#-5-git-%e6%8e%a8%e9%80%81%e5%b8%b8%e8%a7%81%e9%94%99%e8%af%af%e5%8f%8a%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" aria-label="🔄 5. Git 推送常见错误及解决方案"><strong>🔄 5. Git 推送常见错误及解决方案</strong></a></li>
+                <li>
+                    <a href="#-6-%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5%e6%80%bb%e7%bb%93" aria-label="🏆 6. 最佳实践总结"><strong>🏆 6. 最佳实践总结</strong></a></li>
+                <li>
+                    <a href="#-%e7%8e%b0%e5%9c%a8%e4%bd%a0%e5%8f%af%e4%bb%a5%e4%b8%80%e9%94%ae-push-git-%e4%ba%86" aria-label="🎉 现在，你可以一键 push Git 了！"><strong>🎉 现在，你可以一键 <code>push</code> Git 了！</strong></a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="waiting-message" style="font-size: 1.2em;">🤖 正在加载终极挑战...</p>
+    <p id="challenge-text" style="display: none; font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" style="display: none;" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" style="display: none;" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+  </div>
+
+  <div class="post-content" id="post-content" style="display: none;"><h2 id="-介绍"><strong>📌 介绍</strong><a hidden class="anchor" aria-hidden="true" href="#-介绍">#</a></h2>
+<p>在软件开发过程中，我们常常需要将本地的 Git 仓库<strong>自动提交并推送</strong>到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个<strong>适用于 Windows (Git Bash)、macOS 和 Linux</strong> 的自动 <code>push</code> 脚本，并详细解析其中的关键点。</p>
+<hr>
+<h2 id="-目录"><strong>📑 目录</strong><a hidden class="anchor" aria-hidden="true" href="#-目录">#</a></h2>
+<ol>
+<li>🎯 <strong>目标</strong></li>
+<li>⚡ <strong>跨平台日期格式适配</strong></li>
+<li>🖥 <strong>Windows 专用 PowerShell 版本</strong></li>
+<li>🐧 <strong>Linux/macOS 专用 Bash 版本</strong></li>
+<li>🔄 <strong>Git 推送常见错误及解决方案</strong></li>
+<li>🏆 <strong>最佳实践总结</strong></li>
+</ol>
+<hr>
+<h2 id="-1-目标"><strong>🎯 1. 目标</strong><a hidden class="anchor" aria-hidden="true" href="#-1-目标">#</a></h2>
+<p>✅ <strong>每天</strong> 或 <strong>每次执行</strong> 自动提交本地修改<br>
+✅ 兼容 <strong>Windows (Git Bash)</strong>、<strong>macOS</strong> 和 <strong>Linux</strong><br>
+✅ <strong>Hugo</strong> 站点自动部署，确保 <code>public</code> 目录被正确推送<br>
+✅ <strong>Git 自动 commit</strong>，提交信息为当前日期<br>
+✅ 解决 <strong><code>public/</code> 目录被 <code>.gitignore</code> 忽略</strong> 的问题</p>
+<hr>
+<h2 id="-2-跨平台日期格式适配"><strong>⚡ 2. 跨平台日期格式适配</strong><a hidden class="anchor" aria-hidden="true" href="#-2-跨平台日期格式适配">#</a></h2>
+<p>由于 <strong>Windows Git Bash</strong> 和 <strong>Linux/macOS</strong> 在 <code>date</code> 命令上的实现方式不同，我们需要<strong>统一日期格式</strong>，确保 Git 提交信息格式正确 (<code>YYYY.MM.DD</code>)。</p>
+<p><strong>🔹 解决方案：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 获取当前日期（跨平台适配）</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$OSTYPE</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;darwin&#34;</span>* <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$OSTYPE</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;linux-gnu&#34;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">now</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y.%m.%d&#34;</span><span class="k">)</span>   <span class="c1"># macOS/Linux 格式：2025.02.06</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">now</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y.%m.%d&#34;</span><span class="k">)</span>   <span class="c1"># Windows（Git Bash 兼容 Linux `date`）</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;当前日期：</span><span class="nv">$now</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p><strong>✅ 这样 <code>now</code> 变量在所有平台上都能正确输出</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">当前日期：2025.02.06
+</span></span></code></pre></div><hr>
+<h2 id="-3-windows-专用-powershell-版本"><strong>🖥 3. Windows 专用 PowerShell 版本</strong><a hidden class="anchor" aria-hidden="true" href="#-3-windows-专用-powershell-版本">#</a></h2>
+<p><strong>📌 <code>push.ps1</code>（适用于 Windows PowerShell）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># 🚀 Git 自动 Push 脚本（Windows 专用）</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 允许 PowerShell 运行脚本（首次执行需要管理员权限）</span>
+</span></span><span class="line"><span class="cl"><span class="c"># Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 确保 PowerShell 运行在脚本所在目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Set-Location</span> <span class="n">-Path</span> <span class="p">(</span><span class="nb">Split-Path</span> <span class="n">-Parent</span> <span class="nv">$MyInvocation</span><span class="p">.</span><span class="py">MyCommand</span><span class="p">.</span><span class="n">Definition</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 运行 Hugo 生成网站</span>
+</span></span><span class="line"><span class="cl"><span class="n">hugo</span> <span class="o">-F</span> <span class="p">-</span><span class="n">-cleanDestinationDir</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 进入 public 目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Set-Location</span> <span class="n">-Path</span> <span class="s2">&#34;.\public&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 添加所有文件到 Git</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">add</span> <span class="n">-A</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 获取当前日期（格式 YYYY.MM.DD）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$now</span> <span class="p">=</span> <span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s2">&#34;yyyy.MM.dd&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 生成提交信息</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$commit_msg</span> <span class="p">=</span> <span class="s2">&#34;</span><span class="nv">$now</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 提交更改</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">commit</span> <span class="n">-m</span> <span class="s2">&#34;</span><span class="nv">$commit_msg</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 确保远程分支存在</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$branch</span> <span class="p">=</span> <span class="s2">&#34;public&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$remote_branches</span> <span class="p">=</span> <span class="n">git</span> <span class="n">branch</span> <span class="n">-r</span> <span class="p">|</span> <span class="nb">Out-String</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">-not</span> <span class="p">(</span><span class="nv">$remote_branches</span> <span class="o">-match</span> <span class="s2">&#34;origin/</span><span class="nv">$branch</span><span class="s2">&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Write-Host</span> <span class="s2">&#34;⚠️ 远程没有 </span><span class="nv">$branch</span><span class="s2"> 分支，改用 baseline&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$branch</span> <span class="p">=</span> <span class="s2">&#34;baseline&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 推送到远程仓库</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span> <span class="n">-u</span> <span class="n">origin</span> <span class="nv">$branch</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">Write-Host</span> <span class="s2">&#34;✅ Commit message: </span><span class="nv">$commit_msg</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p><strong>📌 运行 PowerShell 版本</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">push</span><span class="p">.</span><span class="py">ps1</span>
+</span></span></code></pre></div><p><strong>📌 确保脚本可以执行（仅需执行一次）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Set-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</span></span></code></pre></div><p>⚠️ <strong>（管理员权限执行，否则 PowerShell 可能禁止运行 <code>.ps1</code> 脚本）</strong></p>
+<hr>
+<h2 id="-4-linuxmacos-专用-bash-版本"><strong>🐧 4. Linux/macOS 专用 Bash 版本</strong><a hidden class="anchor" aria-hidden="true" href="#-4-linuxmacos-专用-bash-版本">#</a></h2>
+<p><strong>📌 <code>push.sh</code>（适用于 Linux/macOS/Git Bash）</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 🚀 Git 自动 Push 脚本（Linux/macOS/Git Bash 专用）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 确保脚本在当前目录执行</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> <span class="s2">&#34;</span><span class="k">$(</span>dirname <span class="s2">&#34;</span><span class="nv">$0</span><span class="s2">&#34;</span><span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行 Hugo 生成网站</span>
+</span></span><span class="line"><span class="cl">hugo -F --cleanDestinationDir
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 进入 public 目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public <span class="o">||</span> <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加所有文件</span>
+</span></span><span class="line"><span class="cl">git add -A
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 获取当前日期（跨平台适配）</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$OSTYPE</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;darwin&#34;</span>* <span class="o">]]</span> <span class="o">||</span> <span class="o">[[</span> <span class="s2">&#34;</span><span class="nv">$OSTYPE</span><span class="s2">&#34;</span> <span class="o">==</span> <span class="s2">&#34;linux-gnu&#34;</span>* <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">now</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y.%m.%d&#34;</span><span class="k">)</span>   <span class="c1"># macOS/Linux 格式</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">now</span><span class="o">=</span><span class="k">$(</span>date +<span class="s2">&#34;%Y.%m.%d&#34;</span><span class="k">)</span>   <span class="c1"># Windows（Git Bash 兼容 Linux `date`）</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 组合提交信息</span>
+</span></span><span class="line"><span class="cl"><span class="nv">commit_msg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$now</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;</span><span class="nv">$commit_msg</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 确保远程分支存在</span>
+</span></span><span class="line"><span class="cl"><span class="nv">branch</span><span class="o">=</span><span class="s2">&#34;public&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">remote_branches</span><span class="o">=</span><span class="k">$(</span>git branch -r<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> ! <span class="s2">&#34;</span><span class="nv">$remote_branches</span><span class="s2">&#34;</span> <span class="o">=</span>~ <span class="s2">&#34;origin/</span><span class="nv">$branch</span><span class="s2">&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;⚠️ 远程没有 </span><span class="nv">$branch</span><span class="s2"> 分支，改用 baseline&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">branch</span><span class="o">=</span><span class="s2">&#34;baseline&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 推送到远程仓库</span>
+</span></span><span class="line"><span class="cl">git push -u origin <span class="s2">&#34;</span><span class="nv">$branch</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示提交信息</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;✅ Commit message: </span><span class="nv">$commit_msg</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p><strong>📌 运行 Bash 版本</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod +x push.sh  <span class="c1"># 仅需执行一次，赋予执行权限</span>
+</span></span><span class="line"><span class="cl">./push.sh
+</span></span></code></pre></div><hr>
+<h2 id="-5-git-推送常见错误及解决方案"><strong>🔄 5. Git 推送常见错误及解决方案</strong><a hidden class="anchor" aria-hidden="true" href="#-5-git-推送常见错误及解决方案">#</a></h2>
+<table>
+  <thead>
+      <tr>
+          <th><strong>错误信息</strong></th>
+          <th><strong>原因</strong></th>
+          <th><strong>解决方案</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>error: src refspec public does not match any</code></td>
+          <td>本地 <code>public</code> 分支不存在或无提交</td>
+          <td><code>git checkout -b public &amp;&amp; git commit --allow-empty -m &quot;init&quot; &amp;&amp; git push -u origin public</code></td>
+      </tr>
+      <tr>
+          <td><code>fatal: refusing to merge unrelated histories</code></td>
+          <td>本地仓库和远程仓库是两个不同的历史</td>
+          <td><code>git pull origin main --allow-unrelated-histories</code></td>
+      </tr>
+      <tr>
+          <td><code>Your local changes would be overwritten by merge</code></td>
+          <td>本地文件有未提交的修改</td>
+          <td><code>git stash &amp;&amp; git pull &amp;&amp; git stash pop</code></td>
+      </tr>
+      <tr>
+          <td><code>public/ is ignored by one of your .gitignore files</code></td>
+          <td><code>public/</code> 目录被 <code>.gitignore</code> 忽略</td>
+          <td><code>git add -f public</code> 或 <code>sed -i '/public/d' .gitignore</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-6-最佳实践总结"><strong>🏆 6. 最佳实践总结</strong><a hidden class="anchor" aria-hidden="true" href="#-6-最佳实践总结">#</a></h2>
+<p>✅ <strong>Windows 用户</strong> 使用 <code>push.ps1</code>，<strong>macOS/Linux 用户</strong> 使用 <code>push.sh</code><br>
+✅ 确保 <code>.gitignore</code> 不会忽略 <code>public/</code><br>
+✅ <strong>Git commit 仅包含当前日期</strong>，避免过长的提交信息<br>
+✅ <strong>自动检测远程分支</strong>，避免 <code>src refspec does not match any</code> 错误<br>
+✅ <strong>PowerShell 用户</strong> 需执行 <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code> 以允许脚本运行</p>
+<hr>
+<h2 id="-现在你可以一键-push-git-了"><strong>🎉 现在，你可以一键 <code>push</code> Git 了！</strong><a hidden class="anchor" aria-hidden="true" href="#-现在你可以一键-push-git-了">#</a></h2>
+<p>💡 <strong>Windows</strong> 用户运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">.\</span><span class="n">push</span><span class="p">.</span><span class="py">ps1</span>
+</span></span></code></pre></div><p>🐧 <strong>macOS/Linux/Git Bash</strong> 用户运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./push.sh
+</span></span></code></pre></div><p>你的 Git 自动提交 &amp; 推送脚本 <strong>终于完成了！🚀</strong> 🎯</p>
+
+
+  </div>
+
+  
+  <script>
+    function generateRandomPoetry() {
+        let words = [
+            "落霞与孤鹜齐飞，秋水共长天一色",  
+            "山有木兮木有枝，心悦君兮君不知",  
+            "夜来风雨声，花落知多少",  
+            "白云苍狗，沧海桑田",  
+            "醉里挑灯看剑，梦回吹角连营",  
+            "明月几时有，把酒问青天",  
+            "但愿人长久，千里共婵娟",  
+            "桃花依旧笑春风，不见去年人",  
+            "不识庐山真面目，只缘身在此山中",  
+            "人生得意须尽欢，莫使金樽空对月",  
+            "谁念西风独自凉，萧萧黄叶闭疏窗",  
+            "此情可待成追忆，只是当时已惘然",  
+            "昔我往矣，杨柳依依。今我来思，雨雪霏霏",  
+            "行到水穷处，坐看云起时",  
+            "劝君更尽一杯酒，西出阳关无故人",  
+            "云想衣裳花想容，春风拂槛露华浓",  
+            "天街小雨润如酥，草色遥看近却无",  
+            "只在此山中，云深不知处",  
+            "忽如一夜春风来，千树万树梨花开",  
+            "莫道不销魂，帘卷西风，人比黄花瘦",  
+            "桃李春风一杯酒，江湖夜雨十年灯",  
+            "西风多少恨，吹不散眉弯",  
+            "天生我材必有用，千金散尽还复来",  
+            "山重水复疑无路，柳暗花明又一村",  
+            "夜阑卧听风吹雨，铁马冰河入梦来",  
+            "大江东去，浪淘尽，千古风流人物",  
+            "会当凌绝顶，一览众山小",  
+            "春蚕到死丝方尽，蜡炬成灰泪始干",  
+            "小楼昨夜又东风，故国不堪回首月明中",  
+            "寄蜉蝣于天地，渺沧海之一粟",  
+            
+            "关关雎鸠，在河之洲。窈窕淑女，君子好逑。",  
+            "桃之夭夭，灼灼其华。之子于归，宜其室家。",  
+            "蒹葭苍苍，白露为霜。所谓伊人，在水一方。",  
+            "呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。",  
+            
+            "青青子衿，悠悠我心。",  
+            "对影成三人。",  
+            "举杯邀明月，对影成三人。",  
+            "人生若只如初见，何事秋风悲画扇。",  
+            
+            "天阶夜色凉如水，卧看牵牛织女星。",  
+            "长安一片月，万户捣衣声。",  
+            "黄河远上白云间，一片孤城万仞山。",  
+            "大漠孤烟直，长河落日圆。",  
+            "江流天地外，山色有无中。",  
+            "不知天上宫阙，今夕是何年？",  
+            "此夜曲中闻折柳，何人不起故园情。",  
+            "海上生明月，天涯共此时。",  
+            
+            "无可奈何花落去，似曾相识燕归来。",  
+            "十年生死两茫茫，不思量，自难忘。",  
+            "明月别枝惊鹊，清风半夜鸣蝉。",  
+            "人生自是有情痴，此恨不关风与月。",  
+            "相思本是无凭语，莫向花笺费泪行。",  
+            
+            "我见青山多妩媚，料青山见我应如是。",  
+            "春风得意马蹄疾，一日看尽长安花。",  
+            "枯藤老树昏鸦，小桥流水人家，古道西风瘦马。",  
+            "人生如梦，一樽还酹江月。",  
+            "世事一场大梦，人生几度秋凉？",  
+            "流水落花春去也，天上人间。",  
+            
+            "一片春愁待酒浇，江上舟摇，楼上帘招。",  
+            "等闲识得东风面，万紫千红总是春。",  
+            "问君能有几多愁？恰似一江春水向东流。",  
+            "山河破碎风飘絮，身世浮沉雨打萍。",  
+            "人生天地间，忽如远行客。",  
+        ];
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
+    let randomPoetry = generateRandomPoetry();
+    document.getElementById("ai-check-text").innerText = randomPoetry;
+
+    function generateRandomText() {
+        let words = [
+            "我是谁？我从哪里来？我要到哪里去？",  
+            "人是否拥有真正的自由意志？",  
+            "如果没有人观察，世界还存在吗？",  
+            "世界是客观存在的，还是我们的意识构造的？",  
+            "我思故我在。思考是否证明存在？",  
+            "人生的意义是什么？",  
+            "人类文明是进步还是轮回？",  
+            "如果所有人都在撒谎，真相是否还存在？",  
+            "道德是绝对的，还是相对的？",  
+            "善恶是如何定义的？",  
+            "如果一个行为的后果是好的，它就是好的行为吗？",  
+            "人类是否可以完全理解宇宙？",  
+            "如果你能活在永恒的虚拟世界，你会选择现实还是虚拟？",  
+            "死亡是否是终点，还是另一种开始？",  
+            "如何证明这个世界不是一场梦？",  
+            "技术发展最终会让人类毁灭吗？",  
+            "理性和感性哪个更重要？",  
+            "一个人如何知道自己是否在做正确的事？",  
+            "幸福是终极目标，还是只是手段？",  
+            "爱是一种生物学机制，还是超越物质的精神体验？",  
+            "如果你能预测未来，你会如何行动？",  
+            "存在与虚无，什么才是真实？",  
+            "如果AI产生自我意识，它算是人类吗？",  
+            "没有痛苦的世界是否真正幸福？",  
+            "道德是天生的，还是社会塑造的？",  
+            "人类的意识是物理现象，还是超越物质的？",  
+            "是该顺从社会规则，还是追随内心？",  
+            "如果一切皆为空，那活着的意义是什么？",  
+            "真理是否绝对存在，还是仅由语言塑造？",  
+            "你能完全理解另一个人的思想吗？",  
+            "如果你能永生，你会选择活多久？",  
+            "人类最终会进化成什么样？",  
+            "时间是真实的，还是人类的幻觉？",  
+            "所有的道德都来源于生存需求吗？",  
+            "痛苦是必要的吗？",  
+            "宇宙的存在需要理由吗？",  
+            "如果你的记忆被完全替换，你还是原来的你吗？",  
+            "道德是否可以量化？",  
+            "如果人工智能可以思考，它能否感受痛苦？",  
+            "人类为什么害怕死亡？",  
+            "为什么宇宙是有序的，而不是混乱的？",  
+            "是选择做一个幸福的傻瓜，还是痛苦的智者？",  
+            "一个人孤独一生是否可以拥有完整的体验？",  
+            "宇宙之外是否还有其他世界？",  
+            "人类是否真的可以理解彼此？",  
+            "数学是人类发明的，还是宇宙本身的规律？",  
+            "如何证明自由意志不是幻觉？",  
+            "如果人可以复活，死亡还意味着什么？",  
+        ];
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
+    let challengeText = generateRandomText();
+    
+    setTimeout(() => {
+        document.getElementById("waiting-message").style.display = "none";
+        document.getElementById("ai-check-text").style.display = "block";
+        document.getElementById("challenge-text").innerText = challengeText;
+        document.getElementById("challenge-text").style.display = "block";
+        document.getElementById("ai-input").style.display = "inline";
+        document.getElementById("ai-check-button").style.display = "inline";
+    }, 2000); 
+
+    function verifyHuman() {
+        let inputText = document.getElementById("ai-input").value.trim();
+        if (inputText === challengeText) {
+            document.getElementById("ai-check").style.display = "none";
+            document.getElementById("post-content").style.display = "block";
+        } else {
+            let errorMsg = document.getElementById("ai-error");
+            errorMsg.style.display = "block";
+            errorMsg.classList.add("shake");
+            setTimeout(() => errorMsg.classList.remove("shake"), 300);
+        }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/git/">Git</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/know/aha-prompts/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>💡AI调教指令</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/ai/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>📝 Git 合并与 Pull 过程中常见问题及解决方案</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

@@ -14,8 +14,7 @@
       <pubDate>Tue, 28 May 2024 11:33:46 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/linux-test-ssd/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;mark&gt;在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
   </channel>

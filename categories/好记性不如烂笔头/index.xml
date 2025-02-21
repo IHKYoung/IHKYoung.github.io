@@ -15,8 +15,7 @@
       <guid>https://ahaknow.com/posts/know/notes-one-sows-and-another-reaps/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;前人栽树，后人乘凉。 或者说，不造轮子要造车。&lt;/p&gt;
-&lt;p&gt;总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;github添加waka记录&#34;&gt;Github添加Waka记录&lt;/h3&gt;
 &lt;p&gt;可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～&lt;/p&gt;</description>
     </item>
@@ -28,8 +27,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;一顿操作猛如虎，鬼使神差来了个git add .&lt;/p&gt;
 &lt;p&gt;并不想这样的，因为压根不是想要git管理的目录😂&lt;/p&gt;
-&lt;p&gt;怎么ctrl+z一下呢？&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;怎么ctrl+z一下呢？&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;具体操作&#34;&gt;具体操作&lt;/h2&gt;
 &lt;p&gt;在Git中，有两个常见的操作可以撤销误操作的 &lt;code&gt;git add .&lt;/code&gt; ：取消暂存（unstage）和取消缓存（uncache）。这两个操作有些区别，下面将详细解释它们的区别和具体用法。&lt;/p&gt;</description>
     </item>
@@ -98,8 +96,7 @@
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;git-branch系列操作&#34;&gt;git branch系列操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-列出所有本地分支&#34;&gt;1. 列出所有本地分支&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch

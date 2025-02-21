@@ -126,7 +126,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟知识",
+      "name": "🌟识知",
       "item": "https://ahaknow.com/posts/know/"
     }, 
     {
@@ -260,7 +260,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟识知</a></div>
     <h1 class="post-title entry-hint-parent">
       开发实战：解析二进制文件
     </h1>
@@ -436,8 +436,7 @@
 
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。</p>
-<p>解析需要按照一定的规则，比如：如何确定数据的头（Header），以及一个数据帧（一个数据包）的结构是什么样的，<strong>这个有点像网络包的定义，在头部定义了很多信息，这些信息能够让这个数据包按照规则解析出来后有具体的意义</strong>。</p>
-</blockquote>
+<p>解析需要按照一定的规则，比如：如何确定数据的头（Header），以及一个数据帧（一个数据包）的结构是什么样的，<strong>这个有点像网络包的定义，在头部定义了很多信息，这些信息能够让这个数据包按照规则解析出来后有具体的意义</strong>。</p></blockquote>
 <p>下面按照尝试-失败-再尝试-成功之后的思考来进行整理。因为一开始采用直接“复制-粘贴（ChatGPT指导）”的方式，遇到了解析失败的情况，根据结果一点点分析，始终没发现问题在哪。</p>
 <p><mark>因为问题出现在了一开始，也是比较基础的知识点，字节流在保存时分为大端存储和小端存储，由于这个知识点我压根就忘记了，所以迟迟没有发现，最后是不断往上追问，从ChatGPT的指导中发现了可能的原因，惭愧啊！</mark></p>
 <h3 id="大小端endianness概念">大小端（Endianness）概念<a hidden class="anchor" aria-hidden="true" href="#大小端endianness概念">#</a></h3>
@@ -493,8 +492,7 @@
 <li>实际在内存的中存储位 <code>c1 12 09 00</code>。</li>
 </ul>
 </li>
-</ol>
-</blockquote>
+</ol></blockquote>
 <p>具体而言：</p>
 <ul>
 <li><strong>Package Data Length</strong> <code>594625</code> -&gt; 内存布局<code>c1 12 09 00</code> (对应<code>00 09 12 c1</code>)</li>
@@ -513,8 +511,7 @@
 <p>$13282048 \div 1024 \div 1024 = 12.67MB$</p>
 <blockquote>
 <p>补充说明：</p>
-<p>字节流文件“保存”的是二进制数据，也就是说文件中的数据以二进制形式存放，这意味着每个字节由8位二进制数字（0或1）组成。而使用文件浏览器或某些工具查看这些文件时，常常会看到十六进制的表示，因为十六进制能更有效地展示和定位文件内容，特别是对于非文本数据。</p>
-</blockquote>
+<p>字节流文件“保存”的是二进制数据，也就是说文件中的数据以二进制形式存放，这意味着每个字节由8位二进制数字（0或1）组成。而使用文件浏览器或某些工具查看这些文件时，常常会看到十六进制的表示，因为十六进制能更有效地展示和定位文件内容，特别是对于非文本数据。</p></blockquote>
 <h3 id="c打印时的进制">C++打印时的进制<a hidden class="anchor" aria-hidden="true" href="#c打印时的进制">#</a></h3>
 <p>当在C++中使用 <code>std::cout</code> 打印数字时，除非指定格式（如使用 <code>std::hex</code> 来指定十六进制），否则默认为十进制（ <code>std::dec</code> ）。例如：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">uint32_t</span> <span class="n">num</span> <span class="o">=</span> <span class="mh">0x1234</span><span class="p">;</span>

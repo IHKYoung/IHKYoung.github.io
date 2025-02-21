@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>🤖 能智工人 | AhaKnow</title>
+<meta name="keywords" content="">
+<meta name="description" content="以下皆为探索新知识后的AI存档，人脑思考后的存档在Know栏目中">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="https://ahaknow.com/posts/ai/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://ahaknow.com/posts/ai/index.xml">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/ai/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="🤖 能智工人" />
+<meta property="og:description" content="以下皆为探索新知识后的AI存档，人脑思考后的存档在Know栏目中" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ahaknow.com/posts/ai/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="🤖 能智工人"/>
+<meta name="twitter:description" content="以下皆为探索新知识后的AI存档，人脑思考后的存档在Know栏目中"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🤖 能智工人",
+      "item": "https://ahaknow.com/posts/ai/"
+    }
+  ]
+}
+</script>
+    
+    
+    
+</head>
+
+<body class=" list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a></div>
+  <h1>
+    🤖 能智工人
+  </h1>
+  <div class="post-description">
+    以下皆为探索新知识后的AI存档，人脑思考后的存档在Know栏目中
+  </div>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>📌 介绍 在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-06
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-06
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1300 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案" href="https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">📝 Git 合并与 Pull 过程中常见问题及解决方案
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>%% 在使用 %% Git 进行 git pull、git merge 等操作时，常常会遇到各种冲突和错误。这份文档总结了 Git 合并相关问题，提供了案例分析、解决方案，并附上清晰的注释，帮助你快速解决问题。💡
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-06
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-06
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1437 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 📝 Git 合并与 Pull 过程中常见问题及解决方案" href="https://ahaknow.com/posts/ai/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">✨晕倒不死指南：Scoop包管理
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>1. Scoop 简介 ✨ Scoop 是 Windows 下的一个轻量级包管理器，其核心理念是“把命令行工具装进用户目录”，避免对系统全局进行修改。它与 apt（Debian/Ubuntu 等发行版的包管理器）有相似的用户体验，但在 Windows 环境中更为灵活、简单，并且免去了管理员权限的烦恼。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-21
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-04
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1906 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Clarke, Merlin
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/scoop/" style="color: var(--secondary)!important;">Scoop</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to ✨晕倒不死指南：Scoop包管理" href="https://ahaknow.com/posts/ai/win-scoop/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">GitHub README 美化经验分享
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在 GitHub 上，一个精心设计的个人主页不仅可以展示你的项目、技术栈，还能通过动态数据和动画效果提升个人品牌形象。本文将分享两个经典模块的自动化集成方法：
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-21
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-01
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2185 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/github/" style="color: var(--secondary)!important;">Github</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to GitHub README 美化经验分享" href="https://ahaknow.com/posts/ai/github-readme/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">🪄ChatGPT&amp;LLMs 中文调教指南🚀
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>以下内容的原版出自 awesome-chatgpt-prompts 项目，在此特别感谢原者们的辛勤付出与贡献。本指南内容由 CKYoung 翻译并润色，旨在为广大中文用户提供便捷、高效的参考资料。
+废话不多说，正文开启：
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-01
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-01
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>77 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>1 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/prompts/" style="color: var(--secondary)!important;">Prompts</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 🪄ChatGPT&LLMs 中文调教指南🚀" href="https://ahaknow.com/posts/ai/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">macOS 环境下 Python 动态库缺失问题排查与解决方案
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>在 macOS（特别是 M1/M2 芯片）使用 Python 时，可能会遇到 ImportError: Library not loaded 类错误。这通常是因为 Python 模块在加载动态库时找不到正确的 .dylib 文件。以下是一个系统化的排查与解决方法，适用于 PyAudio、PortAudio 以及其他类似情况（如 OpenCV、TensorFlow 依赖的库）。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-21
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-01
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>990 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>2 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/macos/" style="color: var(--secondary)!important;">MacOS</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to macOS 环境下 Python 动态库缺失问题排查与解决方案" href="https://ahaknow.com/posts/ai/macos-lib-fix/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">博客优化：自定义字体加速显示
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-21
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-09
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2419 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/css%E6%8A%80%E5%B7%A7/" style="color: var(--secondary)!important;">CSS技巧</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 博客优化：自定义字体加速显示" href="https://ahaknow.com/posts/ai/blog-font-display-acceleration/"></a>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+
+
+</body>
+
+</html>

@@ -120,7 +120,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟知识",
+      "name": "🌟识知",
       "item": "https://ahaknow.com/posts/know/"
     }, 
     {
@@ -254,7 +254,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟识知</a></div>
     <h1 class="post-title entry-hint-parent">
       Leetcode：169. 多数元素
     </h1>
@@ -387,8 +387,7 @@ Output: 2
 <p>第一反应是分别计数，这种方法显然有点笨。。。</p>
 <p><strong>因为题目想找出现次数最多的数字（这种题目要求大于一半数量，说明肯定有大于一半数量存在的），其实可以这样，不用分别计数，而是按照顺序依次“增减”计数，比如：</strong></p>
 <p>1 1 2 2 1 1</p>
-<p>最开始遇到1，遇到1就计数+1，遇到不是1就计数-1，如果这个数字大于一半数量，那么增增减减之后，<strong>一定也还是大于零</strong></p>
-</blockquote>
+<p>最开始遇到1，遇到1就计数+1，遇到不是1就计数-1，如果这个数字大于一半数量，那么增增减减之后，<strong>一定也还是大于零</strong></p></blockquote>
 <h3 id="上菜">🥬上菜<a hidden class="anchor" aria-hidden="true" href="#上菜">#</a></h3>
 <p>在这个问题中，<strong>需要找到一个出现次数超过 <code>⌊n/2⌋</code> 次的多数元素</strong>。对于这种问题，有一种非常高效的解决方法，称为 <strong>Boyer-Moore 投票算法</strong>。这种算法可以在 O(n) 时间复杂度内找到多数元素，并且其空间复杂度为 O(1)。</p>
 <h4 id="boyer-moore-投票算法">Boyer-Moore 投票算法<a hidden class="anchor" aria-hidden="true" href="#boyer-moore-投票算法">#</a></h4>
@@ -411,8 +410,7 @@ Output: 2
 </ol>
 <p>直觉的理解：</p>
 <blockquote>
-<p>每次在找到两个不同的元素时就将它们“抵消”。<strong>如果一个元素的数量超过总数的一半，那么即使它与其他所有不同的元素进行抵消，最后仍然会剩余该元素，因为它的数量多于其他所有元素的总和。</strong></p>
-</blockquote>
+<p>每次在找到两个不同的元素时就将它们“抵消”。<strong>如果一个元素的数量超过总数的一半，那么即使它与其他所有不同的元素进行抵消，最后仍然会剩余该元素，因为它的数量多于其他所有元素的总和。</strong></p></blockquote>
 <p>但是要注意这个算法成立的关键前提：<strong>数组中存在一个多数元素，其出现次数严格大于数组长度的一半</strong>。</p>
 <h4 id="实现代码c">实现代码（C++）<a hidden class="anchor" aria-hidden="true" href="#实现代码c">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 169. Majority Element

@@ -45,7 +45,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>🚀 Git 与 CRLF（换行符）完全指南 | AhaKnow</title>
-<meta name="keywords" content="未标签">
+<meta name="keywords" content="Git, Windows">
 <meta name="description" content="在使用 Git 的过程中，我们经常会遇到 CRLF (回车换行) 和 LF (换行) 的问题，特别是在 Windows 和 Linux/macOS 跨平台开发 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://ahaknow.com/posts/know/git-crlf-lf/">
@@ -99,7 +99,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ahaknow.com/posts/know/git-crlf-lf/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-02-09T00:36:17+08:00" />
-<meta property="article:modified_time" content="2025-02-10T22:07:01+08:00" />
+<meta property="article:modified_time" content="2025-02-17T23:48:02+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="🚀 Git 与 CRLF（换行符）完全指南"/>
@@ -120,7 +120,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟知识",
+      "name": "🌟识知",
       "item": "https://ahaknow.com/posts/know/"
     }, 
     {
@@ -140,13 +140,13 @@
   "name": "🚀 Git 与 CRLF（换行符）完全指南",
   "description": "在使用 Git 的过程中，我们经常会遇到 CRLF (回车换行) 和 LF (换行) 的问题，特别是在 Windows 和 Linux/macOS 跨平台开发 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。\n",
   "keywords": [
-    "未标签"
+    "Git", "Windows"
   ],
   "articleBody": "在使用 Git 的过程中，我们经常会遇到 CRLF (回车换行) 和 LF (换行) 的问题，特别是在 Windows 和 Linux/macOS 跨平台开发 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。\n🔍 1. 换行符 (Line Ending) 的基础知识 不同的操作系统对 换行符 (Line Ending) 的处理方式不同：\n🐧 Linux/macOS: 仅使用 LF (\\n) 作为换行符。 🖥 Windows: 使用 CRLF (\\r\\n) 作为换行符。 🏛 老式 Mac（经典 Mac OS）: 以前使用 CR (\\r)，但现代 macOS 也使用 LF。 这个不同导致了 Windows 与 Linux/macOS 开发者在 Git 版本管理时可能会遇到换行符不一致的问题。\n⚙️ 2. Git 如何处理换行符 Git 默认内部存储文本文件时使用 LF，但它提供了一些配置选项来处理不同操作系统上的换行符问题。最主要的配置是：\ngit config --global core.autocrlf 🎯 core.autocrlf 选项 📝 提交时 (git commit) 📂 检出时 (git checkout) 🚀 适用场景 true CRLF → LF ✅ LF → CRLF ✅ Windows 开发者（本地文件 CRLF，仓库中 LF） input CRLF → LF ✅ 保持 LF ✅ Linux/macOS 或跨平台开发者（推荐 ⚡） false 不转换 ❌ 不转换 ❌ 需要严格保持文件换行符一致的场景 📌 推荐方案 如果你在 Windows 上开发，但希望避免换行符问题：使用 core.autocrlf=input ✅ 如果你在 Linux/macOS 上开发：默认 LF，可使用 core.autocrlf=input ✅ 如果你希望 Git 完全不干涉换行符，自己控制换行：使用 core.autocrlf=false ✅ 🛠 3. 如何查看和修改 Git 换行符配置 查看当前配置 git config --global core.autocrlf 如果你在仓库级别配置：\ngit config core.autocrlf 修改 Git 换行符配置 ✅ 全局修改（适用于所有 Git 仓库） git config --global core.autocrlf input # 跨平台开发推荐 git config --global core.autocrlf false # 禁用自动转换 ✅ 只修改当前仓库 git config core.autocrlf false 🏗 4. 确保 Git 仓库的换行符一致 如果你想在项目中确保所有文本文件统一使用 LF，可以使用 .gitattributes 文件：\n# 在项目根目录下创建 .gitattributes *.sh text eol=lf *.py text eol=lf *.md text eol=lf *.bat text eol=crlf text=auto 让 Git 自动检测文本文件。 eol=lf 让 Git 在提交时 强制换行符为 LF。 eol=crlf 适用于 Windows 批处理文件（如 .bat）。 🔄 5. 处理已有文件的 CRLF 问题 🛑 如何修复 LF 和 CRLF 混乱的问题？ 如果你的仓库已经有换行符问题，可以用以下方法修复：\n🔹 方法 1：强制 Git 重新应用换行符 git rm --cached -r . git reset --hard 然后，重新添加和提交文件：\ngit add . git commit -m \"Fix line endings\" 🔹 方法 2：使用 dos2unix 转换文件 在 Linux/macOS 终端使用：\ndos2unix 文件名 在 Windows Git Bash 使用：\nunix2dos 文件名 🔹 方法 3：在 VS Code/Notepad++ 中手动修改 VS Code: 在文件底部状态栏，点击 LF/CRLF 进行转换。 Notepad++: Edit → EOL Conversion → 选择 Unix (LF)。 🚨 6. 避免 Git 频繁提示 CRLF 警告 你可能在 git add . 时看到类似警告：\nwarning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it 原因：\nGit 发现该文件当前使用 LF，但由于 core.autocrlf=true，它会在检出时转换为 CRLF。 解决方案：\n设置 core.autocrlf=input 避免转换： git config --global core.autocrlf input 或者手动修复文件换行符： git rm --cached README.md git add README.md git commit -m \"Fix line endings\" 🎯 7. 结论：如何优雅处理 Git 和 CRLF 🚀 目标 🎯 推荐配置 🖥 Windows 开发者（但希望仓库文件保持 LF） git config --global core.autocrlf input 🐧 Linux/macOS 开发者 git config --global core.autocrlf input 🏗 团队开发（希望所有人提交的文件格式一致） .gitattributes 配置 eol=lf 🚫 不希望 Git 处理换行符 git config --global core.autocrlf false ✅ 最佳实践：在团队协作时，推荐所有人使用 core.autocrlf=input 并在 .gitattributes 中定义 eol=lf，确保仓库文件保持一致性，避免跨平台换行符混乱的问题。\n🎉 附录：Git 换行符配置快捷命令 # 推荐的跨平台配置 git config --global core.autocrlf input # 禁止 Git 处理换行符 git config --global core.autocrlf false # 在项目中强制 LF echo \"* text=auto\" \u003e\u003e .gitattributes echo \"*.sh text eol=lf\" \u003e\u003e .gitattributes echo \"*.py text eol=lf\" \u003e\u003e .gitattributes git add .gitattributes git commit -m \"Ensure LF endings\" 希望这篇指南能帮助你彻底理解 Git 和 CRLF 的关系，让你在跨平台开发中不再被换行符问题困扰！🚀🔥\n",
   "wordCount" : "1255",
   "inLanguage": "zh",
   "datePublished": "2025-02-09T00:36:17+08:00",
-  "dateModified": "2025-02-10T22:07:01+08:00",
+  "dateModified": "2025-02-17T23:48:02+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -254,7 +254,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟识知</a></div>
     <h1 class="post-title entry-hint-parent">
       🚀 Git 与 CRLF（换行符）完全指南
     </h1>
@@ -290,7 +290,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-10
+            <span>2025-02-17
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -322,7 +322,8 @@
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/" style="color: var(--secondary)!important;">未标签</a>
+                <a href="https://ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
+                &nbsp;<a href="https://ahaknow.com/tags/windows/" style="color: var(--secondary)!important;">Windows</a>
             </span>
         </span>
     </span>
@@ -817,13 +818,14 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://ahaknow.com/tags/%E6%9C%AA%E6%A0%87%E7%AD%BE/">未标签</a></li>
+      <li><a href="https://ahaknow.com/tags/git/">Git</a></li>
+      <li><a href="https://ahaknow.com/tags/windows/">Windows</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://ahaknow.com/posts/know/hugo-password/">
+  <a class="prev" href="https://ahaknow.com/posts/know/hugo-password-page/">
     <span class="title">« 上一页</span>
     <br>
-    <span>🔐 Hugo 文章密码保护最佳实践</span>
+    <span>🔐 Hugo 文章密码保护初次实践</span>
   </a>
   <a class="next" href="https://ahaknow.com/posts/know/latex/">
     <span class="title">下一页 »</span>

@@ -6,8 +6,15 @@
     <description>Recent content in Git on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 10 Feb 2025 22:07:01 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2025 23:48:02 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🚀 Git 与 CRLF（换行符）完全指南</title>
+      <link>https://ahaknow.com/posts/know/git-crlf-lf/</link>
+      <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/know/git-crlf-lf/</guid>
+      <description>&lt;p&gt;在使用 Git 的过程中，我们经常会遇到 &lt;strong&gt;CRLF (回车换行) 和 LF (换行)&lt;/strong&gt; 的问题，特别是在 &lt;strong&gt;Windows 和 Linux/macOS 跨平台开发&lt;/strong&gt; 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
       <link>https://ahaknow.com/posts/know/git-pull-request-release/</link>
@@ -19,24 +26,24 @@
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
-      <link>https://ahaknow.com/posts/know/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
+      <link>https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
       <description>&lt;h2 id=&#34;-介绍&#34;&gt;&lt;strong&gt;📌 介绍&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在软件开发过程中，我们常常需要将本地的 Git 仓库&lt;strong&gt;自动提交并推送&lt;/strong&gt;到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个&lt;strong&gt;适用于 Windows (Git Bash)、macOS 和 Linux&lt;/strong&gt; 的自动 &lt;code&gt;push&lt;/code&gt; 脚本，并详细解析其中的关键点。&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
-      <link>https://ahaknow.com/posts/know/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://ahaknow.com/posts/ai/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://ahaknow.com/posts/ai/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;p&gt;%% 在使用 %% Git 进行 &lt;code&gt;git pull&lt;/code&gt;、&lt;code&gt;git merge&lt;/code&gt; 等操作时，常常会遇到各种冲突和错误。这份文档总结了 &lt;strong&gt;Git 合并相关问题&lt;/strong&gt;，提供了&lt;strong&gt;案例分析、解决方案&lt;/strong&gt;，并附上清晰的注释，帮助你快速解决问题。💡&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://ahaknow.com/posts/know/-git-%E4%BB%93%E5%BA%93%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%84%9A%E6%9C%AC/</link>
+      <link>https://ahaknow.com/posts/know/git-auto-push/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/-git-%E4%BB%93%E5%BA%93%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://ahaknow.com/posts/know/git-auto-push/</guid>
       <description>&lt;h2 id=&#34;-git-仓库自动更新脚本---解决方案与步骤总结&#34;&gt;📝 &lt;strong&gt;Git 仓库自动更新脚本 - 解决方案与步骤总结&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 &lt;code&gt;GitAwesome&lt;/code&gt; 文件夹下的所有 Git 仓库。&lt;/p&gt;</description>
     </item>
@@ -48,8 +55,7 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;一顿操作猛如虎，鬼使神差来了个git add .&lt;/p&gt;
 &lt;p&gt;并不想这样的，因为压根不是想要git管理的目录😂&lt;/p&gt;
-&lt;p&gt;怎么ctrl+z一下呢？&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;怎么ctrl+z一下呢？&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;具体操作&#34;&gt;具体操作&lt;/h2&gt;
 &lt;p&gt;在Git中，有两个常见的操作可以撤销误操作的 &lt;code&gt;git add .&lt;/code&gt; ：取消暂存（unstage）和取消缓存（uncache）。这两个操作有些区别，下面将详细解释它们的区别和具体用法。&lt;/p&gt;</description>
     </item>
@@ -59,8 +65,7 @@
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;git-branch系列操作&#34;&gt;git branch系列操作&lt;/h2&gt;
 &lt;h3 id=&#34;1-列出所有本地分支&#34;&gt;1. 列出所有本地分支&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch

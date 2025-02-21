@@ -126,7 +126,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟知识",
+      "name": "🌟识知",
       "item": "https://ahaknow.com/posts/know/"
     }, 
     {
@@ -260,7 +260,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟识知</a></div>
     <h1 class="post-title entry-hint-parent">
       Linux：GPU环境崩了？从Nvidia驱动到TensorRT
     </h1>
@@ -438,8 +438,7 @@
 <p>重新下载一个CUDA版本？下载了安装还是错误。。。</p>
 <p>最终，理清楚思路，可能是Linux内核的问题，因为之前出现过，新内核安装完驱动后启动不了，切换成上一个内核就行了。。。（印象中是这样的）</p>
 <p>于是，切换到就内核再装，还是一样的错误，发现错误提示里还有新内核的痕迹，果断，把新内核卸载并且清空，Nvidia以及CUDA相关的也全都卸载重装……</p>
-<p>终于，成功了！</p>
-</blockquote>
+<p>终于，成功了！</p></blockquote>
 <h3 id="nvidia卸载重装卸载干净了再装">Nvidia卸载重装：卸载干净了再装！<a hidden class="anchor" aria-hidden="true" href="#nvidia卸载重装卸载干净了再装">#</a></h3>
 <p>显卡驱动容易挂掉？（可能是这样，但是正经安装的，绝不应该！）</p>
 <p>这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：</p>

@@ -129,7 +129,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟知识",
+      "name": "🌟识知",
       "item": "https://ahaknow.com/posts/know/"
     }, 
     {
@@ -263,7 +263,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟识知</a></div>
     <h1 class="post-title entry-hint-parent">
       开发实战：为什么要将函数实现与头文件分离
     </h1>
@@ -459,8 +459,7 @@
 <p>今天被问到了这个问题：</p>
 <p>“在写C++代码的时候，将函数实现直接写在头文件里，会怎么样，有什么不好的地方？为什么要将函数的实现单独写在源文件”</p>
 <p>我的第一反应想到的，我实际开发时就这样做的，为啥这样做呢？编译比较快？编译比较省事？……</p>
-<p>但似乎没有一个透彻的理解，需要在这里重新梳理一下。</p>
-</blockquote>
+<p>但似乎没有一个透彻的理解，需要在这里重新梳理一下。</p></blockquote>
 <p><strong>从代码编译的角度来重新理解（CMake进行编译系统管理的时候，也有一套<a href="../dev-project-cmake">比较好的实践方式</a>）</strong></p>
 <h2 id="c编译角度的理解">C++编译角度的理解<a hidden class="anchor" aria-hidden="true" href="#c编译角度的理解">#</a></h2>
 <p>在C++编程中，编译过程通常包括<strong>预处理、编译、汇编和链接</strong>这几个阶段。每个阶段都在为最终生成可执行文件做准备，而在这些过程中，头文件和源文件的角色和影响各不相同。</p>

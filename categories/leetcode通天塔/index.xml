@@ -76,8 +76,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
       <guid>https://ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;LeetCode上“最简单”的一道题了吧？&lt;/p&gt;
-&lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;You are given two integer arrays &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt;, sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, and two integers &lt;code&gt;m&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt;, representing the number of elements in &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt; respectively.&lt;/p&gt;</description>
     </item>
   </channel>

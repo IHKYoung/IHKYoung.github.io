@@ -40,8 +40,7 @@
       <pubDate>Tue, 28 May 2024 11:33:46 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/linux-test-ssd/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;mark&gt;在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
@@ -68,15 +67,11 @@
       <pubDate>Wed, 24 Apr 2024 13:00:28 +0800</pubDate>
       <guid>https://ahaknow.com/posts/know/linux-kernel/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;1-查看当前运行的内核&#34;&gt;1. 查看当前运行的内核&lt;/h3&gt;
 &lt;p&gt;在终端运行以下命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;uname -r
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会得到下面这样的信息：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5.15.0-97-generic
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-列出所有安装的内核&#34;&gt;2. 列出所有安装的内核&lt;/h3&gt;
-&lt;p&gt;列出所有已安装的内核：&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;会得到下面这样的信息：&lt;/p&gt;</description>
     </item>
     <item>
       <title>Shell：操作移动文件</title>

@@ -126,7 +126,7 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟知识",
+      "name": "🌟识知",
       "item": "https://ahaknow.com/posts/know/"
     }, 
     {
@@ -260,7 +260,7 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟知识</a></div>
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/know/">🌟识知</a></div>
     <h1 class="post-title entry-hint-parent">
       TensorRT：最简明的安装流程
     </h1>
@@ -445,12 +445,10 @@
 
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。</p>
-<p><mark>因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装</mark></p>
-</blockquote>
+<p><mark>因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装</mark></p></blockquote>
 <p><mark>在进行下面的安装步骤之前，建议先将以前的安装的Nvidia相关的都卸载了，否则一定会出现依赖错乱的问题！</mark></p>
 <blockquote>
-<p>建议手动选择卸载cuda、tensorrt、nvidia前缀的软件，然后使用 <code>sudo apt autoremove</code> 清理。</p>
-</blockquote>
+<p>建议手动选择卸载cuda、tensorrt、nvidia前缀的软件，然后使用 <code>sudo apt autoremove</code> 清理。</p></blockquote>
 <h3 id="首先需要正确安装cuda">首先需要正确安装CUDA<a hidden class="anchor" aria-hidden="true" href="#首先需要正确安装cuda">#</a></h3>
 <p><mark>采用本地deb包的方法</mark></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
