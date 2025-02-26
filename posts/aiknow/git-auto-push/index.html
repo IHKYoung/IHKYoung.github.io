@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>📝 Git 仓库自动更新脚本 | AhaKnow</title>
+<meta name="keywords" content="Git">
+<meta name="description" content="📝 Git 仓库自动更新脚本 - 解决方案与步骤总结
+在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 GitAwesome 文件夹下的所有 Git 仓库。">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="https://ahaknow.com/posts/aiknow/git-auto-push/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://ahaknow.com/posts/aiknow/git-auto-push/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="📝 Git 仓库自动更新脚本" />
+<meta property="og:description" content="📝 Git 仓库自动更新脚本 - 解决方案与步骤总结
+在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 GitAwesome 文件夹下的所有 Git 仓库。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ahaknow.com/posts/aiknow/git-auto-push/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-02-06T20:58:45+08:00" />
+<meta property="article:modified_time" content="2025-02-06T20:58:45+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="📝 Git 仓库自动更新脚本"/>
+<meta name="twitter:description" content="📝 Git 仓库自动更新脚本 - 解决方案与步骤总结
+在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 GitAwesome 文件夹下的所有 Git 仓库。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🤖 人工智能",
+      "item": "https://ahaknow.com/posts/aiknow/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "📝 Git 仓库自动更新脚本",
+      "item": "https://ahaknow.com/posts/aiknow/git-auto-push/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "📝 Git 仓库自动更新脚本",
+  "name": "📝 Git 仓库自动更新脚本",
+  "description": "📝 Git 仓库自动更新脚本 - 解决方案与步骤总结 在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 GitAwesome 文件夹下的所有 Git 仓库。\n",
+  "keywords": [
+    "Git"
+  ],
+  "articleBody": "📝 Git 仓库自动更新脚本 - 解决方案与步骤总结 在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 GitAwesome 文件夹下的所有 Git 仓库。\n🔑 关键步骤： 1. 编写 PowerShell 脚本 💻 你首先需要编写一个 PowerShell 脚本来自动更新 Git 仓库。脚本会遍历指定目录下的所有子目录，并对每个子目录执行 git pull。\n# 设置 GitAwesome 文件夹路径 $GitAwesomePath = \"E:\\GitAwesome\" # 获取所有子文件夹（假设每个子文件夹都是一个 Git 仓库） $repos = Get-ChildItem -Path $GitAwesomePath -Directory # 遍历每个子文件夹，进入并执行 git pull foreach ($repo in $repos) { if (Test-Path \"$repo\\.git\") { Write-Host \"Updating repository: $($repo.Name)\" Set-Location -Path $repo.FullName git pull } else { Write-Host \"Skipping non-Git repository: $($repo.Name)\" } } 解释：\n$GitAwesomePath 是存放 Git 仓库的根目录。 Get-ChildItem -Directory 获取所有子文件夹，假设每个文件夹都是一个 Git 仓库。 git pull 用于拉取最新的代码。 2. 验证脚本 🧑‍💻 在将脚本加入任务调度器之前，务必确保它在 PowerShell 终端中正确执行。使用 PowerShell 7（pwsh）执行脚本时，需要特别注意命令格式。\n手动测试脚本： 打开 PowerShell 7（pwsh）并运行以下命令：\n\u0026 \"C:\\Program Files\\PowerShell\\7\\pwsh.exe\" -ExecutionPolicy Bypass -File \"E:\\GitAwesome\\AutoPull.ps1\" 解析：\n\u0026 是调用运算符，确保 pwsh.exe 被正确执行。 -ExecutionPolicy Bypass 用于绕过执行策略，确保脚本能够执行。 -File 后跟脚本路径，指向你要运行的 PowerShell 脚本。 如果脚本在 PowerShell 7 中没有问题，就可以放心将其设置为自动化任务。\n3. 设置 Windows 任务调度器 ⏰ 打开任务调度器：\n按下 Win + R，输入 taskschd.msc，按回车打开任务调度器。 创建新任务：\n在任务调度器中，选择 创建任务，填写任务名称（例如 GitRepoUpdateOnStartup），并选择 使用最高权限运行。 触发器选项卡：\n在 触发器 标签下，点击 新建，选择 在系统启动时，确保任务在每次开机时运行。 操作选项卡：\n在 操作 标签下，点击 新建，选择 启动程序。 程序/脚本：填入 C:\\Program Files\\PowerShell\\7\\pwsh.exe 添加参数：填入 -ExecutionPolicy Bypass -File \"E:\\GitAwesome\\AutoPull.ps1\" 注意：确保脚本路径正确。\n条件选项卡：\n选择是否仅在电脑使用电源适配器时执行任务（通常可以保持默认设置）。 设置选项卡：\n可选，设置任务失败时重试或通知等选项。 保存任务：\n点击 确定 保存任务。 🚨 常见问题与解决方案： 1. 遇到 “Unexpected token” 错误 🤔 问题描述：当直接在 PowerShell 中执行命令时，可能会看到 Unexpected token '-ExecutionPolicy' 错误。\n解决方案：在命令前加上调用运算符 \u0026 来正确执行 PowerShell 7：\n\u0026 \"C:\\Program Files\\PowerShell\\7\\pwsh.exe\" -ExecutionPolicy Bypass -File \"E:\\GitAwesome\\AutoPull.ps1\" 2. PowerShell 执行策略问题 ⚠️ 问题描述：有时可能会遇到脚本执行被限制的问题，因为 Windows 默认的执行策略不允许脚本运行。\n解决方案：使用 -ExecutionPolicy Bypass 参数来绕过执行策略。\n3. 任务未在开机时执行 🔄 问题描述：任务调度器中的任务没有在开机时执行。\n解决方案：\n确保任务调度器中的触发器设置为 在系统启动时。 确保任务调度器中的 使用最高权限运行 被勾选，以确保有足够的权限执行脚本。 🧩 总结： 通过 PowerShell 7 和任务调度器，您可以实现一个自动化任务，每次开机时自动更新 Git 仓库。只需编写一个 PowerShell 脚本，验证脚本正确性，并通过任务调度器配置在开机时触发执行。\n在执行时，务必注意：\n使用 \u0026 调用 PowerShell 7 (pwsh.exe)。 在任务调度器中设置任务时，确保选择 在系统启动时 触发。 使用 -ExecutionPolicy Bypass 绕过脚本执行策略，确保脚本能够执行。 这样，你的 Git 仓库就会在每次开机时自动更新了，节省了手动更新的时间！🚀\n",
+  "wordCount" : "1228",
+  "inLanguage": "zh",
+  "datePublished": "2025-02-06T20:58:45+08:00",
+  "dateModified": "2025-02-06T20:58:45+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ahaknow.com/posts/aiknow/git-auto-push/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://ahaknow.com/posts/aiknow/">🤖 人工智能</a></div>
+    <h1 class="post-title entry-hint-parent">
+      📝 Git 仓库自动更新脚本
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-06
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2025-02-06
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1228 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#-git-%e4%bb%93%e5%ba%93%e8%87%aa%e5%8a%a8%e6%9b%b4%e6%96%b0%e8%84%9a%e6%9c%ac---%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88%e4%b8%8e%e6%ad%a5%e9%aa%a4%e6%80%bb%e7%bb%93" aria-label="📝 Git 仓库自动更新脚本 - 解决方案与步骤总结">📝 <strong>Git 仓库自动更新脚本 - 解决方案与步骤总结</strong></a><ul>
+                        
+                <li>
+                    <a href="#-%e5%85%b3%e9%94%ae%e6%ad%a5%e9%aa%a4" aria-label="🔑 关键步骤：">🔑 <strong>关键步骤</strong>：</a><ul>
+                        
+                <li>
+                    <a href="#1-%e7%bc%96%e5%86%99-powershell-%e8%84%9a%e6%9c%ac-" aria-label="1. 编写 PowerShell 脚本 💻">1. <strong>编写 PowerShell 脚本</strong> 💻</a></li>
+                <li>
+                    <a href="#2-%e9%aa%8c%e8%af%81%e8%84%9a%e6%9c%ac-" aria-label="2. 验证脚本 🧑‍💻">2. <strong>验证脚本</strong> 🧑‍💻</a></li>
+                <li>
+                    <a href="#3-%e8%ae%be%e7%bd%ae-windows-%e4%bb%bb%e5%8a%a1%e8%b0%83%e5%ba%a6%e5%99%a8-" aria-label="3. 设置 Windows 任务调度器 ⏰">3. <strong>设置 Windows 任务调度器</strong> ⏰</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98%e4%b8%8e%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88" aria-label="🚨 常见问题与解决方案：">🚨 <strong>常见问题与解决方案</strong>：</a><ul>
+                        
+                <li>
+                    <a href="#1-%e9%81%87%e5%88%b0-unexpected-token-%e9%94%99%e8%af%af-" aria-label="1. 遇到 &ldquo;Unexpected token&rdquo; 错误 🤔">1. <strong>遇到 &ldquo;Unexpected token&rdquo; 错误</strong> 🤔</a></li>
+                <li>
+                    <a href="#2-powershell-%e6%89%a7%e8%a1%8c%e7%ad%96%e7%95%a5%e9%97%ae%e9%a2%98-" aria-label="2. PowerShell 执行策略问题 ⚠️">2. <strong>PowerShell 执行策略问题</strong> ⚠️</a></li>
+                <li>
+                    <a href="#3-%e4%bb%bb%e5%8a%a1%e6%9c%aa%e5%9c%a8%e5%bc%80%e6%9c%ba%e6%97%b6%e6%89%a7%e8%a1%8c-" aria-label="3. 任务未在开机时执行 🔄">3. <strong>任务未在开机时执行</strong> 🔄</a></li></ul>
+                </li>
+                <li>
+                    <a href="#-%e6%80%bb%e7%bb%93" aria-label="🧩 总结：">🧩 <strong>总结</strong>：</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="waiting-message" style="font-size: 1.2em;">🤖 正在加载终极挑战...</p>
+    <p id="challenge-text" style="display: none; font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" style="display: none;" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" style="display: none;" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，有时候复读机可能比不思考还要更重要哦！😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+  </div>
+
+  <div class="post-content" id="post-content" style="display: none;"><h2 id="-git-仓库自动更新脚本---解决方案与步骤总结">📝 <strong>Git 仓库自动更新脚本 - 解决方案与步骤总结</strong><a hidden class="anchor" aria-hidden="true" href="#-git-仓库自动更新脚本---解决方案与步骤总结">#</a></h2>
+<p>在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 <code>GitAwesome</code> 文件夹下的所有 Git 仓库。</p>
+<h3 id="-关键步骤">🔑 <strong>关键步骤</strong>：<a hidden class="anchor" aria-hidden="true" href="#-关键步骤">#</a></h3>
+<h4 id="1-编写-powershell-脚本-">1. <strong>编写 PowerShell 脚本</strong> 💻<a hidden class="anchor" aria-hidden="true" href="#1-编写-powershell-脚本-">#</a></h4>
+<p>你首先需要编写一个 PowerShell 脚本来自动更新 Git 仓库。脚本会遍历指定目录下的所有子目录，并对每个子目录执行 <code>git pull</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># 设置 GitAwesome 文件夹路径</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$GitAwesomePath</span> <span class="p">=</span> <span class="s2">&#34;E:\GitAwesome&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 获取所有子文件夹（假设每个子文件夹都是一个 Git 仓库）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$repos</span> <span class="p">=</span> <span class="nb">Get-ChildItem</span> <span class="n">-Path</span> <span class="nv">$GitAwesomePath</span> <span class="n">-Directory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># 遍历每个子文件夹，进入并执行 git pull</span>
+</span></span><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="nv">$repo</span> <span class="k">in</span> <span class="nv">$repos</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nb">Test-Path</span> <span class="s2">&#34;</span><span class="nv">$repo</span><span class="s2">\.git&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">Write-Host</span> <span class="s2">&#34;Updating repository: </span><span class="p">$(</span><span class="nv">$repo</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">Set-Location</span> <span class="n">-Path</span> <span class="nv">$repo</span><span class="p">.</span><span class="py">FullName</span>
+</span></span><span class="line"><span class="cl">        <span class="n">git</span> <span class="n">pull</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">Write-Host</span> <span class="s2">&#34;Skipping non-Git repository: </span><span class="p">$(</span><span class="nv">$repo</span><span class="p">.</span><span class="n">Name</span><span class="p">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>解释</strong>：</p>
+<ul>
+<li><code>$GitAwesomePath</code> 是存放 Git 仓库的根目录。</li>
+<li><code>Get-ChildItem -Directory</code> 获取所有子文件夹，假设每个文件夹都是一个 Git 仓库。</li>
+<li><code>git pull</code> 用于拉取最新的代码。</li>
+</ul>
+<h4 id="2-验证脚本-">2. <strong>验证脚本</strong> 🧑‍💻<a hidden class="anchor" aria-hidden="true" href="#2-验证脚本-">#</a></h4>
+<p>在将脚本加入任务调度器之前，务必确保它在 PowerShell 终端中正确执行。使用 <strong>PowerShell 7</strong>（<code>pwsh</code>）执行脚本时，需要特别注意命令格式。</p>
+<p><strong>手动测试脚本</strong>： 打开 PowerShell 7（<code>pwsh</code>）并运行以下命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">&amp;</span> <span class="s2">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="s2">&#34;E:\GitAwesome\AutoPull.ps1&#34;</span>
+</span></span></code></pre></div><p><strong>解析</strong>：</p>
+<ul>
+<li><code>&amp;</code> 是调用运算符，确保 <code>pwsh.exe</code> 被正确执行。</li>
+<li><code>-ExecutionPolicy Bypass</code> 用于绕过执行策略，确保脚本能够执行。</li>
+<li><code>-File</code> 后跟脚本路径，指向你要运行的 PowerShell 脚本。</li>
+</ul>
+<p>如果脚本在 PowerShell 7 中没有问题，就可以放心将其设置为自动化任务。</p>
+<h4 id="3-设置-windows-任务调度器-">3. <strong>设置 Windows 任务调度器</strong> ⏰<a hidden class="anchor" aria-hidden="true" href="#3-设置-windows-任务调度器-">#</a></h4>
+<ol>
+<li>
+<p><strong>打开任务调度器</strong>：</p>
+<ul>
+<li>按下 <code>Win + R</code>，输入 <code>taskschd.msc</code>，按回车打开任务调度器。</li>
+</ul>
+</li>
+<li>
+<p><strong>创建新任务</strong>：</p>
+<ul>
+<li>在任务调度器中，选择 <strong>创建任务</strong>，填写任务名称（例如 <code>GitRepoUpdateOnStartup</code>），并选择 <strong>使用最高权限运行</strong>。</li>
+</ul>
+</li>
+<li>
+<p><strong>触发器选项卡</strong>：</p>
+<ul>
+<li>在 <strong>触发器</strong> 标签下，点击 <strong>新建</strong>，选择 <strong>在系统启动时</strong>，确保任务在每次开机时运行。</li>
+</ul>
+</li>
+<li>
+<p><strong>操作选项卡</strong>：</p>
+<ul>
+<li>在 <strong>操作</strong> 标签下，点击 <strong>新建</strong>，选择 <strong>启动程序</strong>。</li>
+<li><strong>程序/脚本</strong>：填入 <code>C:\Program Files\PowerShell\7\pwsh.exe</code></li>
+<li><strong>添加参数</strong>：填入 <code>-ExecutionPolicy Bypass -File &quot;E:\GitAwesome\AutoPull.ps1&quot;</code></li>
+</ul>
+<p><strong>注意</strong>：确保脚本路径正确。</p>
+</li>
+<li>
+<p><strong>条件选项卡</strong>：</p>
+<ul>
+<li>选择是否仅在电脑使用电源适配器时执行任务（通常可以保持默认设置）。</li>
+</ul>
+</li>
+<li>
+<p><strong>设置选项卡</strong>：</p>
+<ul>
+<li>可选，设置任务失败时重试或通知等选项。</li>
+</ul>
+</li>
+<li>
+<p><strong>保存任务</strong>：</p>
+<ul>
+<li>点击 <strong>确定</strong> 保存任务。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="-常见问题与解决方案">🚨 <strong>常见问题与解决方案</strong>：<a hidden class="anchor" aria-hidden="true" href="#-常见问题与解决方案">#</a></h3>
+<h4 id="1-遇到-unexpected-token-错误-">1. <strong>遇到 &ldquo;Unexpected token&rdquo; 错误</strong> 🤔<a hidden class="anchor" aria-hidden="true" href="#1-遇到-unexpected-token-错误-">#</a></h4>
+<ul>
+<li>
+<p><strong>问题描述</strong>：当直接在 PowerShell 中执行命令时，可能会看到 <code>Unexpected token '-ExecutionPolicy'</code> 错误。</p>
+</li>
+<li>
+<p><strong>解决方案</strong>：在命令前加上调用运算符 <code>&amp;</code> 来正确执行 PowerShell 7：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">&amp;</span> <span class="s2">&#34;C:\Program Files\PowerShell\7\pwsh.exe&#34;</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="o">-File</span> <span class="s2">&#34;E:\GitAwesome\AutoPull.ps1&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="2-powershell-执行策略问题-">2. <strong>PowerShell 执行策略问题</strong> ⚠️<a hidden class="anchor" aria-hidden="true" href="#2-powershell-执行策略问题-">#</a></h4>
+<ul>
+<li>
+<p><strong>问题描述</strong>：有时可能会遇到脚本执行被限制的问题，因为 Windows 默认的执行策略不允许脚本运行。</p>
+</li>
+<li>
+<p><strong>解决方案</strong>：使用 <code>-ExecutionPolicy Bypass</code> 参数来绕过执行策略。</p>
+</li>
+</ul>
+<h4 id="3-任务未在开机时执行-">3. <strong>任务未在开机时执行</strong> 🔄<a hidden class="anchor" aria-hidden="true" href="#3-任务未在开机时执行-">#</a></h4>
+<ul>
+<li>
+<p><strong>问题描述</strong>：任务调度器中的任务没有在开机时执行。</p>
+</li>
+<li>
+<p><strong>解决方案</strong>：</p>
+<ul>
+<li>确保任务调度器中的触发器设置为 <strong>在系统启动时</strong>。</li>
+<li>确保任务调度器中的 <strong>使用最高权限运行</strong> 被勾选，以确保有足够的权限执行脚本。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="-总结">🧩 <strong>总结</strong>：<a hidden class="anchor" aria-hidden="true" href="#-总结">#</a></h3>
+<p>通过 PowerShell 7 和任务调度器，您可以实现一个自动化任务，每次开机时自动更新 Git 仓库。只需编写一个 PowerShell 脚本，验证脚本正确性，并通过任务调度器配置在开机时触发执行。</p>
+<p>在执行时，务必注意：</p>
+<ul>
+<li>使用 <code>&amp;</code> 调用 PowerShell 7 (<code>pwsh.exe</code>)。</li>
+<li>在任务调度器中设置任务时，确保选择 <strong>在系统启动时</strong> 触发。</li>
+<li>使用 <code>-ExecutionPolicy Bypass</code> 绕过脚本执行策略，确保脚本能够执行。</li>
+</ul>
+<p>这样，你的 Git 仓库就会在每次开机时自动更新了，节省了手动更新的时间！🚀</p>
+
+
+  </div>
+
+  
+  <script>
+    function generateRandomPoetry() {
+        let words = [
+            "落霞与孤鹜齐飞，秋水共长天一色",  
+            "山有木兮木有枝，心悦君兮君不知",  
+            "夜来风雨声，花落知多少",  
+            "白云苍狗，沧海桑田",  
+            "醉里挑灯看剑，梦回吹角连营",  
+            "明月几时有，把酒问青天",  
+            "但愿人长久，千里共婵娟",  
+            "桃花依旧笑春风，不见去年人",  
+            "不识庐山真面目，只缘身在此山中",  
+            "人生得意须尽欢，莫使金樽空对月",  
+            "谁念西风独自凉，萧萧黄叶闭疏窗",  
+            "此情可待成追忆，只是当时已惘然",  
+            "昔我往矣，杨柳依依。今我来思，雨雪霏霏",  
+            "行到水穷处，坐看云起时",  
+            "劝君更尽一杯酒，西出阳关无故人",  
+            "云想衣裳花想容，春风拂槛露华浓",  
+            "天街小雨润如酥，草色遥看近却无",  
+            "只在此山中，云深不知处",  
+            "忽如一夜春风来，千树万树梨花开",  
+            "莫道不销魂，帘卷西风，人比黄花瘦",  
+            "桃李春风一杯酒，江湖夜雨十年灯",  
+            "西风多少恨，吹不散眉弯",  
+            "天生我材必有用，千金散尽还复来",  
+            "山重水复疑无路，柳暗花明又一村",  
+            "夜阑卧听风吹雨，铁马冰河入梦来",  
+            "大江东去，浪淘尽，千古风流人物",  
+            "会当凌绝顶，一览众山小",  
+            "春蚕到死丝方尽，蜡炬成灰泪始干",  
+            "小楼昨夜又东风，故国不堪回首月明中",  
+            "寄蜉蝣于天地，渺沧海之一粟",  
+            
+            "关关雎鸠，在河之洲。窈窕淑女，君子好逑。",  
+            "桃之夭夭，灼灼其华。之子于归，宜其室家。",  
+            "蒹葭苍苍，白露为霜。所谓伊人，在水一方。",  
+            "呦呦鹿鸣，食野之苹。我有嘉宾，鼓瑟吹笙。",  
+            
+            "青青子衿，悠悠我心。",  
+            "对影成三人。",  
+            "举杯邀明月，对影成三人。",  
+            "人生若只如初见，何事秋风悲画扇。",  
+            
+            "天阶夜色凉如水，卧看牵牛织女星。",  
+            "长安一片月，万户捣衣声。",  
+            "黄河远上白云间，一片孤城万仞山。",  
+            "大漠孤烟直，长河落日圆。",  
+            "江流天地外，山色有无中。",  
+            "不知天上宫阙，今夕是何年？",  
+            "此夜曲中闻折柳，何人不起故园情。",  
+            "海上生明月，天涯共此时。",  
+            
+            "无可奈何花落去，似曾相识燕归来。",  
+            "十年生死两茫茫，不思量，自难忘。",  
+            "明月别枝惊鹊，清风半夜鸣蝉。",  
+            "人生自是有情痴，此恨不关风与月。",  
+            "相思本是无凭语，莫向花笺费泪行。",  
+            
+            "我见青山多妩媚，料青山见我应如是。",  
+            "春风得意马蹄疾，一日看尽长安花。",  
+            "枯藤老树昏鸦，小桥流水人家，古道西风瘦马。",  
+            "人生如梦，一樽还酹江月。",  
+            "世事一场大梦，人生几度秋凉？",  
+            "流水落花春去也，天上人间。",  
+            
+            "一片春愁待酒浇，江上舟摇，楼上帘招。",  
+            "等闲识得东风面，万紫千红总是春。",  
+            "问君能有几多愁？恰似一江春水向东流。",  
+            "山河破碎风飘絮，身世浮沉雨打萍。",  
+            "人生天地间，忽如远行客。",  
+        ];
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
+    let randomPoetry = generateRandomPoetry();
+    document.getElementById("ai-check-text").innerText = randomPoetry;
+
+    function generateRandomText() {
+        let words = [
+            "我是谁？我从哪里来？我要到哪里去？",  
+            "人是否拥有真正的自由意志？",  
+            "如果没有人观察，世界还存在吗？",  
+            "世界是客观存在的，还是我们的意识构造的？",  
+            "我思故我在。思考是否证明存在？",  
+            "人生的意义是什么？",  
+            "人类文明是进步还是轮回？",  
+            "如果所有人都在撒谎，真相是否还存在？",  
+            "道德是绝对的，还是相对的？",  
+            "善恶是如何定义的？",  
+            "如果一个行为的后果是好的，它就是好的行为吗？",  
+            "人类是否可以完全理解宇宙？",  
+            "如果你能活在永恒的虚拟世界，你会选择现实还是虚拟？",  
+            "死亡是否是终点，还是另一种开始？",  
+            "如何证明这个世界不是一场梦？",  
+            "技术发展最终会让人类毁灭吗？",  
+            "理性和感性哪个更重要？",  
+            "一个人如何知道自己是否在做正确的事？",  
+            "幸福是终极目标，还是只是手段？",  
+            "爱是一种生物学机制，还是超越物质的精神体验？",  
+            "如果你能预测未来，你会如何行动？",  
+            "存在与虚无，什么才是真实？",  
+            "如果AI产生自我意识，它算是人类吗？",  
+            "没有痛苦的世界是否真正幸福？",  
+            "道德是天生的，还是社会塑造的？",  
+            "人类的意识是物理现象，还是超越物质的？",  
+            "是该顺从社会规则，还是追随内心？",  
+            "如果一切皆为空，那活着的意义是什么？",  
+            "真理是否绝对存在，还是仅由语言塑造？",  
+            "你能完全理解另一个人的思想吗？",  
+            "如果你能永生，你会选择活多久？",  
+            "人类最终会进化成什么样？",  
+            "时间是真实的，还是人类的幻觉？",  
+            "所有的道德都来源于生存需求吗？",  
+            "痛苦是必要的吗？",  
+            "宇宙的存在需要理由吗？",  
+            "如果你的记忆被完全替换，你还是原来的你吗？",  
+            "道德是否可以量化？",  
+            "如果人工智能可以思考，它能否感受痛苦？",  
+            "人类为什么害怕死亡？",  
+            "为什么宇宙是有序的，而不是混乱的？",  
+            "是选择做一个幸福的傻瓜，还是痛苦的智者？",  
+            "一个人孤独一生是否可以拥有完整的体验？",  
+            "宇宙之外是否还有其他世界？",  
+            "人类是否真的可以理解彼此？",  
+            "数学是人类发明的，还是宇宙本身的规律？",  
+            "如何证明自由意志不是幻觉？",  
+            "如果人可以复活，死亡还意味着什么？",  
+        ];
+        return words[Math.floor(Math.random() * words.length)];
+    }
+
+    let challengeText = generateRandomText();
+    
+    setTimeout(() => {
+        document.getElementById("waiting-message").style.display = "none";
+        document.getElementById("ai-check-text").style.display = "block";
+        document.getElementById("challenge-text").innerText = challengeText;
+        document.getElementById("challenge-text").style.display = "block";
+        document.getElementById("ai-input").style.display = "inline";
+        document.getElementById("ai-check-button").style.display = "inline";
+    }, 1000); 
+
+    function verifyHuman() {
+        let inputText = document.getElementById("ai-input").value.trim();
+        if (inputText === challengeText || inputText === "") {
+            document.getElementById("ai-check").style.display = "none";
+            document.getElementById("post-content").style.display = "block";
+        } else {
+            let errorMsg = document.getElementById("ai-error");
+            errorMsg.style.display = "block";
+            errorMsg.classList.add("shake");
+            setTimeout(() => errorMsg.classList.remove("shake"), 300);
+        }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://ahaknow.com/tags/git/">Git</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>📝 Git 合并与 Pull 过程中常见问题及解决方案</span>
+  </a>
+  <a class="next" href="https://ahaknow.com/posts/aiknow/win-scoop/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>✨晕倒不死指南：Scoop包管理</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2025 <a href="https://ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

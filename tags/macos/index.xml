@@ -6,13 +6,13 @@
     <description>Recent content in MacOS on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 21 Feb 2025 23:29:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2025 17:19:11 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>macOS 环境下 Python 动态库缺失问题排查与解决方案</title>
-      <link>https://ahaknow.com/posts/ai/macos-lib-fix/</link>
+      <link>https://ahaknow.com/posts/aiknow/macos-lib-fix/</link>
       <pubDate>Sat, 01 Feb 2025 17:19:11 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/macos-lib-fix/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/macos-lib-fix/</guid>
       <description>&lt;p&gt;在 macOS（特别是 M1/M2 芯片）使用 Python 时，可能会遇到 &lt;strong&gt;ImportError: Library not loaded&lt;/strong&gt; 类错误。这通常是因为 Python 模块在加载动态库时找不到正确的 &lt;code&gt;.dylib&lt;/code&gt; 文件。以下是一个系统化的排查与解决方法，适用于 PyAudio、PortAudio 以及其他类似情况（如 OpenCV、TensorFlow 依赖的库）。&lt;/p&gt;</description>
     </item>
   </channel>

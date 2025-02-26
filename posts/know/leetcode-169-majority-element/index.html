@@ -142,7 +142,7 @@
   "keywords": [
     "增减平衡"
   ],
-  "articleBody": "Given an array nums of size n, return the majority element.\nThe majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.\nExample 1:\nInput: nums = [3,2,3]\rOutput: 3 Example 2:\nInput: nums = [2,2,1,1,1,2,2]\rOutput: 2 Constraints:\nn == nums.length 1 \u003c= n \u003c= 5 * 104 -109 \u003c= nums[i] \u003c= 109 Follow-up: Could you solve the problem in linear time and in O(1) space?\n给定一个大小为 n 的数组 nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。\n你可以假设数组是非空的，并且给定的数组总是存在多数元素。\n示例 1：\n输入：nums = [3,2,3]\r输出：3 示例 2：\n输入：nums = [2,2,1,1,1,2,2]\r输出：2 提示：\nn == nums.length 1 \u003c= n \u003c= 5 * 104 -109 \u003c= nums[i] \u003c= 109 进阶： 尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。\n第一反应是分别计数，这种方法显然有点笨。。。\n因为题目想找出现次数最多的数字（这种题目要求大于一半数量，说明肯定有大于一半数量存在的），其实可以这样，不用分别计数，而是按照顺序依次“增减”计数，比如：\n1 1 2 2 1 1\n最开始遇到1，遇到1就计数+1，遇到不是1就计数-1，如果这个数字大于一半数量，那么增增减减之后，一定也还是大于零\n🥬上菜 在这个问题中，需要找到一个出现次数超过 ⌊n/2⌋ 次的多数元素。对于这种问题，有一种非常高效的解决方法，称为 Boyer-Moore 投票算法。这种算法可以在 O(n) 时间复杂度内找到多数元素，并且其空间复杂度为 O(1)。\nBoyer-Moore 投票算法 其核心思想是通过一种巧妙的方式取消掉非多数元素的计数，来找到多数元素。具体步骤如下：\n初始化：设置两个变量，candidate（候选人）初始化为任意值，count（计数）初始化为 0。 第一遍遍历：遍历数组 nums。 如果 count 为 0，设当前元素为 candidate。 如果当前元素等于 candidate，增加 count。 否则减少 count。 第二遍遍历：验证 candidate 是否为多数元素（这一步在题目中可以省略，因为题目保证了总是存在多数元素）。 计算 candidate 的出现次数。 如果出现次数大于 ⌊n/2⌋，返回 candidate。 直觉的理解：\n每次在找到两个不同的元素时就将它们“抵消”。如果一个元素的数量超过总数的一半，那么即使它与其他所有不同的元素进行抵消，最后仍然会剩余该元素，因为它的数量多于其他所有元素的总和。\n但是要注意这个算法成立的关键前提：数组中存在一个多数元素，其出现次数严格大于数组长度的一半。\n实现代码（C++） // 169. Majority Element #include #include using namespace std; class Solution { public: int majorityElement(vector\u003cint\u003e\u0026 nums) { int candidate; int count = 0; for (int num : nums) { // 说明增增减减之后又回到零 if (count == 0) { candidate = num; } count += (candidate == num) ? 1 : -1; } // 由于题目限制，下面的判断可以省略（但其实很必要） // count = 0; // for (int num : nums) { // if (num == candidate) { // count++; // } // } // if (count \u003e nums.size() / 2) return candidate; return candidate; } }; ",
+  "articleBody": "Given an array nums of size n, return the majority element.\nThe majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.\nExample 1:\nInput: nums = [3,2,3] Output: 3 Example 2:\nInput: nums = [2,2,1,1,1,2,2] Output: 2 Constraints:\nn == nums.length 1 \u003c= n \u003c= 5 * 104 -109 \u003c= nums[i] \u003c= 109 Follow-up: Could you solve the problem in linear time and in O(1) space?\n给定一个大小为 n 的数组 nums ，返回其中的多数元素。多数元素是指在数组中出现次数 大于 ⌊ n/2 ⌋ 的元素。\n你可以假设数组是非空的，并且给定的数组总是存在多数元素。\n示例 1：\n输入：nums = [3,2,3] 输出：3 示例 2：\n输入：nums = [2,2,1,1,1,2,2] 输出：2 提示：\nn == nums.length 1 \u003c= n \u003c= 5 * 104 -109 \u003c= nums[i] \u003c= 109 进阶： 尝试设计时间复杂度为 O(n)、空间复杂度为 O(1) 的算法解决此问题。\n第一反应是分别计数，这种方法显然有点笨。。。\n因为题目想找出现次数最多的数字（这种题目要求大于一半数量，说明肯定有大于一半数量存在的），其实可以这样，不用分别计数，而是按照顺序依次“增减”计数，比如：\n1 1 2 2 1 1\n最开始遇到1，遇到1就计数+1，遇到不是1就计数-1，如果这个数字大于一半数量，那么增增减减之后，一定也还是大于零\n🥬上菜 在这个问题中，需要找到一个出现次数超过 ⌊n/2⌋ 次的多数元素。对于这种问题，有一种非常高效的解决方法，称为 Boyer-Moore 投票算法。这种算法可以在 O(n) 时间复杂度内找到多数元素，并且其空间复杂度为 O(1)。\nBoyer-Moore 投票算法 其核心思想是通过一种巧妙的方式取消掉非多数元素的计数，来找到多数元素。具体步骤如下：\n初始化：设置两个变量，candidate（候选人）初始化为任意值，count（计数）初始化为 0。 第一遍遍历：遍历数组 nums。 如果 count 为 0，设当前元素为 candidate。 如果当前元素等于 candidate，增加 count。 否则减少 count。 第二遍遍历：验证 candidate 是否为多数元素（这一步在题目中可以省略，因为题目保证了总是存在多数元素）。 计算 candidate 的出现次数。 如果出现次数大于 ⌊n/2⌋，返回 candidate。 直觉的理解：\n每次在找到两个不同的元素时就将它们“抵消”。如果一个元素的数量超过总数的一半，那么即使它与其他所有不同的元素进行抵消，最后仍然会剩余该元素，因为它的数量多于其他所有元素的总和。\n但是要注意这个算法成立的关键前提：数组中存在一个多数元素，其出现次数严格大于数组长度的一半。\n实现代码（C++） // 169. Majority Element #include #include using namespace std; class Solution { public: int majorityElement(vector\u003cint\u003e\u0026 nums) { int candidate; int count = 0; for (int num : nums) { // 说明增增减减之后又回到零 if (count == 0) { candidate = num; } count += (candidate == num) ? 1 : -1; } // 由于题目限制，下面的判断可以省略（但其实很必要） // count = 0; // for (int num : nums) { // if (num == candidate) { // count++; // } // } // if (count \u003e nums.size() / 2) return candidate; return candidate; } }; ",
   "wordCount" : "1025",
   "inLanguage": "zh",
   "datePublished": "2024-04-15T09:27:11+08:00",
@@ -347,7 +347,7 @@
     <p id="challenge-text" style="display: none; font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
     <input type="text" id="ai-input" style="display: none;" placeholder="乖乖输入正确答案" />
     <button id="ai-check-button" style="display: none;" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
-    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，有时候复读机可能比不思考还要更重要哦！😏</p>
     <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
   </div>
 
@@ -592,11 +592,11 @@ Output: 2
         document.getElementById("challenge-text").style.display = "block";
         document.getElementById("ai-input").style.display = "inline";
         document.getElementById("ai-check-button").style.display = "inline";
-    }, 2000); 
+    }, 1000); 
 
     function verifyHuman() {
         let inputText = document.getElementById("ai-input").value.trim();
-        if (inputText === challengeText) {
+        if (inputText === challengeText || inputText === "") {
             document.getElementById("ai-check").style.display = "none";
             document.getElementById("post-content").style.display = "block";
         } else {

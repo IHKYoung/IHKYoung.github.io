@@ -10,9 +10,9 @@
     <atom:link href="https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</link>
+      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</guid>
+      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -21,9 +21,9 @@
     </item>
     <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://ahaknow.com/posts/know/latex/</link>
+      <link>https://ahaknow.com/posts/aiknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/latex/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/latex/</guid>
       <description>&lt;h1 id=&#34;-latex-语法&#34;&gt;📘 &lt;strong&gt;LaTeX 语法&lt;/strong&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;-1-latex-数学模式&#34;&gt;&lt;strong&gt;📐 1. LaTeX 数学模式&lt;/strong&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;11-行内数学模式&#34;&gt;&lt;strong&gt;1.1. 行内数学模式&lt;/strong&gt;&lt;/h3&gt;
@@ -37,9 +37,9 @@
     </item>
     <item>
       <title>全栈开发：从Python脚本到独立的App（初稿）</title>
-      <link>https://ahaknow.com/posts/know/dev-python-to-app/</link>
+      <link>https://ahaknow.com/posts/aiknow/dev-python-to-app/</link>
       <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-python-to-app/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/dev-python-to-app/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;&lt;mark&gt;怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。&lt;/p&gt;</description>

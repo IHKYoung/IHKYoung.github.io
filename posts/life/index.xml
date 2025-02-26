@@ -8,6 +8,14 @@
     <language>zh-cn</language>
     <atom:link href="https://ahaknow.com/posts/life/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Mac：闲得没事不要升级系统</title>
+      <link>https://ahaknow.com/posts/life/macos-do-not-upgrade/</link>
+      <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/life/macos-do-not-upgrade/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;反正就是，日常生产力的Mac，不要升级！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这不升级了嘛，然后多了“查找本地网络设备”的选项，我没开，结果Mac作为超级终端本的ssh大法直接懵逼。。。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>你好～ Merlin</title>
       <link>https://ahaknow.com/posts/life/m.e.r.l.i.n./</link>
       <pubDate>Thu, 23 May 2024 15:20:14 +0800</pubDate>

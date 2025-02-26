@@ -8,17 +8,6 @@
     <language>zh-cn</language>
     <atom:link href="https://ahaknow.com/posts/know/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</link>
-      <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;这个标题很有意思～
-置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;
-&lt;p&gt;如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地去拍没有限制，那么试想，这些一张张照片，能不能“组合”或者“还原”出我所见到的这个场景呢？这个场景要是立体的，三维的，生动活泼的，它允许我在这个“还原”出来的场景世界中去游览，观赏，就好像又回到了之前的那个真实场景中一样。能不能做到呢？&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>站在前人的肩膀上：笔记收集录</title>
       <link>https://ahaknow.com/posts/know/notes-one-sows-and-another-reaps/</link>
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
@@ -28,91 +17,6 @@
 &lt;p&gt;总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;github添加waka记录&#34;&gt;Github添加Waka记录&lt;/h3&gt;
 &lt;p&gt;可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Aha</title>
-      <link>https://ahaknow.com/posts/know/hugo-password-page-plus/</link>
-      <pubDate>Tue, 11 Feb 2025 23:27:58 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password-page-plus/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>https://ahaknow.com/posts/know/hugo-password-page/</link>
-      <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password-page/</guid>
-      <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>🚀 Git 与 CRLF（换行符）完全指南</title>
-      <link>https://ahaknow.com/posts/know/git-crlf-lf/</link>
-      <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-crlf-lf/</guid>
-      <description>&lt;p&gt;在使用 Git 的过程中，我们经常会遇到 &lt;strong&gt;CRLF (回车换行) 和 LF (换行)&lt;/strong&gt; 的问题，特别是在 &lt;strong&gt;Windows 和 Linux/macOS 跨平台开发&lt;/strong&gt; 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://ahaknow.com/posts/know/latex/</link>
-      <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/latex/</guid>
-      <description>&lt;h1 id=&#34;-latex-语法&#34;&gt;📘 &lt;strong&gt;LaTeX 语法&lt;/strong&gt;&lt;/h1&gt;
-&lt;h2 id=&#34;-1-latex-数学模式&#34;&gt;&lt;strong&gt;📐 1. LaTeX 数学模式&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&#34;11-行内数学模式&#34;&gt;&lt;strong&gt;1.1. 行内数学模式&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;在文本中插入数学公式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;mc^&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;$&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;$E=mc^2$ 行内模式的数学公式，适用于正文中的数学表达。&lt;/p&gt;
-&lt;h3 id=&#34;12-独立数学模式&#34;&gt;&lt;strong&gt;1.2. 独立数学模式&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;使数学公式独占一行：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sb&#34;&gt;$$&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;E&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;mc^&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;$$&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;独立模式的数学公式，适用于单独一行的数学表达。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
-      <link>https://ahaknow.com/posts/know/git-pull-request-release/</link>
-      <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-pull-request-release/</guid>
-      <description>&lt;h1 id=&#34;github-pull-reques-时-release-文件缺失问题解决方案-&#34;&gt;GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦&lt;/h1&gt;
-&lt;h2 id=&#34;问题背景-&#34;&gt;&lt;strong&gt;问题背景 🤔&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;在提交 GitHub Pull Request 时，GitHub 提示最新的 Release 缺少 &lt;code&gt;main.js&lt;/code&gt; 和 &lt;code&gt;manifest.json&lt;/code&gt; 文件。尽管这些文件在代码中存在，但它们并没有作为 Release 附件上传到 GitHub。这个问题通常发生在用户没有手动将文件上传到 Release 页面。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>💡AI调教指令</title>
-      <link>https://ahaknow.com/posts/know/aha-prompts/</link>
-      <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-prompts/</guid>
-      <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
-&lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;清晰地知道自己想要什么&lt;/li&gt;
-&lt;li&gt;准确地用语言文字将自己想要的表达出来&lt;br&gt;
-而不是：&lt;mark&gt;纵容自己的表达能力对话，而让AI去猜，AI猜对了，人就凉凉了&lt;/mark&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    <item>
-      <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://ahaknow.com/posts/know/git-auto-push/</link>
-      <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-auto-push/</guid>
-      <description>&lt;h2 id=&#34;-git-仓库自动更新脚本---解决方案与步骤总结&#34;&gt;📝 &lt;strong&gt;Git 仓库自动更新脚本 - 解决方案与步骤总结&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 &lt;code&gt;GitAwesome&lt;/code&gt; 文件夹下的所有 Git 仓库。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>全栈开发：从Python脚本到独立的App（初稿）</title>
-      <link>https://ahaknow.com/posts/know/dev-python-to-app/</link>
-      <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-python-to-app/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;&lt;mark&gt;怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？&lt;/mark&gt;&lt;/p&gt;
-&lt;p&gt;在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Mac：闲得没事不要升级系统</title>
-      <link>https://ahaknow.com/posts/know/macos-do-not-upgrade/</link>
-      <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/macos-do-not-upgrade/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;反正就是，日常生产力的Mac，不要升级！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;这不升级了嘛，然后多了“查找本地网络设备”的选项，我没开，结果Mac作为超级终端本的ssh大法直接懵逼。。。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git：不小心git add . 之后</title>
@@ -151,13 +55,6 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;事情是这样的：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时进行选择。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>开发实战：“锁”的机制</title>
-      <link>https://ahaknow.com/posts/know/dev-mutex/</link>
-      <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-mutex/</guid>
-      <description></description>
     </item>
     <item>
       <title>Linux：测试硬盘读写速度</title>
@@ -328,13 +225,6 @@
 &lt;p&gt;不行！用键盘，用命令行！&lt;/p&gt;
 &lt;p&gt;比如：&lt;/p&gt;
 &lt;p&gt;想要移动 &lt;code&gt;ZYC01981 - 01.jpg&lt;/code&gt;，同时又想把 &lt;code&gt;- 01&lt;/code&gt; 后缀给去掉，怎么做？&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
-      <link>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</link>
-      <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</guid>
-      <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>

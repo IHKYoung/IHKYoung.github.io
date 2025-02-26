@@ -357,7 +357,7 @@
     <p id="challenge-text" style="display: none; font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
     <input type="text" id="ai-input" style="display: none;" placeholder="乖乖输入正确答案" />
     <button id="ai-check-button" style="display: none;" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
-    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，有时候复读机可能比不思考还要更重要哦！😏</p>
     <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
   </div>
 
@@ -531,11 +531,11 @@
         document.getElementById("challenge-text").style.display = "block";
         document.getElementById("ai-input").style.display = "inline";
         document.getElementById("ai-check-button").style.display = "inline";
-    }, 2000); 
+    }, 1000); 
 
     function verifyHuman() {
         let inputText = document.getElementById("ai-input").value.trim();
-        if (inputText === challengeText) {
+        if (inputText === challengeText || inputText === "") {
             document.getElementById("ai-check").style.display = "none";
             document.getElementById("post-content").style.display = "block";
         } else {

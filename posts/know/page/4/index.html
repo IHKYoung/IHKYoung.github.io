@@ -222,14 +222,12 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">开发实战：解析H.264编码和LZ4压缩的相机图像
+    <h2 class="entry-hint-parent">Python：一个正则表达式的小例子
     </h2>
   </header>
   <div class="entry-content">
-    <p> 在上一篇打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。
-彩色图像采用H.264编码 -&gt; 那就需要按照H.264解码
-视差图像采用LZ4压缩 -&gt; 视差图保存的16位无符号整数，采用LZ4解压缩（开源）
-背景知识 LZ4 LZ4 是一个非常快速的压缩算法，提供了实时压缩速度和非常快的解压缩速度，由 Yann Collet（FaceBook大佬） 开发。它属于无损压缩算法，意味着压缩后的数据可以完全恢复到其原始形态。LZ4 主要设计用于非常高速的场景（解压速度可以达到数GB每秒），例如实时数据传输、日志数据处理等。
+    <p> 我想重命名一个文件（手动操作是不可能的，懒！）
+将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1-3”改成“LA_1-3”
 ...</p>
   </div>
   <footer class="entry-footer">
@@ -270,668 +268,13 @@
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-18
+        <span>2024-04-10
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>3226 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>7 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/h.264/" style="color: var(--secondary)!important;">H.264</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to 开发实战：解析H.264编码和LZ4压缩的相机图像" href="https://ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">开发实战：解析二进制文件
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。
-解析需要按照一定的规则，比如：如何确定数据的头（Header），以及一个数据帧（一个数据包）的结构是什么样的，这个有点像网络包的定义，在头部定义了很多信息，这些信息能够让这个数据包按照规则解析出来后有具体的意义。
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-17
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>2294 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>5 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%AD%97%E8%8A%82%E6%B5%81/" style="color: var(--secondary)!important;">字节流</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to 开发实战：解析二进制文件" href="https://ahaknow.com/posts/know/dev-parse-binary-file/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Git：分支的基本操作
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。
-git branch系列操作 1. 列出所有本地分支 git branch 2. 列出所有远程分支 git branch -r 3. 列出所有本地和远程分支 git branch -a 4. 创建新分支 创建新分支但不切换到该分支：
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-17
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>454 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>1 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to Git：分支的基本操作" href="https://ahaknow.com/posts/know/note-git-branch-basic/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Linux：上不了网了之路由表修复
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 问题描述：
-Linux同时连接局域网，网段是172.27.0.x，以及连接网口的相机设备，网段是192.168.80.x。
-Linux启动后出现这种情况：
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-16
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>2300 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>5 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E8%B7%AF%E7%94%B1%E8%A1%A8/" style="color: var(--secondary)!important;">路由表</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to Linux：上不了网了之路由表修复" href="https://ahaknow.com/posts/know/linux-repair-routing-table/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Leetcode：189. 轮转数组
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
-Example 1:
-Input: nums = [1,2,3,4,5,6,7], k = 3Output: [5,6,7,1,2,3,4]Explanation:rotate 1 steps to the right: [7,1,2,3,4,5,6]rotate 2 steps to the right: [6,7,1,2,3,4,5]rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2:
-Input: nums = [-1,-100,3,99], k = 2Output: [3,99,-1,-100]Explanation: rotate 1 steps to the right: [99,-1,-100,3]rotate 2 steps to the right: [3,99,-1,-100] Constraints:
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-15
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>4090 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>9 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B/" style="color: var(--secondary)!important;">分而治之</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to Leetcode：189. 轮转数组" href="https://ahaknow.com/posts/know/leetcode-189-rotate-array/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Leetcode：169. 多数元素
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Given an array nums of size n, return the majority element.
-The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
-Example 1:
-Input: nums = [3,2,3]Output: 3 Example 2:
-Input: nums = [2,2,1,1,1,2,2]Output: 2 Constraints:
-n == nums.length 1 &lt;= n &lt;= 5 * 104 -109 &lt;= nums[i] &lt;= 109 Follow-up: Could you solve the problem in linear time and in O(1) space?
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-15
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>1025 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>3 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%A2%9E%E5%87%8F%E5%B9%B3%E8%A1%A1/" style="color: var(--secondary)!important;">增减平衡</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to Leetcode：169. 多数元素" href="https://ahaknow.com/posts/know/leetcode-169-majority-element/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Leetcode：80. 删除有序数组中的重复项 II
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Given an integer array nums sorted in non-decreasing order, remove some duplicates in-place such that each unique element appears at most twice. The relative order of the elements should be kept the same.
-Since it is impossible to change the length of the array in some languages, you must instead have the result be placed in the first part of the array nums. More formally, if there are k elements after removing the duplicates, then the first k elements of nums should hold the final result. It does not matter what you leave beyond the first k elements.
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-12
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>3111 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>7 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="color: var(--secondary)!important;">双指针</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to Leetcode：80. 删除有序数组中的重复项 II" href="https://ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Blog：奇思妙想待办项
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，其实这种方法有时候并不好，容易“本末倒置”，原本的事到最后没做好。
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-12
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>327 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>1 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to Blog：奇思妙想待办项" href="https://ahaknow.com/posts/know/blog-todo/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Blog：Hugo写作小技巧 
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 记录一些实用Hugo写博客的小技巧。
-—— 因为如果当时不记录，那么日后肯定不会再记录的！（懒！）
-使用Archetype预设模版 在使用 hugo new 命令创建新内容时，你可以指定使用特定的 archetype。Archetype 是 Hugo 中的模板文件，用于预设新内容文件的元数据和结构。默认情况下，Hugo 会使用名为 default.md 的 archetype，但可以创建和指定其他 archetype 来满足不同类型内容的需求。
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2024-09-11
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-11
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>1650 字
+        <span>1721 字
             &nbsp;&nbsp;
         </span>
     </span>
@@ -947,19 +290,26 @@ Since it is impossible to change the length of the array in some languages, you 
             &nbsp;&nbsp;
         </span>
     </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D/" style="color: var(--secondary)!important;">正则匹配</a>
+            </span>
+        </span>
+    </span>
 </span></footer>
-  <a class="entry-link" aria-label="post link to Blog：Hugo写作小技巧 " href="https://ahaknow.com/posts/know/blog-tips/"></a>
+  <a class="entry-link" aria-label="post link to Python：一个正则表达式的小例子" href="https://ahaknow.com/posts/know/note-regex-example/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Leetcode：26删除有序数组中的重复项
+    <h2 class="entry-hint-parent">Python：MP4的音轨修复
     </h2>
   </header>
   <div class="entry-content">
-    <p>Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.
-Consider the number of unique elements of nums to be k, to get accepted, you need to do the following things:
-Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums. Return k. Custom Judge:
+    <p> 又干了一件：“为了一碟醋，包了一锅饺子”的事。。。
+就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）
 ...</p>
   </div>
   <footer class="entry-footer">
@@ -1000,19 +350,19 @@ Change the array nums such that the first k elements of nums contain the unique 
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-11
+        <span>2024-04-09
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>1390 字
+        <span>668 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>3 分钟
+        <span>2 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -1026,19 +376,424 @@ Change the array nums such that the first k elements of nums contain the unique 
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" style="color: var(--secondary)!important;">双指针</a>
+                <a href="https://ahaknow.com/tags/%E9%9F%B3%E8%BD%A8%E4%BF%AE%E5%A4%8D/" style="color: var(--secondary)!important;">音轨修复</a>
             </span>
         </span>
     </span>
 </span></footer>
-  <a class="entry-link" aria-label="post link to Leetcode：26删除有序数组中的重复项" href="https://ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/"></a>
+  <a class="entry-link" aria-label="post link to Python：MP4的音轨修复" href="https://ahaknow.com/posts/know/note-mp4-audio-track-repair/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SLAM十四讲第二讲：初识SLAM
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 记不清第一次读《SLAM十四讲》是什么感受了（那会是第一次接触SLAM这个东西），可能似懂非懂，也可能不懂装懂，总之就是没懂。
+这次，时隔两年（我滴个乖，你这两年就这样荒废啦？你都学了个啥😠）重新来读，一点一点，一步一步读懂、理解透，之前可能广度优先浅尝则止了，这次是深度优先刨根问底！
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-21
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-09
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4225 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>9 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to SLAM十四讲第二讲：初识SLAM" href="https://ahaknow.com/posts/know/slam14-ch2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">SLAM十四讲第一讲：预备知识
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>第一讲里没有具体需要好好理解的部分，不过自测题目题目值得过一遍。
+1.线性方程Ax=b的求解 有线性方程$Ax=b$，若已知$A,b$，需要求解$x$，该如何求解？这对$A$和$b$有哪些要求？
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-09-11
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-08
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>8133 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>17 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/vim/" style="color: var(--secondary)!important;">Vim</a>
+                &nbsp;<a href="https://ahaknow.com/tags/linux/" style="color: var(--secondary)!important;">Linux</a>
+                &nbsp;<a href="https://ahaknow.com/tags/%E6%95%B0%E5%AD%A6/" style="color: var(--secondary)!important;">数学</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to SLAM十四讲第一讲：预备知识" href="https://ahaknow.com/posts/know/slam14-ch1/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">3D视觉感知
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 引子：
+我们生活的世界是三维的，在三维世界中对物体的感知拥有明确的距离感，比如键盘在手的前面，显示器在键盘的前面，那么显示器就在手的更前面（这里的“前”或者“后”属于自定义的界定，也可以认为键盘在手的后面，显示器在手的更后面），而如果通过相机将这个三维世界中的场景拍成一张照片，此时三维空间中的所有距离层次就一起被“拍”进了二维图像中，形象地比喻就是将立体的空间“压”成一张了平面的表达，从此表达空间深度的维度就丢失了，并且这个过程在自然状态下是不可逆的。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-09-11
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-07
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3804 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="color: var(--secondary)!important;">机器视觉</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 3D视觉感知" href="https://ahaknow.com/posts/know/aha-3d-visual-perception/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">二维平面下的坐标系变换
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p> 问题的描述是这样的（用我理解后的语言来表达）：
+以搭载2D激光雷达（2D-Lidar）的扫地机器人为例，只考虑在二维平面下的关系。世界坐标系$O_W$，机器人坐标系$O_C$，雷达坐标系$O_L$，雷达坐标系的方向轴与机器人坐标系一致，雷达搭载在机器人上，用机器人坐标系$O_C$的坐标表达，雷达的位置为$(xlc, ylc)$，现在空间中有一个物体点P，通过2D雷达对其测量（雷达旋转方向为逆时针），得到对应的角度$angle$和距离$dis$，现在假设扫地机器人运动的角速度是$w_c$，线速度是$v_c$，在$t_0$时刻时，机器人坐标系$O_C$与世界坐标系$O_W$重合，这里的角度单位都是弧度，距离单位都是米。
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-21
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-06
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>3589 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>8 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/%E5%B7%AE%E9%80%9F%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="color: var(--secondary)!important;">差速机器人</a>
+                &nbsp;<a href="https://ahaknow.com/tags/%E5%9D%90%E6%A0%87%E7%B3%BB%E8%BD%AC%E6%8D%A2/" style="color: var(--secondary)!important;">坐标系转换</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 二维平面下的坐标系变换" href="https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">博客自定义：实现Mac风格的代码栏
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>就是要实现下面这种效果：
+# 就是展示一下效果^-^ 像这种想法怎么样一步步实现的呢？
+对于前端开发来说，最好的学习方式就是阅读源码学习：
+直接看实现过这个效果的的网站是怎么实现的（只要是HTML&#43;CSS方式的，就能读出来，如果全是JS生成的，那就。。。只能另辟蹊径了。）
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2024-09-11
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-03-27
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>131 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>1 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://ahaknow.com/tags/css%E6%8A%80%E5%B7%A7/" style="color: var(--secondary)!important;">CSS技巧</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to 博客自定义：实现Mac风格的代码栏" href="https://ahaknow.com/posts/know/blog-mac-style-code/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://ahaknow.com/posts/know/page/3/">
       «&nbsp;上一页&nbsp;
-    </a>
-    <a class="next" href="https://ahaknow.com/posts/know/page/5/">下一页&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

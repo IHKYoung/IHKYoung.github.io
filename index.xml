@@ -6,13 +6,13 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 21 Feb 2025 23:29:21 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2025 22:22:43 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</link>
+      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</guid>
+      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -31,32 +31,81 @@
 &lt;p&gt;可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Aha</title>
-      <link>https://ahaknow.com/posts/know/hugo-password-page-plus/</link>
-      <pubDate>Tue, 11 Feb 2025 23:27:58 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password-page-plus/</guid>
+      <title>AhaKnow开发笔记</title>
+      <link>https://ahaknow.com/posts/ahaknow/ahaknow%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/ahaknow/ahaknow%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     <item>
+      <title>面试笔记</title>
+      <link>https://ahaknow.com/posts/ahaknow/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/ahaknow/%E9%9D%A2%E8%AF%95%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;结合算法工程师具体岗位的需求，可实际调整以下权重：&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;考察项&lt;/th&gt;
+          &lt;th&gt;权重&lt;/th&gt;
+          &lt;th&gt;说明&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;语言表达能力&lt;/td&gt;
+          &lt;td&gt;20%&lt;/td&gt;
+          &lt;td&gt;关注项目描述、沟通逻辑、思路表达&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;数学基础&lt;/td&gt;
+          &lt;td&gt;30%&lt;/td&gt;
+          &lt;td&gt;考察理论推导、公式理解、数学模型建构&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;代码能力&lt;/td&gt;
+          &lt;td&gt;30%&lt;/td&gt;
+          &lt;td&gt;实现能力、代码质量、工程实践及优化&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;深入思考能力&lt;/td&gt;
+          &lt;td&gt;20%&lt;/td&gt;
+          &lt;td&gt;分析问题、创新解决方案、对问题本质的追问与延伸&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;评分参考：&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Conda使用总结与经验文档</title>
+      <link>https://ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sat, 22 Feb 2025 00:10:36 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</guid>
+      <description>&lt;h3 id=&#34;conda-使用总结与经验文档&#34;&gt;&lt;strong&gt;Conda 使用总结与经验文档&lt;/strong&gt;&lt;/h3&gt;
+&lt;h4 id=&#34;1-设置-conda-环境路径和包存储路径&#34;&gt;1. &lt;strong&gt;设置 Conda 环境路径和包存储路径&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;如果你需要修改 Conda 环境存储位置（&lt;code&gt;envs_dirs&lt;/code&gt;）和包存储路径（&lt;code&gt;pkgs_dirs&lt;/code&gt;），可以通过以下方法：&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>https://ahaknow.com/posts/know/hugo-password-page/</link>
+      <link>https://ahaknow.com/posts/aiknow/hugo-password-page/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password-page/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/hugo-password-page/</guid>
       <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
-      <link>https://ahaknow.com/posts/know/git-crlf-lf/</link>
+      <link>https://ahaknow.com/posts/aiknow/git-crlf-lf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-crlf-lf/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/git-crlf-lf/</guid>
       <description>&lt;p&gt;在使用 Git 的过程中，我们经常会遇到 &lt;strong&gt;CRLF (回车换行) 和 LF (换行)&lt;/strong&gt; 的问题，特别是在 &lt;strong&gt;Windows 和 Linux/macOS 跨平台开发&lt;/strong&gt; 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。&lt;/p&gt;</description>
     </item>
     <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://ahaknow.com/posts/know/latex/</link>
+      <link>https://ahaknow.com/posts/aiknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/latex/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/latex/</guid>
       <description>&lt;h1 id=&#34;-latex-语法&#34;&gt;📘 &lt;strong&gt;LaTeX 语法&lt;/strong&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;-1-latex-数学模式&#34;&gt;&lt;strong&gt;📐 1. LaTeX 数学模式&lt;/strong&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;11-行内数学模式&#34;&gt;&lt;strong&gt;1.1. 行内数学模式&lt;/strong&gt;&lt;/h3&gt;
@@ -70,18 +119,18 @@
     </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
-      <link>https://ahaknow.com/posts/know/git-pull-request-release/</link>
+      <link>https://ahaknow.com/posts/aiknow/git-pull-request-release/</link>
       <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-pull-request-release/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/git-pull-request-release/</guid>
       <description>&lt;h1 id=&#34;github-pull-reques-时-release-文件缺失问题解决方案-&#34;&gt;GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦&lt;/h1&gt;
 &lt;h2 id=&#34;问题背景-&#34;&gt;&lt;strong&gt;问题背景 🤔&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在提交 GitHub Pull Request 时，GitHub 提示最新的 Release 缺少 &lt;code&gt;main.js&lt;/code&gt; 和 &lt;code&gt;manifest.json&lt;/code&gt; 文件。尽管这些文件在代码中存在，但它们并没有作为 Release 附件上传到 GitHub。这个问题通常发生在用户没有手动将文件上传到 Release 页面。&lt;/p&gt;</description>
     </item>
     <item>
       <title>💡AI调教指令</title>
-      <link>https://ahaknow.com/posts/know/aha-prompts/</link>
+      <link>https://ahaknow.com/posts/todo/aha-prompts/</link>
       <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-prompts/</guid>
+      <guid>https://ahaknow.com/posts/todo/aha-prompts/</guid>
       <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
 &lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
 &lt;ul&gt;
@@ -92,32 +141,32 @@
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
-      <link>https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
+      <link>https://ahaknow.com/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
       <description>&lt;h2 id=&#34;-介绍&#34;&gt;&lt;strong&gt;📌 介绍&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在软件开发过程中，我们常常需要将本地的 Git 仓库&lt;strong&gt;自动提交并推送&lt;/strong&gt;到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个&lt;strong&gt;适用于 Windows (Git Bash)、macOS 和 Linux&lt;/strong&gt; 的自动 &lt;code&gt;push&lt;/code&gt; 脚本，并详细解析其中的关键点。&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
-      <link>https://ahaknow.com/posts/ai/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;p&gt;%% 在使用 %% Git 进行 &lt;code&gt;git pull&lt;/code&gt;、&lt;code&gt;git merge&lt;/code&gt; 等操作时，常常会遇到各种冲突和错误。这份文档总结了 &lt;strong&gt;Git 合并相关问题&lt;/strong&gt;，提供了&lt;strong&gt;案例分析、解决方案&lt;/strong&gt;，并附上清晰的注释，帮助你快速解决问题。💡&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://ahaknow.com/posts/know/git-auto-push/</link>
+      <link>https://ahaknow.com/posts/aiknow/git-auto-push/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/git-auto-push/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/git-auto-push/</guid>
       <description>&lt;h2 id=&#34;-git-仓库自动更新脚本---解决方案与步骤总结&#34;&gt;📝 &lt;strong&gt;Git 仓库自动更新脚本 - 解决方案与步骤总结&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 &lt;code&gt;GitAwesome&lt;/code&gt; 文件夹下的所有 Git 仓库。&lt;/p&gt;</description>
     </item>
     <item>
       <title>✨晕倒不死指南：Scoop包管理</title>
-      <link>https://ahaknow.com/posts/ai/win-scoop/</link>
+      <link>https://ahaknow.com/posts/aiknow/win-scoop/</link>
       <pubDate>Tue, 04 Feb 2025 13:09:08 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/win-scoop/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/win-scoop/</guid>
       <description>&lt;h2 id=&#34;1-scoop-简介-&#34;&gt;1. Scoop 简介 ✨&lt;/h2&gt;
 &lt;p&gt;Scoop 是 Windows 下的一个轻量级包管理器，其核心理念是“把命令行工具装进用户目录”，避免对系统全局进行修改。它与 apt（Debian/Ubuntu 等发行版的包管理器）有相似的用户体验，但在 Windows 环境中更为灵活、简单，并且免去了管理员权限的烦恼。&lt;/p&gt;</description>
     </item>
@@ -131,24 +180,23 @@
     </item>
     <item>
       <title>GitHub README 美化经验分享</title>
-      <link>https://ahaknow.com/posts/ai/github-readme/</link>
+      <link>https://ahaknow.com/posts/aiknow/github-readme/</link>
       <pubDate>Sat, 01 Feb 2025 21:41:12 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/github-readme/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/github-readme/</guid>
       <description>&lt;p&gt;在 GitHub 上，一个精心设计的个人主页不仅可以展示你的项目、技术栈，还能通过动态数据和动画效果提升个人品牌形象。本文将分享两个经典模块的自动化集成方法：&lt;/p&gt;</description>
     </item>
     <item>
       <title>🪄ChatGPT&amp;LLMs 中文调教指南🚀</title>
-      <link>https://ahaknow.com/posts/ai/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</link>
+      <link>https://ahaknow.com/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</link>
       <pubDate>Sat, 01 Feb 2025 18:22:55 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;p&gt;以下内容的原版出自 &lt;a href=&#34;https://github.com/f/awesome-chatgpt-prompts&#34;&gt;awesome-chatgpt-prompts&lt;/a&gt; 项目，在此特别感谢原者们的辛勤付出与贡献。本指南内容由 &lt;a href=&#34;https://github.com/IHKYoung&#34;&gt;CKYoung&lt;/a&gt; 翻译并润色，旨在为广大中文用户提供便捷、高效的参考资料。&lt;/p&gt;
-&lt;p&gt;废话不多说，正文开启：&lt;/p&gt;</description>
+      <guid>https://ahaknow.com/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;其实后来发现，没啥用，老老实实锻炼自己的表达能力可能更重要一些！&lt;/p&gt;</description>
     </item>
     <item>
       <title>macOS 环境下 Python 动态库缺失问题排查与解决方案</title>
-      <link>https://ahaknow.com/posts/ai/macos-lib-fix/</link>
+      <link>https://ahaknow.com/posts/aiknow/macos-lib-fix/</link>
       <pubDate>Sat, 01 Feb 2025 17:19:11 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/macos-lib-fix/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/macos-lib-fix/</guid>
       <description>&lt;p&gt;在 macOS（特别是 M1/M2 芯片）使用 Python 时，可能会遇到 &lt;strong&gt;ImportError: Library not loaded&lt;/strong&gt; 类错误。这通常是因为 Python 模块在加载动态库时找不到正确的 &lt;code&gt;.dylib&lt;/code&gt; 文件。以下是一个系统化的排查与解决方法，适用于 PyAudio、PortAudio 以及其他类似情况（如 OpenCV、TensorFlow 依赖的库）。&lt;/p&gt;</description>
     </item>
     <item>
@@ -196,18 +244,18 @@
     </item>
     <item>
       <title>全栈开发：从Python脚本到独立的App（初稿）</title>
-      <link>https://ahaknow.com/posts/know/dev-python-to-app/</link>
+      <link>https://ahaknow.com/posts/aiknow/dev-python-to-app/</link>
       <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-python-to-app/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/dev-python-to-app/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;&lt;mark&gt;怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac：闲得没事不要升级系统</title>
-      <link>https://ahaknow.com/posts/know/macos-do-not-upgrade/</link>
+      <link>https://ahaknow.com/posts/life/macos-do-not-upgrade/</link>
       <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/macos-do-not-upgrade/</guid>
+      <guid>https://ahaknow.com/posts/life/macos-do-not-upgrade/</guid>
       <description>&lt;p&gt;&lt;strong&gt;反正就是，日常生产力的Mac，不要升级！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这不升级了嘛，然后多了“查找本地网络设备”的选项，我没开，结果Mac作为超级终端本的ssh大法直接懵逼。。。&lt;/p&gt;</description>
     </item>
@@ -251,9 +299,9 @@
     </item>
     <item>
       <title>开发实战：“锁”的机制</title>
-      <link>https://ahaknow.com/posts/know/dev-mutex/</link>
+      <link>https://ahaknow.com/posts/todo/dev-mutex/</link>
       <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-mutex/</guid>
+      <guid>https://ahaknow.com/posts/todo/dev-mutex/</guid>
       <description></description>
     </item>
     <item>
@@ -451,9 +499,9 @@
     </item>
     <item>
       <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
-      <link>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</link>
+      <link>https://ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</link>
       <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/art-c-c&#43;&#43;-exam/</guid>
+      <guid>https://ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</guid>
       <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
     </item>
     <item>
@@ -612,9 +660,9 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>博客优化：自定义字体加速显示</title>
-      <link>https://ahaknow.com/posts/ai/blog-font-display-acceleration/</link>
+      <link>https://ahaknow.com/posts/aiknow/blog-font-display-acceleration/</link>
       <pubDate>Tue, 09 Apr 2024 21:25:15 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/ai/blog-font-display-acceleration/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/blog-font-display-acceleration/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。&lt;/p&gt;</description>
     </item>

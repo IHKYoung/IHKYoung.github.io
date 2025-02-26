@@ -7,5 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <atom:link href="https://ahaknow.com/posts/todo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>逐镜探维：置身三维重建而后生</title>
+      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
+      <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;这个标题很有意思～
+置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;
+&lt;p&gt;如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地去拍没有限制，那么试想，这些一张张照片，能不能“组合”或者“还原”出我所见到的这个场景呢？这个场景要是立体的，三维的，生动活泼的，它允许我在这个“还原”出来的场景世界中去游览，观赏，就好像又回到了之前的那个真实场景中一样。能不能做到呢？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>💡AI调教指令</title>
+      <link>https://ahaknow.com/posts/todo/aha-prompts/</link>
+      <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/todo/aha-prompts/</guid>
+      <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
+&lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;清晰地知道自己想要什么&lt;/li&gt;
+&lt;li&gt;准确地用语言文字将自己想要的表达出来&lt;br&gt;
+而不是：&lt;mark&gt;纵容自己的表达能力对话，而让AI去猜，AI猜对了，人就凉凉了&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>开发实战：“锁”的机制</title>
+      <link>https://ahaknow.com/posts/todo/dev-mutex/</link>
+      <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/todo/dev-mutex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
+      <link>https://ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</link>
+      <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
+      <guid>https://ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</guid>
+      <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
+    </item>
   </channel>
 </rss>

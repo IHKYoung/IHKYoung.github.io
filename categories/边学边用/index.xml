@@ -6,13 +6,13 @@
     <description>Recent content in 边学边用 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 17 Feb 2025 23:48:02 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2025 01:49:17 +0800</lastBuildDate>
     <atom:link href="https://ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</link>
+      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/aha-dig-into-3d-reconstruction/</guid>
+      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -20,17 +20,10 @@
 &lt;p&gt;如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地去拍没有限制，那么试想，这些一张张照片，能不能“组合”或者“还原”出我所见到的这个场景呢？这个场景要是立体的，三维的，生动活泼的，它允许我在这个“还原”出来的场景世界中去游览，观赏，就好像又回到了之前的那个真实场景中一样。能不能做到呢？&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Aha</title>
-      <link>https://ahaknow.com/posts/know/hugo-password-page-plus/</link>
-      <pubDate>Tue, 11 Feb 2025 23:27:58 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password-page-plus/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>https://ahaknow.com/posts/know/hugo-password-page/</link>
+      <link>https://ahaknow.com/posts/aiknow/hugo-password-page/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/hugo-password-page/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/hugo-password-page/</guid>
       <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>
