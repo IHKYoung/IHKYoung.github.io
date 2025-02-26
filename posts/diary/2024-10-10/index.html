@@ -385,6 +385,13 @@
       postContentDiv.style.display = "block";
       
       postContentDiv.innerHTML = `\u003cp\u003e每天的日记里适合写一写随便想想的话题，比如，晚上我6点就准备回家了，但是有一个结果不对，一耽误，就是20分钟过去了（之前类似的场景可真的是太多太多，所以还是时间管理没做好）\u003c\/p\u003e\n\u003cp\u003e时间怎么管？为啥又没做好，还是像现在这种静下来慢慢思考的时光变少了。\u003c\/p\u003e\n\u003cp\u003e之前，不说以前的两年实习经历了（如果那两年是工作两年的话，感觉自己就要废了，没有进步不说，还沦落到打工人的深渊之中），是那种在公司待到很晚，然后回家呢，就很晚，也就没时间静下来与自己思考，做总结也成了一种奢望。\u003c\/p\u003e\n\u003cp\u003e当然，在公司也会写文档，但实话说，大部份没怎么过脑子。\n所以，这种方式最终结果就是自己骗自己，然后沦陷于自我终止，永远也无法进步。\u003c\/p\u003e\n\u003cp\u003e\u003cmark\u003e今天用Obsidian来写日记，刚才还有Typora呢，但是转念一想，AI时代了啊，怎么能还用上一个时代的工具呢，再者说Obsidian免费开源，插件多，AI集成，多好啊！\u003c\/mark\u003e\u003c\/p\u003e\n\u003cp\u003e慢慢学，慢慢用，想当年，学双拼的时候，不也是拼了一把，当然现在学任何东西都会很多了！\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e学会了先设置里自定义\u003c\/li\u003e\n\u003cli\u003e插件啥的还没搞明白，这个不着急，后面慢慢用。\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\u003cmark\u003e卧槽了！Obsidian太好用了，categories和tags都能联动，选择，就这一个功能，直接吹到爆炸！！！！\u003c\/mark\u003e\u003c\/p\u003e\n\u003cp\u003e想到了我的博客不支持\u003cmark\u003e高亮\u003c\/mark\u003e ，还得找时间优化一下。\u003c\/p\u003e\n\u003cp\u003e所以可能还是会先用\u003cmark\u003emark标记，然后刚才搜了一下插件，还真的有auto html tag，有点意思哈哈哈哈哈\u003c\/mark\u003e\u003c\/p\u003e\n\u003chr\u003e\n\u003cp\u003e刚看到了一个3d渲染的视频，里面讲到几个词：\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e三角化\u003c\/li\u003e\n\u003cli\u003e光栅化\u003c\/li\u003e\n\u003cli\u003e片元着色\u003c\/li\u003e\n\u003cli\u003e光线追踪\n这四个点，每一个点单独拿出来都值得好好学习和思考\u003c\/li\u003e\n\u003c\/ol\u003e\n`;
+
+      
+      if (window.MathJax) {
+        MathJax.typesetPromise([postContentDiv]).catch(function (err) {
+        console.error('MathJax 排版失败: ' + err.message);
+        });
+      }
     }
 
     

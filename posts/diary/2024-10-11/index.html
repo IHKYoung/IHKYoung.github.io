@@ -394,6 +394,13 @@
       postContentDiv.style.display = "block";
       
       postContentDiv.innerHTML = `\u003cp\u003e今天开始学习图形学！！\u003c\/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e2025年2月7日补充：\u003cbr\u003e\n自己打自己脸了。。。其实没怎么学。\u003c\/p\u003e\u003c\/blockquote\u003e\n`;
+
+      
+      if (window.MathJax) {
+        MathJax.typesetPromise([postContentDiv]).catch(function (err) {
+        console.error('MathJax 排版失败: ' + err.message);
+        });
+      }
     }
 
     
