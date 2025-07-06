@@ -2,33 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>还得是C&#43;&#43; on AhaKnow</title>
-    <link>https://ahaknow.com/categories/%E8%BF%98%E5%BE%97%E6%98%AFc&#43;&#43;/</link>
+    <link>http://localhost:1313/categories/%E8%BF%98%E5%BE%97%E6%98%AFc&#43;&#43;/</link>
     <description>Recent content in 还得是C&#43;&#43; on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/categories/%E8%BF%98%E5%BE%97%E6%98%AFc++/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/%E8%BF%98%E5%BE%97%E6%98%AFc++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：“锁”的机制</title>
-      <link>https://ahaknow.com/posts/todo/dev-mutex/</link>
+      <link>http://localhost:1313/posts/todo/dev-mutex/</link>
       <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/dev-mutex/</guid>
+      <guid>http://localhost:1313/posts/todo/dev-mutex/</guid>
       <description></description>
     </item>
     <item>
       <title>开发实战：CMake实现可执行文件的安装与打包分发</title>
-      <link>https://ahaknow.com/posts/know/dev-cpack-release/</link>
+      <link>http://localhost:1313/posts/know/dev-cpack-release/</link>
       <pubDate>Mon, 20 May 2024 17:54:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-cpack-release/</guid>
+      <guid>http://localhost:1313/posts/know/dev-cpack-release/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;就是代码写好了，肯定不能发源码出去，肯定发的是可执行文件，或者就依赖和可执行文件都打包好～&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;如果是Github管理的话，甚至还要考虑一下Release管理。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
-      <link>https://ahaknow.com/posts/know/dev-header-source/</link>
+      <link>http://localhost:1313/posts/know/dev-header-source/</link>
       <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-header-source/</guid>
+      <guid>http://localhost:1313/posts/know/dev-header-source/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。&lt;/p&gt;
 &lt;p&gt;今天被问到了这个问题：&lt;/p&gt;
@@ -36,9 +36,9 @@
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
-      <link>https://ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</link>
+      <link>http://localhost:1313/posts/know/dev-decode-h.264-lz4-image-frames/</link>
       <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</guid>
+      <guid>http://localhost:1313/posts/know/dev-decode-h.264-lz4-image-frames/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在&lt;a href=&#34;../dev-parse-binary-file&#34;&gt;上一篇&lt;/a&gt;打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。&lt;/p&gt;
 &lt;p&gt;彩色图像采用H.264编码 -&amp;gt; 那就需要按照H.264解码&lt;/p&gt;
@@ -49,9 +49,9 @@
     </item>
     <item>
       <title>开发实战：解析二进制文件</title>
-      <link>https://ahaknow.com/posts/know/dev-parse-binary-file/</link>
+      <link>http://localhost:1313/posts/know/dev-parse-binary-file/</link>
       <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-parse-binary-file/</guid>
+      <guid>http://localhost:1313/posts/know/dev-parse-binary-file/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。&lt;/p&gt;
 &lt;p&gt;解析需要按照一定的规则，比如：如何确定数据的头（Header），以及一个数据帧（一个数据包）的结构是什么样的，&lt;strong&gt;这个有点像网络包的定义，在头部定义了很多信息，这些信息能够让这个数据包按照规则解析出来后有具体的意义&lt;/strong&gt;。&lt;/p&gt;</description>

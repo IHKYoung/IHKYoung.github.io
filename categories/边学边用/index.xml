@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>边学边用 on AhaKnow</title>
-    <link>https://ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/</link>
+    <link>http://localhost:1313/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/</link>
     <description>Recent content in 边学边用 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
+      <link>http://localhost:1313/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
+      <guid>http://localhost:1313/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -21,17 +21,17 @@
     </item>
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>https://ahaknow.com/posts/aiknow/hugo-password-page/</link>
+      <link>http://localhost:1313/posts/aiknow/hugo-password-page/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/aiknow/hugo-password-page/</guid>
+      <guid>http://localhost:1313/posts/aiknow/hugo-password-page/</guid>
       <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>
     <item>
       <title>顺手写了个Obsidian插件😄</title>
-      <link>https://ahaknow.com/posts/tech/first-obsidian-plugin/</link>
+      <link>http://localhost:1313/posts/tech/first-obsidian-plugin/</link>
       <pubDate>Tue, 10 Dec 2024 22:33:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/tech/first-obsidian-plugin/</guid>
+      <guid>http://localhost:1313/posts/tech/first-obsidian-plugin/</guid>
       <description>&lt;p&gt;&lt;mark&gt;感觉自己很牛逼！！！&lt;/mark&gt;
 为啥想到写这个插件呢？
 因为我想把Obsidian和Hugo结合起来，但是有两个小问题很麻烦，虽然很小，但用多了会很烦！&lt;mark&gt;会写代码的一般都很懒&lt;/mark&gt;，所以绝对不会干出手动复制粘贴这种蠢事的。
@@ -39,17 +39,17 @@
     </item>
     <item>
       <title>开发实战：使用Spdlog管理调试信息</title>
-      <link>https://ahaknow.com/posts/know/dev-spdlog-usage/</link>
+      <link>http://localhost:1313/posts/know/dev-spdlog-usage/</link>
       <pubDate>Tue, 23 Apr 2024 17:00:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-spdlog-usage/</guid>
+      <guid>http://localhost:1313/posts/know/dev-spdlog-usage/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;此前写代码，习惯性 &lt;code&gt;std::cout&lt;/code&gt; 和 &lt;code&gt;std::cerr&lt;/code&gt; 这种直接可视化的打印，然后满屏密密麻麻的打印信息，而如果不需要了，就会在代码大段大段的注释，非常不美观，甚至可以说是一堆堆💩。。。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git：分支的基本操作</title>
-      <link>https://ahaknow.com/posts/know/note-git-branch-basic/</link>
+      <link>http://localhost:1313/posts/know/note-git-branch-basic/</link>
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/note-git-branch-basic/</guid>
+      <guid>http://localhost:1313/posts/know/note-git-branch-basic/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;git-branch系列操作&#34;&gt;git branch系列操作&lt;/h2&gt;

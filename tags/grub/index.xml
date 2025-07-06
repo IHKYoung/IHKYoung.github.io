@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Grub on AhaKnow</title>
-    <link>https://ahaknow.com/tags/grub/</link>
+    <link>http://localhost:1313/tags/grub/</link>
     <description>Recent content in Grub on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/tags/grub/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/grub/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux：开不了机了？通过Grub启动！</title>
-      <link>https://ahaknow.com/posts/know/linux-grub-boot/</link>
+      <link>http://localhost:1313/posts/know/linux-grub-boot/</link>
       <pubDate>Thu, 30 May 2024 14:13:33 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/linux-grub-boot/</guid>
+      <guid>http://localhost:1313/posts/know/linux-grub-boot/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;事情是这样的：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时进行选择。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux：内核启动不了之后</title>
-      <link>https://ahaknow.com/posts/know/linux-kernel/</link>
+      <link>http://localhost:1313/posts/know/linux-kernel/</link>
       <pubDate>Wed, 24 Apr 2024 13:00:28 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/linux-kernel/</guid>
+      <guid>http://localhost:1313/posts/know/linux-kernel/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;1-查看当前运行的内核&#34;&gt;1. 查看当前运行的内核&lt;/h3&gt;

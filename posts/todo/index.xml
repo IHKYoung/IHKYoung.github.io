@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>✒️ 待写 on AhaKnow</title>
-    <link>https://ahaknow.com/posts/todo/</link>
+    <link>http://localhost:1313/posts/todo/</link>
     <description>Recent content in ✒️ 待写 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="https://ahaknow.com/posts/todo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/todo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
+      <link>http://localhost:1313/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
+      <guid>http://localhost:1313/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -20,9 +20,9 @@
     </item>
     <item>
       <title>💡AI调教指令</title>
-      <link>https://ahaknow.com/posts/todo/aha-prompts/</link>
+      <link>http://localhost:1313/posts/todo/aha-prompts/</link>
       <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/aha-prompts/</guid>
+      <guid>http://localhost:1313/posts/todo/aha-prompts/</guid>
       <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
 &lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
 &lt;ul&gt;
@@ -33,16 +33,16 @@
     </item>
     <item>
       <title>开发实战：“锁”的机制</title>
-      <link>https://ahaknow.com/posts/todo/dev-mutex/</link>
+      <link>http://localhost:1313/posts/todo/dev-mutex/</link>
       <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/dev-mutex/</guid>
+      <guid>http://localhost:1313/posts/todo/dev-mutex/</guid>
       <description></description>
     </item>
     <item>
       <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
-      <link>https://ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</link>
+      <link>http://localhost:1313/posts/todo/art-c-c&#43;&#43;-exam/</link>
       <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</guid>
+      <guid>http://localhost:1313/posts/todo/art-c-c&#43;&#43;-exam/</guid>
       <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
     </item>
   </channel>
