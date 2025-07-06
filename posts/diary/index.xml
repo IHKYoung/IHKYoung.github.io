@@ -2,23 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>📓日记 on AhaKnow</title>
-    <link>http://localhost:1313/posts/diary/</link>
+    <link>https://blog.ahaknow.com/posts/diary/</link>
     <description>Recent content in 📓日记 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <atom:link href="http://localhost:1313/posts/diary/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.ahaknow.com/posts/diary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AhaKnow软件迈出第一步！</title>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-17/</link>
+      <pubDate>Mon, 17 Mar 2025 22:25:52 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-17/</guid>
+      <description>&lt;p&gt;先做再说，做了才慢慢知道自己想要的是什么！
+甚至我都把想把Obsidian的编辑和AhaKnow合并起来！（说不定就可以呢）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>做一点总比一点都不做要好！</title>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-13/</link>
+      <pubDate>Thu, 13 Mar 2025 21:18:35 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-13/</guid>
+      <description>&lt;p&gt;今天从面试中，从候选人的习惯中学到了一些心得：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;比如学习一个算法，会先把算法大卸八块来一块一块分析、学习&lt;/li&gt;
+&lt;li&gt;找工具，会先把所有工具都过一遍，做记录！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;今天的股市，同样是标普500ETF，159612这一支直接涨停！！我重仓买的（不。是满仓）买的513500还继续跌了。。。。看了一眼换手率，159612的换手率310.41%。&lt;mark&gt;后来想了想，下次要不要试试两个标普500ETF都买一买，说不定还能遇上这种一天涨停的机会&lt;/mark&gt;🤣&lt;/p&gt;</description>
+    </item>
     <item>
       <title>今天开始写反思日记</title>
-      <link>http://localhost:1313/posts/diary/2025-03-05/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-05/</link>
       <pubDate>Wed, 05 Mar 2025 22:08:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2025-03-05/</guid>
-      <description>&lt;p&gt;今天差点被车撞了，反思了一下：&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-05/</guid>
+      <description>&lt;p&gt;今天差点被车撞了，反思了一下：&lt;br&gt;
+我其实已经提前看到了，但没有提前按刹车，是自己太冒险了！&lt;/p&gt;</description>
     </item>
     <item>
       <title>又是匆匆一个月……</title>
-      <link>http://localhost:1313/posts/diary/2025-03-04/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-04/</link>
       <pubDate>Wed, 05 Mar 2025 07:51:53 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2025-03-04/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-04/</guid>
       <description>&lt;p&gt;睡觉前和ChatGPT语音聊天，打开了新思路：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我能不能在Cursor上编辑文档，然后这样就能在同一个窗口下，知道上下文的情况进行AI对话？&lt;/p&gt;&lt;/blockquote&gt;
@@ -26,24 +47,24 @@
     </item>
     <item>
       <title>今天就用中文路径来作为地址</title>
-      <link>http://localhost:1313/posts/diary/2025-02-04/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2025-02-04/</link>
       <pubDate>Tue, 04 Feb 2025 12:41:31 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2025-02-04/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-02-04/</guid>
       <description>&lt;p&gt;突然发现，其实可以使用中文路径作为文章网址的路径呀，其实没必要一定要转成英文的。&lt;/p&gt;
 &lt;p&gt;&lt;mark&gt;之前为啥用英文作为链接呢？可能是保存在Git上的时候可视化好一些？但都已经是UTF-8编码了，也无所谓啦&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>今天来学习Obsidian怎么用！</title>
-      <link>http://localhost:1313/posts/diary/2024-12-10/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-12-10/</link>
       <pubDate>Tue, 10 Dec 2024 21:31:27 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-12-10/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-12-10/</guid>
       <description>&lt;p&gt;又是时隔两个月？上一次用&lt;strong&gt;Obsidian&lt;/strong&gt;开启了博客写作的新视角，这一篇：[[2024-10-10]]（使用Obsidian反向链接），这一次，就是玩转Obsidian，实现的外脑知识管理库！&lt;/p&gt;</description>
     </item>
     <item>
       <title>图形学，启动！</title>
-      <link>http://localhost:1313/posts/diary/2024-10-11/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-10-11/</link>
       <pubDate>Fri, 11 Oct 2024 19:10:42 +0600</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-10-11/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-10-11/</guid>
       <description>&lt;p&gt;今天开始学习图形学！！&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;2025年2月7日补充：&lt;br&gt;
@@ -51,25 +72,25 @@
     </item>
     <item>
       <title>今天用Obsidian写日记</title>
-      <link>http://localhost:1313/posts/diary/2024-10-10/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-10-10/</link>
       <pubDate>Thu, 10 Oct 2024 22:00:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-10-10/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-10-10/</guid>
       <description>&lt;p&gt;每天的日记里适合写一写随便想想的话题，比如，晚上我6点就准备回家了，但是有一个结果不对，一耽误，就是20分钟过去了（之前类似的场景可真的是太多太多，所以还是时间管理没做好）&lt;/p&gt;</description>
     </item>
     <item>
       <title>慢慢来，比较快！</title>
-      <link>http://localhost:1313/posts/diary/2024-10-09/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-10-09/</link>
       <pubDate>Wed, 09 Oct 2024 20:16:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-10-09/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-10-09/</guid>
       <description>&lt;p&gt;很久没有写日记了呢！&lt;/p&gt;
 &lt;p&gt;这个国庆结束的最后一天开始早睡的，今晚是第三次。&lt;/p&gt;
 &lt;p&gt;补充一次昨天的感想：当你想要去做的时候，你就是最有力量的！所以预约了半马，张罗了聚餐。&lt;/p&gt;</description>
     </item>
     <item>
       <title>2024年的第一篇记录</title>
-      <link>http://localhost:1313/posts/diary/2024_first/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024_first/</link>
       <pubDate>Fri, 26 Jan 2024 10:35:31 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024_first/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024_first/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;让自己不后悔的话，那就动起来！&lt;br&gt;
 动起来就能转起来了！&lt;/p&gt;

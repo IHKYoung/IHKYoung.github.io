@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hugo on AhaKnow</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>https://blog.ahaknow.com/tags/hugo/</link>
     <description>Recent content in Hugo on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.ahaknow.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>http://localhost:1313/posts/aiknow/hugo-password-page/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/hugo-password-page/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/hugo-password-page/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/hugo-password-page/</guid>
       <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>

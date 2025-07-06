@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>AhaKnow</title>
-    <link>http://localhost:1313/</link>
+    <link>https://blog.ahaknow.com/</link>
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Mar 2025 22:29:07 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Mar 2025 22:25:52 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>http://localhost:1313/posts/todo/aha-dig-into-3d-reconstruction/</link>
+      <link>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/todo/aha-dig-into-3d-reconstruction/</guid>
+      <guid>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -21,9 +21,9 @@
     </item>
     <item>
       <title>站在前人的肩膀上：笔记收集录</title>
-      <link>http://localhost:1313/posts/know/notes-one-sows-and-another-reaps/</link>
+      <link>https://blog.ahaknow.com/posts/know/notes-one-sows-and-another-reaps/</link>
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/notes-one-sows-and-another-reaps/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/notes-one-sows-and-another-reaps/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;前人栽树，后人乘凉。 或者说，不造轮子要造车。&lt;/p&gt;
 &lt;p&gt;总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！&lt;/p&gt;&lt;/blockquote&gt;
@@ -31,37 +31,79 @@
 &lt;p&gt;可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～&lt;/p&gt;</description>
     </item>
     <item>
+      <title>AhaKnow软件迈出第一步！</title>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-17/</link>
+      <pubDate>Mon, 17 Mar 2025 22:25:52 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-17/</guid>
+      <description>&lt;p&gt;先做再说，做了才慢慢知道自己想要的是什么！
+甚至我都把想把Obsidian的编辑和AhaKnow合并起来！（说不定就可以呢）&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>做一点总比一点都不做要好！</title>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-13/</link>
+      <pubDate>Thu, 13 Mar 2025 21:18:35 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-13/</guid>
+      <description>&lt;p&gt;今天从面试中，从候选人的习惯中学到了一些心得：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;比如学习一个算法，会先把算法大卸八块来一块一块分析、学习&lt;/li&gt;
+&lt;li&gt;找工具，会先把所有工具都过一遍，做记录！&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;今天的股市，同样是标普500ETF，159612这一支直接涨停！！我重仓买的（不。是满仓）买的513500还继续跌了。。。。看了一眼换手率，159612的换手率310.41%。&lt;mark&gt;后来想了想，下次要不要试试两个标普500ETF都买一买，说不定还能遇上这种一天涨停的机会&lt;/mark&gt;🤣&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>AhaKnow开发手记</title>
+      <link>https://blog.ahaknow.com/posts/actonknow/ahaknow%E5%BC%80%E5%8F%91%E6%89%8B%E8%AE%B0/</link>
+      <pubDate>Thu, 06 Mar 2025 22:44:31 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/actonknow/ahaknow%E5%BC%80%E5%8F%91%E6%89%8B%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;暂存区&#34;&gt;暂存区&lt;/h2&gt;
+&lt;p&gt;18n多语言：先把中文的完善，最后其他语言的交给GPT&lt;/p&gt;
+&lt;h2 id=&#34;灵感记录&#34;&gt;灵感记录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;AhaKnow 是chatgpt + obsidian的融合体&lt;/li&gt;
+&lt;li&gt;Markdown配色方案太丑，要改！！！&lt;/li&gt;
+&lt;li&gt;角色动图设计（多帧）&lt;/li&gt;
+&lt;li&gt;首页类似ChatGPT的设计&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;ahaknow-软件架构&#34;&gt;AhaKnow 软件架构&lt;/h2&gt;
+&lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
       <title>AhaObsidian的灵感记录</title>
-      <link>http://localhost:1313/posts/ahaknow/ahaobsidian%E7%9A%84%E7%81%B5%E6%84%9F%E8%AE%B0%E5%BD%95/</link>
+      <link>https://blog.ahaknow.com/posts/actonknow/ahaobsidian%E7%9A%84%E7%81%B5%E6%84%9F%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Wed, 05 Mar 2025 22:29:07 +0800</pubDate>
-      <guid>http://localhost:1313/posts/ahaknow/ahaobsidian%E7%9A%84%E7%81%B5%E6%84%9F%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://blog.ahaknow.com/posts/actonknow/ahaobsidian%E7%9A%84%E7%81%B5%E6%84%9F%E8%AE%B0%E5%BD%95/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;记录一些可以个性化改造的灵感。&lt;br&gt;
 比如：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;我觉得Obsidian的CSS就很丑（能不能改？怎么改？），以及我自己的CKPaper能不能根据mark标签自动高亮？&lt;/li&gt;
-&lt;/ol&gt;&lt;/blockquote&gt;</description>
+&lt;/ol&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于可能需要的插件&#34;&gt;关于可能需要的插件&lt;/h2&gt;</description>
     </item>
     <item>
-      <title>Aha</title>
-      <link>http://localhost:1313/posts/actonknow/aha/</link>
+      <title>从IMU预积分说起……</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/%E4%BB%8Eimu%E9%A2%84%E7%A7%AF%E5%88%86%E8%AF%B4%E8%B5%B7/</link>
       <pubDate>Wed, 05 Mar 2025 22:28:55 +0800</pubDate>
-      <guid>http://localhost:1313/posts/actonknow/aha/</guid>
-      <description></description>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/%E4%BB%8Eimu%E9%A2%84%E7%A7%AF%E5%88%86%E8%AF%B4%E8%B5%B7/</guid>
+      <description>一文了解IMU预积分</description>
     </item>
     <item>
       <title>今天开始写反思日记</title>
-      <link>http://localhost:1313/posts/diary/2025-03-05/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-05/</link>
       <pubDate>Wed, 05 Mar 2025 22:08:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2025-03-05/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-05/</guid>
       <description>&lt;p&gt;今天差点被车撞了，反思了一下：&lt;br&gt;
 我其实已经提前看到了，但没有提前按刹车，是自己太冒险了！&lt;/p&gt;</description>
     </item>
     <item>
       <title>又是匆匆一个月……</title>
-      <link>http://localhost:1313/posts/diary/2025-03-04/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2025-03-04/</link>
       <pubDate>Wed, 05 Mar 2025 07:51:53 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2025-03-04/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-03-04/</guid>
       <description>&lt;p&gt;睡觉前和ChatGPT语音聊天，打开了新思路：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我能不能在Cursor上编辑文档，然后这样就能在同一个窗口下，知道上下文的情况进行AI对话？&lt;/p&gt;&lt;/blockquote&gt;
@@ -69,9 +111,9 @@
     </item>
     <item>
       <title>📖算法工程师面试指南</title>
-      <link>http://localhost:1313/posts/aiknow/%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/</link>
       <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/</guid>
       <description>&lt;p&gt;结合算法工程师具体岗位的需求，可实际调整以下权重：&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -108,45 +150,43 @@
 &lt;p&gt;&lt;strong&gt;评分参考：&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>🚀Obsidian Copilot的私人定制化</title>
-      <link>http://localhost:1313/posts/ahaknow/obsidiancopilot%E7%9A%84%E7%A7%81%E4%BA%BA%E5%AE%9A%E5%88%B6%E5%8C%96/</link>
+      <title>🚀AiKnow的私人定制化</title>
+      <link>https://blog.ahaknow.com/posts/actonknow/aiknow%E7%9A%84%E7%A7%81%E4%BA%BA%E5%AE%9A%E5%88%B6%E5%8C%96/</link>
       <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>http://localhost:1313/posts/ahaknow/obsidiancopilot%E7%9A%84%E7%A7%81%E4%BA%BA%E5%AE%9A%E5%88%B6%E5%8C%96/</guid>
+      <guid>https://blog.ahaknow.com/posts/actonknow/aiknow%E7%9A%84%E7%A7%81%E4%BA%BA%E5%AE%9A%E5%88%B6%E5%8C%96/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;ObsidianCopilot插件是我需要的，但我不会等着作者更新，我可能看哪里不爽，直接自己动手改了。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;模型的输出，改成流式的（不知道能不能改）&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;p&gt;基于ObsidianCopilot插件，这个插件是我需要的（同时也是我自学的素材之一 ）。
+我可能不会等着作者更新（更新了更好），我可能看哪里不爽，直接自己动手改了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Conda使用总结与经验文档</title>
-      <link>http://localhost:1313/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</link>
       <pubDate>Sat, 22 Feb 2025 00:10:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</guid>
       <description>&lt;h3 id=&#34;conda-使用总结与经验文档&#34;&gt;&lt;strong&gt;Conda 使用总结与经验文档&lt;/strong&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;1-设置-conda-环境路径和包存储路径&#34;&gt;1. &lt;strong&gt;设置 Conda 环境路径和包存储路径&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;如果你需要修改 Conda 环境存储位置（&lt;code&gt;envs_dirs&lt;/code&gt;）和包存储路径（&lt;code&gt;pkgs_dirs&lt;/code&gt;），可以通过以下方法：&lt;/p&gt;</description>
     </item>
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>http://localhost:1313/posts/aiknow/hugo-password-page/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/hugo-password-page/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/hugo-password-page/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/hugo-password-page/</guid>
       <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
-      <link>http://localhost:1313/posts/aiknow/git-crlf-lf/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-crlf-lf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/git-crlf-lf/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf-lf/</guid>
       <description>&lt;p&gt;在使用 Git 的过程中，我们经常会遇到 &lt;strong&gt;CRLF (回车换行) 和 LF (换行)&lt;/strong&gt; 的问题，特别是在 &lt;strong&gt;Windows 和 Linux/macOS 跨平台开发&lt;/strong&gt; 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。&lt;/p&gt;</description>
     </item>
     <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>http://localhost:1313/posts/aiknow/latex/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/latex/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
       <description>&lt;h1 id=&#34;-latex-语法&#34;&gt;📘 &lt;strong&gt;LaTeX 语法&lt;/strong&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;-1-latex-数学模式&#34;&gt;&lt;strong&gt;📐 1. LaTeX 数学模式&lt;/strong&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;11-行内数学模式&#34;&gt;&lt;strong&gt;1.1. 行内数学模式&lt;/strong&gt;&lt;/h3&gt;
@@ -160,18 +200,18 @@
     </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
-      <link>http://localhost:1313/posts/aiknow/git-pull-request-release/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-pull-request-release/</link>
       <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/git-pull-request-release/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-pull-request-release/</guid>
       <description>&lt;h1 id=&#34;github-pull-reques-时-release-文件缺失问题解决方案-&#34;&gt;GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦&lt;/h1&gt;
 &lt;h2 id=&#34;问题背景-&#34;&gt;&lt;strong&gt;问题背景 🤔&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在提交 GitHub Pull Request 时，GitHub 提示最新的 Release 缺少 &lt;code&gt;main.js&lt;/code&gt; 和 &lt;code&gt;manifest.json&lt;/code&gt; 文件。尽管这些文件在代码中存在，但它们并没有作为 Release 附件上传到 GitHub。这个问题通常发生在用户没有手动将文件上传到 Release 页面。&lt;/p&gt;</description>
     </item>
     <item>
       <title>💡AI调教指令</title>
-      <link>http://localhost:1313/posts/todo/aha-prompts/</link>
+      <link>https://blog.ahaknow.com/posts/todo/aha-prompts/</link>
       <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
-      <guid>http://localhost:1313/posts/todo/aha-prompts/</guid>
+      <guid>https://blog.ahaknow.com/posts/todo/aha-prompts/</guid>
       <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
 &lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
 &lt;ul&gt;
@@ -182,69 +222,69 @@
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
-      <link>http://localhost:1313/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
       <description>&lt;h2 id=&#34;-介绍&#34;&gt;&lt;strong&gt;📌 介绍&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在软件开发过程中，我们常常需要将本地的 Git 仓库&lt;strong&gt;自动提交并推送&lt;/strong&gt;到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个&lt;strong&gt;适用于 Windows (Git Bash)、macOS 和 Linux&lt;/strong&gt; 的自动 &lt;code&gt;push&lt;/code&gt; 脚本，并详细解析其中的关键点。&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
-      <link>http://localhost:1313/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;p&gt;%% 在使用 %% Git 进行 &lt;code&gt;git pull&lt;/code&gt;、&lt;code&gt;git merge&lt;/code&gt; 等操作时，常常会遇到各种冲突和错误。这份文档总结了 &lt;strong&gt;Git 合并相关问题&lt;/strong&gt;，提供了&lt;strong&gt;案例分析、解决方案&lt;/strong&gt;，并附上清晰的注释，帮助你快速解决问题。💡&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>http://localhost:1313/posts/aiknow/git-auto-push/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-auto-push/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/git-auto-push/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-auto-push/</guid>
       <description>&lt;h2 id=&#34;-git-仓库自动更新脚本---解决方案与步骤总结&#34;&gt;📝 &lt;strong&gt;Git 仓库自动更新脚本 - 解决方案与步骤总结&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 &lt;code&gt;GitAwesome&lt;/code&gt; 文件夹下的所有 Git 仓库。&lt;/p&gt;</description>
     </item>
     <item>
       <title>✨晕倒不死指南：Scoop包管理</title>
-      <link>http://localhost:1313/posts/aiknow/win-scoop/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/win-scoop/</link>
       <pubDate>Tue, 04 Feb 2025 13:09:08 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/win-scoop/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/win-scoop/</guid>
       <description>&lt;h2 id=&#34;1-scoop-简介-&#34;&gt;1. Scoop 简介 ✨&lt;/h2&gt;
 &lt;p&gt;Scoop 是 Windows 下的一个轻量级包管理器，其核心理念是“把命令行工具装进用户目录”，避免对系统全局进行修改。它与 apt（Debian/Ubuntu 等发行版的包管理器）有相似的用户体验，但在 Windows 环境中更为灵活、简单，并且免去了管理员权限的烦恼。&lt;/p&gt;</description>
     </item>
     <item>
       <title>今天就用中文路径来作为地址</title>
-      <link>http://localhost:1313/posts/diary/2025-02-04/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2025-02-04/</link>
       <pubDate>Tue, 04 Feb 2025 12:41:31 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2025-02-04/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-02-04/</guid>
       <description>&lt;p&gt;突然发现，其实可以使用中文路径作为文章网址的路径呀，其实没必要一定要转成英文的。&lt;/p&gt;
 &lt;p&gt;&lt;mark&gt;之前为啥用英文作为链接呢？可能是保存在Git上的时候可视化好一些？但都已经是UTF-8编码了，也无所谓啦&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>GitHub README 美化经验分享</title>
-      <link>http://localhost:1313/posts/aiknow/github-readme/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/github-readme/</link>
       <pubDate>Sat, 01 Feb 2025 21:41:12 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/github-readme/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/github-readme/</guid>
       <description>&lt;p&gt;在 GitHub 上，一个精心设计的个人主页不仅可以展示你的项目、技术栈，还能通过动态数据和动画效果提升个人品牌形象。本文将分享两个经典模块的自动化集成方法：&lt;/p&gt;</description>
     </item>
     <item>
       <title>🪄ChatGPT&amp;LLMs 中文调教指南🚀</title>
-      <link>http://localhost:1313/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</link>
       <pubDate>Sat, 01 Feb 2025 18:22:55 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</guid>
       <description>&lt;p&gt;其实后来发现，没啥用，老老实实锻炼自己的表达能力可能更重要一些！&lt;/p&gt;</description>
     </item>
     <item>
       <title>macOS 环境下 Python 动态库缺失问题排查与解决方案</title>
-      <link>http://localhost:1313/posts/aiknow/macos-lib-fix/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/macos-lib-fix/</link>
       <pubDate>Sat, 01 Feb 2025 17:19:11 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/macos-lib-fix/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/macos-lib-fix/</guid>
       <description>&lt;p&gt;在 macOS（特别是 M1/M2 芯片）使用 Python 时，可能会遇到 &lt;strong&gt;ImportError: Library not loaded&lt;/strong&gt; 类错误。这通常是因为 Python 模块在加载动态库时找不到正确的 &lt;code&gt;.dylib&lt;/code&gt; 文件。以下是一个系统化的排查与解决方法，适用于 PyAudio、PortAudio 以及其他类似情况（如 OpenCV、TensorFlow 依赖的库）。&lt;/p&gt;</description>
     </item>
     <item>
       <title>顺手写了个Obsidian插件😄</title>
-      <link>http://localhost:1313/posts/tech/first-obsidian-plugin/</link>
+      <link>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</link>
       <pubDate>Tue, 10 Dec 2024 22:33:17 +0800</pubDate>
-      <guid>http://localhost:1313/posts/tech/first-obsidian-plugin/</guid>
+      <guid>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</guid>
       <description>&lt;p&gt;&lt;mark&gt;感觉自己很牛逼！！！&lt;/mark&gt;
 为啥想到写这个插件呢？
 因为我想把Obsidian和Hugo结合起来，但是有两个小问题很麻烦，虽然很小，但用多了会很烦！&lt;mark&gt;会写代码的一般都很懒&lt;/mark&gt;，所以绝对不会干出手动复制粘贴这种蠢事的。
@@ -252,16 +292,16 @@
     </item>
     <item>
       <title>今天来学习Obsidian怎么用！</title>
-      <link>http://localhost:1313/posts/diary/2024-12-10/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-12-10/</link>
       <pubDate>Tue, 10 Dec 2024 21:31:27 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-12-10/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-12-10/</guid>
       <description>&lt;p&gt;又是时隔两个月？上一次用&lt;strong&gt;Obsidian&lt;/strong&gt;开启了博客写作的新视角，这一篇：[[2024-10-10]]（使用Obsidian反向链接），这一次，就是玩转Obsidian，实现的外脑知识管理库！&lt;/p&gt;</description>
     </item>
     <item>
       <title>图形学，启动！</title>
-      <link>http://localhost:1313/posts/diary/2024-10-11/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-10-11/</link>
       <pubDate>Fri, 11 Oct 2024 19:10:42 +0600</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-10-11/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-10-11/</guid>
       <description>&lt;p&gt;今天开始学习图形学！！&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;2025年2月7日补充：&lt;br&gt;
@@ -269,42 +309,42 @@
     </item>
     <item>
       <title>今天用Obsidian写日记</title>
-      <link>http://localhost:1313/posts/diary/2024-10-10/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-10-10/</link>
       <pubDate>Thu, 10 Oct 2024 22:00:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-10-10/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-10-10/</guid>
       <description>&lt;p&gt;每天的日记里适合写一写随便想想的话题，比如，晚上我6点就准备回家了，但是有一个结果不对，一耽误，就是20分钟过去了（之前类似的场景可真的是太多太多，所以还是时间管理没做好）&lt;/p&gt;</description>
     </item>
     <item>
       <title>慢慢来，比较快！</title>
-      <link>http://localhost:1313/posts/diary/2024-10-09/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-10-09/</link>
       <pubDate>Wed, 09 Oct 2024 20:16:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024-10-09/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-10-09/</guid>
       <description>&lt;p&gt;很久没有写日记了呢！&lt;/p&gt;
 &lt;p&gt;这个国庆结束的最后一天开始早睡的，今晚是第三次。&lt;/p&gt;
 &lt;p&gt;补充一次昨天的感想：当你想要去做的时候，你就是最有力量的！所以预约了半马，张罗了聚餐。&lt;/p&gt;</description>
     </item>
     <item>
       <title>全栈开发：从Python脚本到独立的App（初稿）</title>
-      <link>http://localhost:1313/posts/aiknow/dev-python-to-app/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/dev-python-to-app/</link>
       <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/dev-python-to-app/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/dev-python-to-app/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;&lt;mark&gt;怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mac：闲得没事不要升级系统</title>
-      <link>http://localhost:1313/posts/life/macos-do-not-upgrade/</link>
+      <link>https://blog.ahaknow.com/posts/life/macos-do-not-upgrade/</link>
       <pubDate>Mon, 17 Jun 2024 15:21:15 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/macos-do-not-upgrade/</guid>
+      <guid>https://blog.ahaknow.com/posts/life/macos-do-not-upgrade/</guid>
       <description>&lt;p&gt;&lt;strong&gt;反正就是，日常生产力的Mac，不要升级！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;这不升级了嘛，然后多了“查找本地网络设备”的选项，我没开，结果Mac作为超级终端本的ssh大法直接懵逼。。。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git：不小心git add . 之后</title>
-      <link>http://localhost:1313/posts/know/note-git-unstage/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-git-unstage/</link>
       <pubDate>Fri, 07 Jun 2024 14:18:21 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-git-unstage/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-git-unstage/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;一顿操作猛如虎，鬼使神差来了个git add .&lt;/p&gt;
 &lt;p&gt;并不想这样的，因为压根不是想要git管理的目录😂&lt;/p&gt;
@@ -314,69 +354,69 @@
     </item>
     <item>
       <title>Linux：命令行方式查看硬盘信息</title>
-      <link>http://localhost:1313/posts/know/linux-disk-info/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-disk-info/</link>
       <pubDate>Wed, 05 Jun 2024 15:44:21 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-disk-info/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-disk-info/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;去年2023年，固态硬盘低谷的时候买了一个2T的，现在没啥用了，原本想着装移动版的MacOS系统的，但是看了看雷电3硬盘盒的读写速度，三星的比较稳定，这个雷克沙属实。。。拉垮。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux：GPU环境崩了？从Nvidia驱动到TensorRT</title>
-      <link>http://localhost:1313/posts/know/linux-cuda-kernel-conflict/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/</link>
       <pubDate>Mon, 03 Jun 2024 16:26:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-cuda-kernel-conflict/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;遇到的问题是这样的：&lt;/p&gt;
 &lt;p&gt;“莫名其妙，GPU驱动就没了，可能是因为update &amp;amp;&amp;amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没有重新安装，还用了autoremove进行清理），总之就是GPU挂了。。。”&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux：开不了机了？通过Grub启动！</title>
-      <link>http://localhost:1313/posts/know/linux-grub-boot/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-grub-boot/</link>
       <pubDate>Thu, 30 May 2024 14:13:33 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-grub-boot/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-grub-boot/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;事情是这样的：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时进行选择。&lt;/p&gt;</description>
     </item>
     <item>
       <title>开发实战：“锁”的机制</title>
-      <link>http://localhost:1313/posts/todo/dev-mutex/</link>
+      <link>https://blog.ahaknow.com/posts/todo/dev-mutex/</link>
       <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/todo/dev-mutex/</guid>
+      <guid>https://blog.ahaknow.com/posts/todo/dev-mutex/</guid>
       <description></description>
     </item>
     <item>
       <title>Linux：测试硬盘读写速度</title>
-      <link>http://localhost:1313/posts/know/linux-test-ssd/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-test-ssd/</link>
       <pubDate>Tue, 28 May 2024 11:33:46 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-test-ssd/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-test-ssd/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;mark&gt;在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>你好～ Merlin</title>
-      <link>http://localhost:1313/posts/life/m.e.r.l.i.n./</link>
+      <link>https://blog.ahaknow.com/posts/life/m.e.r.l.i.n./</link>
       <pubDate>Thu, 23 May 2024 15:20:14 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/m.e.r.l.i.n./</guid>
+      <guid>https://blog.ahaknow.com/posts/life/m.e.r.l.i.n./</guid>
       <description>&lt;p&gt;我是才知道：&lt;/p&gt;
 &lt;p&gt;贾维斯的全称，Just Another Rather Very Intelligent System（只是一个相当聪明的智能系统）；
 伊迪斯的全称，Even dead,I&amp;rsquo;m the hero（即便我死了，我也是英雄）；&lt;/p&gt;</description>
     </item>
     <item>
       <title>开发实战：CMake实现可执行文件的安装与打包分发</title>
-      <link>http://localhost:1313/posts/know/dev-cpack-release/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-cpack-release/</link>
       <pubDate>Mon, 20 May 2024 17:54:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-cpack-release/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-cpack-release/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;就是代码写好了，肯定不能发源码出去，肯定发的是可执行文件，或者就依赖和可执行文件都打包好～&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;如果是Github管理的话，甚至还要考虑一下Release管理。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>编程灵感时刻</title>
-      <link>http://localhost:1313/posts/know/coding-inspiration-moments/</link>
+      <link>https://blog.ahaknow.com/posts/know/coding-inspiration-moments/</link>
       <pubDate>Wed, 08 May 2024 17:28:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/coding-inspiration-moments/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/coding-inspiration-moments/</guid>
       <description>&lt;h2 id=&#34;一些实用的小工具&#34;&gt;一些实用的小工具&lt;/h2&gt;
 &lt;h3 id=&#34;获取时间c片段&#34;&gt;获取时间C++片段&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// Unix时间戳
@@ -404,9 +444,9 @@
     </item>
     <item>
       <title>常识：记录一次机票改签😅</title>
-      <link>http://localhost:1313/posts/life/smart-an-airplane-experience/</link>
+      <link>https://blog.ahaknow.com/posts/life/smart-an-airplane-experience/</link>
       <pubDate>Mon, 06 May 2024 09:53:38 +0800</pubDate>
-      <guid>http://localhost:1313/posts/life/smart-an-airplane-experience/</guid>
+      <guid>https://blog.ahaknow.com/posts/life/smart-an-airplane-experience/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;时隔多年再次坐飞机，还没起飞呢就尴尬了。。。&lt;/p&gt;
 &lt;p&gt;“值机”是啥意思？&lt;/p&gt;
@@ -418,9 +458,9 @@
     </item>
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
-      <link>http://localhost:1313/posts/know/dev-header-source/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-header-source/</link>
       <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-header-source/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-header-source/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。&lt;/p&gt;
 &lt;p&gt;今天被问到了这个问题：&lt;/p&gt;
@@ -428,35 +468,35 @@
     </item>
     <item>
       <title>Linux：打包压缩相关的基本使用</title>
-      <link>http://localhost:1313/posts/know/linux-tar-usage/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-tar-usage/</link>
       <pubDate>Sat, 27 Apr 2024 22:27:17 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-tar-usage/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-tar-usage/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;code&gt;tar&lt;/code&gt; 是一个广泛使用的 Unix/Linux 命令行工具，用于创建、维护、修改以及提取 tar 文件。&lt;/p&gt;
 &lt;p&gt;tar 文件通常是文件档案的集合，而 &lt;code&gt;tar&lt;/code&gt; 本身是 Tape Archive 的缩写，起初是用来将数据备份到磁带上。下面将介绍 &lt;code&gt;tar&lt;/code&gt; 命令的基本用法，包括如何用它来压缩和解压缩文件，以及常见的压缩格式如 gz 的含义。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Protobuf：安装指定版本</title>
-      <link>http://localhost:1313/posts/know/note-install-protobuf/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-install-protobuf/</link>
       <pubDate>Sat, 27 Apr 2024 15:41:46 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-install-protobuf/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-install-protobuf/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;第一次接触&lt;code&gt;Protobuf&lt;/code&gt;，遇到了系统版本与编译文件版本不统一的情况，&lt;strong&gt;以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来研究版本更新的问题。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux：创建具有权限限制的新用户</title>
-      <link>http://localhost:1313/posts/know/linux-create-user/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-create-user/</link>
       <pubDate>Wed, 24 Apr 2024 15:16:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-create-user/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-create-user/</guid>
       <description>&lt;p&gt;创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：&lt;/p&gt;
 &lt;h3 id=&#34;1-创建新用户&#34;&gt;1. 创建新用户&lt;/h3&gt;
 &lt;p&gt;使用&lt;code&gt;useradd&lt;/code&gt;命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为&lt;code&gt;newuser&lt;/code&gt;的用户：&lt;/p&gt;</description>
     </item>
     <item>
       <title>Linux：内核启动不了之后</title>
-      <link>http://localhost:1313/posts/know/linux-kernel/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-kernel/</link>
       <pubDate>Wed, 24 Apr 2024 13:00:28 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-kernel/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-kernel/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;遇到了Linux新的内核启动卡死，老内核正常运行，索性就启动不了内核进行删除。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;1-查看当前运行的内核&#34;&gt;1. 查看当前运行的内核&lt;/h3&gt;
@@ -466,26 +506,26 @@
     </item>
     <item>
       <title>TensorRT：最简明的安装流程</title>
-      <link>http://localhost:1313/posts/know/note-install-tensorrt/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-install-tensorrt/</link>
       <pubDate>Wed, 24 Apr 2024 11:07:22 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-install-tensorrt/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-install-tensorrt/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。&lt;/p&gt;
 &lt;p&gt;&lt;mark&gt;因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>开发实战：使用Spdlog管理调试信息</title>
-      <link>http://localhost:1313/posts/know/dev-spdlog-usage/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-spdlog-usage/</link>
       <pubDate>Tue, 23 Apr 2024 17:00:23 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-spdlog-usage/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-spdlog-usage/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;此前写代码，习惯性 &lt;code&gt;std::cout&lt;/code&gt; 和 &lt;code&gt;std::cerr&lt;/code&gt; 这种直接可视化的打印，然后满屏密密麻麻的打印信息，而如果不需要了，就会在代码大段大段的注释，非常不美观，甚至可以说是一堆堆💩。。。&lt;/p&gt;</description>
     </item>
     <item>
       <title>开发实战：项目中的CMake技巧</title>
-      <link>http://localhost:1313/posts/know/dev-project-cmake/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-project-cmake/</link>
       <pubDate>Mon, 22 Apr 2024 22:57:28 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-project-cmake/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-project-cmake/</guid>
       <description>&lt;p&gt;一个“好看”的CMake管理应该是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── CMakeLists.txt
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── main_class.cpp
@@ -517,9 +557,9 @@
     </item>
     <item>
       <title>开发实战：给代码属上大名</title>
-      <link>http://localhost:1313/posts/know/dev-auto-code-copyright/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-auto-code-copyright/</link>
       <pubDate>Mon, 22 Apr 2024 16:52:02 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-auto-code-copyright/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-auto-code-copyright/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;关于代码💩山，已经不忍直视。。。&lt;/p&gt;
 &lt;p&gt;只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。&lt;/p&gt;
@@ -528,9 +568,9 @@
     </item>
     <item>
       <title>Shell：操作移动文件</title>
-      <link>http://localhost:1313/posts/know/note-shell-move-file/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-shell-move-file/</link>
       <pubDate>Sun, 21 Apr 2024 22:36:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-shell-move-file/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-shell-move-file/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;主打一个“懒”字！&lt;/p&gt;
 &lt;p&gt;移动文件啊，重命名啥的，动手拖拖不行嘛？！&lt;/p&gt;
@@ -540,16 +580,16 @@
     </item>
     <item>
       <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
-      <link>http://localhost:1313/posts/todo/art-c-c&#43;&#43;-exam/</link>
+      <link>https://blog.ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</link>
       <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
-      <guid>http://localhost:1313/posts/todo/art-c-c&#43;&#43;-exam/</guid>
+      <guid>https://blog.ahaknow.com/posts/todo/art-c-c&#43;&#43;-exam/</guid>
       <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
-      <link>http://localhost:1313/posts/know/dev-decode-h.264-lz4-image-frames/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</link>
       <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-decode-h.264-lz4-image-frames/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;在&lt;a href=&#34;../dev-parse-binary-file&#34;&gt;上一篇&lt;/a&gt;打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。&lt;/p&gt;
 &lt;p&gt;彩色图像采用H.264编码 -&amp;gt; 那就需要按照H.264解码&lt;/p&gt;
@@ -560,18 +600,18 @@
     </item>
     <item>
       <title>开发实战：解析二进制文件</title>
-      <link>http://localhost:1313/posts/know/dev-parse-binary-file/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-parse-binary-file/</link>
       <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/dev-parse-binary-file/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-parse-binary-file/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;需要解析相机的字节流文件（就是一个一个Byte组成的文件，不解析的话没有啥实际意义）。&lt;/p&gt;
 &lt;p&gt;解析需要按照一定的规则，比如：如何确定数据的头（Header），以及一个数据帧（一个数据包）的结构是什么样的，&lt;strong&gt;这个有点像网络包的定义，在头部定义了很多信息，这些信息能够让这个数据包按照规则解析出来后有具体的意义&lt;/strong&gt;。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Git：分支的基本操作</title>
-      <link>http://localhost:1313/posts/know/note-git-branch-basic/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-git-branch-basic/</link>
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-git-branch-basic/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-git-branch-basic/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;使用Git，在develop分支下创建一个新分支，然后在这个新分支上进行新功能开发。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;git-branch系列操作&#34;&gt;git branch系列操作&lt;/h2&gt;
@@ -586,16 +626,16 @@
     </item>
     <item>
       <title>Linux：上不了网了之路由表修复</title>
-      <link>http://localhost:1313/posts/know/linux-repair-routing-table/</link>
+      <link>https://blog.ahaknow.com/posts/know/linux-repair-routing-table/</link>
       <pubDate>Tue, 16 Apr 2024 11:04:42 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/linux-repair-routing-table/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/linux-repair-routing-table/</guid>
       <description>连接一个网口设备，导致上不了网，咋怎？</description>
     </item>
     <item>
       <title>Leetcode：189. 轮转数组</title>
-      <link>http://localhost:1313/posts/know/leetcode-189-rotate-array/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-189-rotate-array/</link>
       <pubDate>Mon, 15 Apr 2024 11:36:04 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/leetcode-189-rotate-array/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-189-rotate-array/</guid>
       <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt;, rotate the array to the right by &lt;code&gt;k&lt;/code&gt; steps, where &lt;code&gt;k&lt;/code&gt; is non-negative.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Input: nums = [1,2,3,4,5,6,7], k = 3
@@ -614,31 +654,31 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>Leetcode：169. 多数元素</title>
-      <link>http://localhost:1313/posts/know/leetcode-169-majority-element/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-169-majority-element/</link>
       <pubDate>Mon, 15 Apr 2024 09:27:11 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/leetcode-169-majority-element/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-169-majority-element/</guid>
       <description> Boyer-Moore 投票算法</description>
     </item>
     <item>
       <title>Leetcode：80. 删除有序数组中的重复项 II</title>
-      <link>http://localhost:1313/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</link>
       <pubDate>Fri, 12 Apr 2024 13:19:53 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</guid>
       <description>一道值得反复品味的经典双指针算法</description>
     </item>
     <item>
       <title>Blog：奇思妙想待办项</title>
-      <link>http://localhost:1313/posts/know/blog-todo/</link>
+      <link>https://blog.ahaknow.com/posts/know/blog-todo/</link>
       <pubDate>Fri, 12 Apr 2024 11:29:40 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/blog-todo/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/blog-todo/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;我发现我的思维特别容易发散，就是干这一件事，脑海中突然有了其他灵感，此前的做法是“直接插队的优先队列”，就是放下手中活，把突然想到去办了，&lt;strong&gt;其实这种方法有时候并不好，容易“本末倒置”，原本的事到最后没做好。&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Blog：Hugo写作小技巧 </title>
-      <link>http://localhost:1313/posts/know/blog-tips/</link>
+      <link>https://blog.ahaknow.com/posts/know/blog-tips/</link>
       <pubDate>Thu, 11 Apr 2024 12:14:57 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/blog-tips/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/blog-tips/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;记录一些实用Hugo写博客的小技巧。&lt;/p&gt;
 &lt;p&gt;—— 因为如果当时不记录，那么日后肯定不会再记录的！（懒！）&lt;/p&gt;&lt;/blockquote&gt;
@@ -647,9 +687,9 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>Leetcode：26删除有序数组中的重复项</title>
-      <link>http://localhost:1313/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
       <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
       <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, remove the duplicates &lt;a href=&#34;https://en.wikipedia.org/wiki/In-place_algorithm&#34;&gt;&lt;strong&gt;in-place&lt;/strong&gt;&lt;/a&gt; such that each unique element appears only &lt;strong&gt;once&lt;/strong&gt;. The &lt;strong&gt;relative order&lt;/strong&gt; of the elements should be kept the &lt;strong&gt;same&lt;/strong&gt;. Then return &lt;em&gt;the number of unique elements in&lt;/em&gt; &lt;code&gt;nums&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Consider the number of unique elements of &lt;code&gt;nums&lt;/code&gt; to be &lt;code&gt;k&lt;/code&gt;, to get accepted, you need to do the following things:&lt;/p&gt;
 &lt;ul&gt;
@@ -660,9 +700,9 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>Leetcode：27移除元素</title>
-      <link>http://localhost:1313/posts/know/leetcode-27-remove-element/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</link>
       <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/leetcode-27-remove-element/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
       <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; and an integer &lt;code&gt;val&lt;/code&gt;, remove all occurrences of &lt;code&gt;val&lt;/code&gt; in &lt;code&gt;nums&lt;/code&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/In-place_algorithm&#34;&gt;&lt;strong&gt;in-place&lt;/strong&gt;&lt;/a&gt;. The order of the elements may be changed. Then return &lt;em&gt;the number of elements in&lt;/em&gt; &lt;code&gt;nums&lt;/code&gt; &lt;em&gt;which are not equal to&lt;/em&gt; &lt;code&gt;val&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Consider the number of elements in &lt;code&gt;nums&lt;/code&gt; which are not equal to &lt;code&gt;val&lt;/code&gt; be &lt;code&gt;k&lt;/code&gt;, to get accepted, you need to do the following things:&lt;/p&gt;
 &lt;ul&gt;
@@ -673,9 +713,9 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>Leetcode：88合并两个有序数组</title>
-      <link>http://localhost:1313/posts/know/leetcode-88-merge-sorted-array/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
       <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/leetcode-88-merge-sorted-array/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;LeetCode上“最简单”的一道题了吧？&lt;/p&gt;
 &lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;&lt;/blockquote&gt;
@@ -683,63 +723,63 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>Python：一个正则表达式的小例子</title>
-      <link>http://localhost:1313/posts/know/note-regex-example/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-regex-example/</link>
       <pubDate>Wed, 10 Apr 2024 13:04:34 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-regex-example/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-regex-example/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;我想重命名一个文件（手动操作是不可能的，懒！）&lt;/p&gt;
 &lt;p&gt;将“清晰易懂的的线性代数，国立阳明交通大学周志成，国语版mit线性代数Gilbert Strang LA_1-3”改成“LA_1-3”&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python：MP4的音轨修复</title>
-      <link>http://localhost:1313/posts/know/note-mp4-audio-track-repair/</link>
+      <link>https://blog.ahaknow.com/posts/know/note-mp4-audio-track-repair/</link>
       <pubDate>Tue, 09 Apr 2024 22:40:15 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/note-mp4-audio-track-repair/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/note-mp4-audio-track-repair/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;又干了一件：“为了一碟醋，包了一锅饺子”的事。。。&lt;/p&gt;
 &lt;p&gt;就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）&lt;/p&gt;</description>
     </item>
     <item>
       <title>博客优化：自定义字体加速显示</title>
-      <link>http://localhost:1313/posts/aiknow/blog-font-display-acceleration/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/blog-font-display-acceleration/</link>
       <pubDate>Tue, 09 Apr 2024 21:25:15 +0800</pubDate>
-      <guid>http://localhost:1313/posts/aiknow/blog-font-display-acceleration/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/blog-font-display-acceleration/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;博客里使用了自定义的字体，最开始直接采用ttf文件加载的方式，因为博客内容全部是静态存在Github上的，这种直接加载多少有点慢，所以想了一些策略。&lt;/p&gt;</description>
     </item>
     <item>
       <title>SLAM十四讲第二讲：初识SLAM</title>
-      <link>http://localhost:1313/posts/know/slam14-ch2/</link>
+      <link>https://blog.ahaknow.com/posts/know/slam14-ch2/</link>
       <pubDate>Tue, 09 Apr 2024 16:03:13 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/slam14-ch2/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/slam14-ch2/</guid>
       <description>重复是学习之母，再读SLAM第一篇</description>
     </item>
     <item>
       <title>SLAM十四讲第一讲：预备知识</title>
-      <link>http://localhost:1313/posts/know/slam14-ch1/</link>
+      <link>https://blog.ahaknow.com/posts/know/slam14-ch1/</link>
       <pubDate>Mon, 08 Apr 2024 20:27:50 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/slam14-ch1/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/slam14-ch1/</guid>
       <description>边做题边学习</description>
     </item>
     <item>
       <title>3D视觉感知</title>
-      <link>http://localhost:1313/posts/know/aha-3d-visual-perception/</link>
+      <link>https://blog.ahaknow.com/posts/know/aha-3d-visual-perception/</link>
       <pubDate>Sun, 07 Apr 2024 10:09:54 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/aha-3d-visual-perception/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/aha-3d-visual-perception/</guid>
       <description>从现状到发展</description>
     </item>
     <item>
       <title>二维平面下的坐标系变换</title>
-      <link>http://localhost:1313/posts/know/aha-2d-coordinate-transformation/</link>
+      <link>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/aha-2d-coordinate-transformation/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
       <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
     </item>
     <item>
       <title>博客自定义：实现Mac风格的代码栏</title>
-      <link>http://localhost:1313/posts/know/blog-mac-style-code/</link>
+      <link>https://blog.ahaknow.com/posts/know/blog-mac-style-code/</link>
       <pubDate>Wed, 27 Mar 2024 20:39:16 +0800</pubDate>
-      <guid>http://localhost:1313/posts/know/blog-mac-style-code/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/blog-mac-style-code/</guid>
       <description>&lt;p&gt;就是要实现下面这种效果：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 就是展示一下效果^-^&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;像这种想法怎么样一步步实现的呢？&lt;/p&gt;
@@ -749,9 +789,9 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>折腾博客是为了更好地专注在写作上？</title>
-      <link>http://localhost:1313/posts/think/2024-begin-again/</link>
+      <link>https://blog.ahaknow.com/posts/think/2024-begin-again/</link>
       <pubDate>Wed, 27 Mar 2024 17:01:29 +0800</pubDate>
-      <guid>http://localhost:1313/posts/think/2024-begin-again/</guid>
+      <guid>https://blog.ahaknow.com/posts/think/2024-begin-again/</guid>
       <description>&lt;p&gt;以下是心路历程：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？&lt;/p&gt;
@@ -759,18 +799,18 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>创新的主人还是重复的奴隶？</title>
-      <link>http://localhost:1313/posts/think/master-of-innovation-or-slave-of-repetition/</link>
+      <link>https://blog.ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</link>
       <pubDate>Mon, 19 Feb 2024 10:50:57 +0800</pubDate>
-      <guid>http://localhost:1313/posts/think/master-of-innovation-or-slave-of-repetition/</guid>
+      <guid>https://blog.ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;引子：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;做了一个实时展示的小程序，一开始做的比较粗糙，每次呢，也就是每天的早上，都需要手动去执行，然后用鼠标去一点点调整展示窗口的大小和排列，一共三个窗口，一大两小，排列方式是固定的，但是由于每次都是一点点拖动摆放，因此每一次自己都需要对排列后的样子有一个预期，尽可能调整成看上去还不错的样子，尽管如此这般，也很难做到每次的排列都相同。做到这里，虽然没用到多少时间，几分钟吧，但耗费了不少注意力，因为每天都要想着：早上的第一件事是做这个，而且很有可能哪一天就忘了。晚上的话，还要想着去关掉它，手动关闭，费不了多少时间，但同时消耗了不少注意力，原因和早上的一样：一整天的潜意识里都会挂念着，晚上了得把它关掉。如此，一日复一天，天天如此，重复着同样的工作，&lt;strong&gt;而且似乎并没有意识到什么问题……&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>2024年的第一篇记录</title>
-      <link>http://localhost:1313/posts/diary/2024_first/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024_first/</link>
       <pubDate>Fri, 26 Jan 2024 10:35:31 +0800</pubDate>
-      <guid>http://localhost:1313/posts/diary/2024_first/</guid>
+      <guid>https://blog.ahaknow.com/posts/diary/2024_first/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;让自己不后悔的话，那就动起来！&lt;br&gt;
 动起来就能转起来了！&lt;/p&gt;
@@ -780,9 +820,9 @@ rotate 2 steps to the right: [3,99,-1,-100]
     </item>
     <item>
       <title>🧰 医疗箱</title>
-      <link>http://localhost:1313/toolkits/</link>
+      <link>https://blog.ahaknow.com/toolkits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/toolkits/</guid>
+      <guid>https://blog.ahaknow.com/toolkits/</guid>
       <description>开发者的日常用药指南</description>
     </item>
   </channel>
