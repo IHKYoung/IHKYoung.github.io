@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>边做边学 on AhaKnow</title>
-    <link>https://ahaknow.com/categories/%E8%BE%B9%E5%81%9A%E8%BE%B9%E5%AD%A6/</link>
+    <link>https://blog.ahaknow.com/categories/%E8%BE%B9%E5%81%9A%E8%BE%B9%E5%AD%A6/</link>
     <description>Recent content in 边做边学 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/categories/%E8%BE%B9%E5%81%9A%E8%BE%B9%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.ahaknow.com/categories/%E8%BE%B9%E5%81%9A%E8%BE%B9%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
+      <link>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
+      <guid>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -21,9 +21,9 @@
     </item>
     <item>
       <title>开发实战：项目中的CMake技巧</title>
-      <link>https://ahaknow.com/posts/know/dev-project-cmake/</link>
+      <link>https://blog.ahaknow.com/posts/know/dev-project-cmake/</link>
       <pubDate>Mon, 22 Apr 2024 22:57:28 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/know/dev-project-cmake/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/dev-project-cmake/</guid>
       <description>&lt;p&gt;一个“好看”的CMake管理应该是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── CMakeLists.txt
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── main_class.cpp

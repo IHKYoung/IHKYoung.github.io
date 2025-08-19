@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>GPT on AhaKnow</title>
-    <link>https://ahaknow.com/tags/gpt/</link>
+    <link>https://blog.ahaknow.com/tags/gpt/</link>
     <description>Recent content in GPT on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/tags/gpt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.ahaknow.com/tags/gpt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>💡AI调教指令</title>
-      <link>https://ahaknow.com/posts/todo/aha-prompts/</link>
+      <link>https://blog.ahaknow.com/posts/todo/aha-prompts/</link>
       <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/todo/aha-prompts/</guid>
+      <guid>https://blog.ahaknow.com/posts/todo/aha-prompts/</guid>
       <description>&lt;p&gt;我在想Prompts真的很重要吗？&lt;/p&gt;
 &lt;p&gt;如果能够通过Prompts反向激发自身，提高自己的语言表达，逻辑思考的能力，是不是更重要些呢？&lt;/p&gt;
 &lt;ul&gt;

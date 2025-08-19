@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Windows on AhaKnow</title>
-    <link>https://ahaknow.com/tags/windows/</link>
+    <link>https://blog.ahaknow.com/tags/windows/</link>
     <description>Recent content in Windows on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
-    <atom:link href="https://ahaknow.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.ahaknow.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
-      <link>https://ahaknow.com/posts/aiknow/git-crlf-lf/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-crlf-lf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
-      <guid>https://ahaknow.com/posts/aiknow/git-crlf-lf/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf-lf/</guid>
       <description>&lt;p&gt;在使用 Git 的过程中，我们经常会遇到 &lt;strong&gt;CRLF (回车换行) 和 LF (换行)&lt;/strong&gt; 的问题，特别是在 &lt;strong&gt;Windows 和 Linux/macOS 跨平台开发&lt;/strong&gt; 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。&lt;/p&gt;</description>
     </item>
   </channel>
