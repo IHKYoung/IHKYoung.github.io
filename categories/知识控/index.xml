@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>知识控 on AhaKnow</title>
-    <link>https://blog.ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</link>
+    <link>https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/</link>
     <description>Recent content in 知识控 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 05 Mar 2025 22:28:55 +0800</lastBuildDate>
-    <atom:link href="https://blog.ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <atom:link href="https://ahaknow.com/categories/%E7%9F%A5%E8%AF%86%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
+      <link>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
+      <guid>https://ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;这个标题很有意思～
 置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
@@ -20,17 +20,10 @@
 &lt;p&gt;如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地去拍没有限制，那么试想，这些一张张照片，能不能“组合”或者“还原”出我所见到的这个场景呢？这个场景要是立体的，三维的，生动活泼的，它允许我在这个“还原”出来的场景世界中去游览，观赏，就好像又回到了之前的那个真实场景中一样。能不能做到呢？&lt;/p&gt;</description>
     </item>
     <item>
-      <title>从IMU预积分说起……</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/%E4%BB%8Eimu%E9%A2%84%E7%A7%AF%E5%88%86%E8%AF%B4%E8%B5%B7/</link>
-      <pubDate>Wed, 05 Mar 2025 22:28:55 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/%E4%BB%8Eimu%E9%A2%84%E7%A7%AF%E5%88%86%E8%AF%B4%E8%B5%B7/</guid>
-      <description>一文了解IMU预积分</description>
-    </item>
-    <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
+      <link>https://ahaknow.com/posts/aiknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/latex/</guid>
       <description>&lt;h1 id=&#34;-latex-语法&#34;&gt;📘 &lt;strong&gt;LaTeX 语法&lt;/strong&gt;&lt;/h1&gt;
 &lt;h2 id=&#34;-1-latex-数学模式&#34;&gt;&lt;strong&gt;📐 1. LaTeX 数学模式&lt;/strong&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;11-行内数学模式&#34;&gt;&lt;strong&gt;1.1. 行内数学模式&lt;/strong&gt;&lt;/h3&gt;
@@ -44,25 +37,25 @@
     </item>
     <item>
       <title>全栈开发：从Python脚本到独立的App（初稿）</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/dev-python-to-app/</link>
+      <link>https://ahaknow.com/posts/aiknow/dev-python-to-app/</link>
       <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/dev-python-to-app/</guid>
+      <guid>https://ahaknow.com/posts/aiknow/dev-python-to-app/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;&lt;mark&gt;怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？&lt;/mark&gt;&lt;/p&gt;
 &lt;p&gt;在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。&lt;/p&gt;</description>
     </item>
     <item>
       <title>二维平面下的坐标系变换</title>
-      <link>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
+      <link>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
+      <guid>https://ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
       <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
     </item>
     <item>
       <title>创新的主人还是重复的奴隶？</title>
-      <link>https://blog.ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</link>
+      <link>https://ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</link>
       <pubDate>Mon, 19 Feb 2024 10:50:57 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</guid>
+      <guid>https://ahaknow.com/posts/think/master-of-innovation-or-slave-of-repetition/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;引子：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;做了一个实时展示的小程序，一开始做的比较粗糙，每次呢，也就是每天的早上，都需要手动去执行，然后用鼠标去一点点调整展示窗口的大小和排列，一共三个窗口，一大两小，排列方式是固定的，但是由于每次都是一点点拖动摆放，因此每一次自己都需要对排列后的样子有一个预期，尽可能调整成看上去还不错的样子，尽管如此这般，也很难做到每次的排列都相同。做到这里，虽然没用到多少时间，几分钟吧，但耗费了不少注意力，因为每天都要想着：早上的第一件事是做这个，而且很有可能哪一天就忘了。晚上的话，还要想着去关掉它，手动关闭，费不了多少时间，但同时消耗了不少注意力，原因和早上的一样：一整天的潜意识里都会挂念着，晚上了得把它关掉。如此，一日复一天，天天如此，重复着同样的工作，&lt;strong&gt;而且似乎并没有意识到什么问题……&lt;/strong&gt;&lt;/p&gt;</description>
