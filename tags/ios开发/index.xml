@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>IOS开发 on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/ios%E5%BC%80%E5%8F%91/</link>
+    <description>Recent content in IOS开发 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 25 Jan 2026 22:51:03 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/ios%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>又想继续做自己的App了！</title>
+      <link>https://blog.ahaknow.com/posts/diary/2025-08-20/</link>
+      <pubDate>Wed, 20 Aug 2025 11:04:45 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/diary/2025-08-20/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;先埋下几颗种子：
+一个是AI的个性语言提醒App，文字+动画+人物之类，随机性质的提醒
+另一个是之前要弄的AhaNews，因为ChatGPT的日程提醒没法设置了。。。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

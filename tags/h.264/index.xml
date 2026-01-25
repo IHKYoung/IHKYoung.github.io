@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>H.264 on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/h.264/</link>
+    <description>Recent content in H.264 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/h.264/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
+      <link>https://blog.ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</link>
+      <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/dev-decode-h.264-lz4-image-frames/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;在&lt;a href=&#34;../dev-parse-binary-file&#34;&gt;上一篇&lt;/a&gt;打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。&lt;/p&gt;
+&lt;p&gt;彩色图像采用H.264编码 -&amp;gt; 那就需要按照H.264解码&lt;/p&gt;
+&lt;p&gt;视差图像采用LZ4压缩 -&amp;gt; 视差图保存的16位无符号整数，采用LZ4解压缩（开源）&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;背景知识&#34;&gt;背景知识&lt;/h2&gt;
+&lt;h3 id=&#34;lz4&#34;&gt;LZ4&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://lz4.org/&#34;&gt;&lt;strong&gt;LZ4&lt;/strong&gt;&lt;/a&gt; 是一个非常快速的压缩算法，提供了实时压缩速度和非常快的解压缩速度，由 Yann Collet（FaceBook大佬） 开发。它属于无损压缩算法，意味着压缩后的数据可以完全恢复到其原始形态。LZ4 主要设计用于非常高速的场景（解压速度可以达到数GB每秒），例如实时数据传输、日志数据处理等。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

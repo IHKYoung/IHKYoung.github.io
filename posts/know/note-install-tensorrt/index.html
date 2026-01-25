@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>TensorRT：最简明的安装流程 | AhaKnow</title>
+<meta name="keywords" content="TensorRT">
+<meta name="description" content="
+以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。
+因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装">
+<meta name="author" content="CKYoung">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/know/note-install-tensorrt/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/know/note-install-tensorrt/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="TensorRT：最简明的安装流程" />
+<meta property="og:description" content="
+以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。
+因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/know/note-install-tensorrt/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-24T11:07:22+08:00" />
+<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TensorRT：最简明的安装流程"/>
+<meta name="twitter:description" content="
+以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。
+因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 天天向上",
+      "item": "https://blog.ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🌟识知",
+      "item": "https://blog.ahaknow.com/posts/know/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "TensorRT：最简明的安装流程",
+      "item": "https://blog.ahaknow.com/posts/know/note-install-tensorrt/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TensorRT：最简明的安装流程",
+  "name": "TensorRT：最简明的安装流程",
+  "description": " 以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。\n因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装\n",
+  "keywords": [
+    "TensorRT"
+  ],
+  "articleBody": " 以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。\n因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装\n在进行下面的安装步骤之前，建议先将以前的安装的Nvidia相关的都卸载了，否则一定会出现依赖错乱的问题！\n建议手动选择卸载cuda、tensorrt、nvidia前缀的软件，然后使用 sudo apt autoremove 清理。\n首先需要正确安装CUDA 采用本地deb包的方法\nwget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda-repo-ubuntu2004-12-4-local_12.4.1-550.54.15-1_amd64.deb sudo dpkg -i cuda-repo-ubuntu2004-12-4-local_12.4.1-550.54.15-1_amd64.deb sudo cp /var/cuda-repo-ubuntu2004-12-4-local/cuda-*-keyring.gpg /usr/share/keyrings/ sudo apt-get update sudo apt-get -y install cuda-toolkit-12-4 💡提示：如果老版本的不用了，也是用本地deb包方式安装的，可以在 /etc/apt/sources.list.d/ 路径下清除对应的版本。\n这里是使用12.4.1版本，最新版本可以由此访问\n关于Nvidia驱动安装，也可以在此完成：\n# To install the legacy kernel module flavor: sudo apt-get install -y cuda-drivers # To install the open kernel module flavor: sudo apt-get install -y nvidia-driver-550-open sudo apt-get install -y cuda-drivers-550 关于 the open kernel module 和 the legacy kernel module 可以简单理解为新显卡用open，老显卡用legacy。\n安装cuDNN 这是也是采用本地deb包的方法\n# Installation Instructions: wget https://developer.download.nvidia.com/compute/cudnn/9.1.0/local_installers/cudnn-local-repo-ubuntu2004-9.1.0_1.0-1_amd64.deb sudo dpkg -i cudnn-local-repo-ubuntu2004-9.1.0_1.0-1_amd64.deb sudo cp /var/cudnn-local-repo-ubuntu2004-9.1.0/cudnn-*-keyring.gpg /usr/share/keyrings/ sudo apt-get update sudo apt-get -y install cudnn # To install for CUDA 11, perform the above configuration but install the CUDA 11 specific package: sudo apt-get -y install cudnn-cuda-11 # To install for CUDA 12, perform the above configuration but install the CUDA 12 specific package: sudo apt-get -y install cudnn-cuda-12 同样可以直接参考官方文档\n安装TensorRT TensorRT需要通过Nvidia开发者账号进行下载\n官网，也是一样的deb安装方式\nsudo dpkg -i nv-tensorrt-local-repo-ubuntu2004-10.0.0-cuda-12.4_1.0-1_amd64.deb sudo cp /var/nv-tensorrt-local-repo-ubuntu2004-10.0.0-cuda-12.4/nv-tensorrt-local-*-keyring.gpg /usr/share/keyrings/ sudo apt-get update sudo apt-get install tensorrt 以下是老版本的安装 同样也需要清理Nvidia之前安装的残留\nCUDA wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600 wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb sudo dpkg -i cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb sudo cp /var/cuda-repo-ubuntu2004-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/ sudo apt-get update sudo apt-get -y install cuda cuDNN sudo dpkg -i cudnn-local-repo-ubuntu2004-8.9.7.29_1.0-1_amd64.deb sudo cp /var/cudnn-local-repo-ubuntu2004-8.9.7.29/cudnn-local-*-keyring.gpg /usr/share/keyrings/ sudo apt update sudo apt-get install libcudnn8 TensorRT sudo dpkg -i nv-tensorrt-local-repo-ubuntu2004-8.6.1-cuda-12.0_1.0-1_amd64.deb sudo cp /var/nv-tensorrt-local-repo-ubuntu2004-8.6.1-cuda-12.0/nv-tensorrt-local-*-keyring.gpg /usr/share/keyrings/ sudo apt-get update sudo apt-get install tensorrt ",
+  "wordCount" : "637",
+  "inLanguage": "zh",
+  "datePublished": "2024-04-24T11:07:22+08:00",
+  "dateModified": "2025-02-26T23:49:24+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "CKYoung"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ahaknow.com/posts/know/note-install-tensorrt/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://blog.ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
+                    <span>🪄魔法</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/" title="🏡主页">
+                    <span>🏡主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
+                    <span>🚀天天向上</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
+                    <span>⏱️时间线</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
+                    <span>🏷️标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
+                    <span>🖇归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
+                    <span>🧰医疗箱</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <h1 class="post-title entry-hint-parent">
+      TensorRT：最简明的安装流程
+    </h1>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2025-02-26
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2024-04-24
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>637 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>2 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/tensorrt/" style="color: var(--secondary)!important;">TensorRT</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e9%a6%96%e5%85%88%e9%9c%80%e8%a6%81%e6%ad%a3%e7%a1%ae%e5%ae%89%e8%a3%85cuda" aria-label="首先需要正确安装CUDA">首先需要正确安装CUDA</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85cudnn" aria-label="安装cuDNN">安装cuDNN</a></li>
+                <li>
+                    <a href="#%e5%ae%89%e8%a3%85tensorrt" aria-label="安装TensorRT">安装TensorRT</a></li>
+                <li>
+                    <a href="#%e4%bb%a5%e4%b8%8b%e6%98%af%e8%80%81%e7%89%88%e6%9c%ac%e7%9a%84%e5%ae%89%e8%a3%85" aria-label="以下是老版本的安装"><strong>以下是老版本的安装</strong></a><ul>
+                        
+                <li>
+                    <a href="#cuda" aria-label="CUDA">CUDA</a></li>
+                <li>
+                    <a href="#cudnn" aria-label="cuDNN">cuDNN</a></li>
+                <li>
+                    <a href="#tensorrt" aria-label="TensorRT">TensorRT</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+</div>
+
+
+  <div class="post-content" id="post-content" style="display: none;"><blockquote>
+<p>以下记录安装的TensorRT环境安装的最简单，也是最正确的流程。</p>
+<p><mark>因为很多时候依赖装乱了，直接装TensorRT会出现一堆依赖不存在的问题，因此需要按照顺序一步一步安装</mark></p></blockquote>
+<p><mark>在进行下面的安装步骤之前，建议先将以前的安装的Nvidia相关的都卸载了，否则一定会出现依赖错乱的问题！</mark></p>
+<blockquote>
+<p>建议手动选择卸载cuda、tensorrt、nvidia前缀的软件，然后使用 <code>sudo apt autoremove</code> 清理。</p></blockquote>
+<h3 id="首先需要正确安装cuda">首先需要正确安装CUDA<a hidden class="anchor" aria-hidden="true" href="#首先需要正确安装cuda">#</a></h3>
+<p><mark>采用本地deb包的方法</mark></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+</span></span><span class="line"><span class="cl">sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+</span></span><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda-repo-ubuntu2004-12-4-local_12.4.1-550.54.15-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i cuda-repo-ubuntu2004-12-4-local_12.4.1-550.54.15-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/cuda-repo-ubuntu2004-12-4-local/cuda-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get -y install cuda-toolkit-12-4
+</span></span></code></pre></div><p>💡提示：如果老版本的不用了，也是用本地deb包方式安装的，可以在 <code>/etc/apt/sources.list.d/</code> 路径下清除对应的版本。</p>
+<p>这里是使用12.4.1版本，最新版本可以<a href="https://developer.nvidia.com/cuda-downloads">由此访问</a></p>
+<p>关于Nvidia驱动安装，也可以在此完成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># To install the legacy kernel module flavor: </span>
+</span></span><span class="line"><span class="cl">sudo apt-get install -y cuda-drivers
+</span></span><span class="line"><span class="cl"><span class="c1"># To install the open kernel module flavor:</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install -y nvidia-driver-550-open
+</span></span><span class="line"><span class="cl">sudo apt-get install -y cuda-drivers-550
+</span></span></code></pre></div><p>关于 <code>the open kernel module</code> 和 <code>the legacy kernel module</code> 可以简单理解为新显卡用open，老显卡用legacy。</p>
+<h3 id="安装cudnn">安装cuDNN<a hidden class="anchor" aria-hidden="true" href="#安装cudnn">#</a></h3>
+<p><mark>这是也是采用本地deb包的方法</mark></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Installation Instructions:</span>
+</span></span><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cudnn/9.1.0/local_installers/cudnn-local-repo-ubuntu2004-9.1.0_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i cudnn-local-repo-ubuntu2004-9.1.0_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/cudnn-local-repo-ubuntu2004-9.1.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get -y install cudnn
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># To install for CUDA 11, perform the above configuration but install the CUDA 11 specific package:</span>
+</span></span><span class="line"><span class="cl">sudo apt-get -y install cudnn-cuda-11
+</span></span><span class="line"><span class="cl"><span class="c1"># To install for CUDA 12, perform the above configuration but install the CUDA 12 specific package:</span>
+</span></span><span class="line"><span class="cl">sudo apt-get -y install cudnn-cuda-12
+</span></span></code></pre></div><p>同样可以直接<a href="https://developer.nvidia.com/cudnn-downloads">参考官方文档</a></p>
+<h3 id="安装tensorrt">安装TensorRT<a hidden class="anchor" aria-hidden="true" href="#安装tensorrt">#</a></h3>
+<p><mark>TensorRT需要通过Nvidia开发者账号进行下载</mark></p>
+<p><a href="https://developer.nvidia.com/tensorrt">官网</a>，也是一样的deb安装方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg -i nv-tensorrt-local-repo-ubuntu2004-10.0.0-cuda-12.4_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/nv-tensorrt-local-repo-ubuntu2004-10.0.0-cuda-12.4/nv-tensorrt-local-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install tensorrt
+</span></span></code></pre></div><hr>
+<h3 id="以下是老版本的安装"><strong>以下是老版本的安装</strong><a hidden class="anchor" aria-hidden="true" href="#以下是老版本的安装">#</a></h3>
+<p><mark>同样也需要清理Nvidia之前安装的残留</mark></p>
+<h4 id="cuda">CUDA<a hidden class="anchor" aria-hidden="true" href="#cuda">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+</span></span><span class="line"><span class="cl">sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+</span></span><span class="line"><span class="cl">wget https://developer.download.nvidia.com/compute/cuda/12.1.0/local_installers/cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo dpkg -i cuda-repo-ubuntu2004-12-1-local_12.1.0-530.30.02-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/cuda-repo-ubuntu2004-12-1-local/cuda-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get -y install cuda
+</span></span></code></pre></div><h4 id="cudnn">cuDNN<a hidden class="anchor" aria-hidden="true" href="#cudnn">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg -i cudnn-local-repo-ubuntu2004-8.9.7.29_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/cudnn-local-repo-ubuntu2004-8.9.7.29/cudnn-local-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt-get install libcudnn8
+</span></span></code></pre></div><h4 id="tensorrt">TensorRT<a hidden class="anchor" aria-hidden="true" href="#tensorrt">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo dpkg -i nv-tensorrt-local-repo-ubuntu2004-8.6.1-cuda-12.0_1.0-1_amd64.deb
+</span></span><span class="line"><span class="cl">sudo cp /var/nv-tensorrt-local-repo-ubuntu2004-8.6.1-cuda-12.0/nv-tensorrt-local-*-keyring.gpg /usr/share/keyrings/
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install tensorrt
+</span></span></code></pre></div>
+
+  </div>
+
+  <script>
+    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
+    document.getElementById("ai-check-text").innerText = aiChallengeText;
+
+    function verifyHuman() {
+      let inputText = document.getElementById("ai-input").value;
+      if (inputText === aiChallengeText) {
+        document.getElementById("ai-check").style.display = "none";
+        document.getElementById("post-content").style.display = "block";
+      } else {
+        let errorMsg = document.getElementById("ai-error");
+        errorMsg.style.display = "block";
+        errorMsg.classList.add("shake");
+        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+      }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/tensorrt/">TensorRT</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ahaknow.com/posts/know/linux-kernel/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Linux：内核启动不了之后</span>
+  </a>
+  <a class="next" href="https://blog.ahaknow.com/posts/know/dev-spdlog-usage/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span>开发实战：使用Spdlog管理调试信息</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 <a href="https://blog.ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋备份';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

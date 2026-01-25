@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LeetCode通天塔 on AhaKnow</title>
+    <link>https://blog.ahaknow.com/categories/leetcode%E9%80%9A%E5%A4%A9%E5%A1%94/</link>
+    <description>Recent content in LeetCode通天塔 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/categories/leetcode%E9%80%9A%E5%A4%A9%E5%A1%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leetcode：189. 轮转数组</title>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-189-rotate-array/</link>
+      <pubDate>Mon, 15 Apr 2024 11:36:04 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-189-rotate-array/</guid>
+      <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt;, rotate the array to the right by &lt;code&gt;k&lt;/code&gt; steps, where &lt;code&gt;k&lt;/code&gt; is non-negative.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Example 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Input: nums = [1,2,3,4,5,6,7], k = 3
+Output: [5,6,7,1,2,3,4]
+Explanation:
+rotate 1 steps to the right: [7,1,2,3,4,5,6]
+rotate 2 steps to the right: [6,7,1,2,3,4,5]
+rotate 3 steps to the right: [5,6,7,1,2,3,4]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Example 2:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Input: nums = [-1,-100,3,99], k = 2
+Output: [3,99,-1,-100]
+Explanation: 
+rotate 1 steps to the right: [99,-1,-100,3]
+rotate 2 steps to the right: [3,99,-1,-100]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Constraints:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leetcode：169. 多数元素</title>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-169-majority-element/</link>
+      <pubDate>Mon, 15 Apr 2024 09:27:11 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-169-majority-element/</guid>
+      <description> Boyer-Moore 投票算法</description>
+    </item>
+    <item>
+      <title>Leetcode：80. 删除有序数组中的重复项 II</title>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</link>
+      <pubDate>Fri, 12 Apr 2024 13:19:53 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</guid>
+      <description>一道值得反复品味的经典双指针算法</description>
+    </item>
+    <item>
+      <title>Leetcode：26删除有序数组中的重复项</title>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
+      <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, remove the duplicates &lt;a href=&#34;https://en.wikipedia.org/wiki/In-place_algorithm&#34;&gt;&lt;strong&gt;in-place&lt;/strong&gt;&lt;/a&gt; such that each unique element appears only &lt;strong&gt;once&lt;/strong&gt;. The &lt;strong&gt;relative order&lt;/strong&gt; of the elements should be kept the &lt;strong&gt;same&lt;/strong&gt;. Then return &lt;em&gt;the number of unique elements in&lt;/em&gt; &lt;code&gt;nums&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Consider the number of unique elements of &lt;code&gt;nums&lt;/code&gt; to be &lt;code&gt;k&lt;/code&gt;, to get accepted, you need to do the following things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the array &lt;code&gt;nums&lt;/code&gt; such that the first &lt;code&gt;k&lt;/code&gt; elements of &lt;code&gt;nums&lt;/code&gt; contain the unique elements in the order they were present in &lt;code&gt;nums&lt;/code&gt; initially. The remaining elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size of &lt;code&gt;nums&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Return &lt;code&gt;k&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Custom Judge:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leetcode：27移除元素</title>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</link>
+      <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
+      <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; and an integer &lt;code&gt;val&lt;/code&gt;, remove all occurrences of &lt;code&gt;val&lt;/code&gt; in &lt;code&gt;nums&lt;/code&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/In-place_algorithm&#34;&gt;&lt;strong&gt;in-place&lt;/strong&gt;&lt;/a&gt;. The order of the elements may be changed. Then return &lt;em&gt;the number of elements in&lt;/em&gt; &lt;code&gt;nums&lt;/code&gt; &lt;em&gt;which are not equal to&lt;/em&gt; &lt;code&gt;val&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Consider the number of elements in &lt;code&gt;nums&lt;/code&gt; which are not equal to &lt;code&gt;val&lt;/code&gt; be &lt;code&gt;k&lt;/code&gt;, to get accepted, you need to do the following things:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Change the array &lt;code&gt;nums&lt;/code&gt; such that the first &lt;code&gt;k&lt;/code&gt; elements of &lt;code&gt;nums&lt;/code&gt; contain the elements which are not equal to &lt;code&gt;val&lt;/code&gt;. The remaining elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size of &lt;code&gt;nums&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Return &lt;code&gt;k&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Custom Judge:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Leetcode：88合并两个有序数组</title>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
+      <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;LeetCode上“最简单”的一道题了吧？&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;You are given two integer arrays &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt;, sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, and two integers &lt;code&gt;m&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt;, representing the number of elements in &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt; respectively.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
