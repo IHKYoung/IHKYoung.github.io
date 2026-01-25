@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 25 Jan 2026 22:56:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 25 Jan 2026 23:29:28 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
@@ -31,13 +31,27 @@
 &lt;p&gt;可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～&lt;/p&gt;</description>
     </item>
     <item>
+      <title>2年前和现在的变化。</title>
+      <link>https://blog.ahaknow.com/posts/diary/2026-01-25/</link>
+      <pubDate>Sun, 25 Jan 2026 23:29:28 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/diary/2026-01-25/</guid>
+      <description>&lt;p&gt;我记得两年前（2024年），自己搞这个博客，可费劲了，现在需要自己去coding，去想解决bug，去搜索相关的博客。
+但是现在呢，完全不用了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;如果我现在的博客的框架又遇到了问题，我完成可以让AI去修改。&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>AhaKnow博客备忘录</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</link>
       <pubDate>Sun, 25 Jan 2026 22:56:50 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
       <description>&lt;p&gt;又是两年过去了。
 AhaKnow的博客咋使用的我都忘记了，需要记录一下。&lt;/p&gt;
-&lt;h2 id=&#34;博客的主题&#34;&gt;博客的主题&lt;/h2&gt;</description>
+&lt;h2 id=&#34;博客的主题&#34;&gt;博客的主题&lt;/h2&gt;
+&lt;p&gt;博客的主题在themes路径下，直接修改就行。
+然后本地运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo serve -F
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>2026年，继续记录！</title>

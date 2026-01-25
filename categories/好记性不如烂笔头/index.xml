@@ -26,7 +26,11 @@
       <guid>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
       <description>&lt;p&gt;又是两年过去了。
 AhaKnow的博客咋使用的我都忘记了，需要记录一下。&lt;/p&gt;
-&lt;h2 id=&#34;博客的主题&#34;&gt;博客的主题&lt;/h2&gt;</description>
+&lt;h2 id=&#34;博客的主题&#34;&gt;博客的主题&lt;/h2&gt;
+&lt;p&gt;博客的主题在themes路径下，直接修改就行。
+然后本地运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo serve -F
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>好记性不如烂笔头</title>
