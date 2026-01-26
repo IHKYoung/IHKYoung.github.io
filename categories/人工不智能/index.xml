@@ -6,8 +6,24 @@
     <description>Recent content in 人工不智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 26 Jan 2026 18:10:21 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEgithub-ssh%E7%9A%84socks5%E4%BB%A3%E7%90%86%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 26 Jan 2026 18:10:21 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEgithub-ssh%E7%9A%84socks5%E4%BB%A3%E7%90%86%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;h1 id=&#34;ubuntu-下配置-github-ssh-socks5-代理终极方案&#34;&gt;Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案&lt;/h1&gt;
+&lt;h3 id=&#34;1-问题描述&#34;&gt;1. 问题描述&lt;/h3&gt;
+&lt;p&gt;在使用 &lt;code&gt;ssh -vT git@github.com&lt;/code&gt; 测试连接时，进程卡死（Hang）在本地版本发送阶段，无法完成握手。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;典型报错日志：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Plaintext&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;debug1: Executing proxy command: ...
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1...
+# (在此处无限卡顿，最终超时或 Connection closed)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-根本原因分析-root-cause&#34;&gt;2. 根本原因分析 (Root Cause)&lt;/h3&gt;
+&lt;p&gt;即使代理网络连通性正常（手动测试 &lt;code&gt;nc&lt;/code&gt; 或 &lt;code&gt;connect&lt;/code&gt; 显示 Connected），SSH 依然可能失败，主要原因有两个：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Conda使用总结与经验文档</title>
       <link>https://blog.ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</link>
@@ -35,17 +51,17 @@
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git%E8%87%AA%E5%8A%A8push%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git-%E8%87%AA%E5%8A%A8-push-%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git%E8%87%AA%E5%8A%A8push%E8%84%9A%E6%9C%AC/</guid>
       <description>&lt;h2 id=&#34;-介绍&#34;&gt;&lt;strong&gt;📌 介绍&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;在软件开发过程中，我们常常需要将本地的 Git 仓库&lt;strong&gt;自动提交并推送&lt;/strong&gt;到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个&lt;strong&gt;适用于 Windows (Git Bash)、macOS 和 Linux&lt;/strong&gt; 的自动 &lt;code&gt;push&lt;/code&gt; 脚本，并详细解析其中的关键点。&lt;/p&gt;</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git%E5%90%88%E5%B9%B6%E4%B8%8Epull%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/-git-%E5%90%88%E5%B9%B6%E4%B8%8E-pull-%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git%E5%90%88%E5%B9%B6%E4%B8%8Epull%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;p&gt;%% 在使用 %% Git 进行 &lt;code&gt;git pull&lt;/code&gt;、&lt;code&gt;git merge&lt;/code&gt; 等操作时，常常会遇到各种冲突和错误。这份文档总结了 &lt;strong&gt;Git 合并相关问题&lt;/strong&gt;，提供了&lt;strong&gt;案例分析、解决方案&lt;/strong&gt;，并附上清晰的注释，帮助你快速解决问题。💡&lt;/p&gt;</description>
     </item>
     <item>

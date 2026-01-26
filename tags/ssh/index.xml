@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SSH on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/ssh/</link>
+    <description>Recent content in SSH on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 26 Jan 2026 18:10:21 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEgithub-ssh%E7%9A%84socks5%E4%BB%A3%E7%90%86%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 26 Jan 2026 18:10:21 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEgithub-ssh%E7%9A%84socks5%E4%BB%A3%E7%90%86%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88/</guid>
+      <description>&lt;h1 id=&#34;ubuntu-下配置-github-ssh-socks5-代理终极方案&#34;&gt;Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案&lt;/h1&gt;
+&lt;h3 id=&#34;1-问题描述&#34;&gt;1. 问题描述&lt;/h3&gt;
+&lt;p&gt;在使用 &lt;code&gt;ssh -vT git@github.com&lt;/code&gt; 测试连接时，进程卡死（Hang）在本地版本发送阶段，无法完成握手。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;典型报错日志：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Plaintext&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;debug1: Executing proxy command: ...
+debug1: Local version string SSH-2.0-OpenSSH_9.6p1...
+# (在此处无限卡顿，最终超时或 Connection closed)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-根本原因分析-root-cause&#34;&gt;2. 根本原因分析 (Root Cause)&lt;/h3&gt;
+&lt;p&gt;即使代理网络连通性正常（手动测试 &lt;code&gt;nc&lt;/code&gt; 或 &lt;code&gt;connect&lt;/code&gt; 显示 Connected），SSH 依然可能失败，主要原因有两个：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
