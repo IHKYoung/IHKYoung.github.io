@@ -339,7 +339,19 @@
   </div>
 
   
-  <div id="post-content" style="display: none;"></div>
+  <div class="post-content" id="post-content" style="display: none;"><p>突然发现，其实可以使用中文路径作为文章网址的路径呀，其实没必要一定要转成英文的。</p>
+<p><mark>之前为啥用英文作为链接呢？可能是保存在Git上的时候可视化好一些？但都已经是UTF-8编码了，也无所谓啦</mark></p>
+<blockquote>
+<p>2月7日补充：<br>
+想起来了，之所以使用英文作为网址，是为了SEO，优化搜索🤣。</p></blockquote>
+<blockquote>
+<p>2月8日补充：
+quote的样式有点问题，需要调整一下。需要空一行才能显示换行？？</p></blockquote>
+<p><strong>来自GPT的回答</strong>：<br>
+在 Markdown 里，如果要让 <strong>换行生效</strong>，你可以在行尾 <strong>加两个空格</strong>。</p>
+
+
+  </div>
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
@@ -385,8 +397,6 @@
       document.getElementById("password-protection").style.display = "none";
       let postContentDiv = document.getElementById("post-content");
       postContentDiv.style.display = "block";
-      
-      postContentDiv.innerHTML = `\u003cp\u003e突然发现，其实可以使用中文路径作为文章网址的路径呀，其实没必要一定要转成英文的。\u003c\/p\u003e\n\u003cp\u003e\u003cmark\u003e之前为啥用英文作为链接呢？可能是保存在Git上的时候可视化好一些？但都已经是UTF-8编码了，也无所谓啦\u003c\/mark\u003e\u003c\/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e2月7日补充：\u003cbr\u003e\n想起来了，之所以使用英文作为网址，是为了SEO，优化搜索🤣。\u003c\/p\u003e\u003c\/blockquote\u003e\n\u003cblockquote\u003e\n\u003cp\u003e2月8日补充：\nquote的样式有点问题，需要调整一下。需要空一行才能显示换行？？\u003c\/p\u003e\u003c\/blockquote\u003e\n\u003cp\u003e\u003cstrong\u003e来自GPT的回答\u003c\/strong\u003e：\u003cbr\u003e\n在 Markdown 里，如果要让 \u003cstrong\u003e换行生效\u003c\/strong\u003e，你可以在行尾 \u003cstrong\u003e加两个空格\u003c\/strong\u003e。\u003c\/p\u003e\n`;
     }
 
     
@@ -432,12 +442,12 @@
   <a class="prev" href="https://blog.ahaknow.com/posts/aiknow/win-scoop/">
     <span class="title">« 上一页</span>
     <br>
-    <span>✨晕倒不死指南：Scoop包管理</span>
+    <span class="post-nav-title" title="✨晕倒不死指南：Scoop包管理">✨晕倒不死指南：Scoop包管理</span>
   </a>
   <a class="next" href="https://blog.ahaknow.com/posts/aiknow/github-readme/">
     <span class="title">下一页 »</span>
     <br>
-    <span>GitHub README 美化经验分享</span>
+    <span class="post-nav-title" title="GitHub README 美化经验分享">GitHub README 美化经验分享</span>
   </a>
 </nav>
 
