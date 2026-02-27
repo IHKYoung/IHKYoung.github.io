@@ -46,21 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>Leetcode：189. 轮转数组 | AhaKnow</title>
 <meta name="keywords" content="分而治之">
-<meta name="description" content="Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
-Example 1:
-Input: nums = [1,2,3,4,5,6,7], k = 3
-Output: [5,6,7,1,2,3,4]
-Explanation:
-rotate 1 steps to the right: [7,1,2,3,4,5,6]
-rotate 2 steps to the right: [6,7,1,2,3,4,5]
-rotate 3 steps to the right: [5,6,7,1,2,3,4]
-Example 2:
-Input: nums = [-1,-100,3,99], k = 2
-Output: [3,99,-1,-100]
-Explanation: 
-rotate 1 steps to the right: [99,-1,-100,3]
-rotate 2 steps to the right: [3,99,-1,-100]
-Constraints:">
+<meta name="description" content="尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/leetcode-189-rotate-array/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -109,43 +95,15 @@ Constraints:">
 
     </style>
 </noscript><meta property="og:title" content="Leetcode：189. 轮转数组" />
-<meta property="og:description" content="Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
-Example 1:
-Input: nums = [1,2,3,4,5,6,7], k = 3
-Output: [5,6,7,1,2,3,4]
-Explanation:
-rotate 1 steps to the right: [7,1,2,3,4,5,6]
-rotate 2 steps to the right: [6,7,1,2,3,4,5]
-rotate 3 steps to the right: [5,6,7,1,2,3,4]
-Example 2:
-Input: nums = [-1,-100,3,99], k = 2
-Output: [3,99,-1,-100]
-Explanation: 
-rotate 1 steps to the right: [99,-1,-100,3]
-rotate 2 steps to the right: [3,99,-1,-100]
-Constraints:" />
+<meta property="og:description" content="尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/leetcode-189-rotate-array/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-15T11:36:04+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Leetcode：189. 轮转数组"/>
-<meta name="twitter:description" content="Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.
-Example 1:
-Input: nums = [1,2,3,4,5,6,7], k = 3
-Output: [5,6,7,1,2,3,4]
-Explanation:
-rotate 1 steps to the right: [7,1,2,3,4,5,6]
-rotate 2 steps to the right: [6,7,1,2,3,4,5]
-rotate 3 steps to the right: [5,6,7,1,2,3,4]
-Example 2:
-Input: nums = [-1,-100,3,99], k = 2
-Output: [3,99,-1,-100]
-Explanation: 
-rotate 1 steps to the right: [99,-1,-100,3]
-rotate 2 steps to the right: [3,99,-1,-100]
-Constraints:"/>
+<meta name="twitter:description" content="尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题"/>
 
 
 <script type="application/ld+json">
@@ -156,13 +114,13 @@ Constraints:"/>
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -180,7 +138,7 @@ Constraints:"/>
   "@type": "BlogPosting",
   "headline": "Leetcode：189. 轮转数组",
   "name": "Leetcode：189. 轮转数组",
-  "description": "Given an integer array nums, rotate the array to the right by k steps, where k is non-negative.\nExample 1:\nInput: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4] Explanation: rotate 1 steps to the right: [7,1,2,3,4,5,6] rotate 2 steps to the right: [6,7,1,2,3,4,5] rotate 3 steps to the right: [5,6,7,1,2,3,4] Example 2:\nInput: nums = [-1,-100,3,99], k = 2 Output: [3,99,-1,-100] Explanation: rotate 1 steps to the right: [99,-1,-100,3] rotate 2 steps to the right: [3,99,-1,-100] Constraints:\n",
+  "description": "尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题",
   "keywords": [
     "分而治之"
   ],
@@ -188,7 +146,7 @@ Constraints:"/>
   "wordCount" : "4090",
   "inLanguage": "zh",
   "datePublished": "2024-04-15T11:36:04+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -255,38 +213,38 @@ Constraints:"/>
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -296,10 +254,13 @@ Constraints:"/>
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       Leetcode：189. 轮转数组
     </h1>
+    <div class="post-description">
+      尽可能想出更多的解决方案，至少有 三种 不同的方法可以解决这个问题
+    </div>
     <div class="post-meta">
 
 
@@ -332,7 +293,7 @@ Constraints:"/>
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>

@@ -6,50 +6,35 @@
     <description>Recent content in 双指针 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode：80. 删除有序数组中的重复项 II</title>
-      <link>https://blog.ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-80-duplicates-sorted-array-ii/</link>
       <pubDate>Fri, 12 Apr 2024 13:19:53 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/know/leetcode-80-remove-duplicates-from-sorted-array-ii/</guid>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-80-duplicates-sorted-array-ii/</guid>
       <description>一道值得反复品味的经典双指针算法</description>
     </item>
     <item>
       <title>Leetcode：26删除有序数组中的重复项</title>
-      <link>https://blog.ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</link>
+      <link>https://blog.ahaknow.com/posts/know/leetcode-26-duplicates-sorted-array/</link>
       <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/know/leetcode-26-remove-duplicates-from-sorted-array/</guid>
-      <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, remove the duplicates &lt;a href=&#34;https://en.wikipedia.org/wiki/In-place_algorithm&#34;&gt;&lt;strong&gt;in-place&lt;/strong&gt;&lt;/a&gt; such that each unique element appears only &lt;strong&gt;once&lt;/strong&gt;. The &lt;strong&gt;relative order&lt;/strong&gt; of the elements should be kept the &lt;strong&gt;same&lt;/strong&gt;. Then return &lt;em&gt;the number of unique elements in&lt;/em&gt; &lt;code&gt;nums&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Consider the number of unique elements of &lt;code&gt;nums&lt;/code&gt; to be &lt;code&gt;k&lt;/code&gt;, to get accepted, you need to do the following things:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Change the array &lt;code&gt;nums&lt;/code&gt; such that the first &lt;code&gt;k&lt;/code&gt; elements of &lt;code&gt;nums&lt;/code&gt; contain the unique elements in the order they were present in &lt;code&gt;nums&lt;/code&gt; initially. The remaining elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size of &lt;code&gt;nums&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Return &lt;code&gt;k&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Custom Judge:&lt;/strong&gt;&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/know/leetcode-26-duplicates-sorted-array/</guid>
+      <description>这个问题可以使用类似于LeetCode26的解决方案，即使用双指针法</description>
     </item>
     <item>
       <title>Leetcode：27移除元素</title>
       <link>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</link>
       <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
-      <description>&lt;p&gt;Given an integer array &lt;code&gt;nums&lt;/code&gt; and an integer &lt;code&gt;val&lt;/code&gt;, remove all occurrences of &lt;code&gt;val&lt;/code&gt; in &lt;code&gt;nums&lt;/code&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/In-place_algorithm&#34;&gt;&lt;strong&gt;in-place&lt;/strong&gt;&lt;/a&gt;. The order of the elements may be changed. Then return &lt;em&gt;the number of elements in&lt;/em&gt; &lt;code&gt;nums&lt;/code&gt; &lt;em&gt;which are not equal to&lt;/em&gt; &lt;code&gt;val&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Consider the number of elements in &lt;code&gt;nums&lt;/code&gt; which are not equal to &lt;code&gt;val&lt;/code&gt; be &lt;code&gt;k&lt;/code&gt;, to get accepted, you need to do the following things:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Change the array &lt;code&gt;nums&lt;/code&gt; such that the first &lt;code&gt;k&lt;/code&gt; elements of &lt;code&gt;nums&lt;/code&gt; contain the elements which are not equal to &lt;code&gt;val&lt;/code&gt;. The remaining elements of &lt;code&gt;nums&lt;/code&gt; are not important as well as the size of &lt;code&gt;nums&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Return &lt;code&gt;k&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Custom Judge:&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>通过这种方式，可以实现原地修改数组，同时只使用 O(1) 的额外空间</description>
     </item>
     <item>
       <title>Leetcode：88合并两个有序数组</title>
       <link>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
       <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;LeetCode上“最简单”的一道题了吧？&lt;/p&gt;
-&lt;p&gt;&lt;mark&gt;长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！&lt;/mark&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;You are given two integer arrays &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt;, sorted in &lt;strong&gt;non-decreasing order&lt;/strong&gt;, and two integers &lt;code&gt;m&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt;, representing the number of elements in &lt;code&gt;nums1&lt;/code&gt; and &lt;code&gt;nums2&lt;/code&gt; respectively.&lt;/p&gt;</description>
+      <description>（你还记得你多年未写算法题，想到了双指针，结果一上来写了两个for的蠢事嘛🤣）</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Automation on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/automation/</link>
+    <description>Recent content in Automation on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Outlook 验证码自动转发飞书：一次从 0 到 1 的全链路排障记录</title>
+      <link>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</link>
+      <pubDate>Thu, 26 Feb 2026 19:45:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</guid>
+      <description>复盘 Outlook 邮箱中 OpenAI 登录验证码自动转发飞书机器人的完整过程，覆盖关键踩坑、修复路径与稳定运行配置。</description>
+    </item>
+  </channel>
+</rss>

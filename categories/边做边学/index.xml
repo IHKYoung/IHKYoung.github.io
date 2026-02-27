@@ -6,52 +6,14 @@
     <description>Recent content in 边做边学 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E8%BE%B9%E5%81%9A%E8%BE%B9%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</link>
-      <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/todo/aha-dig-into-3d-reconstruction/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;这个标题很有意思～
-置身三维重建于死地而后生，啥也不说了，死磕到底吧！&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;
-&lt;p&gt;如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地去拍没有限制，那么试想，这些一张张照片，能不能“组合”或者“还原”出我所见到的这个场景呢？这个场景要是立体的，三维的，生动活泼的，它允许我在这个“还原”出来的场景世界中去游览，观赏，就好像又回到了之前的那个真实场景中一样。能不能做到呢？&lt;/p&gt;</description>
-    </item>
     <item>
       <title>开发实战：项目中的CMake技巧</title>
       <link>https://blog.ahaknow.com/posts/know/dev-project-cmake/</link>
       <pubDate>Mon, 22 Apr 2024 22:57:28 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-project-cmake/</guid>
-      <description>&lt;p&gt;一个“好看”的CMake管理应该是这样的：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── CMakeLists.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── main_class.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── main.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── model
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── seg_0415.onnx
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── seg_0415.trt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── Parser
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── CMakeLists.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── data_frame_parser.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── data_frame_parser.h
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── RoadSeg
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── CMakeLists.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── road_segmentation.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── road_segmentation.hpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── TCPClient
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── CMakeLists.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── tcp_frame_client.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── tcp_frame_client.h
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── Test
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── main_simple.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   ├── ptr_mat.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── test_main.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── Utils
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├── CMakeLists.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├── logger.cpp
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    └── logger.h
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;具体而言，比如Parser下面的CMakeLists.txt：&lt;/p&gt;</description>
+      <description>围绕开发实战：项目中的CMake技巧，重点总结Knowledge、边做边学，并给出可执行实践。</description>
     </item>
   </channel>
 </rss>

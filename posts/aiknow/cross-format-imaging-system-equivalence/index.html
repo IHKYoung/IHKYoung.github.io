@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>跨画幅影像系统等效性分析 | AhaKnow</title>
+<meta name="keywords" content="AI">
+<meta name="description" content="在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则">
+<meta name="author" content="Clarke">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="跨画幅影像系统等效性分析" />
+<meta property="og:description" content="在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-01-26T22:05:16+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="跨画幅影像系统等效性分析"/>
+<meta name="twitter:description" content="在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 持续生长",
+      "item": "https://blog.ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🤖 人工智能",
+      "item": "https://blog.ahaknow.com/posts/aiknow/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "跨画幅影像系统等效性分析",
+      "item": "https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "跨画幅影像系统等效性分析",
+  "name": "跨画幅影像系统等效性分析",
+  "description": "在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则",
+  "keywords": [
+    "AI"
+  ],
+  "articleBody": "跨画幅影像系统等效性分析 Cross-Format Imaging Equivalence: 1/1.8\" vs. M4/3 Wide\n1/1.8英寸传感器与M4/3宽幅模式的等效光圈、ISO及总进光量换算\n1. 核心结论 (Executive Summary) 在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则。\n针对 1/1.8英寸 与 M4/3宽幅 (17.78mm) 两个系统，实战等效转换标准如下：\n参数项 1/1.8英寸系统 (源) M4/3 宽幅系统 (目标) 物理原理 光圈 f/3.4 f/8.0 保持物理通光孔径直径一致，统一景深 快门 1/250 1/250 保持运动模糊一致 (时间积分一致) ISO/增益 ISO 200 (+6dB) ISO 800 (+6dB) 补偿光圈缩小的光强损失，统一信噪比 总进光量 1 Unit 1 Unit 物理光子总量恒等，画质质感一致 2. 硬件规格定义 (Hardware Specifications) 一切计算基于以下物理尺寸数据。\n2.1 源传感器：1/1.8英寸 (Standard Type) 命名源于真空管时代标准（详见第5章）。\n物理宽度 ($W_{small}$): $7.18\\text{ mm}$ 物理高度 ($H_{small}$): $5.32\\text{ mm}$ 对角线 ($D_{small}$): $\\approx 8.93\\text{ mm}$ 物理面积 ($A_{small}$): $\\approx 38.20\\text{ mm}^2$ 参考型号：Sony IMX178 / IMX678 等通用规格 2.2 目标传感器：M4/3 宽幅模式 (Video Multi-Aspect) 专为 16:9/17:9 视频优化的特化尺寸（详见第5章）。\n物理宽度 ($W_{large}$): $17.78\\text{ mm}$ 物理高度 ($H_{large}$): $10.00\\text{ mm}$ 对角线 ($D_{large}$): $\\approx 20.40\\text{ mm}$ 物理面积 ($A_{large}$): $177.80\\text{ mm}^2$ 参考设备：Blackmagic Micro Studio Camera 4K, Panasonic GH5S/GH6, DJI Zenmuse, BMPCC 4K 3. 数学推导与计算 (Mathematical Derivation) 3.1 基础常数：裁切系数 ($K$) 裁切系数基于对角线长度的比值，是光圈换算的依据。\n$$D_{small} = \\sqrt{7.18^2 + 5.32^2} \\approx 8.93\\text{ mm}$$\n$$D_{large} = \\sqrt{17.78^2 + 10^2} \\approx 20.40\\text{ mm}$$\n$$K = \\frac{D_{large}}{D_{small}} = \\frac{20.40}{8.93} \\approx \\mathbf{2.28}$$\n3.2 进光量常数：面积倍率 ($R_{area}$) “4.7倍”的出处在此。\nISO 和信噪比的换算基于物理受光面积的比值。\n$$A_{small} = 7.18 \\times 5.32 = 38.1976\\text{ mm}^2$$\n$$A_{large} = 17.78 \\times 10.00 = 177.80\\text{ mm}^2$$\n$$R_{area} = \\frac{A_{large}}{A_{small}} = \\frac{177.80}{38.1976} \\approx \\mathbf{4.6547}$$\n工程结论： M4/3 宽幅传感器的物理受光面积约为 1/1.8英寸传感器的 4.7倍。这意味着它能多接收 4.7 倍的光子。\n3.3 等效光圈计算 目标：保持物理通光孔径 ($D_{phys}$) 不变。\n$$F_{eq} = F_{origin} \\times K$$\n$$F_{eq} = 3.4 \\times 2.28 = 7.752$$\n工程取值： 最接近的标准光圈档位为 f/8.0。\n3.4 等效 ISO 计算 目标：保持最终画面亮度一致，且信噪比一致。\n$$ISO_{eq} = ISO_{origin} \\times R_{area}$$\n$$ISO_{eq} = 200 \\times 4.65 = 930$$\n工程取值： ISO 800。\n分析：ISO 800 是标准整档。虽然理论值是 930，但考虑到大底传感器通常具备更高的量子效率（QE）和更先进的电路设计，ISO 800 实际上能完美对齐 ISO 200 的噪点水平。\n4. 实验验证 (Experimental Verification) 测试对象：\nJCam: 1/1.8\" 传感器 BMD: M4/3 电影机 设置参数：\nJCam: f/3.4, 1/250s, Gain 6dB (ISO 200) BMD: f/8.0, 1/250s, Gain 6dB (ISO 800) 物理现象解释：\n光圈端： f/3.4 $\\rightarrow$ f/8.0，光通量减少约 5.5倍 (2.5档)。 增益端： ISO 200 $\\rightarrow$ ISO 800，灵敏度提升 4倍 (2档)。 面积端： 传感器面积大 4.7倍。 结果：\n面积红利 (4.7x) 被光圈缩小 (1/5.5x) 大部分抵消，剩余的亮度差异由 ISO 提升 (4x) 补齐。\n最终实现了亮度一致、景深一致、颗粒感一致的完美等效。\n5. 历史背景溯源 (Historical Context) 理解传感器尺寸为何如此命名，以及为何出现 $17.78\\text{ mm}$ 这种非标数值。\n5.1 远古时代：真空管的“虚标” (1950s-1980s) 背景： 电视摄像机使用真空摄像管 (Vidicon Tube)。 命名规则： “1英寸”、“1/1.8英寸”指的是玻璃管的外径，而非成像靶面大小。 折算公式： 由于玻璃厚度和扫描限制，实际成像对角线约为管径的 2/3 (66%)。 例： 1英寸 = 25.4mm $\\rightarrow$ 实际成像对角线 $\\approx 16\\text{ mm}$。 例： 1/1.8英寸 $\\approx 14.1\\text{ mm}$ (管径) $\\rightarrow$ 实际对角线 $\\approx 8.9\\text{ mm}$。 现状： 这种古老的命名法被数码相机沿用至今。 5.2 胶片时代：徕卡的横向思维 (1913) 背景： 爱迪生确立了 35mm 电影胶片，画面竖置 ($24 \\times 18\\text{ mm}$)。 变革： 徕卡工程师 Oskar Barnack 将胶片横置，并将两帧电影画面合并为一帧照片。 结果： $18\\text{ mm} \\times 2 = 36\\text{ mm}$。确立了 $36 \\times 24\\text{ mm}$ (全画幅) 的百年标准。 5.3 数码时代：M4/3 的分化 (Standard vs. Multi-Aspect) 标准 M4/3 (4:3): 奥林巴斯主导，直接沿用 4/3英寸真空管的成像圈。 尺寸：$17.3 \\times 13.0\\text{ mm}$。 宽幅 M4/3 (Multi-Aspect): 背景： 视频从 4:3 转向 16:9 宽屏。 问题： 在标准 4:3 传感器上拍 16:9，需裁切上下，视角损失。 解决方案： 松下 (Panasonic) / 大疆 (DJI) 等厂商引入冗余设计。将传感器做得比标准更宽 ($17.3\\text{ mm} \\rightarrow 17.78\\text{ mm}$ 甚至更宽)，使得成像圈边缘被充分利用。 意义： 本文档中的 $17.78 \\times 10\\text{ mm}$ 传感器，即为此类视频特化型传感器在 16:9 模式下的有效工作区域。 ",
+  "wordCount" : "1550",
+  "inLanguage": "zh",
+  "datePublished": "2026-01-26T22:05:16+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Clarke"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://blog.ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/aiknow/">🤖 人工智能</a></div>
+    <h1 class="post-title entry-hint-parent">
+      跨画幅影像系统等效性分析
+    </h1>
+    <div class="post-description">
+      在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2026-02-27
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2026-01-26
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1550 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Clarke
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/ai/" style="color: var(--secondary)!important;">AI</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e8%b7%a8%e7%94%bb%e5%b9%85%e5%bd%b1%e5%83%8f%e7%b3%bb%e7%bb%9f%e7%ad%89%e6%95%88%e6%80%a7%e5%88%86%e6%9e%90" aria-label="跨画幅影像系统等效性分析">跨画幅影像系统等效性分析</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%a0%b8%e5%bf%83%e7%bb%93%e8%ae%ba-executive-summary" aria-label="1. 核心结论 (Executive Summary)">1. 核心结论 (Executive Summary)</a></li>
+                <li>
+                    <a href="#2-%e7%a1%ac%e4%bb%b6%e8%a7%84%e6%a0%bc%e5%ae%9a%e4%b9%89-hardware-specifications" aria-label="2. 硬件规格定义 (Hardware Specifications)">2. 硬件规格定义 (Hardware Specifications)</a><ul>
+                        
+                <li>
+                    <a href="#21-%e6%ba%90%e4%bc%a0%e6%84%9f%e5%99%a8118%e8%8b%b1%e5%af%b8-standard-type" aria-label="2.1 源传感器：1/1.8英寸 (Standard Type)">2.1 源传感器：1/1.8英寸 (Standard Type)</a></li>
+                <li>
+                    <a href="#22-%e7%9b%ae%e6%a0%87%e4%bc%a0%e6%84%9f%e5%99%a8m43-%e5%ae%bd%e5%b9%85%e6%a8%a1%e5%bc%8f-video-multi-aspect" aria-label="2.2 目标传感器：M4/3 宽幅模式 (Video Multi-Aspect)">2.2 目标传感器：M4/3 宽幅模式 (Video Multi-Aspect)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e6%95%b0%e5%ad%a6%e6%8e%a8%e5%af%bc%e4%b8%8e%e8%ae%a1%e7%ae%97-mathematical-derivation" aria-label="3. 数学推导与计算 (Mathematical Derivation)">3. 数学推导与计算 (Mathematical Derivation)</a><ul>
+                        
+                <li>
+                    <a href="#31-%e5%9f%ba%e7%a1%80%e5%b8%b8%e6%95%b0%e8%a3%81%e5%88%87%e7%b3%bb%e6%95%b0-k" aria-label="3.1 基础常数：裁切系数 ($K$)">3.1 基础常数：裁切系数 ($K$)</a></li>
+                <li>
+                    <a href="#32-%e8%bf%9b%e5%85%89%e9%87%8f%e5%b8%b8%e6%95%b0%e9%9d%a2%e7%a7%af%e5%80%8d%e7%8e%87-r_area" aria-label="3.2 进光量常数：面积倍率 ($R_{area}$)">3.2 进光量常数：面积倍率 ($R_{area}$)</a></li>
+                <li>
+                    <a href="#33-%e7%ad%89%e6%95%88%e5%85%89%e5%9c%88%e8%ae%a1%e7%ae%97" aria-label="3.3 等效光圈计算">3.3 等效光圈计算</a></li>
+                <li>
+                    <a href="#34-%e7%ad%89%e6%95%88-iso-%e8%ae%a1%e7%ae%97" aria-label="3.4 等效 ISO 计算">3.4 等效 ISO 计算</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-%e5%ae%9e%e9%aa%8c%e9%aa%8c%e8%af%81-experimental-verification" aria-label="4. 实验验证 (Experimental Verification)">4. 实验验证 (Experimental Verification)</a></li>
+                <li>
+                    <a href="#5-%e5%8e%86%e5%8f%b2%e8%83%8c%e6%99%af%e6%ba%af%e6%ba%90-historical-context" aria-label="5. 历史背景溯源 (Historical Context)">5. 历史背景溯源 (Historical Context)</a><ul>
+                        
+                <li>
+                    <a href="#51-%e8%bf%9c%e5%8f%a4%e6%97%b6%e4%bb%a3%e7%9c%9f%e7%a9%ba%e7%ae%a1%e7%9a%84%e8%99%9a%e6%a0%87-1950s-1980s" aria-label="5.1 远古时代：真空管的“虚标” (1950s-1980s)">5.1 远古时代：真空管的“虚标” (1950s-1980s)</a></li>
+                <li>
+                    <a href="#52-%e8%83%b6%e7%89%87%e6%97%b6%e4%bb%a3%e5%be%95%e5%8d%a1%e7%9a%84%e6%a8%aa%e5%90%91%e6%80%9d%e7%bb%b4-1913" aria-label="5.2 胶片时代：徕卡的横向思维 (1913)">5.2 胶片时代：徕卡的横向思维 (1913)</a></li>
+                <li>
+                    <a href="#53-%e6%95%b0%e7%a0%81%e6%97%b6%e4%bb%a3m43-%e7%9a%84%e5%88%86%e5%8c%96-standard-vs-multi-aspect" aria-label="5.3 数码时代：M4/3 的分化 (Standard vs. Multi-Aspect)">5.3 数码时代：M4/3 的分化 (Standard vs. Multi-Aspect)</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+</div>
+
+
+  <div class="post-content" id="post-content" style="display: none;"><h1 id="跨画幅影像系统等效性分析">跨画幅影像系统等效性分析<a hidden class="anchor" aria-hidden="true" href="#跨画幅影像系统等效性分析">#</a></h1>
+<blockquote>
+<p><strong>Cross-Format Imaging Equivalence: 1/1.8&quot; vs. M4/3 Wide</strong></p>
+<p>1/1.8英寸传感器与M4/3宽幅模式的等效光圈、ISO及总进光量换算</p></blockquote>
+<hr>
+<h2 id="1-核心结论-executive-summary">1. 核心结论 (Executive Summary)<a hidden class="anchor" aria-hidden="true" href="#1-核心结论-executive-summary">#</a></h2>
+<p>在跨画幅对比中，为了实现<strong>完全一致的画质表现</strong>（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则。</p>
+<p>针对 <strong>1/1.8英寸</strong> 与 <strong>M4/3宽幅 (17.78mm)</strong> 两个系统，实战等效转换标准如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>参数项</strong></th>
+          <th><strong>1/1.8英寸系统 (源)</strong></th>
+          <th><strong>M4/3 宽幅系统 (目标)</strong></th>
+          <th><strong>物理原理</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>光圈</strong></td>
+          <td><strong>f/3.4</strong></td>
+          <td><strong>f/8.0</strong></td>
+          <td>保持物理通光孔径直径一致，统一景深</td>
+      </tr>
+      <tr>
+          <td><strong>快门</strong></td>
+          <td><strong>1/250</strong></td>
+          <td><strong>1/250</strong></td>
+          <td>保持运动模糊一致 (时间积分一致)</td>
+      </tr>
+      <tr>
+          <td><strong>ISO/增益</strong></td>
+          <td><strong>ISO 200</strong> (+6dB)</td>
+          <td><strong>ISO 800</strong> (+6dB)</td>
+          <td>补偿光圈缩小的光强损失，统一信噪比</td>
+      </tr>
+      <tr>
+          <td><strong>总进光量</strong></td>
+          <td><strong>1 Unit</strong></td>
+          <td><strong>1 Unit</strong></td>
+          <td><strong>物理光子总量恒等，画质质感一致</strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="2-硬件规格定义-hardware-specifications">2. 硬件规格定义 (Hardware Specifications)<a hidden class="anchor" aria-hidden="true" href="#2-硬件规格定义-hardware-specifications">#</a></h2>
+<p>一切计算基于以下物理尺寸数据。</p>
+<h3 id="21-源传感器118英寸-standard-type">2.1 源传感器：1/1.8英寸 (Standard Type)<a hidden class="anchor" aria-hidden="true" href="#21-源传感器118英寸-standard-type">#</a></h3>
+<p>命名源于真空管时代标准（详见第5章）。</p>
+<ul>
+<li><strong>物理宽度 ($W_{small}$)</strong>: $7.18\text{ mm}$</li>
+<li><strong>物理高度 ($H_{small}$)</strong>: $5.32\text{ mm}$</li>
+<li><strong>对角线 ($D_{small}$)</strong>: $\approx 8.93\text{ mm}$</li>
+<li><strong>物理面积 ($A_{small}$)</strong>: $\approx 38.20\text{ mm}^2$</li>
+<li><em>参考型号：Sony IMX178 / IMX678 等通用规格</em></li>
+</ul>
+<h3 id="22-目标传感器m43-宽幅模式-video-multi-aspect">2.2 目标传感器：M4/3 宽幅模式 (Video Multi-Aspect)<a hidden class="anchor" aria-hidden="true" href="#22-目标传感器m43-宽幅模式-video-multi-aspect">#</a></h3>
+<p>专为 16:9/17:9 视频优化的特化尺寸（详见第5章）。</p>
+<ul>
+<li><strong>物理宽度 ($W_{large}$)</strong>: $17.78\text{ mm}$</li>
+<li><strong>物理高度 ($H_{large}$)</strong>: $10.00\text{ mm}$</li>
+<li><strong>对角线 ($D_{large}$)</strong>: $\approx 20.40\text{ mm}$</li>
+<li><strong>物理面积 ($A_{large}$)</strong>: $177.80\text{ mm}^2$</li>
+<li><em>参考设备：Blackmagic Micro Studio Camera 4K, Panasonic GH5S/GH6, DJI Zenmuse, BMPCC 4K</em></li>
+</ul>
+<hr>
+<h2 id="3-数学推导与计算-mathematical-derivation">3. 数学推导与计算 (Mathematical Derivation)<a hidden class="anchor" aria-hidden="true" href="#3-数学推导与计算-mathematical-derivation">#</a></h2>
+<h3 id="31-基础常数裁切系数-k">3.1 基础常数：裁切系数 ($K$)<a hidden class="anchor" aria-hidden="true" href="#31-基础常数裁切系数-k">#</a></h3>
+<p>裁切系数基于<strong>对角线长度</strong>的比值，是光圈换算的依据。</p>
+<p>$$D_{small} = \sqrt{7.18^2 + 5.32^2} \approx 8.93\text{ mm}$$</p>
+<p>$$D_{large} = \sqrt{17.78^2 + 10^2} \approx 20.40\text{ mm}$$</p>
+<p>$$K = \frac{D_{large}}{D_{small}} = \frac{20.40}{8.93} \approx \mathbf{2.28}$$</p>
+<h3 id="32-进光量常数面积倍率-r_area">3.2 进光量常数：面积倍率 ($R_{area}$)<a hidden class="anchor" aria-hidden="true" href="#32-进光量常数面积倍率-r_area">#</a></h3>
+<p><strong>“4.7倍”的出处在此。</strong></p>
+<p>ISO 和信噪比的换算基于<strong>物理受光面积</strong>的比值。</p>
+<p>$$A_{small} = 7.18 \times 5.32 = 38.1976\text{ mm}^2$$</p>
+<p>$$A_{large} = 17.78 \times 10.00 = 177.80\text{ mm}^2$$</p>
+<p>$$R_{area} = \frac{A_{large}}{A_{small}} = \frac{177.80}{38.1976} \approx \mathbf{4.6547}$$</p>
+<blockquote>
+<p><strong>工程结论：</strong> M4/3 宽幅传感器的物理受光面积约为 1/1.8英寸传感器的 <strong>4.7倍</strong>。这意味着它能多接收 4.7 倍的光子。</p></blockquote>
+<h3 id="33-等效光圈计算">3.3 等效光圈计算<a hidden class="anchor" aria-hidden="true" href="#33-等效光圈计算">#</a></h3>
+<p>目标：保持物理通光孔径 ($D_{phys}$) 不变。</p>
+<p>$$F_{eq} = F_{origin} \times K$$</p>
+<p>$$F_{eq} = 3.4 \times 2.28 = 7.752$$</p>
+<blockquote>
+<p><strong>工程取值：</strong> 最接近的标准光圈档位为 <strong>f/8.0</strong>。</p></blockquote>
+<h3 id="34-等效-iso-计算">3.4 等效 ISO 计算<a hidden class="anchor" aria-hidden="true" href="#34-等效-iso-计算">#</a></h3>
+<p>目标：保持最终画面亮度一致，且信噪比一致。</p>
+<p>$$ISO_{eq} = ISO_{origin} \times R_{area}$$</p>
+<p>$$ISO_{eq} = 200 \times 4.65 = 930$$</p>
+<blockquote>
+<p><strong>工程取值：</strong> <strong>ISO 800</strong>。</p>
+<p><em>分析：ISO 800 是标准整档。虽然理论值是 930，但考虑到大底传感器通常具备更高的量子效率（QE）和更先进的电路设计，ISO 800 实际上能完美对齐 ISO 200 的噪点水平。</em></p></blockquote>
+<hr>
+<h2 id="4-实验验证-experimental-verification">4. 实验验证 (Experimental Verification)<a hidden class="anchor" aria-hidden="true" href="#4-实验验证-experimental-verification">#</a></h2>
+<p><strong>测试对象：</strong></p>
+<ul>
+<li><strong>JCam:</strong> 1/1.8&quot; 传感器</li>
+<li><strong>BMD:</strong> M4/3 电影机</li>
+</ul>
+<p><strong>设置参数：</strong></p>
+<ol>
+<li><strong>JCam:</strong> f/3.4, 1/250s, Gain 6dB (ISO 200)</li>
+<li><strong>BMD:</strong> f/8.0, 1/250s, Gain 6dB (ISO 800)</li>
+</ol>
+<p><strong>物理现象解释：</strong></p>
+<ul>
+<li><strong>光圈端：</strong> f/3.4 $\rightarrow$ f/8.0，光通量减少约 <strong>5.5倍</strong> (2.5档)。</li>
+<li><strong>增益端：</strong> ISO 200 $\rightarrow$ ISO 800，灵敏度提升 <strong>4倍</strong> (2档)。</li>
+<li><strong>面积端：</strong> 传感器面积大 <strong>4.7倍</strong>。</li>
+</ul>
+<p><strong>结果：</strong></p>
+<p>面积红利 (4.7x) 被光圈缩小 (1/5.5x) 大部分抵消，剩余的亮度差异由 ISO 提升 (4x) 补齐。</p>
+<p>最终实现了<strong>亮度一致、景深一致、颗粒感一致</strong>的完美等效。</p>
+<hr>
+<h2 id="5-历史背景溯源-historical-context">5. 历史背景溯源 (Historical Context)<a hidden class="anchor" aria-hidden="true" href="#5-历史背景溯源-historical-context">#</a></h2>
+<p>理解传感器尺寸为何如此命名，以及为何出现 $17.78\text{ mm}$ 这种非标数值。</p>
+<h3 id="51-远古时代真空管的虚标-1950s-1980s">5.1 远古时代：真空管的“虚标” (1950s-1980s)<a hidden class="anchor" aria-hidden="true" href="#51-远古时代真空管的虚标-1950s-1980s">#</a></h3>
+<ul>
+<li><strong>背景：</strong> 电视摄像机使用真空摄像管 (Vidicon Tube)。</li>
+<li><strong>命名规则：</strong> “1英寸”、“1/1.8英寸”指的是<strong>玻璃管的外径</strong>，而非成像靶面大小。</li>
+<li><strong>折算公式：</strong> 由于玻璃厚度和扫描限制，实际成像对角线约为管径的 <strong>2/3 (66%)</strong>。
+<ul>
+<li><em>例：</em> 1英寸 = 25.4mm $\rightarrow$ 实际成像对角线 $\approx 16\text{ mm}$。</li>
+<li><em>例：</em> 1/1.8英寸 $\approx 14.1\text{ mm}$ (管径) $\rightarrow$ 实际对角线 $\approx 8.9\text{ mm}$。</li>
+</ul>
+</li>
+<li><strong>现状：</strong> 这种古老的命名法被数码相机沿用至今。</li>
+</ul>
+<h3 id="52-胶片时代徕卡的横向思维-1913">5.2 胶片时代：徕卡的横向思维 (1913)<a hidden class="anchor" aria-hidden="true" href="#52-胶片时代徕卡的横向思维-1913">#</a></h3>
+<ul>
+<li><strong>背景：</strong> 爱迪生确立了 35mm 电影胶片，画面竖置 ($24 \times 18\text{ mm}$)。</li>
+<li><strong>变革：</strong> 徕卡工程师 Oskar Barnack 将胶片<strong>横置</strong>，并将两帧电影画面合并为一帧照片。</li>
+<li><strong>结果：</strong> $18\text{ mm} \times 2 = 36\text{ mm}$。确立了 <strong>$36 \times 24\text{ mm}$ (全画幅)</strong> 的百年标准。</li>
+</ul>
+<h3 id="53-数码时代m43-的分化-standard-vs-multi-aspect">5.3 数码时代：M4/3 的分化 (Standard vs. Multi-Aspect)<a hidden class="anchor" aria-hidden="true" href="#53-数码时代m43-的分化-standard-vs-multi-aspect">#</a></h3>
+<ul>
+<li><strong>标准 M4/3 (4:3):</strong>
+<ul>
+<li>奥林巴斯主导，直接沿用 4/3英寸真空管的成像圈。</li>
+<li>尺寸：$17.3 \times 13.0\text{ mm}$。</li>
+</ul>
+</li>
+<li><strong>宽幅 M4/3 (Multi-Aspect):</strong>
+<ul>
+<li><strong>背景：</strong> 视频从 4:3 转向 16:9 宽屏。</li>
+<li><strong>问题：</strong> 在标准 4:3 传感器上拍 16:9，需裁切上下，视角损失。</li>
+<li><strong>解决方案：</strong> 松下 (Panasonic) / 大疆 (DJI) 等厂商引入<strong>冗余设计</strong>。将传感器做得<strong>比标准更宽</strong> ($17.3\text{ mm} \rightarrow 17.78\text{ mm}$ 甚至更宽)，使得成像圈边缘被充分利用。</li>
+<li><strong>意义：</strong> 本文档中的 $17.78 \times 10\text{ mm}$ 传感器，即为此类<strong>视频特化型传感器</strong>在 16:9 模式下的有效工作区域。</li>
+</ul>
+</li>
+</ul>
+
+
+  </div>
+
+  <script>
+    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
+    document.getElementById("ai-check-text").innerText = aiChallengeText;
+
+    function verifyHuman() {
+      let inputText = document.getElementById("ai-input").value;
+      if (inputText === aiChallengeText) {
+        document.getElementById("ai-check").style.display = "none";
+        document.getElementById("post-content").style.display = "block";
+      } else {
+        let errorMsg = document.getElementById("ai-error");
+        errorMsg.style.display = "block";
+        errorMsg.classList.add("shake");
+        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+      }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/ai/">AI</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span class="post-nav-title" title="跨画幅影像匹配指南：1/1.8英寸 vs M4/3">跨画幅影像匹配指南：1/1.8英寸 vs M4/3</span>
+  </a>
+  <a class="next" href="https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span class="post-nav-title" title="Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案">Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 <a href="https://blog.ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

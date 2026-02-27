@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>灵感遗迹 on AhaKnow</title>
+    <link>https://blog.ahaknow.com/categories/%E7%81%B5%E6%84%9F%E9%81%97%E8%BF%B9/</link>
+    <description>Recent content in 灵感遗迹 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/categories/%E7%81%B5%E6%84%9F%E9%81%97%E8%BF%B9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>逐镜探维：置身三维重建而后生</title>
+      <link>https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/</link>
+      <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/</guid>
+      <description>这个标题很有意思～ 置身三维重建于死地而后生，啥也不说了，死磕到底吧！ 如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地…</description>
+    </item>
+    <item>
+      <title>💡AI调教指令</title>
+      <link>https://blog.ahaknow.com/posts/inspiration/aha-prompts/</link>
+      <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/inspiration/aha-prompts/</guid>
+      <description>而不是：纵容自己的表达能力对话，而让AI去猜，AI猜对了，人就凉凉了</description>
+    </item>
+    <item>
+      <title>开发实战：“锁”的机制</title>
+      <link>https://blog.ahaknow.com/posts/inspiration/dev-mutex/</link>
+      <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/inspiration/dev-mutex/</guid>
+      <description>开发实战：“锁”的机制</description>
+    </item>
+    <item>
+      <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
+      <link>https://blog.ahaknow.com/posts/inspiration/art-c-c-exam/</link>
+      <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/inspiration/art-c-c-exam/</guid>
+      <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
+    </item>
+  </channel>
+</rss>

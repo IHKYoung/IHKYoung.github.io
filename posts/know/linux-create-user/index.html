@@ -45,10 +45,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Linux：创建具有权限限制的新用户 | AhaKnow</title>
-<meta name="keywords" content="">
-<meta name="description" content="创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：
-1. 创建新用户
-使用useradd命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为newuser的用户：">
+<meta name="keywords" content="Knowledge">
+<meta name="description" content="例如，创建一个名为newuser的用户：">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/linux-create-user/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -97,19 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="Linux：创建具有权限限制的新用户" />
-<meta property="og:description" content="创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：
-1. 创建新用户
-使用useradd命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为newuser的用户：" />
+<meta property="og:description" content="例如，创建一个名为newuser的用户：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/linux-create-user/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-24T15:16:10+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux：创建具有权限限制的新用户"/>
-<meta name="twitter:description" content="创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：
-1. 创建新用户
-使用useradd命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为newuser的用户："/>
+<meta name="twitter:description" content="例如，创建一个名为newuser的用户："/>
 
 
 <script type="application/ld+json">
@@ -120,13 +114,13 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -144,15 +138,15 @@
   "@type": "BlogPosting",
   "headline": "Linux：创建具有权限限制的新用户",
   "name": "Linux：创建具有权限限制的新用户",
-  "description": "创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：\n1. 创建新用户 使用useradd命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为newuser的用户：\n",
+  "description": "例如，创建一个名为newuser的用户：",
   "keywords": [
-    
+    "Knowledge"
   ],
   "articleBody": "创建一个具有限制权限的用户，同时确保这个用户不能访问其他用户的文件或目录，可以通过以下步骤进行：\n1. 创建新用户 使用useradd命令创建一个新用户。可以指定用户的主目录、默认shell等。例如，创建一个名为newuser的用户：\nsudo useradd -m newuser -s /bin/bash 这里-m选项表示创建用户的主目录，-s指定用户的默认shell。\n2. 设置密码 为新用户设置密码：\nsudo passwd newuser 系统会提示你输入和确认密码。\n3. 限制用户权限 避免将用户添加到sudo或root组来限制其权限。你可以通过不将用户添加到这些组来保持其权限尽可能低。\n4. 设置文件和目录权限 确保其他用户的目录不对新用户开放写权限。可以设置目录权限使其仅对所有者或特定组开放：\n设置其他用户的主目录权限，禁止新用户访问：\nsudo chmod o-rwx /home/otheruser 这里o-rwx表示删除其他用户（not group or owner）的读、写和执行权限。\n你也可以更改其他用户目录的组并限制访问权限：\nsudo chgrp -R somegroup /home/otheruser sudo chmod -R o-rwx /home/otheruser 5. 使用文件系统访问控制列表（ACL） 如果需要更细粒度的权限控制，可以使用ACL来设置谁可以访问特定的文件和目录：\nsudo setfacl -m u:newuser:rx /some/otheruser/directory 这里，setfacl命令设置newuser只有读和执行权限到/some/otheruser/directory。\n",
   "wordCount" : "503",
   "inLanguage": "zh",
   "datePublished": "2024-04-24T15:16:10+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -219,38 +213,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -260,10 +254,13 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       Linux：创建具有权限限制的新用户
     </h1>
+    <div class="post-description">
+      例如，创建一个名为newuser的用户：
+    </div>
     <div class="post-meta">
 
 
@@ -296,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -322,6 +319,14 @@
         <span class="fa fa-user-o"></span>
         <span>CKYoung
             &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/knowledge/" style="color: var(--secondary)!important;">Knowledge</a>
+            </span>
         </span>
     </span>
 </span>
@@ -510,6 +515,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/knowledge/">Knowledge</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://blog.ahaknow.com/posts/know/note-install-protobuf/">

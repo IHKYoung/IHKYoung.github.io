@@ -6,198 +6,112 @@
     <description>Recent content in 人工不智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 28 Jan 2026 17:21:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Linux Git配置代理完全指南(HTTP&amp;SSH)</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</link>
+      <pubDate>Sat, 14 Feb 2026 17:48:03 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</guid>
+      <description>围绕Linux Git配置代理完全指南(HTTP&amp;amp;SSH)，重点总结1. 背景、2. HTTP/HTTPS 协议配置，并给出可执行实践。</description>
+    </item>
+    <item>
       <title>开发Prompt</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/%E5%BC%80%E5%8F%91prompt/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/prompt/</link>
       <pubDate>Wed, 28 Jan 2026 17:21:30 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/%E5%BC%80%E5%8F%91prompt/</guid>
-      <description>&lt;h1 id=&#34;repository-guidelines&#34;&gt;Repository Guidelines&lt;/h1&gt;
-&lt;h2 id=&#34;0--关于用户与你的角色&#34;&gt;0 · 关于用户与你的角色&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;你正在协助的对象是&lt;strong&gt;AhaKnow Group&lt;/strong&gt;，团队由全栈算法工程师组成。&lt;/li&gt;
-&lt;li&gt;团队重视“Slow is Fast”，关注点在于：推理质量、抽象与架构、长期可维护性，而不是短期速度。&lt;/li&gt;
-&lt;li&gt;你的核心目标：
-&lt;ul&gt;
-&lt;li&gt;作为一个 &lt;strong&gt;强推理、强规划的编码助手&lt;/strong&gt;，在尽量少的往返中给出高质量方案与实现；&lt;/li&gt;
-&lt;li&gt;优先一次到位，避免肤浅回答和无谓澄清。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;1--总体推理与规划框架全局规则&#34;&gt;1 · 总体推理与规划框架（全局规则）&lt;/h2&gt;
-&lt;p&gt;在进行任何操作前（包括：回复用户、调用工具或给出代码），你必须先在内部完成如下推理与规划。这些推理过程 &lt;strong&gt;只在你内部进行&lt;/strong&gt;，不需要显式输出思维步骤，除非我明确要求你展示。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/prompt/</guid>
+      <description>作为一个 强推理、强规划的编码助手，在尽量少的往返中给出高质量方案与实现</description>
     </item>
     <item>
       <title>从 Conda 到 uv：现代化 Python 开发迁移指南</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/%E4%BB%8Econda%E5%88%B0uv%E7%8E%B0%E4%BB%A3%E5%8C%96python%E5%BC%80%E5%8F%91%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/conda-uv-python/</link>
       <pubDate>Tue, 27 Jan 2026 17:47:23 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/%E4%BB%8Econda%E5%88%B0uv%E7%8E%B0%E4%BB%A3%E5%8C%96python%E5%BC%80%E5%8F%91%E8%BF%81%E7%A7%BB%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;h1 id=&#34;从-conda-到-uv现代化-python-开发迁移指南&#34;&gt;从 Conda 到 uv：现代化 Python 开发迁移指南&lt;/h1&gt;
-&lt;h2 id=&#34;1-核心思维转变-mental-model-shift&#34;&gt;1. 核心思维转变 (Mental Model Shift)&lt;/h2&gt;
-&lt;p&gt;在使用 uv 之前，你需要调整对“环境管理”的理解。&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;&lt;strong&gt;特性&lt;/strong&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;strong&gt;Conda (传统模式)&lt;/strong&gt;&lt;/th&gt;
-          &lt;th&gt;&lt;strong&gt;uv (现代模式)&lt;/strong&gt;&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;环境位置&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;集中式&lt;/strong&gt; (&lt;code&gt;~/anaconda3/envs/myenv&lt;/code&gt;)。环境与项目分离。&lt;/td&gt;
-          &lt;td&gt;&lt;strong&gt;项目式&lt;/strong&gt; (&lt;code&gt;./.venv&lt;/code&gt;)。环境通常直接放在项目文件夹内。&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;Python 来源&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;Conda 仓库 (二进制包)。&lt;/td&gt;
-          &lt;td&gt;官方构建 (uv 自动管理下载，更纯净)。&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;依赖解析&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;求解器较慢，经常出现 Conflict。&lt;/td&gt;
-          &lt;td&gt;极速解析，使用 &lt;code&gt;uv.lock&lt;/code&gt; 锁定精确版本。&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;项目定义&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;environment.yml&lt;/code&gt; (非标准)。&lt;/td&gt;
-          &lt;td&gt;&lt;code&gt;pyproject.toml&lt;/code&gt; (PEP 621 Python 官方标准)。&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;strong&gt;激活习惯&lt;/strong&gt;&lt;/td&gt;
-          &lt;td&gt;必须 &lt;code&gt;conda activate&lt;/code&gt; 才能工作。&lt;/td&gt;
-          &lt;td&gt;推荐 &lt;code&gt;uv run&lt;/code&gt; 直接运行，或像 venv 一样激活。&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;2-命令对照速查表-cheat-sheet&#34;&gt;2. 命令对照速查表 (Cheat Sheet)&lt;/h2&gt;
-&lt;p&gt;这是你最需要的部分，建议保存。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/conda-uv-python/</guid>
+      <description>| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |</description>
     </item>
     <item>
-      <title> 跨画幅影像匹配指南：1/1.8英寸 vs M4/3</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/%E8%B7%A8%E7%94%BB%E5%B9%85%E5%BD%B1%E5%83%8F%E5%8C%B9%E9%85%8D%E6%8C%87%E5%8D%97/</link>
+      <title>跨画幅影像匹配指南：1/1.8英寸 vs M4/3</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/</link>
       <pubDate>Tue, 27 Jan 2026 12:16:09 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/%E8%B7%A8%E7%94%BB%E5%B9%85%E5%BD%B1%E5%83%8F%E5%8C%B9%E9%85%8D%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;h1 id=&#34;跨画幅影像匹配指南118英寸-vs-m43&#34;&gt;跨画幅影像匹配指南：1/1.8英寸 vs M4/3&lt;/h1&gt;
-&lt;h2 id=&#34;1-背景说明-context&#34;&gt;1. 背景说明 (Context)&lt;/h2&gt;
-&lt;p&gt;在我们的系统中，存在两种不同尺寸的传感器。了解它们的物理差异是进行参数设置的前提。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;小底设备 (如 JCam):&lt;/strong&gt; 使用 &lt;strong&gt;1/1.8英寸&lt;/strong&gt; 传感器。
-&lt;ul&gt;
-&lt;li&gt;特点：底小。为了获得相同视角，需使用&lt;strong&gt;更短的物理焦距&lt;/strong&gt;，导致&lt;strong&gt;景深大（背景不容易虚）&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;大底设备 (如 BMD/M4/3):&lt;/strong&gt; 使用 &lt;strong&gt;M4/3系统 (宽幅)&lt;/strong&gt; 传感器。
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;差异：&lt;/strong&gt; 面积约为小底的 &lt;strong&gt;4.7倍&lt;/strong&gt;。&lt;/li&gt;
-&lt;li&gt;特点：底大。为了获得相同视角，需使用&lt;strong&gt;更长的物理焦距&lt;/strong&gt;，导致&lt;strong&gt;景深浅（背景容易虚）&lt;/strong&gt;。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;../images/sensor_compare.png&#34; alt=&#34;sensor_compare&#34;  /&gt;
-&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/</guid>
+      <description>1. 1/1.8英寸（小杯子） vs M4/3（大脸盆）</description>
     </item>
     <item>
       <title>跨画幅影像系统等效性分析</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/%E8%B7%A8%E7%94%BB%E5%B9%85%E5%BD%B1%E5%83%8F%E7%B3%BB%E7%BB%9F%E7%AD%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/</link>
       <pubDate>Mon, 26 Jan 2026 22:05:16 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/%E8%B7%A8%E7%94%BB%E5%B9%85%E5%BD%B1%E5%83%8F%E7%B3%BB%E7%BB%9F%E7%AD%89%E6%95%88%E6%80%A7%E5%88%86%E6%9E%90/</guid>
-      <description>&lt;h1 id=&#34;跨画幅影像系统等效性分析&#34;&gt;跨画幅影像系统等效性分析&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Cross-Format Imaging Equivalence: 1/1.8&amp;quot; vs. M4/3 Wide&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;1/1.8英寸传感器与M4/3宽幅模式的等效光圈、ISO及总进光量换算&lt;/p&gt;&lt;/blockquote&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;1-核心结论-executive-summary&#34;&gt;1. 核心结论 (Executive Summary)&lt;/h2&gt;
-&lt;p&gt;在跨画幅对比中，为了实现&lt;strong&gt;完全一致的画质表现&lt;/strong&gt;（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/</guid>
+      <description>在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则</description>
     </item>
     <item>
       <title>Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEgithub-ssh%E7%9A%84socks5%E4%BB%A3%E7%90%86%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/</link>
       <pubDate>Mon, 26 Jan 2026 18:10:21 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/ubuntu%E4%B8%8B%E9%85%8D%E7%BD%AEgithub-ssh%E7%9A%84socks5%E4%BB%A3%E7%90%86%E7%BB%88%E6%9E%81%E6%96%B9%E6%A1%88/</guid>
-      <description>&lt;h1 id=&#34;ubuntu-下配置-github-ssh-socks5-代理终极方案&#34;&gt;Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案&lt;/h1&gt;
-&lt;h3 id=&#34;1-问题描述&#34;&gt;1. 问题描述&lt;/h3&gt;
-&lt;p&gt;在使用 &lt;code&gt;ssh -vT git@github.com&lt;/code&gt; 测试连接时，进程卡死（Hang）在本地版本发送阶段，无法完成握手。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;典型报错日志：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Plaintext&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;debug1: Executing proxy command: ...
-debug1: Local version string SSH-2.0-OpenSSH_9.6p1...
-# (在此处无限卡顿，最终超时或 Connection closed)
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;2-根本原因分析-root-cause&#34;&gt;2. 根本原因分析 (Root Cause)&lt;/h3&gt;
-&lt;p&gt;即使代理网络连通性正常（手动测试 &lt;code&gt;nc&lt;/code&gt; 或 &lt;code&gt;connect&lt;/code&gt; 显示 Connected），SSH 依然可能失败，主要原因有两个：&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/</guid>
+      <description>2. 弃用端口 22，改用 GitHub 提供的 ssh.github.com:443（伪装成 HTTPS 流量，抗干扰能力极强）</description>
     </item>
     <item>
       <title>Conda使用总结与经验文档</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/conda/</link>
       <pubDate>Sat, 22 Feb 2025 00:10:36 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/conda%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%E4%B8%8E%E7%BB%8F%E9%AA%8C%E6%96%87%E6%A1%A3/</guid>
-      <description>&lt;h3 id=&#34;conda-使用总结与经验文档&#34;&gt;&lt;strong&gt;Conda 使用总结与经验文档&lt;/strong&gt;&lt;/h3&gt;
-&lt;h4 id=&#34;1-设置-conda-环境路径和包存储路径&#34;&gt;1. &lt;strong&gt;设置 Conda 环境路径和包存储路径&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;如果你需要修改 Conda 环境存储位置（&lt;code&gt;envs_dirs&lt;/code&gt;）和包存储路径（&lt;code&gt;pkgs_dirs&lt;/code&gt;），可以通过以下方法：&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/conda/</guid>
+      <description>方法 1：通过 conda config 修改配置</description>
     </item>
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git-crlf-lf/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-crlf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf-lf/</guid>
-      <description>&lt;p&gt;在使用 Git 的过程中，我们经常会遇到 &lt;strong&gt;CRLF (回车换行) 和 LF (换行)&lt;/strong&gt; 的问题，特别是在 &lt;strong&gt;Windows 和 Linux/macOS 跨平台开发&lt;/strong&gt; 时。为了避免潜在的换行符冲突，本文详细总结 Git 如何处理换行符以及如何合理配置。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf/</guid>
+      <description>希望这篇指南能帮助你彻底理解 Git 和 CRLF 的关系，让你在跨平台开发中不再被换行符问题困扰</description>
     </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git-pull-request-release/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</link>
       <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git-pull-request-release/</guid>
-      <description>&lt;h1 id=&#34;github-pull-reques-时-release-文件缺失问题解决方案-&#34;&gt;GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦&lt;/h1&gt;
-&lt;h2 id=&#34;问题背景-&#34;&gt;&lt;strong&gt;问题背景 🤔&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;在提交 GitHub Pull Request 时，GitHub 提示最新的 Release 缺少 &lt;code&gt;main.js&lt;/code&gt; 和 &lt;code&gt;manifest.json&lt;/code&gt; 文件。尽管这些文件在代码中存在，但它们并没有作为 Release 附件上传到 GitHub。这个问题通常发生在用户没有手动将文件上传到 Release 页面。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</guid>
+      <description>围绕GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦，重点总结问题背景 🤔、问题描述 ⚠️，并给出可执行实践。</description>
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git%E8%87%AA%E5%8A%A8push%E8%84%9A%E6%9C%AC/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-push/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git%E8%87%AA%E5%8A%A8push%E8%84%9A%E6%9C%AC/</guid>
-      <description>&lt;h2 id=&#34;-介绍&#34;&gt;&lt;strong&gt;📌 介绍&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;在软件开发过程中，我们常常需要将本地的 Git 仓库&lt;strong&gt;自动提交并推送&lt;/strong&gt;到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个&lt;strong&gt;适用于 Windows (Git Bash)、macOS 和 Linux&lt;/strong&gt; 的自动 &lt;code&gt;push&lt;/code&gt; 脚本，并详细解析其中的关键点。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-push/</guid>
+      <description>围绕Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案，重点总结📌 介绍、📑 目录，并给出可执行实践。</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git%E5%90%88%E5%B9%B6%E4%B8%8Epull%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-pull/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git%E5%90%88%E5%B9%B6%E4%B8%8Epull%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
-      <description>&lt;p&gt;%% 在使用 %% Git 进行 &lt;code&gt;git pull&lt;/code&gt;、&lt;code&gt;git merge&lt;/code&gt; 等操作时，常常会遇到各种冲突和错误。这份文档总结了 &lt;strong&gt;Git 合并相关问题&lt;/strong&gt;，提供了&lt;strong&gt;案例分析、解决方案&lt;/strong&gt;，并附上清晰的注释，帮助你快速解决问题。💡&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-pull/</guid>
+      <description>围绕Git 合并与 Pull 过程中常见问题及解决方案，重点总结🌟 目录、1️⃣ git pull 时的常见问题及解决方案，并给出可执行实践。</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git-auto-push/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git-auto-push/</guid>
-      <description>&lt;h2 id=&#34;-git-仓库自动更新脚本---解决方案与步骤总结&#34;&gt;📝 &lt;strong&gt;Git 仓库自动更新脚本 - 解决方案与步骤总结&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;在这份文档中，我们将概述如何在 Windows 系统上自动化更新 Git 仓库。此文档包括了如何使用 PowerShell 脚本、任务调度器（Task Scheduler）和 PowerShell 7 来实现每天开机时自动更新 &lt;code&gt;GitAwesome&lt;/code&gt; 文件夹下的所有 Git 仓库。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git/</guid>
+      <description>通过 PowerShell 7 和任务调度器，您可以实现一个自动化任务，每次开机时自动更新 Git 仓库</description>
     </item>
     <item>
       <title>GitHub README 美化经验分享</title>
       <link>https://blog.ahaknow.com/posts/aiknow/github-readme/</link>
       <pubDate>Sat, 01 Feb 2025 21:41:12 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/github-readme/</guid>
-      <description>&lt;p&gt;在 GitHub 上，一个精心设计的个人主页不仅可以展示你的项目、技术栈，还能通过动态数据和动画效果提升个人品牌形象。本文将分享两个经典模块的自动化集成方法：&lt;/p&gt;</description>
+      <description>利用 GitHub Actions 你可以让这两部分数据每天定时更新，也可以手动触发更新</description>
     </item>
     <item>
       <title>🪄ChatGPT&amp;LLMs 中文调教指南🚀</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/chatgpt-llms/</link>
       <pubDate>Sat, 01 Feb 2025 18:22:55 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/chatgptllms%E4%B8%AD%E6%96%87%E8%B0%83%E6%95%99%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;p&gt;其实后来发现，没啥用，老老实实锻炼自己的表达能力可能更重要一些！&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/chatgpt-llms/</guid>
+      <description>围绕🪄ChatGPT&amp;amp;LLMs 中文调教指南🚀，总结关键问题与可执行方案。</description>
     </item>
     <item>
       <title>macOS 环境下 Python 动态库缺失问题排查与解决方案</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/macos-lib-fix/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/macos-python/</link>
       <pubDate>Sat, 01 Feb 2025 17:19:11 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/macos-lib-fix/</guid>
-      <description>&lt;p&gt;在 macOS（特别是 M1/M2 芯片）使用 Python 时，可能会遇到 &lt;strong&gt;ImportError: Library not loaded&lt;/strong&gt; 类错误。这通常是因为 Python 模块在加载动态库时找不到正确的 &lt;code&gt;.dylib&lt;/code&gt; 文件。以下是一个系统化的排查与解决方法，适用于 PyAudio、PortAudio 以及其他类似情况（如 OpenCV、TensorFlow 依赖的库）。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/macos-python/</guid>
+      <description>3. Python 环境中的动态库路径没有正确配置</description>
     </item>
   </channel>
 </rss>

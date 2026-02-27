@@ -6,15 +6,14 @@
     <description>Recent content in Hugo on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/hugo-password-page/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/hugo/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/hugo-password-page/</guid>
-      <description>&lt;h2 id=&#34;-1-背景&#34;&gt;&lt;strong&gt;📖 1. 背景&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Hugo 是一款流行的静态网站生成器，但它&lt;strong&gt;不支持原生的密码保护功能&lt;/strong&gt;。如果你希望某些文章仅限特定用户访问，可以使用 JavaScript 和 MD5 哈希验证来实现&lt;strong&gt;前端密码保护&lt;/strong&gt;。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/hugo/</guid>
+      <description>💡 本方案适合 Hugo 个人博客，提供前端级别的密码保护，同时避免明文密码泄露</description>
     </item>
   </channel>
 </rss>

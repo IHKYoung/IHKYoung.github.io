@@ -45,9 +45,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Protobuf：安装指定版本 | AhaKnow</title>
-<meta name="keywords" content="">
-<meta name="description" content="
-第一次接触Protobuf，遇到了系统版本与编译文件版本不统一的情况，以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来研究版本更新的问题。">
+<meta name="keywords" content="Knowledge">
+<meta name="description" content="围绕Protobuf：安装指定版本，重点总结Knowledge、好记性不如烂笔头，并给出可执行实践。">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/note-install-protobuf/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -96,17 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="Protobuf：安装指定版本" />
-<meta property="og:description" content="
-第一次接触Protobuf，遇到了系统版本与编译文件版本不统一的情况，以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来研究版本更新的问题。" />
+<meta property="og:description" content="围绕Protobuf：安装指定版本，重点总结Knowledge、好记性不如烂笔头，并给出可执行实践。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/note-install-protobuf/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-27T15:41:46+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Protobuf：安装指定版本"/>
-<meta name="twitter:description" content="
-第一次接触Protobuf，遇到了系统版本与编译文件版本不统一的情况，以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来研究版本更新的问题。"/>
+<meta name="twitter:description" content="围绕Protobuf：安装指定版本，重点总结Knowledge、好记性不如烂笔头，并给出可执行实践。"/>
 
 
 <script type="application/ld+json">
@@ -117,13 +114,13 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -141,15 +138,15 @@
   "@type": "BlogPosting",
   "headline": "Protobuf：安装指定版本",
   "name": "Protobuf：安装指定版本",
-  "description": " 第一次接触Protobuf，遇到了系统版本与编译文件版本不统一的情况，以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来研究版本更新的问题。\n",
+  "description": "围绕Protobuf：安装指定版本，重点总结Knowledge、好记性不如烂笔头，并给出可执行实践。",
   "keywords": [
-    
+    "Knowledge"
   ],
   "articleBody": " 第一次接触Protobuf，遇到了系统版本与编译文件版本不统一的情况，以优先解决问题的考虑出发，考虑先把版本统一，验证代码是否可行，之后再来研究版本更新的问题。\n在Linux上安装指定版本的Protobuf（比如版本3.19.6）可以通过下载源代码并从源代码编译来完成。\n安装依赖： 在编译Protobuf之前，确保安装了所有必要的依赖。对于大多数Linux发行版，需要安装autoconf、automake、libtool、curl、make、g++和unzip。使用以下命令安装这些依赖（以Ubuntu为例）：\nsudo apt update sudo apt install autoconf automake libtool curl make g++ unzip 下载Protobuf源代码： 从Protobuf GitHub releases页面下载需要的版本的源码。例如，要下载3.19.6版本，可以使用以下命令：\ncurl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.19.6/protobuf-all-3.19.6.tar.gz 解压源代码： 使用以下命令解压下载的文件：\ntar -zxvf protobuf-all-3.19.6.tar.gz 然后进入解压后的目录：\ncd protobuf-3.19.6 编译和安装： 在源代码目录中，运行以下命令来配置、编译和安装Protobuf：\n./configure make make check sudo make install sudo ldconfig # 刷新共享库缓存 ./configure：配置安装选项。 make：编译库和编译器。 make check：运行单元测试，确保一切正常（这一步是可选的，但建议执行）。 sudo make install：将库和二进制文件安装到默认系统位置。 sudo ldconfig：更新系统的库缓存，确保新安装的库可以被系统找到。 验证安装： 安装完成后，可以通过运行以下命令来验证protoc的版本：\nprotoc --version 输出应该显示libprotoc 3.19.6，这表明已经成功安装了指定版本的Protobuf。\n通过这些步骤，可以在Linux系统上安装任何指定版本的Protobuf。\n如果需要安装到一个非标准的位置（例如，避免与系统库冲突），可以在./configure步骤中添加--prefix=/your/custom/path参数来指定安装路径。\n",
   "wordCount" : "762",
   "inLanguage": "zh",
   "datePublished": "2024-04-27T15:41:46+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -216,38 +213,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -257,10 +254,13 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       Protobuf：安装指定版本
     </h1>
+    <div class="post-description">
+      围绕Protobuf：安装指定版本，重点总结Knowledge、好记性不如烂笔头，并给出可执行实践。
+    </div>
     <div class="post-meta">
 
 
@@ -293,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -319,6 +319,14 @@
         <span class="fa fa-user-o"></span>
         <span>CKYoung
             &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/knowledge/" style="color: var(--secondary)!important;">Knowledge</a>
+            </span>
         </span>
     </span>
 </span>
@@ -443,6 +451,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/knowledge/">Knowledge</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://blog.ahaknow.com/posts/know/linux-tar-usage/">

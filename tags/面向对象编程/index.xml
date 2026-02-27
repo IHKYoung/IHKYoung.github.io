@@ -6,17 +6,14 @@
     <description>Recent content in 面向对象编程 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
       <link>https://blog.ahaknow.com/posts/know/dev-header-source/</link>
       <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-header-source/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;在写C++工程的时候，习惯性的是将头文件与其实现分开编写的。&lt;/p&gt;
-&lt;p&gt;今天被问到了这个问题：&lt;/p&gt;
-&lt;p&gt;“在写C++代码的时候，将函数实现直接写在头文件里，会怎么样，有什么不好的地方？为什么要将函数的实现单独写在源文件”&lt;/p&gt;</description>
+      <description>围绕开发实战：为什么要将函数实现与头文件分离，重点总结C&#43;&#43;编译角度的理解、1. 预处理阶段，并给出可执行实践。</description>
     </item>
   </channel>
 </rss>

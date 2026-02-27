@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>从 Conda 到 uv：现代化 Python 开发迁移指南 | AhaKnow</title>
+<meta name="keywords" content="AI">
+<meta name="description" content="| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |">
+<meta name="author" content="Clarke">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/aiknow/conda-uv-python/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/aiknow/conda-uv-python/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="从 Conda 到 uv：现代化 Python 开发迁移指南" />
+<meta property="og:description" content="| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/aiknow/conda-uv-python/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-01-27T17:47:23+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从 Conda 到 uv：现代化 Python 开发迁移指南"/>
+<meta name="twitter:description" content="| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 持续生长",
+      "item": "https://blog.ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🤖 人工智能",
+      "item": "https://blog.ahaknow.com/posts/aiknow/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "从 Conda 到 uv：现代化 Python 开发迁移指南",
+      "item": "https://blog.ahaknow.com/posts/aiknow/conda-uv-python/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "从 Conda 到 uv：现代化 Python 开发迁移指南",
+  "name": "从 Conda 到 uv：现代化 Python 开发迁移指南",
+  "description": "| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |",
+  "keywords": [
+    "AI"
+  ],
+  "articleBody": "从 Conda 到 uv：现代化 Python 开发迁移指南 1. 核心思维转变 (Mental Model Shift) 在使用 uv 之前，你需要调整对“环境管理”的理解。\n特性 Conda (传统模式) uv (现代模式) 环境位置 集中式 (~/anaconda3/envs/myenv)。环境与项目分离。 项目式 (./.venv)。环境通常直接放在项目文件夹内。 Python 来源 Conda 仓库 (二进制包)。 官方构建 (uv 自动管理下载，更纯净)。 依赖解析 求解器较慢，经常出现 Conflict。 极速解析，使用 uv.lock 锁定精确版本。 项目定义 environment.yml (非标准)。 pyproject.toml (PEP 621 Python 官方标准)。 激活习惯 必须 conda activate 才能工作。 推荐 uv run 直接运行，或像 venv 一样激活。 2. 命令对照速查表 (Cheat Sheet) 这是你最需要的部分，建议保存。\n基础操作 动作 Conda 命令 uv 命令 (推荐) 备注 安装 Python conda install python=3.11 uv python install 3.11 uv 是全局管理 Python 版本 创建环境 conda create -n myenv uv venv 默认在当前目录创建 .venv 指定版本创建 conda create -n myenv python=3.10 uv venv --python 3.10 激活环境 conda activate myenv source .venv/bin/activate Windows: .venv\\Scripts\\activate 退出环境 conda deactivate deactivate 删除环境 conda env remove -n myenv rm -rf .venv 直接删文件夹即可 包管理 (在项目内) 动作 Conda 命令 uv 命令 (项目模式) 备注 初始化项目 (无直接对应) uv init 生成 pyproject.toml 安装包 conda install numpy uv add numpy 自动更新 lock 文件 安装特定版本 conda install numpy=1.24 uv add \"numpy==1.24\" 卸载包 conda remove numpy uv remove numpy 安装开发依赖 (无区分) uv add --dev pytest 测试/格式化工具专用 列出已装包 conda list uv tree 树状显示，更清晰 环境复现与同步 动作 Conda 命令 uv 命令 核心差异 导出依赖 conda env export \u003e env.yml (自动维护) uv 自动维护 uv.lock，无需手动导出 复现环境 conda env create -f env.yml uv sync 这是 uv 的杀手锏，一键同步 更新所有包 conda update --all uv lock --upgrade 更新 lock 文件中的版本 3. 详细工作流指南 放弃 Conda 后，你的工作流将分为两种场景：完整的项目开发 和 临时脚本/工具使用。\n场景 A：完整的项目开发 (Project Workflow) 适用于：开发一个应用、数据分析项目、或者库。\n初始化项目：\nmkdir my-project cd my-project uv init # 创建 pyproject.toml 此时你可以固定 Python 版本：uv python pin 3.10\n添加依赖：\n不要手动 pip install，使用 add 命令。\nuv add pandas matplotlib scikit-learn uv 会自动创建虚拟环境 (.venv)，安装包，并锁定版本到 uv.lock。\n运行代码：\n你不需要激活环境！直接用 uv run。\nuv run main.py uv 会自动检测 .venv 中的环境并使用它。如果你想进入命令行交互，可以 uv run python。\n团队协作/部署：\n当你把代码传到服务器或给同事，只要传输 pyproject.toml 和 uv.lock。\n接收方只需运行：\nuv sync 环境瞬间完美复刻。\n场景 B：单脚本与临时任务 (Script Workflow) 适用于：跑一个网上的脚本，或者测试一个 demo。\nConda 用户经常为了跑一个脚本就创建一个环境，或者把 base 环境搞得很脏。uv 解决了这个问题。\n创建一个脚本文件 analysis.py\n直接运行并声明依赖：\nuv run --with \"requests,pandas\" analysis.py uv 会创建一个临时的隔离环境，安装 requests 和 pandas，跑完脚本后，你可以选择忽略这个环境，你的系统非常干净。\n脚本内声明 (Inline Metadata)：\n你甚至可以在 python 脚本头部写依赖：\n# /// script # dependencies = [\"requests\u003c3\", \"rich\"] # /// import requests from rich import print print(requests.get(\"https://httpbin.org/json\").json()) 然后直接运行 uv run analysis.py，uv 会自动读取注释去安装依赖。\n场景 C：全局工具 (Tools) 适用于：Jupyter, Black, Ruff, Pyright 等命令行工具。\n不要把这些工具装在项目环境里，也不要装在全局 Python 里。\n# 安装并运行 Jupyter uvx jupyter lab # 使用 Ruff 格式化 uvx ruff check . uvx 类似于 pipx，甚至不需要你显式安装，用完即走（或缓存）。\n4. 常见问题与“坑” (FAQ) Q1: Conda 安装的那些非 Python 库怎么办？（如 CUDA, ffmpeg, graphviz）\n这是 Conda 唯一的护城河。\nuv 的策略： uv 专注 Python 包 (PyPI)。 解决方案： 对于 CUDA/PyTorch：uv 支持完美安装 PyTorch（它会从 PyPI 拉取包含 CUDA 的 wheel 包）。命令：uv add torch 即可，现在的 PyPI wheel 包已经做得很好。 对于 ffmpeg/graphviz：建议使用系统包管理器（apt, brew, choco）安装，或者使用 Docker。 如果你的工作流极度依赖旧版二进制库的自动配置，保留 Miniconda 作为备用是合理的，但 95% 的场景可以迁移。 Q2: 我习惯了 activate，不想每次都打 uv run。\n完全没问题。\nsource .venv/bin/activate python main.py 这和标准 venv 一模一样。uv 只是帮你更快地创建了它。\nQ3: 如何清理缓存？\nuv 极其节省空间（使用硬链接），但如果你想清空：\nuv cache clean 5. 极速迁移实战 如果你手头有一个 Conda 的 requirements.txt：\n创建一个新目录：mkdir migration_test \u0026\u0026 cd migration_test\n初始化 uv：uv init\n导入旧依赖：\nuv pip install -r requirements.txt (注意：这会把包安装进环境，但不会自动更新 pyproject.toml。建议手动用 uv add 重新整理一次依赖，以享受长期管理的红利)\n你的下一步 建议你现在就在终端里敲下这行命令，体验一下什么叫“快到离谱”：\nuv run --with \"numpy,pandas\" python -c \"import pandas; print('Environment created and Pandas loaded!')\" 如果这个指令成功了，你就已经迈出了放弃 Conda 的第一步。\n",
+  "wordCount" : "1782",
+  "inLanguage": "zh",
+  "datePublished": "2026-01-27T17:47:23+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Clarke"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ahaknow.com/posts/aiknow/conda-uv-python/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://blog.ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/aiknow/">🤖 人工智能</a></div>
+    <h1 class="post-title entry-hint-parent">
+      从 Conda 到 uv：现代化 Python 开发迁移指南
+    </h1>
+    <div class="post-description">
+      | 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2026-02-27
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2026-01-27
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1782 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Clarke
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/ai/" style="color: var(--secondary)!important;">AI</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%bb%8e-conda-%e5%88%b0-uv%e7%8e%b0%e4%bb%a3%e5%8c%96-python-%e5%bc%80%e5%8f%91%e8%bf%81%e7%a7%bb%e6%8c%87%e5%8d%97" aria-label="从 Conda 到 uv：现代化 Python 开发迁移指南">从 Conda 到 uv：现代化 Python 开发迁移指南</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%a0%b8%e5%bf%83%e6%80%9d%e7%bb%b4%e8%bd%ac%e5%8f%98-mental-model-shift" aria-label="1. 核心思维转变 (Mental Model Shift)">1. 核心思维转变 (Mental Model Shift)</a></li>
+                <li>
+                    <a href="#2-%e5%91%bd%e4%bb%a4%e5%af%b9%e7%85%a7%e9%80%9f%e6%9f%a5%e8%a1%a8-cheat-sheet" aria-label="2. 命令对照速查表 (Cheat Sheet)">2. 命令对照速查表 (Cheat Sheet)</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9c" aria-label="基础操作">基础操作</a></li>
+                <li>
+                    <a href="#%e5%8c%85%e7%ae%a1%e7%90%86-%e5%9c%a8%e9%a1%b9%e7%9b%ae%e5%86%85" aria-label="包管理 (在项目内)">包管理 (在项目内)</a></li>
+                <li>
+                    <a href="#%e7%8e%af%e5%a2%83%e5%a4%8d%e7%8e%b0%e4%b8%8e%e5%90%8c%e6%ad%a5" aria-label="环境复现与同步">环境复现与同步</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-%e8%af%a6%e7%bb%86%e5%b7%a5%e4%bd%9c%e6%b5%81%e6%8c%87%e5%8d%97" aria-label="3. 详细工作流指南">3. 详细工作流指南</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9c%ba%e6%99%af-a%e5%ae%8c%e6%95%b4%e7%9a%84%e9%a1%b9%e7%9b%ae%e5%bc%80%e5%8f%91-project-workflow" aria-label="场景 A：完整的项目开发 (Project Workflow)">场景 A：完整的项目开发 (Project Workflow)</a></li>
+                <li>
+                    <a href="#%e5%9c%ba%e6%99%af-b%e5%8d%95%e8%84%9a%e6%9c%ac%e4%b8%8e%e4%b8%b4%e6%97%b6%e4%bb%bb%e5%8a%a1-script-workflow" aria-label="场景 B：单脚本与临时任务 (Script Workflow)">场景 B：单脚本与临时任务 (Script Workflow)</a></li>
+                <li>
+                    <a href="#%e5%9c%ba%e6%99%af-c%e5%85%a8%e5%b1%80%e5%b7%a5%e5%85%b7-tools" aria-label="场景 C：全局工具 (Tools)">场景 C：全局工具 (Tools)</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-%e5%b8%b8%e8%a7%81%e9%97%ae%e9%a2%98%e4%b8%8e%e5%9d%91-faq" aria-label="4. 常见问题与“坑” (FAQ)">4. 常见问题与“坑” (FAQ)</a></li>
+                <li>
+                    <a href="#5-%e6%9e%81%e9%80%9f%e8%bf%81%e7%a7%bb%e5%ae%9e%e6%88%98" aria-label="5. 极速迁移实战">5. 极速迁移实战</a><ul>
+                        
+                <li>
+                    <a href="#%e4%bd%a0%e7%9a%84%e4%b8%8b%e4%b8%80%e6%ad%a5" aria-label="你的下一步">你的下一步</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+</div>
+
+
+  <div class="post-content" id="post-content" style="display: none;"><h1 id="从-conda-到-uv现代化-python-开发迁移指南">从 Conda 到 uv：现代化 Python 开发迁移指南<a hidden class="anchor" aria-hidden="true" href="#从-conda-到-uv现代化-python-开发迁移指南">#</a></h1>
+<h2 id="1-核心思维转变-mental-model-shift">1. 核心思维转变 (Mental Model Shift)<a hidden class="anchor" aria-hidden="true" href="#1-核心思维转变-mental-model-shift">#</a></h2>
+<p>在使用 uv 之前，你需要调整对“环境管理”的理解。</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>特性</strong></th>
+          <th><strong>Conda (传统模式)</strong></th>
+          <th><strong>uv (现代模式)</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>环境位置</strong></td>
+          <td><strong>集中式</strong> (<code>~/anaconda3/envs/myenv</code>)。环境与项目分离。</td>
+          <td><strong>项目式</strong> (<code>./.venv</code>)。环境通常直接放在项目文件夹内。</td>
+      </tr>
+      <tr>
+          <td><strong>Python 来源</strong></td>
+          <td>Conda 仓库 (二进制包)。</td>
+          <td>官方构建 (uv 自动管理下载，更纯净)。</td>
+      </tr>
+      <tr>
+          <td><strong>依赖解析</strong></td>
+          <td>求解器较慢，经常出现 Conflict。</td>
+          <td>极速解析，使用 <code>uv.lock</code> 锁定精确版本。</td>
+      </tr>
+      <tr>
+          <td><strong>项目定义</strong></td>
+          <td><code>environment.yml</code> (非标准)。</td>
+          <td><code>pyproject.toml</code> (PEP 621 Python 官方标准)。</td>
+      </tr>
+      <tr>
+          <td><strong>激活习惯</strong></td>
+          <td>必须 <code>conda activate</code> 才能工作。</td>
+          <td>推荐 <code>uv run</code> 直接运行，或像 venv 一样激活。</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="2-命令对照速查表-cheat-sheet">2. 命令对照速查表 (Cheat Sheet)<a hidden class="anchor" aria-hidden="true" href="#2-命令对照速查表-cheat-sheet">#</a></h2>
+<p>这是你最需要的部分，建议保存。</p>
+<h3 id="基础操作">基础操作<a hidden class="anchor" aria-hidden="true" href="#基础操作">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>动作</strong></th>
+          <th><strong>Conda 命令</strong></th>
+          <th><strong>uv 命令 (推荐)</strong></th>
+          <th><strong>备注</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>安装 Python</strong></td>
+          <td><code>conda install python=3.11</code></td>
+          <td><code>uv python install 3.11</code></td>
+          <td>uv 是全局管理 Python 版本</td>
+      </tr>
+      <tr>
+          <td><strong>创建环境</strong></td>
+          <td><code>conda create -n myenv</code></td>
+          <td><code>uv venv</code></td>
+          <td>默认在当前目录创建 .venv</td>
+      </tr>
+      <tr>
+          <td><strong>指定版本创建</strong></td>
+          <td><code>conda create -n myenv python=3.10</code></td>
+          <td><code>uv venv --python 3.10</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>激活环境</strong></td>
+          <td><code>conda activate myenv</code></td>
+          <td><code>source .venv/bin/activate</code></td>
+          <td>Windows: <code>.venv\Scripts\activate</code></td>
+      </tr>
+      <tr>
+          <td><strong>退出环境</strong></td>
+          <td><code>conda deactivate</code></td>
+          <td><code>deactivate</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>删除环境</strong></td>
+          <td><code>conda env remove -n myenv</code></td>
+          <td><code>rm -rf .venv</code></td>
+          <td>直接删文件夹即可</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="包管理-在项目内">包管理 (在项目内)<a hidden class="anchor" aria-hidden="true" href="#包管理-在项目内">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>动作</strong></th>
+          <th><strong>Conda 命令</strong></th>
+          <th><strong>uv 命令 (项目模式)</strong></th>
+          <th><strong>备注</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>初始化项目</strong></td>
+          <td>(无直接对应)</td>
+          <td><code>uv init</code></td>
+          <td>生成 pyproject.toml</td>
+      </tr>
+      <tr>
+          <td><strong>安装包</strong></td>
+          <td><code>conda install numpy</code></td>
+          <td><code>uv add numpy</code></td>
+          <td>自动更新 lock 文件</td>
+      </tr>
+      <tr>
+          <td><strong>安装特定版本</strong></td>
+          <td><code>conda install numpy=1.24</code></td>
+          <td><code>uv add &quot;numpy==1.24&quot;</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>卸载包</strong></td>
+          <td><code>conda remove numpy</code></td>
+          <td><code>uv remove numpy</code></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td><strong>安装开发依赖</strong></td>
+          <td>(无区分)</td>
+          <td><code>uv add --dev pytest</code></td>
+          <td>测试/格式化工具专用</td>
+      </tr>
+      <tr>
+          <td><strong>列出已装包</strong></td>
+          <td><code>conda list</code></td>
+          <td><code>uv tree</code></td>
+          <td>树状显示，更清晰</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="环境复现与同步">环境复现与同步<a hidden class="anchor" aria-hidden="true" href="#环境复现与同步">#</a></h3>
+<table>
+  <thead>
+      <tr>
+          <th><strong>动作</strong></th>
+          <th><strong>Conda 命令</strong></th>
+          <th><strong>uv 命令</strong></th>
+          <th><strong>核心差异</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>导出依赖</strong></td>
+          <td><code>conda env export &gt; env.yml</code></td>
+          <td>(自动维护)</td>
+          <td>uv 自动维护 <code>uv.lock</code>，无需手动导出</td>
+      </tr>
+      <tr>
+          <td><strong>复现环境</strong></td>
+          <td><code>conda env create -f env.yml</code></td>
+          <td><code>uv sync</code></td>
+          <td><strong>这是 uv 的杀手锏</strong>，一键同步</td>
+      </tr>
+      <tr>
+          <td><strong>更新所有包</strong></td>
+          <td><code>conda update --all</code></td>
+          <td><code>uv lock --upgrade</code></td>
+          <td>更新 lock 文件中的版本</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="3-详细工作流指南">3. 详细工作流指南<a hidden class="anchor" aria-hidden="true" href="#3-详细工作流指南">#</a></h2>
+<p>放弃 Conda 后，你的工作流将分为两种场景：<strong>完整的项目开发</strong> 和 <strong>临时脚本/工具使用</strong>。</p>
+<h3 id="场景-a完整的项目开发-project-workflow">场景 A：完整的项目开发 (Project Workflow)<a hidden class="anchor" aria-hidden="true" href="#场景-a完整的项目开发-project-workflow">#</a></h3>
+<p><em>适用于：开发一个应用、数据分析项目、或者库。</em></p>
+<ol>
+<li>
+<p><strong>初始化项目：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir my-project
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my-project
+</span></span><span class="line"><span class="cl">uv init  <span class="c1"># 创建 pyproject.toml</span>
+</span></span></code></pre></div><p><em>此时你可以固定 Python 版本：<code>uv python pin 3.10</code></em></p>
+</li>
+<li>
+<p><strong>添加依赖：</strong></p>
+<p>不要手动 pip install，使用 add 命令。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv add pandas matplotlib scikit-learn
+</span></span></code></pre></div><p><em>uv 会自动创建虚拟环境 (.venv)，安装包，并锁定版本到 uv.lock。</em></p>
+</li>
+<li>
+<p><strong>运行代码：</strong></p>
+<p>你不需要激活环境！直接用 <code>uv run</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run main.py
+</span></span></code></pre></div><p><em>uv 会自动检测 .venv 中的环境并使用它。如果你想进入命令行交互，可以 <code>uv run python</code>。</em></p>
+</li>
+<li>
+<p><strong>团队协作/部署：</strong></p>
+<p>当你把代码传到服务器或给同事，只要传输 <code>pyproject.toml</code> 和 <code>uv.lock</code>。</p>
+<p>接收方只需运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv sync
+</span></span></code></pre></div><p>环境瞬间完美复刻。</p>
+</li>
+</ol>
+<h3 id="场景-b单脚本与临时任务-script-workflow">场景 B：单脚本与临时任务 (Script Workflow)<a hidden class="anchor" aria-hidden="true" href="#场景-b单脚本与临时任务-script-workflow">#</a></h3>
+<p><em>适用于：跑一个网上的脚本，或者测试一个 demo。</em></p>
+<p>Conda 用户经常为了跑一个脚本就创建一个环境，或者把 base 环境搞得很脏。uv 解决了这个问题。</p>
+<ol>
+<li>
+<p><strong>创建一个脚本文件 <code>analysis.py</code></strong></p>
+</li>
+<li>
+<p><strong>直接运行并声明依赖：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run --with <span class="s2">&#34;requests,pandas&#34;</span> analysis.py
+</span></span></code></pre></div><p><em>uv 会创建一个<strong>临时</strong>的隔离环境，安装 requests 和 pandas，跑完脚本后，你可以选择忽略这个环境，你的系统非常干净。</em></p>
+</li>
+<li>
+<p><strong>脚本内声明 (Inline Metadata)：</strong></p>
+<p>你甚至可以在 python 脚本头部写依赖：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># /// script</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># dependencies = [&#34;requests&lt;3&#34;, &#34;rich&#34;]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># ///</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">rich</span> <span class="kn">import</span> <span class="nb">print</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;https://httpbin.org/json&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</span></span></code></pre></div><p>然后直接运行 <code>uv run analysis.py</code>，uv 会自动读取注释去安装依赖。</p>
+</li>
+</ol>
+<h3 id="场景-c全局工具-tools">场景 C：全局工具 (Tools)<a hidden class="anchor" aria-hidden="true" href="#场景-c全局工具-tools">#</a></h3>
+<p><em>适用于：Jupyter, Black, Ruff, Pyright 等命令行工具。</em></p>
+<p>不要把这些工具装在项目环境里，也不要装在全局 Python 里。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装并运行 Jupyter</span>
+</span></span><span class="line"><span class="cl">uvx jupyter lab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 Ruff 格式化</span>
+</span></span><span class="line"><span class="cl">uvx ruff check .
+</span></span></code></pre></div><p><code>uvx</code> 类似于 <code>pipx</code>，甚至不需要你显式安装，用完即走（或缓存）。</p>
+<hr>
+<h2 id="4-常见问题与坑-faq">4. 常见问题与“坑” (FAQ)<a hidden class="anchor" aria-hidden="true" href="#4-常见问题与坑-faq">#</a></h2>
+<p><strong>Q1: Conda 安装的那些非 Python 库怎么办？（如 CUDA, ffmpeg, graphviz）</strong></p>
+<p>这是 Conda 唯一的护城河。</p>
+<ul>
+<li><strong>uv 的策略：</strong> uv 专注 Python 包 (PyPI)。</li>
+<li><strong>解决方案：</strong>
+<ul>
+<li>对于 <strong>CUDA/PyTorch</strong>：uv 支持完美安装 PyTorch（它会从 PyPI 拉取包含 CUDA 的 wheel 包）。命令：<code>uv add torch</code> 即可，现在的 PyPI wheel 包已经做得很好。</li>
+<li>对于 <strong>ffmpeg/graphviz</strong>：建议使用系统包管理器（<code>apt</code>, <code>brew</code>, <code>choco</code>）安装，或者使用 Docker。</li>
+<li><em>如果你的工作流极度依赖旧版二进制库的自动配置，保留 Miniconda 作为备用是合理的，但 95% 的场景可以迁移。</em></li>
+</ul>
+</li>
+</ul>
+<p><strong>Q2: 我习惯了 <code>activate</code>，不想每次都打 <code>uv run</code>。</strong></p>
+<p>完全没问题。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> .venv/bin/activate
+</span></span><span class="line"><span class="cl">python main.py
+</span></span></code></pre></div><p>这和标准 venv 一模一样。uv 只是帮你更快地创建了它。</p>
+<p><strong>Q3: 如何清理缓存？</strong></p>
+<p>uv 极其节省空间（使用硬链接），但如果你想清空：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv cache clean
+</span></span></code></pre></div><hr>
+<h2 id="5-极速迁移实战">5. 极速迁移实战<a hidden class="anchor" aria-hidden="true" href="#5-极速迁移实战">#</a></h2>
+<p>如果你手头有一个 Conda 的 <code>requirements.txt</code>：</p>
+<ol>
+<li>
+<p>创建一个新目录：<code>mkdir migration_test &amp;&amp; cd migration_test</code></p>
+</li>
+<li>
+<p>初始化 uv：<code>uv init</code></p>
+</li>
+<li>
+<p>导入旧依赖：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv pip install -r requirements.txt
+</span></span></code></pre></div><p><em>(注意：这会把包安装进环境，但不会自动更新 pyproject.toml。建议手动用 <code>uv add</code> 重新整理一次依赖，以享受长期管理的红利)</em></p>
+</li>
+</ol>
+<hr>
+<h3 id="你的下一步">你的下一步<a hidden class="anchor" aria-hidden="true" href="#你的下一步">#</a></h3>
+<p>建议你现在就在终端里敲下这行命令，体验一下什么叫“快到离谱”：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">uv run --with <span class="s2">&#34;numpy,pandas&#34;</span> python -c <span class="s2">&#34;import pandas; print(&#39;Environment created and Pandas loaded!&#39;)&#34;</span>
+</span></span></code></pre></div><p>如果这个指令成功了，你就已经迈出了放弃 Conda 的第一步。</p>
+
+
+  </div>
+
+  <script>
+    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
+    document.getElementById("ai-check-text").innerText = aiChallengeText;
+
+    function verifyHuman() {
+      let inputText = document.getElementById("ai-input").value;
+      if (inputText === aiChallengeText) {
+        document.getElementById("ai-check").style.display = "none";
+        document.getElementById("post-content").style.display = "block";
+      } else {
+        let errorMsg = document.getElementById("ai-error");
+        errorMsg.style.display = "block";
+        errorMsg.classList.add("shake");
+        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+      }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/ai/">AI</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ahaknow.com/posts/aiknow/prompt/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span class="post-nav-title" title="开发Prompt">开发Prompt</span>
+  </a>
+  <a class="next" href="https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span class="post-nav-title" title="跨画幅影像匹配指南：1/1.8英寸 vs M4/3">跨画幅影像匹配指南：1/1.8英寸 vs M4/3</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 <a href="https://blog.ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

@@ -46,9 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>Linux：GPU环境崩了？从Nvidia驱动到TensorRT | AhaKnow</title>
 <meta name="keywords" content="CUDA">
-<meta name="description" content="
-遇到的问题是这样的：
-“莫名其妙，GPU驱动就没了，可能是因为update &amp;&amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没有重新安装，还用了autoremove进行清理），总之就是GPU挂了。。。”">
+<meta name="description" content="这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -97,19 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="Linux：GPU环境崩了？从Nvidia驱动到TensorRT" />
-<meta property="og:description" content="
-遇到的问题是这样的：
-“莫名其妙，GPU驱动就没了，可能是因为update &amp;&amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没有重新安装，还用了autoremove进行清理），总之就是GPU挂了。。。”" />
+<meta property="og:description" content="这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-06-03T16:26:02+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux：GPU环境崩了？从Nvidia驱动到TensorRT"/>
-<meta name="twitter:description" content="
-遇到的问题是这样的：
-“莫名其妙，GPU驱动就没了，可能是因为update &amp;&amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没有重新安装，还用了autoremove进行清理），总之就是GPU挂了。。。”"/>
+<meta name="twitter:description" content="这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装："/>
 
 
 <script type="application/ld+json">
@@ -120,13 +114,13 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -144,7 +138,7 @@
   "@type": "BlogPosting",
   "headline": "Linux：GPU环境崩了？从Nvidia驱动到TensorRT",
   "name": "Linux：GPU环境崩了？从Nvidia驱动到TensorRT",
-  "description": " 遇到的问题是这样的：\n“莫名其妙，GPU驱动就没了，可能是因为update \u0026amp;\u0026amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没有重新安装，还用了autoremove进行清理），总之就是GPU挂了。。。”\n",
+  "description": "这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：",
   "keywords": [
     "CUDA"
   ],
@@ -152,7 +146,7 @@
   "wordCount" : "681",
   "inLanguage": "zh",
   "datePublished": "2024-06-03T16:26:02+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -219,38 +213,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -260,10 +254,13 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       Linux：GPU环境崩了？从Nvidia驱动到TensorRT
     </h1>
+    <div class="post-description">
+      这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：
+    </div>
     <div class="post-meta">
 
 
@@ -296,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>

@@ -6,14 +6,14 @@
     <description>Recent content in Github on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GitHub README 美化经验分享</title>
       <link>https://blog.ahaknow.com/posts/aiknow/github-readme/</link>
       <pubDate>Sat, 01 Feb 2025 21:41:12 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/github-readme/</guid>
-      <description>&lt;p&gt;在 GitHub 上，一个精心设计的个人主页不仅可以展示你的项目、技术栈，还能通过动态数据和动画效果提升个人品牌形象。本文将分享两个经典模块的自动化集成方法：&lt;/p&gt;</description>
+      <description>利用 GitHub Actions 你可以让这两部分数据每天定时更新，也可以手动触发更新</description>
     </item>
   </channel>
 </rss>

@@ -9,78 +9,31 @@
     <atom:link href="https://blog.ahaknow.com/posts/ahaknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AhaKnow博客备忘录</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/memo-blog/</link>
       <pubDate>Sun, 25 Jan 2026 22:56:50 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%8D%9A%E5%AE%A2%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
-      <description>&lt;p&gt;又是两年过去了。
-AhaKnow的博客咋使用的我都忘记了，需要记录一下。&lt;/p&gt;
-&lt;h2 id=&#34;博客的主题&#34;&gt;博客的主题&lt;/h2&gt;
-&lt;p&gt;博客的主题在themes路径下，直接修改就行。
-然后本地运行：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;hugo serve -F
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;剩下都交给脚本&#34;&gt;剩下都交给脚本&lt;/h2&gt;
-&lt;p&gt;尽可能避免记忆，主要是两个功能，同步git和发布，这两个都交给脚本就好了。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/memo-blog/</guid>
+      <description>又是两年过去了。 AhaKnow的博客咋使用的我都忘记了，需要记录一下。 博客的主题在themes路径下，直接修改就行。 然后本地运行： 尽可能避免记忆，主要是两个功能，同步…</description>
     </item>
     <item>
       <title>开发前的一些准备工作～</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/%E5%BC%80%E5%8F%91%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/preparation-development/</link>
       <pubDate>Tue, 19 Aug 2025 11:03:49 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/%E5%BC%80%E5%8F%91%E5%89%8D%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;有一些事情，重复干两次以上，就不应该想办法让它自动化，或者被记录。
-Chat+Note的方式可能需要继续迭代，先满足自己的需求，后面继续迭代。&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;linux的习惯性配置&#34;&gt;Linux的习惯性配置&lt;/h2&gt;
-&lt;p&gt;沿用之前的模式，Ohmyzsh方案：p10k+自动高亮和补充这种。
-以下复制使用（网络不好的话，手动下载或者直接局域网梯子🚀）&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/preparation-development/</guid>
+      <description>沿用之前的模式，Ohmyzsh方案：p10k&#43;自动高亮和补充这种</description>
     </item>
     <item>
       <title>📖算法工程师面试指南</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/algorithm-engineer-interview-guide/</link>
       <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/%E7%AE%97%E6%B3%95%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E8%AF%95%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;p&gt;结合算法工程师具体岗位的需求，可实际调整以下权重：&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;考察项&lt;/th&gt;
-          &lt;th&gt;权重&lt;/th&gt;
-          &lt;th&gt;说明&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;语言表达能力&lt;/td&gt;
-          &lt;td&gt;20%&lt;/td&gt;
-          &lt;td&gt;关注项目描述、沟通逻辑、思路表达&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;数学基础&lt;/td&gt;
-          &lt;td&gt;30%&lt;/td&gt;
-          &lt;td&gt;考察理论推导、公式理解、数学模型建构&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;代码能力&lt;/td&gt;
-          &lt;td&gt;30%&lt;/td&gt;
-          &lt;td&gt;实现能力、代码质量、工程实践及优化&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;深入思考能力&lt;/td&gt;
-          &lt;td&gt;20%&lt;/td&gt;
-          &lt;td&gt;分析问题、创新解决方案、对问题本质的追问与延伸&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;评分参考：&lt;/strong&gt;&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/algorithm-engineer-interview-guide/</guid>
+      <description>|代码能力|30%|实现能力、代码质量、工程实践及优化|</description>
     </item>
     <item>
       <title>AhaKnow开发笔记</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/notes-development/</link>
       <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/ahaknow%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/</guid>
-      <description>&lt;p&gt;2026年！&lt;/p&gt;
-&lt;p&gt;再次开始开发AhaKnow。&lt;/p&gt;
-&lt;p&gt;2025年尝试了一半，属于残缺版，不过也算是实现了一点点自己的想法，但是缺乏交流，容易陷入自我感动之中。&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/notes-development/</guid>
+      <description>2026年！ 再次开始开发AhaKnow。 2025年尝试了一半，属于残缺版，不过也算是实现了一点点自己的想法，但是缺乏交流，容易陷入自我感动之中。</description>
     </item>
   </channel>
 </rss>

@@ -46,9 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>Linux：测试硬盘读写速度 | AhaKnow</title>
 <meta name="keywords" content="磁盘读写">
-<meta name="description" content="
-需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。
-在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度">
+<meta name="description" content="在 Linux 上，可以通过 O_DIRECT 标志来实现直接 I/O">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/linux-test-ssd/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -97,19 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="Linux：测试硬盘读写速度" />
-<meta property="og:description" content="
-需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。
-在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度" />
+<meta property="og:description" content="在 Linux 上，可以通过 O_DIRECT 标志来实现直接 I/O" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/linux-test-ssd/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-05-28T11:33:46+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux：测试硬盘读写速度"/>
-<meta name="twitter:description" content="
-需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。
-在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度"/>
+<meta name="twitter:description" content="在 Linux 上，可以通过 O_DIRECT 标志来实现直接 I/O"/>
 
 
 <script type="application/ld+json">
@@ -120,13 +114,13 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -144,7 +138,7 @@
   "@type": "BlogPosting",
   "headline": "Linux：测试硬盘读写速度",
   "name": "Linux：测试硬盘读写速度",
-  "description": " 需要对Linux上的固态进行一个读写测试，我知道是可以 dd 方式直接测试的，但是 dd 只能顺序读写，无法随机读写，因此这里再提供另一种方法。\n在 Linux 上使用 dd 工具可以直接测试硬盘的读写速度\n",
+  "description": "在 Linux 上，可以通过 O_DIRECT 标志来实现直接 I/O",
   "keywords": [
     "磁盘读写"
   ],
@@ -152,7 +146,7 @@
   "wordCount" : "3510",
   "inLanguage": "zh",
   "datePublished": "2024-05-28T11:33:46+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -219,38 +213,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -260,10 +254,13 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       Linux：测试硬盘读写速度
     </h1>
+    <div class="post-description">
+      在 Linux 上，可以通过 O_DIRECT 标志来实现直接 I/O
+    </div>
     <div class="post-meta">
 
 
@@ -296,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -808,12 +805,12 @@
       <li><a href="https://blog.ahaknow.com/tags/%E7%A3%81%E7%9B%98%E8%AF%BB%E5%86%99/">磁盘读写</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://blog.ahaknow.com/posts/todo/dev-mutex/">
+  <a class="prev" href="https://blog.ahaknow.com/posts/inspiration/dev-mutex/">
     <span class="title">« 上一页</span>
     <br>
     <span class="post-nav-title" title="开发实战：“锁”的机制">开发实战：“锁”的机制</span>
   </a>
-  <a class="next" href="https://blog.ahaknow.com/posts/life/m.e.r.l.i.n./">
+  <a class="next" href="https://blog.ahaknow.com/posts/life/merlin/">
     <span class="title">下一页 »</span>
     <br>
     <span class="post-nav-title" title="你好～ Merlin">你好～ Merlin</span>

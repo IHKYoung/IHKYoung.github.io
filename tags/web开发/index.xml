@@ -6,43 +6,14 @@
     <description>Recent content in Web开发 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 25 Jan 2026 22:51:03 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/web%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>好记性不如烂笔头</title>
       <link>https://blog.ahaknow.com/posts/diary/2025-08-25/</link>
       <pubDate>Mon, 25 Aug 2025 12:22:51 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2025-08-25/</guid>
-      <description>&lt;p&gt;关于服务器后台持续性的问题，之前使用的是nohup这个。
-但是更好的做法是使用system的这种。比如：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[Unit]
-Description=4DVCam ATS Service
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py
-
-# Ensure that the environment variables are set properly
-Environment=&amp;#34;4DVCAMATS_ENV=production&amp;#34;
-Environment=&amp;#34;4DVCAMATS_PORT=5000&amp;#34;
-Environment=&amp;#34;4DVCAMATS_CAM_CONTROL_PORT=8088&amp;#34;
-
-# Log to the file, append output and error
-StandardOutput=append:/home/clarke/4dvcam_ats.log
-StandardError=append:/home/clarke/4dvcam_ats.log
-
-# Restart service in case of failure
-Restart=always
-RestartSec=3
-
-# Run as the correct user and group
-User=clarke
-Group=clarke
-
-[Install]
-WantedBy=default.target
-&lt;/code&gt;&lt;/pre&gt;</description>
+      <description>围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。</description>
     </item>
   </channel>
 </rss>

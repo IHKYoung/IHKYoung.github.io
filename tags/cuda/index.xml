@@ -6,16 +6,14 @@
     <description>Recent content in CUDA on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux：GPU环境崩了？从Nvidia驱动到TensorRT</title>
       <link>https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/</link>
       <pubDate>Mon, 03 Jun 2024 16:26:02 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;遇到的问题是这样的：&lt;/p&gt;
-&lt;p&gt;“莫名其妙，GPU驱动就没了，可能是因为update &amp;amp;&amp;amp; upgrade了一下？（ROS安装源的问题，更换到了国内之后好像没有重新安装，还用了autoremove进行清理），总之就是GPU挂了。。。”&lt;/p&gt;</description>
+      <description>这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：</description>
     </item>
   </channel>
 </rss>

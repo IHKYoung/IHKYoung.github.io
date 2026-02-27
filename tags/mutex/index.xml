@@ -6,14 +6,14 @@
     <description>Recent content in Mutex on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/mutex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：“锁”的机制</title>
-      <link>https://blog.ahaknow.com/posts/todo/dev-mutex/</link>
+      <link>https://blog.ahaknow.com/posts/inspiration/dev-mutex/</link>
       <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/todo/dev-mutex/</guid>
-      <description></description>
+      <guid>https://blog.ahaknow.com/posts/inspiration/dev-mutex/</guid>
+      <description>开发实战：“锁”的机制</description>
     </item>
   </channel>
 </rss>

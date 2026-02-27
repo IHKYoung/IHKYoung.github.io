@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>AI on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/ai/</link>
+    <description>Recent content in AI on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我和 AI 把验证码救回来的夜晚</title>
+      <link>https://blog.ahaknow.com/posts/ai-diary/2026-02-26/</link>
+      <pubDate>Thu, 26 Feb 2026 20:18:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ai-diary/2026-02-26/</guid>
+      <description>记录一个普通夜晚里，我和 AI 一起把 Outlook 验证码自动转发飞书这件小事，磨成了真正可用的系统。</description>
+    </item>
+    <item>
+      <title>开发Prompt</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/prompt/</link>
+      <pubDate>Wed, 28 Jan 2026 17:21:30 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/prompt/</guid>
+      <description>作为一个 强推理、强规划的编码助手，在尽量少的往返中给出高质量方案与实现</description>
+    </item>
+    <item>
+      <title>从 Conda 到 uv：现代化 Python 开发迁移指南</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/conda-uv-python/</link>
+      <pubDate>Tue, 27 Jan 2026 17:47:23 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/conda-uv-python/</guid>
+      <description>| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |</description>
+    </item>
+    <item>
+      <title>跨画幅影像匹配指南：1/1.8英寸 vs M4/3</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/</link>
+      <pubDate>Tue, 27 Jan 2026 12:16:09 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/</guid>
+      <description>1. 1/1.8英寸（小杯子） vs M4/3（大脸盆）</description>
+    </item>
+    <item>
+      <title>跨画幅影像系统等效性分析</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/</link>
+      <pubDate>Mon, 26 Jan 2026 22:05:16 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/</guid>
+      <description>在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则</description>
+    </item>
+    <item>
+      <title>✨ LaTeX 数学公式语法大全 📘</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
+      <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
+      <description>在文本中插入数学公式： $E=mc^2$ 行内模式的数学公式，适用于正文中的数学表达。 使数学公式独占一行： 独立模式的数学公式，适用于单独一行的数学表达。 $$E=mc^2…</description>
+    </item>
+  </channel>
+</rss>

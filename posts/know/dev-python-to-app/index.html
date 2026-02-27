@@ -45,10 +45,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>全栈开发：从Python脚本到独立的App（初稿） | AhaKnow</title>
-<meta name="keywords" content="">
-<meta name="description" content="前言
-怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？
-在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。">
+<meta name="keywords" content="Knowledge">
+<meta name="description" content="围绕全栈开发：从Python脚本到独立的App（初稿），重点总结整体感受、工具篇，并给出可执行实践。">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/dev-python-to-app/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -97,19 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="全栈开发：从Python脚本到独立的App（初稿）" />
-<meta property="og:description" content="前言
-怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？
-在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。" />
+<meta property="og:description" content="围绕全栈开发：从Python脚本到独立的App（初稿），重点总结整体感受、工具篇，并给出可执行实践。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/dev-python-to-app/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-09-24T10:32:02+08:00" />
-<meta property="article:modified_time" content="2026-01-25T23:36:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="全栈开发：从Python脚本到独立的App（初稿）"/>
-<meta name="twitter:description" content="前言
-怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？
-在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。"/>
+<meta name="twitter:description" content="围绕全栈开发：从Python脚本到独立的App（初稿），重点总结整体感受、工具篇，并给出可执行实践。"/>
 
 
 <script type="application/ld+json">
@@ -120,13 +114,13 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -144,15 +138,15 @@
   "@type": "BlogPosting",
   "headline": "全栈开发：从Python脚本到独立的App（初稿）",
   "name": "全栈开发：从Python脚本到独立的App（初稿）",
-  "description": "前言 怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？\n在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。\n",
+  "description": "围绕全栈开发：从Python脚本到独立的App（初稿），重点总结整体感受、工具篇，并给出可执行实践。",
   "keywords": [
-    
+    "Knowledge"
   ],
   "articleBody": "前言 怎么样从一个Python脚本一步一步变成一个可以在多平台上独立使用的App呢？\n在这一部分之前，是改进和优化Python的训练脚本，其中涉及到很多知识点，也有很多心得和体悟，这些需要之后总结补充。\n不记录，肯定是会忘记的，以前干了很多次这样的事，到最后就只剩下一个标题，内容啥的完全想不起来了，所以要实时记录，时常温习。\n教，也是一种学习；输出，温故而知新。\n整体感受 想要把一个Python的脚本转换成一个App，比如在Windows平台上双击即可使用的exe程序，怎么做呢？\n首先，应该是有成熟的工具可以直接使用的，所以先收集信息看看有哪些，做一个整体的了解； 然后，做成App后，需要有交互，并且是基于图形界面的交互（GUI），因此就不能再是简单粗暴的命令行传递参数了； 再者，在设计时，要考虑美观，也要考虑用户体验，因此有很多细节上的需要注意，同时很多功能逻辑上的严谨也需要顾及； 这么来看，在一开始想做的时候，心里大概是有一个数的，知道一步一步分解之后需要怎么做，也能够凭借已有的经验来预估哪些逻辑需要设计，从这一点呢，其实也能学到一个好用的技巧（虽然这个道理以前就已经知道了）：\n拿一张白纸或者一面白板，一步一步写列出思路和提纲，具体往后做的时候就不怕自己脑子里给忘掉了； 而且一旦有灵感之后，还能直接补充到这个白纸或者白板上，有时候就需要这种外置的记忆，想到了就记下来很重要； 不应该纠结于工具本身，而应该落实在具体的做上面； 一次性想明白所有当然是最好的，但更多的时候可能是，一边做，一边更新迭代。 那现在开始做吧！\n工具篇 Windows上的CMake编译 好像是晕到死（Windows）要配合Visual Studio开发打包，但我就是不信这个邪，因为在Linux平台上就是一行命令就能解决的事，凭啥到Windows上要搞一套臃肿的软件呢？！\n确实，想要在Windows上实现cmake+make，很难，但不是不可能！\n首先也是收集了一些信息：\n在Windows上使用 CMake 和 make 通常比在Linux上更复杂，这是由于两者的架构和工具链有根本性的差异。以下是Windows与Linux在构建系统方面的不同之处，以及为什么在Windows上不能像在Linux上直接运行 cmake 和 make。\n1. 工具链的差异 Linux：Linux系统有一个非常标准化的开发环境，几乎所有发行版都预装了GNU工具链，包括gcc编译器和make构建工具。因此，开发人员只需要安装一些基本的开发工具包（如build-essential）即可轻松编译C/C++程序。 CMake 作为跨平台的构建系统，能生成Makefile，然后通过 make 工具来进行编译、链接等任务。\nWindows：Windows系统没有预装类似于Linux的GNU工具链，而是主要依赖于Microsoft Visual Studio 和 MSVC 编译器（Microsoft Visual C++）。Windows的开发环境与Linux存在本质区别，没有默认的标准构建工具如 make。因此，要在Windows上使用CMake生成和构建项目，通常需要依赖Visual Studio或第三方工具。\n2. CMake 与 Make 的工作原理 CMake 是一个跨平台的构建系统生成工具，但它本身并不执行编译或构建工作。CMake 的任务是根据项目配置文件（CMakeLists.txt）生成相应平台的构建文件，例如： Linux：CMake 通常生成 Makefile，然后通过 make 进行构建。 Windows：CMake 通常生成 Visual Studio项目文件 或 NMake Makefiles。Visual Studio 是 Windows 上常用的编译器和构建环境，NMake 是Windows下的一种 make 工具，虽然和GNU make 不完全兼容，但功能类似。 因此，CMake 在Windows上默认生成Visual Studio解决方案文件 (.sln) 或者 NMake Makefiles，而不是传统的GNU Makefile。\n3. 编译器的差异 Linux：Linux系统广泛使用GNU编译器（gcc、g++）和 clang，并且这些工具能够直接与make等构建工具配合工作。编译器和构建工具可以通过统一的方式来调用，CMake也支持生成 Makefile 并与 gcc 配合使用。\nWindows：Windows的默认编译器是 MSVC，它的命令行工具（如 cl.exe、link.exe）与GNU工具链有较大区别。Windows上并没有内置的 gcc 或 clang，这意味着如果不使用Visual Studio，开发人员需要手动安装并配置编译器（如 MinGW-w64 或 Cygwin）和构建工具（如 MSYS2）来提供GNU工具链的支持。\n4. Make 与 NMake 的区别 GNU Make：这是Linux上的默认构建工具，结合Makefile进行依赖管理和构建过程。它与GNU工具链高度集成。 NMake：这是微软提供的 make 工具，专为Windows开发环境设计，通常与MSVC配合使用。虽然NMake的基本功能类似于GNU Make，但它的语法和行为与GNU Make有所不同，NMake不能直接使用GNU风格的Makefile。 5. 跨平台兼容工具 如果不想使用Visual Studio，可以在Windows上通过安装GNU工具链来实现类似Linux的构建体验：\nMinGW-w64：提供了Windows上的GNU编译工具链（gcc 和 g++），并且能够与 CMake 配合使用生成 GNU Makefile，然后可以使用 make 进行构建。MinGW-w64 使你可以在Windows上使用类似Linux的编译环境。 MSYS2：这是一个兼容性更强的环境，基于MinGW和Cygwin，允许在Windows上运行许多Linux工具，包括 bash、gcc、make 等。MSYS2提供了一个接近Linux的终端环境，可以通过CMake生成GNU Makefile，然后使用GNU make 来编译项目。 Cygwin：Cygwin 提供了类似于Linux的环境，支持使用 gcc 和 make 进行开发，但其模拟层较重，性能不如MinGW，并且有时会引入一些额外的兼容性问题。 6. Windows Subsystem for Linux (WSL) Windows Subsystem for Linux (WSL) 提供了一个原生的Linux子系统，允许在Windows上运行Linux二进制程序。你可以在WSL中直接使用 CMake 和 make，因为WSL是一个完整的Linux环境，使用Ubuntu等发行版，你可以完全按照Linux的开发流程进行操作，而无需安装Visual Studio或其他工具链。\n使用WSL的步骤：\n安装WSL和Linux发行版（如Ubuntu）。 在WSL中安装 build-essential 包，包含 gcc、make 等工具。 在WSL中运行 cmake 和 make 完成项目的构建。 7. 不用Visual Studio可以吗？ 答案是可以，但需要选择合适的工具链。你可以通过以下方式在Windows上避免使用Visual Studio： 使用MinGW-w64 或 MSYS2 来提供GNU工具链，配合CMake生成GNU Makefile，然后使用 make 进行编译。 使用WSL，直接在Windows中运行Linux的CMake和Make工具。 使用NMake，如果仍然想使用MSVC编译器，但不希望依赖Visual Studio IDE，CMake也可以生成适用于NMake的Makefile。 8. 总结 Windows和Linux在构建系统上的差异主要体现在工具链和编译器上。Linux拥有标准的GNU工具链和 make，而Windows默认使用Visual Studio和MSVC编译器，导致在Windows上开发时，通常需要依赖Visual Studio或其他第三方工具。 如果你不想使用Visual Studio，可以通过安装MinGW-w64、MSYS2、Cygwin或WSL来获得类似于Linux的开发体验，在Windows上直接使用 cmake 和 make。 实际尝试后发现：\nMSYS2是个好东西，通过设置Path可以在PowerShell中使用，但单独使用MSYS2自带的终端会更好用，因为完全是类Unix风格； MSYS2安装的时候应该是自带MinGW的； MinGW也能单独安装，但好像安装完不知道咋用才好。 用到最后发现核心是这两句：\ncmake -DCMAKE_PREFIX_PATH=\"C:/msys64/mingw64\" -G \"MinGW Makefiles\" .. -Wno-dev mingw32-make 以及对于各种依赖和安装包，可以通过pacman来安装，这个其实就是arch linux上面那套，虽然可能没有apt那么完全。\n然后，我发现今天新点亮了一颗技能点，就是在使用搜索时，可以同时回答中英文，甚至加上一些调皮的话，比如下面这样的：\nGot it! Let’s create a detailed guide on using MSYS2 and pacman, which will include the steps for setting up the environment and using pacman to install dependencies efficiently. I’ll provide the instructions in both English and Chinese for each step, as requested. 😊\nUsing MSYS2 and Pacman for Installing Dependencies 在 MSYS2 中使用 Pacman 安装依赖\n1. Introduction to MSYS2 and Pacman MSYS2 和 Pacman 介绍\nMSYS2 is a powerful platform that brings a Unix-like environment to Windows. It provides a complete package management system through pacman (the same package manager used in Arch Linux) to install and manage software and libraries easily.\nMSYS2 是一个强大的平台，它为 Windows 带来了类似 Unix 的环境。它通过 pacman 提供了一个完整的包管理系统（与 Arch Linux 相同的包管理工具），可以轻松安装和管理软件和库。\nPacman allows you to quickly install packages and manage dependencies. Instead of manually compiling software from source, you can use pacman to install pre-built binaries, making the setup process much smoother.\nPacman 允许你快速安装软件包并管理依赖项。与手动从源代码编译软件相比，你可以使用 pacman 安装预编译的二进制文件，这使得设置过程更加顺畅。\n2. Step-by-Step Installation and Setup 分步安装和设置\n2.1 Download and Install MSYS2 下载并安装 MSYS2\nGo to the official MSYS2 website and download the installer for Windows.\n访问 MSYS2 官网 并下载适用于 Windows 的安装程序。\nRun the installer and follow the default installation path (C:\\msys64 is recommended).\n运行安装程序，并选择默认的安装路径（推荐使用 C:\\msys64）。\n2.2 Update Pacman and System 更新 Pacman 和系统\nAfter installation, you need to update the package database and core packages to ensure you’re working with the latest versions.\n安装完成后，需要更新包数据库和核心包，以确保你使用的是最新版本。\nOpen MSYS2 (either from the Start menu or from the installation folder).\n打开 MSYS2（可以通过开始菜单或从安装文件夹打开）。\nRun the following command to update the package database and the core system:\n运行以下命令以更新包数据库和核心系统：\npacman -Syu You may need to close and reopen MSYS2 to continue the update.\n你可能需要关闭并重新打开 MSYS2 来继续更新。\nAfter reopening, run the update again to ensure everything is up to date:\n重新打开后，再次运行更新命令以确保所有内容都是最新的：\npacman -Su 2.3 Install Essential Development Tools 安装必要的开发工具\nYou can install key development tools like GCC, G++, make, and CMake using pacman.\n你可以通过 pacman 安装关键的开发工具，如 GCC、G++、make 和 CMake。\nTo install the 64-bit toolchain (for compiling 64-bit applications):\n安装 64 位工具链（用于编译 64 位应用程序）：\npacman -S mingw-w64-x86_64-toolchain To install CMake (a common build system generator):\n安装 CMake（一个常用的构建系统生成器）：\npacman -S mingw-w64-x86_64-cmake To install other useful tools (such as Git or Python):\n安装其他有用的工具（如 Git 或 Python）：\npacman -S git python 2.4 Using Pacman to Search and Install Packages 使用 Pacman 搜索并安装软件包\nTo search for a package:\n搜索软件包：\npacman -Ss Example:\n例如：\npacman -Ss cmake To install a package:\n安装软件包：\npacman -S Example:\n例如：\npacman -S mingw-w64-x86_64-cmake To remove a package:\n删除软件包：\npacman -R 2.5 Check Installed Packages 检查已安装的软件包\nTo list all installed packages, run:\n要列出所有已安装的软件包，运行：\npacman -Q 2.6 Compiling Code Using MinGW in MSYS2 在 MSYS2 中使用 MinGW 编译代码\nOnce you’ve installed the MinGW toolchain, you can compile C/C++ code using the standard tools like gcc and g++.\n一旦你安装了 MinGW 工具链，你就可以使用 gcc 和 g++ 等标准工具编译 C/C++ 代码。\nTo compile a C++ file:\n编译 C++ 文件：\ng++ -o output main.cpp To use CMake for a project:\n使用 CMake 进行项目构建：\nmkdir build cd build cmake -G \"MSYS Makefiles\" .. make 2.7 Using MSYS2 Shells 使用 MSYS2 Shell\nMSYS2 provides different shells for different purposes. The most common shells are:\nMSYS2 Shell: For using Unix-like tools but not for compiling Windows applications. MinGW 64-bit Shell: For compiling 64-bit Windows applications using MinGW-w64. MinGW 32-bit Shell: For compiling 32-bit Windows applications. MSYS2 提供了不同用途的 Shell。常见的 Shell 有：\nMSYS2 Shell：用于使用类 Unix 工具，但不适合编译 Windows 应用程序。 MinGW 64-bit Shell：用于使用 MinGW-w64 编译 64 位 Windows 应用程序。 MinGW 32-bit Shell：用于编译 32 位 Windows 应用程序。 Make sure you open the correct shell depending on what you’re building.\n确保你根据要构建的内容打开正确的 Shell。\n3. Conclusion 总结\nMSYS2 combined with pacman provides a powerful and convenient development environment on Windows, bringing the simplicity of package management and tool installation from Linux-like systems. By using pacman, you can quickly install dependencies and libraries without the need to manually compile them from source unless absolutely necessary.\nMSYS2 与 pacman 相结合，为 Windows 提供了一个强大且方便的开发环境，带来了类似 Linux 系统的包管理和工具安装的简便性。通过使用 pacman，你可以快速安装依赖和库，除非万不得已，否则不需要手动从源代码编译。\nWith this guide, you should now be able to install and configure MSYS2, use pacman to manage packages, and set up a working development environment.\n通过本指南，你现在应该能够安装和配置 MSYS2，使用 pacman 管理软件包，并设置一个可用的开发环境。\nThat’s it! 🎉 I hope the bilingual style helps you with both your development and language learning.\n总的来说结合使用MSYS2，MinGW，pacman这些，是可以不依赖Visual Studio来实现exe的编译。\n其实一开始也遇到很多小问题，比如没有PCL库，然后PCL又依赖各种库，一开始的想法就是各种尝试嘛，甚至想到了手动安装，然后手动编译安装也是一个巨大的坑啊，后来是配合pacman一起服用了，虽然不及apt那么强大，但至少常用的库都有的，然后再编译需要的库就会顺畅很多。\nPython打包exe 理论上讲，应该是有直接将Python打包成exe程序的工具的，所以我的第一想法是先收集一些信息，比如得到下面这些：\n将Python打包成exe可执行文件的常见需求是为了将Python项目分发给没有Python环境的用户。以下是几种常用的打包工具，并且每种工具都有其优势和适用场景。\n1. PyInstaller 优势：最广泛使用的Python打包工具之一，支持多平台（Windows、Linux、Mac），能够将整个Python项目及其依赖包打包为一个单独的可执行文件。 安装：pip install pyinstaller 使用： pyinstaller --onefile your_script.py --onefile 参数会将所有依赖打包到一个可执行文件中。生成的exe文件通常位于 dist/ 文件夹中。 优点： 支持多平台。 配置灵活，可以指定隐藏控制台窗口（通过 --noconsole），或者包含额外的资源文件。 缺点： 打包后文件较大，因为会打包所有依赖。 对于动态加载的模块或资源文件，需要额外配置。 2. cx_Freeze 优势：与PyInstaller类似，支持多平台打包，尤其适合需要将Python程序打包为Windows可执行文件的场景。它更注重跨平台的兼容性和可扩展性。 安装：pip install cx-Freeze 使用： 需要编写一个 setup.py 文件来定义打包配置： from cx_Freeze import setup, Executable setup( name=\"your_app_name\", version=\"1.0\", description=\"Description of your app\", executables=[Executable(\"your_script.py\")] ) 然后运行： python setup.py build 优点： 比PyInstaller更灵活，适合复杂项目。 支持不同的目标平台。 缺点： 配置复杂度较高。 需要手动设置依赖项。 3. Py2exe 优势：专为Windows平台开发的工具，可以将Python程序打包成Windows可执行文件。 安装：pip install py2exe 使用： 同样需要编写 setup.py： from distutils.core import setup import py2exe setup(console=['your_script.py']) 然后运行： python setup.py py2exe 优点： 针对Windows进行优化，适合Windows应用程序。 缺点： 仅支持Windows。 相对较旧，不如PyInstaller和cx_Freeze活跃。 4. Nuitka 优势：除了打包功能外，Nuitka还将Python代码编译为C代码，生成的可执行文件通常比PyInstaller和cx_Freeze生成的要小，并且在运行时性能更好。 安装：pip install nuitka 使用： nuitka --standalone --onefile your_script.py 优点： 生成的可执行文件运行效率更高。 文件大小较小。 缺点： 对于依赖复杂的项目，需要更多的配置。 打包速度较慢。 5. PyOxidizer 优势：较新的工具，强调快速的启动时间和轻量级的打包结果。可以将Python解释器和应用程序一起打包，并且支持创建独立的Rust二进制文件。 安装：可以通过Rust的包管理工具 cargo 安装： cargo install pyoxidizer 使用： 编写一个 pyoxidizer.bzl 配置文件，并运行 pyoxidizer 命令。 优点： 能够打包出更小、更快的可执行文件。 缺点： 需要学习Rust工具链的基础。 生态不如PyInstaller和cx_Freeze成熟。 6. Briefcase 优势：是BeeWare项目的一部分，支持跨平台打包，并且能够将Python应用打包为原生平台应用（例如：Windows的exe，macOS的.dmg，甚至是Android和iOS应用）。 安装：pip install briefcase 使用： briefcase create briefcase build briefcase run 优点： 支持多种平台打包。 非常适合开发桌面应用。 缺点： 主要用于GUI应用，命令行工具的打包支持较弱。 总结 PyInstaller 是目前最流行和最通用的选择，尤其适合跨平台和快速开发需求。 cx_Freeze 提供了更多的灵活性和跨平台兼容性，但需要更多的配置。 Nuitka 则更适合追求性能优化的场景，生成的文件更小。 Py2exe 是Windows专用的工具，适合Windows平台开发者。 PyOxidizer 和 Briefcase 则是一些新兴的工具，适合对性能和特定平台有特殊需求的场景。 根据你的需求，可以选择最合适的工具进行打包。如果你需要灵活且简单的方案，PyInstaller 是推荐的首选。如果你对文件大小和执行效率有要求，可以考虑 Nuitka。\n搜索之后，大致有了了解，就可以开始尝试了，看着比较简单的是：cx_Freeze，于是就先试了它，采取什么策略来尝试呢？\n比如，从最小可实现的方式出发吧，调用opencv读取图像并显示出来。尝试可行，似乎路能走通，并且发现了一些在Windows开发的一些规律：\nexe点击运行后都是通过.dll方式来找需要的依赖（动态链接库），如果没有就会出错 如果程序一打开就崩溃了，第一想到是不是链接库没有（这里想到小时候玩的盗版游戏，打不开游戏到网上找一找原因，或者是不是程序自己弹出来缺少哪个.dll，这时候再去下载一个放进文件夹） 在这个过程中，也摸索到了怎么来排查.dll缺失的问题，简单来说就是先看少哪个，少了那就复制过去，但怎么排查呢？也是有工具能直接用的，我还是采用先收集信息再尝试的策略\ncx_Freeze本身是可以用的，但是后来，我产生了一个不成熟的需求：\n能不能将所有的dll和exe一起打包成一个独立exe文件？\n尝试cx_Freeze发现似乎不太行，所以后面就转战了PyInstaller，但是实际用起来，PyInstaller要更好用一些，**因为可以设定的参数更详细，**原本我以为就是命令行参数的输入那么简单，后来因为想到：这种打包工具，应该是有专门的配置文件可以设置的吧？于是就摸清楚了流程。而且如果带着问题和需求出发，可以设置的选项还有很多，比如：\n手动选择哪些dll是额外打包的 是否要显示终端（在cx_Freeze中叫做Win32GUI，显示终端配合打印语句，可以调试；同样，如果想要去除终端创建，那么一定不能出现打印输出到终端） 配置图标，版本信息等等等 实际使用的例子 对于cx_Freeze可以使用install_exe.py写一个打包配置：\nfrom cx_Freeze import setup, Executable import os # 额外的ddl文件 extra_dll_files = [ ('extra_dll/libomp140.x86_64.dll', 'libomp140.x86_64.dll'), ('extra_dll/libomp140d.x86_64.dll', 'libomp140d.x86_64.dll') ] # 合并所有需要包含的文件 include_files = extra_dll_files # 添加打包选项 options = { 'build_exe': { 'build_exe': 'mt3d_2.0', 'include_files': include_files, 'include_msvcr': True # 包含 Microsoft Visual C++ 运行时库 } } # 配置可执行文件 executables = [ Executable('main.py', base='Win32GUI', target_name='mt3d.exe') ] # 设置打包 setup( name='MT3D', version='1.0', description='Manifold Tech Limited 3D Rendererer', options=options, executables=executables ) 实际运行就是：\npython .\\install_exe.py build 而对于PyInstaller，则可以使用更复杂的配置文件，比如install.spec，这个spec文件本质上也可以看作是Python文件：\n# -*- mode: python ; coding: utf-8 -*- import os # 其他额外考虑的dll文件 extra_dll_files = [ (os.path.abspath('extra_dll/libomp140.x86_64.dll'), '.'), # 这里的 '.' 表示目标路径是打包后的根目录 (os.path.abspath('extra_dll/libomp140d.x86_64.dll'), '.'), ] pre_run_pkg_path = os.path.abspath('PreOps') pre_run_dlls = [(os.path.join(pre_run_pkg_path, dll), '.') for dll in os.listdir(pre_run_pkg_path) if dll.endswith('.dll')] exe_files = [ ('PreOps.exe', '.') ] # 设置附加文件 binaries = extra_dll_files + pre_run_dlls + exe_files # 定义 assets 文件夹的路径 assets_dir = os.path.abspath('assets') # 遍历 assets 目录及其子目录 data_files = [] for root, dirs, files in os.walk(assets_dir): for file in files: # 获取文件的绝对路径 file_path = os.path.join(root, file) # 在打包时，将文件放入 assets 文件夹内保持层次结构 target_path = os.path.join('assets', os.path.relpath(root, assets_dir)) # 将每个文件的源路径和目标路径添加到 data_files 列表 data_files.append((file_path, target_path)) # 定义 lib 文件夹的路径（包含 .js 文件） lib_dir = os.path.abspath('lib') # 遍历 lib 目录及其子目录 for root, dirs, files in os.walk(lib_dir): for file in files: # 获取文件的绝对路径 file_path = os.path.join(root, file) # 在打包时，将文件放入 lib 文件夹内保持层次结构 target_path = os.path.join('lib', os.path.relpath(root, lib_dir)) # 将每个文件的源路径和目标路径添加到 data_files 列表 data_files.append((file_path, target_path)) block_cipher = None # EXE 配置 a = Analysis( ['train.py'], pathex=['.'], binaries=binaries, datas=data_files, hiddenimports=[], hookspath=[], runtime_hooks=[], excludes=[], win_no_prefer_redirects=False, win_private_assemblies=False, cipher=block_cipher, noarchive=False, ) # PYZ 配置 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher) # EXE 配置 exe = EXE( pyz, a.scripts, [], exclude_binaries=True, # 设置为 True，表示 EXE 中不包含 binaries，因为 binaries 将在 COLLECT 阶段处理 name='MindCloud Renderer', debug=False, bootloader_ignore_signals=False, strip=False, upx=True, upx_exclude=[], runtime_tmpdir=None, console=False, # 设置为 False 隐藏控制台窗口 icon='C:/Users/Quite/CKCode/3DGSMT/assets/logo.ico', version='mt3d_version.txt', # 从文件中读取版本信息 ) # COLLECT 配置 coll = COLLECT( exe, a.binaries, a.zipfiles, a.datas, strip=False, upx=True, upx_exclude=[], name='MindCloud Renderer' ) #### 以下是单独的一个exe方式 #### #### 32位系统单文件不能大于4G #### # # EXE 配置 # exe = EXE( # pyz, # a.scripts, # a.binaries, # a.zipfiles, # a.datas, # [], # name='MindCloud Renderer', # debug=False, # bootloader_ignore_signals=False, # strip=False, # upx=False, # upx_exclude=[], # runtime_tmpdir=None, # console=False, # 设置为 False 隐藏控制台窗口 # icon='C:/Users/Quite/CKCode/3DGSMT/assets/logo.ico', # version='mt3d_version.txt', # 从文件中读取版本信息 # onefile=True # 设置为 True 以生成单文件 # ) 使用的话就是：\npyinstaller .\\install.spec 其实从这里的注释可以看出，当时遇到了打包一个独立exe程序的问题：文件大小不能超过4G，底层原因可能和32位系统有关系，但如果打包成一个_internal文件夹，就是正常的。写到这里，想到了当时制作晕到死安装盘时候也是，那个晕到死的镜像文件大于4G了，用官网的工具压根复制不完全，结果都4202年了，问题还没有解决，最好是手动选择NTFS文件系统，手动复制进去的，也是折腾了老半天。。。refus+手动复制吧\n以上只能算是一次初步的使用和感受记录，后面如果再用到，可以在此基础上再往前迈进一步了。\nWindows的dll分析工具 说实话，一开始去搜索有哪些dll分析工具的时候，遇到下载失败，github显示的时间是10年前，我都在想，是不是这玩意不能用了，后面才知道是自己不会用。。。纯属傻，比较搞笑的是，点开Dependencies闪退就以为程序不行，但是人家还有个DependenciesGui呢，我给直接忽视掉，导致我一开始直接陷入自闭状态很长一段时间。。。\n搜集的信息是这样的：\n在Windows上检查一个程序的DLL依赖并判断是否有缺失的现代工具可以帮助开发者更好地解决动态链接库（DLL）加载问题。随着Windows系统的发展，传统工具如 Dependency Walker 逐渐无法适应现代系统的新特性，诸如API Set Schema和SxS（side-by-side）依赖等机制。因此，以下是一些最新、成熟且常用的工具，涵盖了从静态到动态分析的不同需求：\n1. Dependencies (lucasg/Dependencies) 简介：Dependencies 是一个现代化的DLL依赖分析工具，专为替代老旧的 Dependency Walker 而设计，能处理Windows 10及以后的API Set Schema和SxS依赖问题。 功能特点： 识别和解析Windows 10的API Set Schema。 支持SxS并行依赖分析。 显示DLL导入导出表，列出函数依赖。 支持静态和动态依赖分析，提供实时的DLL加载信息。 适用场景：处理现代Windows操作系统上的DLL加载问题，特别是涉及动态加载、并行依赖和重定向API的场景。 下载：Dependencies - GitHub 使用方法： 下载并运行 Dependencies.exe。 打开目标可执行文件或DLL，查看依赖树，缺失的DLL会标红。 支持导入表和导出表的查看，帮助你找到具体的函数依赖。 2. Process Monitor (ProcMon) 简介：Process Monitor 是由Microsoft Sysinternals提供的高级系统监控工具，用于实时跟踪所有文件、注册表操作以及DLL加载情况。它可以在应用程序运行时监控并记录DLL的加载过程。 功能特点： 实时监控DLL加载过程。 详细记录每个DLL的加载路径、状态、加载失败的原因。 支持设置复杂过滤器，聚焦DLL加载相关的操作（如 Load Image）。 适用场景：适合分析程序在运行时加载的DLL，调试缺失或加载失败的DLL，解决动态依赖问题。 下载：Process Monitor - Microsoft 使用方法： 启动ProcMon并设置进程过滤器。 运行目标程序，观察DLL的加载情况。 使用 Load Image 过滤器查看所有DLL加载操作，分析是否有加载失败的DLL。 3. ListDLLs 简介：ListDLLs 是一个轻量级命令行工具，来自Microsoft Sysinternals，用于列出正在运行的进程所加载的所有DLL。它能帮助你快速查看应用程序实际加载了哪些DLL以及这些DLL的路径。 功能特点： 列出所有正在运行的进程所加载的DLL。 显示DLL加载的路径和版本信息。 适用场景：快速查看某个进程当前使用的DLL，排查可能的DLL版本冲突或加载错误。 下载：ListDLLs - Microsoft 使用方法： 在命令行中运行 listdlls.exe [进程名或PID]。 查看该进程加载的所有DLL及其路径，排查问题。 4. CFF Explorer 简介：CFF Explorer 是一个强大的PE文件分析工具，允许你查看Windows可执行文件（如EXE、DLL）的结构和依赖。 功能特点： 允许查看PE文件的导入表和导出表。 分析文件的依赖DLL及其加载路径。 支持编辑PE文件的某些部分。 适用场景：适合需要深入分析可执行文件的PE结构、导入表、导出表及依赖关系的开发者。 下载：CFF Explorer - NTCore 使用方法： 打开CFF Explorer，载入目标可执行文件或DLL。 查看“Import Directory”以获取该文件的DLL依赖。 5. PE Explorer 简介：另一个功能强大的PE文件分析工具，类似于CFF Explorer。它专注于查看可执行文件的依赖和内部结构。 功能特点： 查看导入表、导出表以及依赖DLL。 支持编辑文件内部结构。 适用场景：对PE文件结构进行详细分析，解决复杂的DLL依赖问题。 下载：PE Explorer - Heaventools 6. Sigcheck 简介：Sigcheck 是Sysinternals的另一个工具，主要用于检查文件的数字签名，但它也可以列出文件的依赖DLL及其签名信息，适用于排查潜在的DLL安全问题。 功能特点： 列出文件的依赖DLL及其签名信息。 检查DLL是否未签名或有安全风险。 适用场景：适合用于安全分析，检查应用程序依赖的DLL的签名状态，确保没有不安全的依赖。 下载：Sigcheck - Microsoft 使用方法： 在命令行中运行 sigcheck -e [可执行文件或DLL]。 工具会列出依赖的DLL以及它们的签名状态。 7. DLL Export Viewer 简介：这是一个轻量工具，用于查看DLL文件导出的所有函数，帮助你分析DLL内部函数是否完整或者是否被正确调用。 功能特点： 列出DLL的所有导出函数。 支持保存导出列表。 适用场景：适合检查某些DLL是否缺少导出函数，或者导出函数是否与预期一致。 下载：DLL Export Viewer - NirSoft 8. Nirsoft LoadedDllsView 简介：LoadedDllsView 是来自NirSoft的工具，它可以列出指定进程中加载的所有DLL文件及其完整路径。 功能特点： 列出所有加载的DLL文件及其路径。 支持导出DLL列表为文本文件。 适用场景：类似于ListDLLs，适合查看某个进程加载的DLL，解决加载冲突和依赖问题。 下载：LoadedDllsView - NirSoft 9. LDG (Load Dependency Graph) 简介：LDG 是一个新的工具，专门用于生成可执行文件的依赖关系图，帮助开发者可视化文件与DLL之间的关系。 功能特点： 可视化依赖关系图。 支持生成依赖图的文件输出。 适用场景：适合需要可视化文件依赖的场景，帮助更直观地分析复杂依赖树。 下载：LDG - GitHub 总结 在现代Windows环境中，Dependencies 是当前最适合替代 Dependency Walker 的工具，尤其对于Windows 10的API Set Schema和SxS支持，它具有极佳的处理能力。如果你需要动态分析DLL加载情况，Process Monitor 提供了实时监控功能，适合调试复杂的依赖问题。对于轻量级和特定场景的需求，ListDLLs、Sigcheck、CFF Explorer 等工具则可以快速、有效地帮助你分析问题。\n根据你的具体需求，选择合适的工具可以帮助你更快地找到和解决DLL缺失、加载失败或依赖冲突问题。\n以上都不重要，关键是能用，所以第一步要做的是先上手，后来实际发现Dependencies挺好用的，在其他Windows上运行程序时，如果出现一打开就直接挂掉，那么直接用DependenciesGUI分析一下，一般就能找到是哪个dll缺失，然后再把缺失的dll放到程序运行的目录就能解决了。\n查找exe的所有dll依赖并复制在一起 实际开发过程中，我还产生了一个新的需求：比如我cmake编译的exe，运行时所依赖的dll在哪？我想把这些dll 都放到一起，那么这样在其他Windows上，不就可以运行这个exe了吗？\n我最后使用的是这种方法：\n# PowerShell 脚本：Copy-AllDependencies.ps1 param ( [string]$ExePath, # 可执行文件的路径 [string]$OutputDir # 输出目录的路径 ) # 检查输入参数是否有效 if (-not (Test-Path $ExePath)) { Write-Error \"Error: The specified EXE file does not exist: $ExePath\" exit 1 } if (-not (Test-Path $OutputDir)) { Write-Output \"Output directory does not exist. Creating directory: $OutputDir\" New-Item -Path $OutputDir -ItemType Directory } # 启动进程以获取所有 DLL 依赖项 $process = Start-Process -FilePath $ExePath -PassThru -WindowStyle Hidden # 暂停几秒钟，以便进程加载所有 DLL Start-Sleep -Seconds 2 # 获取所有加载的 DLL $loadedModules = $process.Modules | Where-Object { $_.FileName -like \"*.dll\" } # 复制 EXE 文件到输出目录 Copy-Item -Path $ExePath -Destination $OutputDir -Force Write-Output \"Copied: $(Split-Path -Leaf $ExePath) to $OutputDir\" # 遍历所有找到的 DLL 文件并复制 foreach ($module in $loadedModules) { $dllPath = $module.FileName $dllName = [System.IO.Path]::GetFileName($dllPath) # 构建目标路径 $targetPath = Join-Path -Path $OutputDir -ChildPath $dllName # 复制 DLL 文件到输出目录 try { Copy-Item -Path $dllPath -Destination $targetPath -Force Write-Output \"Copied: $dllName to $OutputDir\" } catch { Write-Warning \"Failed to copy: $dllName\" } } # 检查进程是否仍在运行 if (-not $process.HasExited) { # 尝试结束进程 try { Stop-Process -Id $process.Id -Force Write-Output \"Process terminated: $process.Id\" } catch { Write-Warning \"Could not terminate process: $_\" } } else { Write-Output \"The process has already exited.\" } Write-Output \"All DLL dependencies copied to: $OutputDir\" 或者下面的这种可以重试的写法也行：\nparam ( [string]$ExePath, # 可执行文件的路径 [string]$OutputDir # 输出目录的路径 ) # 检查输入参数是否有效 if (-not (Test-Path $ExePath)) { Write-Error \"Error: The specified EXE file does not exist: $ExePath\" exit 1 } if (-not (Test-Path $OutputDir)) { Write-Output \"Output directory does not exist. Creating directory: $OutputDir\" New-Item -Path $OutputDir -ItemType Directory } # 定义最多尝试的次数 $maxRetries = 3 $retryCount = 0 # 复制 EXE 文件到输出目录 Copy-Item -Path $ExePath -Destination $OutputDir -Force Write-Output \"Copied: $(Split-Path -Leaf $ExePath) to $OutputDir\" # 循环尝试重启进程 do { # 启动进程并确保它在后台运行，防止它被快速终止 $process = Start-Process -FilePath $ExePath -PassThru -WindowStyle Hidden # 暂停几秒钟，以确保 DLL 加载完成 Start-Sleep -Seconds 5 # 检查进程是否仍在运行 if (-not $process.HasExited) { # 获取加载的模块（DLL） $loadedModules = $process.Modules | Where-Object { $_.FileName -like \"*.dll\" } # 遍历所有找到的 DLL 文件并复制 foreach ($module in $loadedModules) { $dllPath = $module.FileName $dllName = [System.IO.Path]::GetFileName($dllPath) # 构建目标路径 $targetPath = Join-Path -Path $OutputDir -ChildPath $dllName # 复制 DLL 文件到输出目录 try { Copy-Item -Path $dllPath -Destination $targetPath -Force Write-Output \"Copied: $dllName to $OutputDir\" } catch { Write-Warning \"Failed to copy: $dllName\" } } # 停止进程 try { Stop-Process -Id $process.Id -Force Write-Output \"Process terminated: $process.Id\" } catch { Write-Warning \"Could not terminate process: $_\" } # 退出循环 break } else { Write-Error \"Error: The process has already exited before capturing dependencies. Retrying...\" $retryCount++ Start-Sleep -Seconds 2 # 等待几秒钟后再试 } } while ($retryCount -lt $maxRetries) if ($retryCount -ge $maxRetries) { Write-Error \"Failed to capture dependencies after multiple attempts.\" } Write-Output \"All DLL dependencies copied to: $OutputDir\" 但是这里有一个关键，程序运行后不能直接退出，所以我在代码里加了一个线程等待，还有一个输入等待，算是一个取巧的做法吧~\n// 延时 10 秒 printf(\"Delay 10 seconds...\\n\"); std::this_thread::sleep_for(std::chrono::seconds(10)); std::cout \u003c\u003c \"Press Enter to continue...\" \u003c\u003c std::endl; std::cin.get(); // 等待用户输入，按下 Enter 键继续 实际情况说明，如果只是输入等待，有时候是不行的，就是程序直接跳出了，什么dll也没复制，所以后面又强行加入了线程等待。\n我是之前没有及时记录，结果发现：确实，都忘了！\n好记性不如好记下啊！！！\nWindows打包安装程序 其实PyInstaller这种打包了就能用，如果缺少什么dll依赖，直接复制放进去就行。\n这种就已经是纯净绿色免安装版了，用起来挺方便，分发的话，进行压缩后就可以。\n但是呢，既然都已经做到这一步了，那就再往前多探一步吧。\n将 .exe 和 .dll 文件打包成安装包形式是软件发布的常见需求，特别是对于Windows平台的应用程序。为了实现这一点，可以使用多种工具来打包和生成安装程序，这些工具可以帮助你将可执行文件、依赖的动态链接库（.dll 文件）、资源文件等一起打包为可安装的格式，如 .msi 或 .exe 安装程序。以下是一些常见且成熟的打包工具，详细说明了它们的功能及适用场景。\n1. Inno Setup 简介：Inno Setup 是一个功能强大且易于使用的免费安装程序创建工具，适用于 Windows 平台。它允许你将应用程序的 .exe、.dll、配置文件等打包为单个 .exe 安装程序。\n主要特点：\n支持将多个文件和目录打包成单个 .exe 安装文件。 支持自定义安装向导界面、许可协议、安装路径等。 提供脚本功能，用于编写复杂的安装逻辑。 支持安装和卸载时的注册表操作、DLL注册等。 适用场景：适合需要简单到中等复杂度的安装包创建需求，适用于个人项目和小型到中型的软件分发。\n使用方法：\n下载 Inno Setup 并安装。 创建 .iss 脚本文件，定义要打包的文件、安装路径等。 使用 Inno Setup 编译生成安装程序。 示例 .iss 文件：\n[Setup] AppName=My Application AppVersion=1.0 DefaultDirName={pf}\\MyApplication OutputBaseFilename=setup Compression=lzma SolidCompression=yes [Files] Source: \"bin\\MyApp.exe\"; DestDir: \"{app}\"; Flags: ignoreversion Source: \"bin\\*.dll\"; DestDir: \"{app}\"; Flags: ignoreversion [Icons] Name: \"{group}\\My Application\"; Filename: \"{app}\\MyApp.exe\" 2. NSIS (Nullsoft Scriptable Install System) 简介：NSIS 是一个非常灵活的开源安装程序创建工具，广泛用于创建 Windows 安装程序。它允许自定义安装逻辑和界面，并支持安装包压缩和多种格式的打包。\n主要特点：\n高度可自定义的安装过程，通过脚本编写安装逻辑。 支持多种安装模式（静默安装、标准安装等）。 内置的压缩算法，能生成体积较小的安装包。 支持多语言安装界面、注册表修改、DLL注册等操作。 适用场景：适用于需要高度定制化安装包的开发者和项目，通常用于大型项目或复杂的安装需求。\n使用方法：\n下载 NSIS 并安装。 创建 .nsi 脚本文件，编写打包逻辑和安装流程。 使用 NSIS 编译器生成安装程序。 示例 .nsi 文件：\nOutFile \"setup.exe\" InstallDir \"$PROGRAMFILES\\MyApp\" Section SetOutPath $INSTDIR File \"bin\\MyApp.exe\" File \"bin\\MyLibrary.dll\" CreateShortcut \"$DESKTOP\\MyApp.lnk\" \"$INSTDIR\\MyApp.exe\" SectionEnd 3. WiX Toolset (Windows Installer XML) 简介：WiX Toolset 是一个用于创建 Windows 安装包的工具集，专注于生成 .msi 文件。它通过 XML 配置文件定义安装逻辑，是一个高度可定制的工具，常用于企业级软件安装包。\n主要特点：\n生成标准的 Windows Installer 安装包（.msi 文件）。 支持复杂的安装方案，包括服务安装、注册表修改、文件权限设置等。 可集成到 CI/CD 管道，适合大型项目的安装包自动化生成。 支持多语言安装、安装时依赖检查等功能。 适用场景：适合大型企业级项目，特别是那些需要生成 .msi 安装包的场景。由于其复杂性，它常用于高级用户和团队开发。\n使用方法：\n下载 WiX Toolset 并安装。 编写 .wxs XML 文件，定义安装包结构和逻辑。 使用 WiX 编译工具生成 .msi 安装包。 示例 .wxs 文件：\n",
   "wordCount" : "33391",
   "inLanguage": "zh",
   "datePublished": "2024-09-24T10:32:02+08:00",
-  "dateModified": "2026-01-25T23:36:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -219,38 +213,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -260,10 +254,13 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       全栈开发：从Python脚本到独立的App（初稿）
     </h1>
+    <div class="post-description">
+      围绕全栈开发：从Python脚本到独立的App（初稿），重点总结整体感受、工具篇，并给出可执行实践。
+    </div>
     <div class="post-meta">
 
 
@@ -296,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-01-25
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -322,6 +319,14 @@
         <span class="fa fa-user-o"></span>
         <span>CKYoung
             &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/knowledge/" style="color: var(--secondary)!important;">Knowledge</a>
+            </span>
         </span>
     </span>
 </span>
@@ -4768,6 +4773,7 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/knowledge/">Knowledge</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://blog.ahaknow.com/posts/diary/2024-10-09/">

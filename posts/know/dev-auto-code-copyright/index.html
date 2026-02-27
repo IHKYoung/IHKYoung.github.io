@@ -45,12 +45,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>开发实战：给代码属上大名 | AhaKnow</title>
-<meta name="keywords" content="">
-<meta name="description" content="
-关于代码💩山，已经不忍直视。。。
-只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。
-所以呢，得给代码属个大名。
-vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不试试呢！）">
+<meta name="keywords" content="Knowledge">
+<meta name="description" content="围绕开发实战：给代码属上大名，重点总结在 VS Code 中自动添加版权信息、通过快捷键插入版权信息，并给出可执行实践。">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/dev-auto-code-copyright/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -99,23 +95,15 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
 
     </style>
 </noscript><meta property="og:title" content="开发实战：给代码属上大名" />
-<meta property="og:description" content="
-关于代码💩山，已经不忍直视。。。
-只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。
-所以呢，得给代码属个大名。
-vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不试试呢！）" />
+<meta property="og:description" content="围绕开发实战：给代码属上大名，重点总结在 VS Code 中自动添加版权信息、通过快捷键插入版权信息，并给出可执行实践。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/dev-auto-code-copyright/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-22T16:52:02+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="开发实战：给代码属上大名"/>
-<meta name="twitter:description" content="
-关于代码💩山，已经不忍直视。。。
-只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。
-所以呢，得给代码属个大名。
-vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不试试呢！）"/>
+<meta name="twitter:description" content="围绕开发实战：给代码属上大名，重点总结在 VS Code 中自动添加版权信息、通过快捷键插入版权信息，并给出可执行实践。"/>
 
 
 <script type="application/ld+json">
@@ -126,13 +114,13 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -150,15 +138,15 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
   "@type": "BlogPosting",
   "headline": "开发实战：给代码属上大名",
   "name": "开发实战：给代码属上大名",
-  "description": " 关于代码💩山，已经不忍直视。。。\n只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。\n所以呢，得给代码属个大名。\nvscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不试试呢！）\n",
+  "description": "围绕开发实战：给代码属上大名，重点总结在 VS Code 中自动添加版权信息、通过快捷键插入版权信息，并给出可执行实践。",
   "keywords": [
-    
+    "Knowledge"
   ],
   "articleBody": " 关于代码💩山，已经不忍直视。。。\n只希望自己能够写出整洁、大方、有魅力（又美丽）的代码。\n所以呢，得给代码属个大名。\nvscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不试试呢！）\n先vscode吧！\n在 VS Code 中自动添加版权信息 可以通过使用代码片段（Snippets）来自动插入版权信息：\n打开命令面板（Ctrl+Shift+P 或 Cmd+Shift+P）。 输入 “Configure User Snippets” 并选择它。 选择 cpp.json（针对 C++ 文件）。 输入以下内容： { \"Print Copyright Header\": { \"prefix\": \"copyright\", \"body\": [ \"/*\", \" * Project: ${1:Your Project Name}\", \" * File: $TM_FILENAME\", \" * Version: ${2:1.0}\", \" *\", \" * Author: ${3:Your Name}\", \" * Email: ${4:your.email@example.com}\", \" * Date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\", \" *\", \" * Copyright (c) $CURRENT_YEAR, [Your Company Name]\", \" * All rights reserved.\", \" *\", \" * [Add additional license information here]\", \" */\", \"\" ], \"description\": \"Prints a detailed copyright header with additional information\" } } 其中，可以使用 ${1:default} 这样的语法来设置默认值，例如：\n\"Author: $3\": \"Author: ${3:Your Name}\" 通过快捷键插入版权信息 进入 Code \u003e 首选项 \u003e 键盘快捷方式。 搜索 “Trigger Suggest” 或者 “触发建议”。 查看当前绑定的快捷键或为其设置一个新的快捷键。 然后就可以使用 prefix 字段的内容来自动加入版权信息来\n补充 这里是以C++文件来说明，其他语言也是一样的逻辑，只需要注意按照各自的语法就好。\n比如：\n在编辑器中，点击 文件 \u003e 首选项 \u003e 用户片段。 选择 New Global Snippets file... 或者在工作区中选择 New Snippets file for 'your-workspace-name'...。 输入片段文件的名称，如 date.snippets。 JavaScript 的 date.snippets 文件:\n{ \"Print Current Date\": { \"prefix\": \"date\", \"body\": [ \"// Current Date: ${CURRENT_DATE}\" ], \"description\": \"Prints the current date as a comment.\" } } Python 的 date.snippets 文件:\n{ \"Print Current Date\": { \"prefix\": \"date\", \"body\": [ \"# Current Date: ${CURRENT_DATE}\" ], \"description\": \"Prints the current date as a comment.\" } } 另外，有一些宏定义是可以直接使用：\n${CURRENT_DATE}：当前日期（格式：yyyy-mm-dd）。 ${CURRENT_MONTH_NAME}：当前月份的全名（例如：January, February等）。 ${CURRENT_MONTH_NAME_SHORT}：当前月份的缩写（例如：Jan, Feb等）。 ${CURRENT_YEAR}：当前年份。 ${CURRENT_HOUR}：当前小时（24小时制）。 ${CURRENT_MINUTE}：当前分钟。 ${CURRENT_SECOND}：当前秒数。 ${CURRENT_DAY_NAME}：当前星期几的全名（例如：Monday, Tuesday等）。 ${CURRENT_DAY_NAME_SHORT}：当前星期几的缩写（例如：Mon, Tue等）。 ",
   "wordCount" : "959",
   "inLanguage": "zh",
   "datePublished": "2024-04-22T16:52:02+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -225,38 +213,38 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -266,10 +254,13 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       开发实战：给代码属上大名
     </h1>
+    <div class="post-description">
+      围绕开发实战：给代码属上大名，重点总结在 VS Code 中自动添加版权信息、通过快捷键插入版权信息，并给出可执行实践。
+    </div>
     <div class="post-meta">
 
 
@@ -302,7 +293,7 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -328,6 +319,14 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
         <span class="fa fa-user-o"></span>
         <span>CKYoung
             &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/knowledge/" style="color: var(--secondary)!important;">Knowledge</a>
+            </span>
         </span>
     </span>
 </span>
@@ -569,6 +568,7 @@ vscode用的久了，以此为例吧？（其实CLion体验更好，那未尝不
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/knowledge/">Knowledge</a></li>
     </ul>
 <nav class="paginav">
   <a class="prev" href="https://blog.ahaknow.com/posts/know/dev-project-cmake/">

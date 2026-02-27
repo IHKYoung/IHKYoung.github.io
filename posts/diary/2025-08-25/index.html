@@ -46,36 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>好记性不如烂笔头 | AhaKnow</title>
 <meta name="keywords" content="Web开发">
-<meta name="description" content="关于服务器后台持续性的问题，之前使用的是nohup这个。
-但是更好的做法是使用system的这种。比如：
-[Unit]
-Description=4DVCam ATS Service
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py
-
-# Ensure that the environment variables are set properly
-Environment=&#34;4DVCAMATS_ENV=production&#34;
-Environment=&#34;4DVCAMATS_PORT=5000&#34;
-Environment=&#34;4DVCAMATS_CAM_CONTROL_PORT=8088&#34;
-
-# Log to the file, append output and error
-StandardOutput=append:/home/clarke/4dvcam_ats.log
-StandardError=append:/home/clarke/4dvcam_ats.log
-
-# Restart service in case of failure
-Restart=always
-RestartSec=3
-
-# Run as the correct user and group
-User=clarke
-Group=clarke
-
-[Install]
-WantedBy=default.target
-">
+<meta name="description" content="围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/diary/2025-08-25/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -124,73 +95,15 @@ WantedBy=default.target
 
     </style>
 </noscript><meta property="og:title" content="好记性不如烂笔头" />
-<meta property="og:description" content="关于服务器后台持续性的问题，之前使用的是nohup这个。
-但是更好的做法是使用system的这种。比如：
-[Unit]
-Description=4DVCam ATS Service
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py
-
-# Ensure that the environment variables are set properly
-Environment=&#34;4DVCAMATS_ENV=production&#34;
-Environment=&#34;4DVCAMATS_PORT=5000&#34;
-Environment=&#34;4DVCAMATS_CAM_CONTROL_PORT=8088&#34;
-
-# Log to the file, append output and error
-StandardOutput=append:/home/clarke/4dvcam_ats.log
-StandardError=append:/home/clarke/4dvcam_ats.log
-
-# Restart service in case of failure
-Restart=always
-RestartSec=3
-
-# Run as the correct user and group
-User=clarke
-Group=clarke
-
-[Install]
-WantedBy=default.target
-" />
+<meta property="og:description" content="围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/diary/2025-08-25/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2025-08-25T12:22:51+08:00" />
-<meta property="article:modified_time" content="2026-01-25T22:51:03+08:00" />
+<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="好记性不如烂笔头"/>
-<meta name="twitter:description" content="关于服务器后台持续性的问题，之前使用的是nohup这个。
-但是更好的做法是使用system的这种。比如：
-[Unit]
-Description=4DVCam ATS Service
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py
-
-# Ensure that the environment variables are set properly
-Environment=&#34;4DVCAMATS_ENV=production&#34;
-Environment=&#34;4DVCAMATS_PORT=5000&#34;
-Environment=&#34;4DVCAMATS_CAM_CONTROL_PORT=8088&#34;
-
-# Log to the file, append output and error
-StandardOutput=append:/home/clarke/4dvcam_ats.log
-StandardError=append:/home/clarke/4dvcam_ats.log
-
-# Restart service in case of failure
-Restart=always
-RestartSec=3
-
-# Run as the correct user and group
-User=clarke
-Group=clarke
-
-[Install]
-WantedBy=default.target
-"/>
+<meta name="twitter:description" content="围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。"/>
 
 
 <script type="application/ld+json">
@@ -201,13 +114,13 @@ WantedBy=default.target
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "📓日记",
+      "name": "📓 岁时札记",
       "item": "https://blog.ahaknow.com/posts/diary/"
     }, 
     {
@@ -225,7 +138,7 @@ WantedBy=default.target
   "@type": "BlogPosting",
   "headline": "好记性不如烂笔头",
   "name": "好记性不如烂笔头",
-  "description": "关于服务器后台持续性的问题，之前使用的是nohup这个。 但是更好的做法是使用system的这种。比如：\n[Unit] Description=4DVCam ATS Service After=network.target [Service] Type=simple ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py # Ensure that the environment variables are set properly Environment=\u0026#34;4DVCAMATS_ENV=production\u0026#34; Environment=\u0026#34;4DVCAMATS_PORT=5000\u0026#34; Environment=\u0026#34;4DVCAMATS_CAM_CONTROL_PORT=8088\u0026#34; # Log to the file, append output and error StandardOutput=append:/home/clarke/4dvcam_ats.log StandardError=append:/home/clarke/4dvcam_ats.log # Restart service in case of failure Restart=always RestartSec=3 # Run as the correct user and group User=clarke Group=clarke [Install] WantedBy=default.target ",
+  "description": "围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。",
   "keywords": [
     "Web开发"
   ],
@@ -233,7 +146,7 @@ WantedBy=default.target
   "wordCount" : "104",
   "inLanguage": "zh",
   "datePublished": "2025-08-25T12:22:51+08:00",
-  "dateModified": "2026-01-25T22:51:03+08:00",
+  "dateModified": "2026-02-27T10:30:55+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -300,38 +213,38 @@ WantedBy=default.target
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -341,10 +254,13 @@ WantedBy=default.target
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/diary/">📓日记</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/diary/">📓 岁时札记</a></div>
     <h1 class="post-title entry-hint-parent">
       好记性不如烂笔头
     </h1>
+    <div class="post-description">
+      围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。
+    </div>
     <div class="post-meta">
 
 
@@ -377,7 +293,7 @@ WantedBy=default.target
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-01-25
+            <span>2026-02-27
                 &nbsp;&nbsp;
             </span>
         </span>

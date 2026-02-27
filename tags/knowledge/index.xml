@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Knowledge on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/knowledge/</link>
+    <description>Recent content in Knowledge on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/knowledge/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>站在前人的肩膀上：笔记收集录</title>
+      <link>https://blog.ahaknow.com/posts/know/collection-notes/</link>
+      <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/collection-notes/</guid>
+      <description>前人栽树，后人乘凉。 或者说，不造轮子要造车。 总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！ 可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可…</description>
+    </item>
+    <item>
+      <title>全栈开发：从Python脚本到独立的App（初稿）</title>
+      <link>https://blog.ahaknow.com/posts/know/dev-python-to-app/</link>
+      <pubDate>Tue, 24 Sep 2024 10:32:02 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/dev-python-to-app/</guid>
+      <description>围绕全栈开发：从Python脚本到独立的App（初稿），重点总结整体感受、工具篇，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>Linux：命令行方式查看硬盘信息</title>
+      <link>https://blog.ahaknow.com/posts/know/linux-disk-info/</link>
+      <pubDate>Wed, 05 Jun 2024 15:44:21 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/linux-disk-info/</guid>
+      <description>砍就砍了，结果还要我给他一个硬盘检测的信息，Windows上这种软件挺多，Linux</description>
+    </item>
+    <item>
+      <title>编程灵感时刻</title>
+      <link>https://blog.ahaknow.com/posts/know/coding-inspiration-moments/</link>
+      <pubDate>Wed, 08 May 2024 17:28:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/coding-inspiration-moments/</guid>
+      <description>围绕编程灵感时刻，重点讲解一些实用的小工具与获取时间C&#43;&#43;片段。</description>
+    </item>
+    <item>
+      <title>Protobuf：安装指定版本</title>
+      <link>https://blog.ahaknow.com/posts/know/note-install-protobuf/</link>
+      <pubDate>Sat, 27 Apr 2024 15:41:46 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/note-install-protobuf/</guid>
+      <description>围绕Protobuf：安装指定版本，重点总结Knowledge、好记性不如烂笔头，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>Linux：创建具有权限限制的新用户</title>
+      <link>https://blog.ahaknow.com/posts/know/linux-create-user/</link>
+      <pubDate>Wed, 24 Apr 2024 15:16:10 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/linux-create-user/</guid>
+      <description>例如，创建一个名为newuser的用户：</description>
+    </item>
+    <item>
+      <title>开发实战：项目中的CMake技巧</title>
+      <link>https://blog.ahaknow.com/posts/know/dev-project-cmake/</link>
+      <pubDate>Mon, 22 Apr 2024 22:57:28 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/dev-project-cmake/</guid>
+      <description>围绕开发实战：项目中的CMake技巧，重点总结Knowledge、边做边学，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>开发实战：给代码属上大名</title>
+      <link>https://blog.ahaknow.com/posts/know/dev-auto-code-copyright/</link>
+      <pubDate>Mon, 22 Apr 2024 16:52:02 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/dev-auto-code-copyright/</guid>
+      <description>围绕开发实战：给代码属上大名，重点总结在 VS Code 中自动添加版权信息、通过快捷键插入版权信息，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>Blog：奇思妙想待办项</title>
+      <link>https://blog.ahaknow.com/posts/know/blog-todo/</link>
+      <pubDate>Fri, 12 Apr 2024 11:29:40 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/blog-todo/</guid>
+      <description>围绕Blog：奇思妙想待办项，重点总结Knowledge、奇思妙想灵感刻，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>Blog：Hugo写作小技巧</title>
+      <link>https://blog.ahaknow.com/posts/know/blog-tips/</link>
+      <pubDate>Thu, 11 Apr 2024 12:14:57 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/blog-tips/</guid>
+      <description>这里，Hugo 会在 archetypes 目录下寻找名为 blog.md 的文件，并使用它作为新内容文件的模板</description>
+    </item>
+    <item>
+      <title>SLAM十四讲第二讲：初识SLAM</title>
+      <link>https://blog.ahaknow.com/posts/know/slam14-ch2/</link>
+      <pubDate>Tue, 09 Apr 2024 16:03:13 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/know/slam14-ch2/</guid>
+      <description>重复是学习之母，再读SLAM第一篇</description>
+    </item>
+  </channel>
+</rss>

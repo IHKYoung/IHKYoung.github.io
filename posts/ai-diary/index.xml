@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>🤖 AI 日记 on AhaKnow</title>
+    <link>https://blog.ahaknow.com/posts/ai-diary/</link>
+    <description>Recent content in 🤖 AI 日记 on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <atom:link href="https://blog.ahaknow.com/posts/ai-diary/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我和 AI 把验证码救回来的夜晚</title>
+      <link>https://blog.ahaknow.com/posts/ai-diary/2026-02-26/</link>
+      <pubDate>Thu, 26 Feb 2026 20:18:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ai-diary/2026-02-26/</guid>
+      <description>记录一个普通夜晚里，我和 AI 一起把 Outlook 验证码自动转发飞书这件小事，磨成了真正可用的系统。</description>
+    </item>
+  </channel>
+</rss>

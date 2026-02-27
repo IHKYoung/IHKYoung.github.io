@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>📓日记 on AhaKnow</title>
+    <title>📓 岁时札记 on AhaKnow</title>
     <link>https://blog.ahaknow.com/posts/diary/</link>
-    <description>Recent content in 📓日记 on AhaKnow</description>
+    <description>Recent content in 📓 岁时札记 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/diary/index.xml" rel="self" type="application/rss+xml" />
@@ -12,153 +12,98 @@
       <link>https://blog.ahaknow.com/posts/diary/2026-02-03/</link>
       <pubDate>Tue, 03 Feb 2026 14:42:04 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2026-02-03/</guid>
-      <description>&lt;p&gt;看了一眼微信公众号。&lt;/p&gt;
-&lt;p&gt;之前很多关注的个人公众号，我都记不清谁是谁了。以及他们也都很久没有更新了，甚至有几个已经被系统关闭了。&lt;/p&gt;
-&lt;p&gt;就这么一瞬间，突然感觉：
-说好的，时间的朋友呢？&lt;/p&gt;</description>
+      <description>看了一眼微信公众号。 之前很多关注的个人公众号，我都记不清谁是谁了。以及他们也都很久没有更新了，甚至有几个已经被系统关闭了。 就这么一瞬间，突然感觉： 说好的，时间的朋友呢？…</description>
     </item>
     <item>
       <title>我在想：要不要整理一下现在的博客？</title>
       <link>https://blog.ahaknow.com/posts/diary/2026-01-26/</link>
       <pubDate>Mon, 26 Jan 2026 16:18:28 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2026-01-26/</guid>
-      <description>&lt;p&gt;感觉现在的博客就是碎碎念，到底要不要整理一下呢？&lt;/p&gt;
-&lt;p&gt;也许，可能，还是先继续写下去比较好。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;因为我发现，自己的博客记录好像也没有多少内容。整理来整理去好像也整理不出啥子。。。&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>围绕我在想：要不要整理一下现在的博客？，记录当下状态、关键反思与后续行动。</description>
     </item>
     <item>
       <title>2年前和现在的变化。</title>
       <link>https://blog.ahaknow.com/posts/diary/2026-01-25/</link>
       <pubDate>Sun, 25 Jan 2026 23:29:28 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2026-01-25/</guid>
-      <description>&lt;p&gt;我记得两年前（2024年），自己搞这个博客，可费劲了，现在需要自己去coding，去想解决bug，去搜索相关的博客。
-但是现在呢，完全不用了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;如果我现在的博客的框架又遇到了问题，我完成可以让AI去修改。&lt;/p&gt;</description>
+      <description>围绕2年前和现在的变化。，记录当下状态、关键反思与后续行动。</description>
     </item>
     <item>
       <title>2026年，继续记录！</title>
       <link>https://blog.ahaknow.com/posts/diary/2026-01-06/</link>
       <pubDate>Tue, 06 Jan 2026 23:16:44 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2026-01-06/</guid>
-      <description>&lt;p&gt;又过去了一年，我发现即使是写日记这件事情本身就不太容易坚持？&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;我不应该把这种懒惰责怪在写作工具不好用上吧？因为我发现，我再次回到了纯净版的Typora，而不成Obsidian，哈哈哈哈。&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>围绕2026年，继续记录！，记录当下状态、关键反思与后续行动。</description>
     </item>
     <item>
       <title>好记性不如烂笔头</title>
       <link>https://blog.ahaknow.com/posts/diary/2025-08-25/</link>
       <pubDate>Mon, 25 Aug 2025 12:22:51 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2025-08-25/</guid>
-      <description>&lt;p&gt;关于服务器后台持续性的问题，之前使用的是nohup这个。
-但是更好的做法是使用system的这种。比如：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[Unit]
-Description=4DVCam ATS Service
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py
-
-# Ensure that the environment variables are set properly
-Environment=&amp;#34;4DVCAMATS_ENV=production&amp;#34;
-Environment=&amp;#34;4DVCAMATS_PORT=5000&amp;#34;
-Environment=&amp;#34;4DVCAMATS_CAM_CONTROL_PORT=8088&amp;#34;
-
-# Log to the file, append output and error
-StandardOutput=append:/home/clarke/4dvcam_ats.log
-StandardError=append:/home/clarke/4dvcam_ats.log
-
-# Restart service in case of failure
-Restart=always
-RestartSec=3
-
-# Run as the correct user and group
-User=clarke
-Group=clarke
-
-[Install]
-WantedBy=default.target
-&lt;/code&gt;&lt;/pre&gt;</description>
+      <description>围绕好记性不如烂笔头，记录当下状态、关键反思与后续行动。</description>
     </item>
     <item>
       <title>先把身体养好</title>
       <link>https://blog.ahaknow.com/posts/diary/2025-08-21/</link>
       <pubDate>Thu, 21 Aug 2025 11:31:47 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2025-08-21/</guid>
-      <description>&lt;p&gt;Hugo 博客的主题渲染，在私人密码模式，好像又出错了。。。&lt;/p&gt;</description>
+      <description>记录先把身体养好相关的阶段思考与行动。</description>
     </item>
     <item>
       <title>又想继续做自己的App了！</title>
       <link>https://blog.ahaknow.com/posts/diary/2025-08-20/</link>
       <pubDate>Wed, 20 Aug 2025 11:04:45 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2025-08-20/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;先埋下几颗种子：
-一个是AI的个性语言提醒App，文字+动画+人物之类，随机性质的提醒
-另一个是之前要弄的AhaNews，因为ChatGPT的日程提醒没法设置了。。。&lt;/p&gt;</description>
+      <description>先埋下几颗种子： 一个是AI的个性语言提醒App，文字&#43;动画&#43;人物之类，随机性质的提醒 另一个是之前要弄的AhaNews，因为ChatGPT的日程提醒没法设置了。。。 以及想…</description>
     </item>
     <item>
       <title>又是匆匆一个月……</title>
       <link>https://blog.ahaknow.com/posts/diary/2025-03-05/</link>
       <pubDate>Wed, 05 Mar 2025 07:51:53 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2025-03-05/</guid>
-      <description>&lt;p&gt;昨晚和ChatGPT语音聊天，打开了新思路：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我能不能在Cursor上编辑文档，然后这样就能在同一个窗口下，知道上下文的情况进行AI对话？&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Cursor或者Windsurf吧，但两者都不太适合Markdown写作（实时渲染）。所以，就寄希望于Obsidian里面有一个类似Cursor那种聊天的插件。一早起来搜了一下，果然，它就有！&lt;/p&gt;</description>
+      <description>围绕又是匆匆一个月……，记录当下状态、关键反思与后续行动。</description>
     </item>
     <item>
       <title>今天就用中文路径来作为地址</title>
       <link>https://blog.ahaknow.com/posts/diary/2025-02-04/</link>
       <pubDate>Tue, 04 Feb 2025 12:41:31 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2025-02-04/</guid>
-      <description>&lt;p&gt;突然发现，其实可以使用中文路径作为文章网址的路径呀，其实没必要一定要转成英文的。&lt;/p&gt;
-&lt;p&gt;&lt;mark&gt;之前为啥用英文作为链接呢？可能是保存在Git上的时候可视化好一些？但都已经是UTF-8编码了，也无所谓啦&lt;/mark&gt;&lt;/p&gt;</description>
+      <description>想起来了，之所以使用英文作为网址，是为了SEO，优化搜索🤣</description>
     </item>
     <item>
       <title>今天来学习Obsidian怎么用！</title>
       <link>https://blog.ahaknow.com/posts/diary/2024-12-10/</link>
       <pubDate>Tue, 10 Dec 2024 21:31:27 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2024-12-10/</guid>
-      <description>&lt;p&gt;又是时隔两个月？上一次用&lt;strong&gt;Obsidian&lt;/strong&gt;开启了博客写作的新视角，这一篇：[[2024-10-10]]（使用Obsidian反向链接），这一次，就是玩转Obsidian，实现的外脑知识管理库！&lt;/p&gt;</description>
+      <description>又是时隔两个月？上一次用**Obsidian**开启了博客写作的新视角，这一篇：[[2024-10-10]]（使用Obsidian反向链接），这一次，就是玩转Obsidian…</description>
     </item>
     <item>
       <title>图形学，启动！</title>
       <link>https://blog.ahaknow.com/posts/diary/2024-10-11/</link>
       <pubDate>Fri, 11 Oct 2024 19:10:42 +0600</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2024-10-11/</guid>
-      <description>&lt;p&gt;今天开始学习图形学！！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;2025年2月7日补充：&lt;br&gt;
-自己打自己脸了。。。其实没怎么学。&lt;/p&gt;&lt;/blockquote&gt;</description>
+      <description>今天开始学习图形学！！ 2025年2月7日补充： 自己打自己脸了。。。其实没怎么学。</description>
     </item>
     <item>
       <title>今天用Obsidian写日记</title>
       <link>https://blog.ahaknow.com/posts/diary/2024-10-10/</link>
       <pubDate>Thu, 10 Oct 2024 22:00:50 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2024-10-10/</guid>
-      <description>&lt;p&gt;每天的日记里适合写一写随便想想的话题，比如，晚上我6点就准备回家了，但是有一个结果不对，一耽误，就是20分钟过去了（之前类似的场景可真的是太多太多，所以还是时间管理没做好）&lt;/p&gt;</description>
+      <description>今天用Obsidian来写日记，刚才还有Typora呢，但是转念一想，AI时代了啊，怎么能还用上一个时代的工具呢，再者说Obsidian免费开源，插件多，AI集成，多好啊</description>
     </item>
     <item>
       <title>慢慢来，比较快！</title>
       <link>https://blog.ahaknow.com/posts/diary/2024-10-09/</link>
       <pubDate>Wed, 09 Oct 2024 20:16:50 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/diary/2024-10-09/</guid>
-      <description>&lt;p&gt;很久没有写日记了呢！&lt;/p&gt;
-&lt;p&gt;这个国庆结束的最后一天开始早睡的，今晚是第三次。&lt;/p&gt;
-&lt;p&gt;补充一次昨天的感想：当你想要去做的时候，你就是最有力量的！所以预约了半马，张罗了聚餐。&lt;/p&gt;</description>
+      <description>很久没有写日记了呢！ 这个国庆结束的最后一天开始早睡的，今晚是第三次。 补充一次昨天的感想：当你想要去做的时候，你就是最有力量的！所以预约了半马，张罗了聚餐。 **** 今天…</description>
     </item>
     <item>
       <title>2024年的第一篇记录</title>
-      <link>https://blog.ahaknow.com/posts/diary/2024_first/</link>
+      <link>https://blog.ahaknow.com/posts/diary/2024-01-26/</link>
       <pubDate>Fri, 26 Jan 2024 10:35:31 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2024_first/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;让自己不后悔的话，那就动起来！&lt;br&gt;
-动起来就能转起来了！&lt;/p&gt;
-&lt;p&gt;—— 2024年4月12日补充&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;话说，重新拾起要再次记录的念头，应该是一年前！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;最早开始想要记录，应该是六年前！六年啊！一恍惚就过去了？并且最可怕的事情，对比现在的自己和六年前的自己，似乎，还不如了？！！！&lt;/strong&gt;&lt;/p&gt;</description>
+      <guid>https://blog.ahaknow.com/posts/diary/2024-01-26/</guid>
+      <description>并且最可怕的事情，对比现在的自己和六年前的自己，似乎，还不如了</description>
     </item>
   </channel>
 </rss>

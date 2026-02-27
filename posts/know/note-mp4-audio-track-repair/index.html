@@ -46,9 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>Python：MP4的音轨修复 | AhaKnow</title>
 <meta name="keywords" content="音轨修复">
-<meta name="description" content="
-又干了一件：“为了一碟醋，包了一锅饺子”的事。。。
-就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）">
+<meta name="description" content="这里用到两个Python的工具：pydub、moviepy，直接安装就好">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/note-mp4-audio-track-repair/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -97,19 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="Python：MP4的音轨修复" />
-<meta property="og:description" content="
-又干了一件：“为了一碟醋，包了一锅饺子”的事。。。
-就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）" />
+<meta property="og:description" content="这里用到两个Python的工具：pydub、moviepy，直接安装就好" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/note-mp4-audio-track-repair/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-04-09T22:40:15+08:00" />
-<meta property="article:modified_time" content="2025-02-26T23:49:24+08:00" />
+<meta property="article:modified_time" content="2024-04-09T22:40:15+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Python：MP4的音轨修复"/>
-<meta name="twitter:description" content="
-又干了一件：“为了一碟醋，包了一锅饺子”的事。。。
-就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）"/>
+<meta name="twitter:description" content="这里用到两个Python的工具：pydub、moviepy，直接安装就好"/>
 
 
 <script type="application/ld+json">
@@ -120,13 +114,13 @@
     {
       "@type": "ListItem",
       "position":  1 ,
-      "name": "🚀 天天向上",
+      "name": "🚀 持续生长",
       "item": "https://blog.ahaknow.com/posts/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟识知",
+      "name": "🌟 识海拾贝",
       "item": "https://blog.ahaknow.com/posts/know/"
     }, 
     {
@@ -144,7 +138,7 @@
   "@type": "BlogPosting",
   "headline": "Python：MP4的音轨修复",
   "name": "Python：MP4的音轨修复",
-  "description": " 又干了一件：“为了一碟醋，包了一锅饺子”的事。。。\n就是重新开始学习Strang老爷子的线性代数课了，然后下载了之前国内字幕组的版本（多年不好好学，英语水平明显下降了！！！），这个版本的老问题一直存在，就是某些视频音轨缺失，只有右耳机有声音（这对于一个常年降噪耳机离耳只是为了补充电量的人来说，简直不能忍。。。）\n",
+  "description": "这里用到两个Python的工具：pydub、moviepy，直接安装就好",
   "keywords": [
     "音轨修复"
   ],
@@ -152,7 +146,7 @@
   "wordCount" : "668",
   "inLanguage": "zh",
   "datePublished": "2024-04-09T22:40:15+08:00",
-  "dateModified": "2025-02-26T23:49:24+08:00",
+  "dateModified": "2024-04-09T22:40:15+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -219,38 +213,38 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄魔法 (Alt &#43; /)" accesskey=/>
-                    <span>🪄魔法</span>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡主页">
-                    <span>🏡主页</span>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀天天向上">
-                    <span>🚀天天向上</span>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时间线">
-                    <span>⏱️时间线</span>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️标签">
-                    <span>🏷️标签</span>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇归档">
-                    <span>🖇归档</span>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰医疗箱">
-                    <span>🧰医疗箱</span>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
                 </a>
             </li>
         </ul>
@@ -260,13 +254,14 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 天天向上</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟识知</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
     <h1 class="post-title entry-hint-parent">
       Python：MP4的音轨修复
     </h1>
+    <div class="post-description">
+      这里用到两个Python的工具：pydub、moviepy，直接安装就好
+    </div>
     <div class="post-meta">
-
-
 
 
 
@@ -296,7 +291,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2025-02-26
+            <span>2024-04-09
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -464,7 +459,7 @@
     <br>
     <span class="post-nav-title" title="Python：一个正则表达式的小例子">Python：一个正则表达式的小例子</span>
   </a>
-  <a class="next" href="https://blog.ahaknow.com/posts/aiknow/blog-font-display-acceleration/">
+  <a class="next" href="https://blog.ahaknow.com/posts/aiknow/optimize-font-acceleration/">
     <span class="title">下一页 »</span>
     <br>
     <span class="post-nav-title" title="博客优化：自定义字体加速显示">博客优化：自定义字体加速显示</span>
