@@ -6,42 +6,42 @@
     <description>Recent content in 边学边用 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Outlook 验证码自动转发飞书：一次从 0 到 1 的全链路排障记录</title>
       <link>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</link>
       <pubDate>Thu, 26 Feb 2026 19:45:00 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</guid>
-      <description>复盘 Outlook 邮箱中 OpenAI 登录验证码自动转发飞书机器人的完整过程，覆盖关键踩坑、修复路径与稳定运行配置。</description>
+      <description>完整复盘 Outlook 验证码自动转发飞书的排障过程与最终稳定方案。</description>
     </item>
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
       <link>https://blog.ahaknow.com/posts/aiknow/hugo/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/hugo/</guid>
-      <description>💡 本方案适合 Hugo 个人博客，提供前端级别的密码保护，同时避免明文密码泄露</description>
+      <description>记录 Hugo 文章密码保护的落地方案，兼顾访问控制、体验与明文泄露风险。</description>
     </item>
     <item>
       <title>顺手写了个Obsidian插件😄</title>
       <link>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</link>
       <pubDate>Tue, 10 Dec 2024 22:33:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</guid>
-      <description>感觉自己很牛逼！！！ 为啥想到写这个插件呢？ 因为我想把Obsidian和Hugo结合起来，但是有两个小问题很麻烦，虽然很小，但用多了会很烦！会写代码的一般都很懒，所以绝对不…</description>
+      <description>记录为 Obsidian 与 Hugo 协作而开发首个插件的动机、实现与收获。</description>
     </item>
     <item>
       <title>开发实战：使用Spdlog管理调试信息</title>
       <link>https://blog.ahaknow.com/posts/know/dev-spdlog-usage/</link>
       <pubDate>Tue, 23 Apr 2024 17:00:23 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-spdlog-usage/</guid>
-      <description>这时如果在类的实现里也需要使用到spdlog，就可以这样：</description>
+      <description>介绍 Spdlog 在 C&#43;&#43; 项目中的集成方式，包含模块化日志管理与调用实践。</description>
     </item>
     <item>
       <title>Git：分支的基本操作</title>
       <link>https://blog.ahaknow.com/posts/know/note-git-branch-basic/</link>
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/note-git-branch-basic/</guid>
-      <description>通常会这样使用git branch来创建新分支：</description>
+      <description>汇总 Git 分支常用命令与典型操作路径，便于快速完成分支协作。</description>
     </item>
   </channel>
 </rss>

@@ -6,14 +6,14 @@
     <description>Recent content in Inspiration on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/inspiration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
       <link>https://blog.ahaknow.com/posts/inspiration/art-c-c-exam/</link>
       <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/inspiration/art-c-c-exam/</guid>
-      <description>高质量编程指南的习题抄写。。。发现自己放弃了。。。</description>
+      <description>收集《高质量编程指南》C/C&#43;&#43; 习题并记录解题中断点，作为后续重启入口。</description>
     </item>
   </channel>
 </rss>

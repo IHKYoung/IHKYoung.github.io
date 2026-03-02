@@ -6,14 +6,14 @@
     <description>Recent content in 差速机器人 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 26 Feb 2025 23:49:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E5%B7%AE%E9%80%9F%E6%9C%BA%E5%99%A8%E4%BA%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>二维平面下的坐标系变换</title>
       <link>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
-      <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
+      <description>以移动机器人案例讲清二维坐标变换，包含公式推导、参数含义与验证方法。</description>
     </item>
   </channel>
 </rss>

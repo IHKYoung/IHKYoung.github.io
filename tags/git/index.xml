@@ -6,63 +6,63 @@
     <description>Recent content in Git on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Git配置代理完全指南(HTTP&amp;SSH)</title>
       <link>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</link>
       <pubDate>Sat, 14 Feb 2026 17:48:03 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</guid>
-      <description>围绕Linux Git配置代理完全指南(HTTP&amp;amp;SSH)，重点总结1. 背景、2. HTTP/HTTPS 协议配置，并给出可执行实践。</description>
+      <description>系统讲解 Linux 下 Git 的 HTTP/HTTPS 与 SSH 代理配置，并附验证命令。</description>
     </item>
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-crlf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf/</guid>
-      <description>希望这篇指南能帮助你彻底理解 Git 和 CRLF 的关系，让你在跨平台开发中不再被换行符问题困扰</description>
+      <description>讲清 Git 在 CRLF/LF 场景下的处理机制，并给出跨平台项目的稳妥配置方案。</description>
     </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
       <link>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</link>
       <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</guid>
-      <description>围绕GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦，重点总结问题背景 🤔、问题描述 ⚠️，并给出可执行实践。</description>
+      <description>定位 Pull Request 中 Release 附件缺失的根因，并给出发布流程的修复办法。</description>
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-push/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-push/</guid>
-      <description>围绕Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案，重点总结📌 介绍、📑 目录，并给出可执行实践。</description>
+      <description>提供一套跨平台自动 push 脚本方案，涵盖定时执行、异常处理与安全回退策略。</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-pull/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-pull/</guid>
-      <description>围绕Git 合并与 Pull 过程中常见问题及解决方案，重点总结🌟 目录、1️⃣ git pull 时的常见问题及解决方案，并给出可执行实践。</description>
+      <description>汇总 git pull 与合并中的典型报错场景，提供可直接执行的排查与修复步骤。</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git/</guid>
-      <description>通过 PowerShell 7 和任务调度器，您可以实现一个自动化任务，每次开机时自动更新 Git 仓库</description>
+      <description>演示用 PowerShell 与任务计划实现开机自动更新多个 Git 仓库的完整流程。</description>
     </item>
     <item>
       <title>Git：不小心git add . 之后</title>
       <link>https://blog.ahaknow.com/posts/know/note-git-unstage/</link>
       <pubDate>Fri, 07 Jun 2024 14:18:21 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/note-git-unstage/</guid>
-      <description>当误操作执行 git add . 之后，并且希望将某些文件从版本控制中排除时（例如，不小心添加了不应被版本控制的文件，比如敏感数据或临时文件），可以使用取消缓存操作</description>
+      <description>解释 git add 误操作后的撤销方式，区分 unstage 与 uncache 的适用场景。</description>
     </item>
     <item>
       <title>Git：分支的基本操作</title>
       <link>https://blog.ahaknow.com/posts/know/note-git-branch-basic/</link>
       <pubDate>Wed, 17 Apr 2024 10:13:39 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/note-git-branch-basic/</guid>
-      <description>通常会这样使用git branch来创建新分支：</description>
+      <description>汇总 Git 分支常用命令与典型操作路径，便于快速完成分支协作。</description>
     </item>
   </channel>
 </rss>

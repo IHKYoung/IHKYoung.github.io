@@ -6,14 +6,14 @@
     <description>Recent content in SSH on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/</link>
       <pubDate>Mon, 26 Jan 2026 18:10:21 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/</guid>
-      <description>2. 弃用端口 22，改用 GitHub 提供的 ssh.github.com:443（伪装成 HTTPS 流量，抗干扰能力极强）</description>
+      <description>给出 Ubuntu 下 GitHub SSH 走 SOCKS5 的可用配置，解决握手卡死与端口受限问题。</description>
     </item>
   </channel>
 </rss>

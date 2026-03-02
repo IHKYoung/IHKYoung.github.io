@@ -6,14 +6,14 @@
     <description>Recent content in 解压缩 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E8%A7%A3%E5%8E%8B%E7%BC%A9/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux：打包压缩相关的基本使用</title>
       <link>https://blog.ahaknow.com/posts/know/linux-tar-usage/</link>
       <pubDate>Sat, 27 Apr 2024 22:27:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/linux-tar-usage/</guid>
-      <description>围绕Linux：打包压缩相关的基本使用，重点总结tar 的基本用法、使用压缩，并给出可执行实践。</description>
+      <description>梳理 tar 打包压缩的核心用法，覆盖创建、解包与常用参数组合。</description>
     </item>
   </channel>
 </rss>

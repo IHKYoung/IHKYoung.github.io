@@ -12,133 +12,140 @@
       <link>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</link>
       <pubDate>Sat, 14 Feb 2026 17:48:03 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</guid>
-      <description>围绕Linux Git配置代理完全指南(HTTP&amp;amp;SSH)，重点总结1. 背景、2. HTTP/HTTPS 协议配置，并给出可执行实践。</description>
+      <description>系统讲解 Linux 下 Git 的 HTTP/HTTPS 与 SSH 代理配置，并附验证命令。</description>
     </item>
     <item>
       <title>开发Prompt</title>
       <link>https://blog.ahaknow.com/posts/aiknow/prompt/</link>
       <pubDate>Wed, 28 Jan 2026 17:21:30 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/prompt/</guid>
-      <description>作为一个 强推理、强规划的编码助手，在尽量少的往返中给出高质量方案与实现</description>
+      <description>沉淀一套面向 AI 编码协作的 Prompt 规范，强调推理质量、约束管理与执行闭环。</description>
     </item>
     <item>
       <title>从 Conda 到 uv：现代化 Python 开发迁移指南</title>
       <link>https://blog.ahaknow.com/posts/aiknow/conda-uv-python/</link>
       <pubDate>Tue, 27 Jan 2026 17:47:23 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/conda-uv-python/</guid>
-      <description>| 指定版本创建 | conda create -n myenv python=3.10 | uv venv --python 3.10 | |</description>
+      <description>从环境模型与命令对照入手，系统说明 Conda 迁移到 uv 的步骤、差异与注意点。</description>
     </item>
     <item>
       <title>跨画幅影像匹配指南：1/1.8英寸 vs M4/3</title>
       <link>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/</link>
       <pubDate>Tue, 27 Jan 2026 12:16:09 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-match-m43-1over1p8/</guid>
-      <description>1. 1/1.8英寸（小杯子） vs M4/3（大脸盆）</description>
+      <description>以 1/1.8 英寸与 M4/3 为例，给出跨画幅参数匹配的计算方法与配置建议。</description>
     </item>
     <item>
       <title>跨画幅影像系统等效性分析</title>
       <link>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/</link>
       <pubDate>Mon, 26 Jan 2026 22:05:16 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/cross-format-imaging-system-equivalence/</guid>
-      <description>在跨画幅对比中，为了实现完全一致的画质表现（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则</description>
+      <description>从景深、信噪比与进光量三条主线，解释跨画幅画质等效的判断框架。</description>
     </item>
     <item>
       <title>Ubuntu 下配置 GitHub SSH SOCKS5 代理终极方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/</link>
       <pubDate>Mon, 26 Jan 2026 18:10:21 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/ubuntu-github-ssh-socks5/</guid>
-      <description>2. 弃用端口 22，改用 GitHub 提供的 ssh.github.com:443（伪装成 HTTPS 流量，抗干扰能力极强）</description>
+      <description>给出 Ubuntu 下 GitHub SSH 走 SOCKS5 的可用配置，解决握手卡死与端口受限问题。</description>
+    </item>
+    <item>
+      <title>📖算法工程师面试指南</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/algorithm-engineer-interview-guide/</link>
+      <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/algorithm-engineer-interview-guide/</guid>
+      <description>从能力维度与题型分布出发，构建算法工程师面试准备框架与实战清单。</description>
     </item>
     <item>
       <title>Conda使用总结与经验文档</title>
       <link>https://blog.ahaknow.com/posts/aiknow/conda/</link>
       <pubDate>Sat, 22 Feb 2025 00:10:36 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/conda/</guid>
-      <description>方法 1：通过 conda config 修改配置</description>
+      <description>整理 Conda 的常用配置与实战经验，覆盖镜像、环境路径和高频命令管理。</description>
     </item>
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
       <link>https://blog.ahaknow.com/posts/aiknow/hugo/</link>
       <pubDate>Sun, 09 Feb 2025 01:49:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/hugo/</guid>
-      <description>💡 本方案适合 Hugo 个人博客，提供前端级别的密码保护，同时避免明文密码泄露</description>
+      <description>记录 Hugo 文章密码保护的落地方案，兼顾访问控制、体验与明文泄露风险。</description>
     </item>
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-crlf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf/</guid>
-      <description>希望这篇指南能帮助你彻底理解 Git 和 CRLF 的关系，让你在跨平台开发中不再被换行符问题困扰</description>
+      <description>讲清 Git 在 CRLF/LF 场景下的处理机制，并给出跨平台项目的稳妥配置方案。</description>
     </item>
     <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
       <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
-      <description>在文本中插入数学公式： $E=mc^2$ 行内模式的数学公式，适用于正文中的数学表达。 使数学公式独占一行： 独立模式的数学公式，适用于单独一行的数学表达。 $$E=mc^2…</description>
+      <description>按场景整理 LaTeX 数学公式语法，覆盖行内、块级、常见符号与排版细节。</description>
     </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
       <link>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</link>
       <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</guid>
-      <description>围绕GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦，重点总结问题背景 🤔、问题描述 ⚠️，并给出可执行实践。</description>
+      <description>定位 Pull Request 中 Release 附件缺失的根因，并给出发布流程的修复办法。</description>
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-push/</link>
       <pubDate>Thu, 06 Feb 2025 21:59:26 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-push/</guid>
-      <description>围绕Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案，重点总结📌 介绍、📑 目录，并给出可执行实践。</description>
+      <description>提供一套跨平台自动 push 脚本方案，涵盖定时执行、异常处理与安全回退策略。</description>
     </item>
     <item>
       <title>📝 Git 合并与 Pull 过程中常见问题及解决方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-pull/</link>
       <pubDate>Thu, 06 Feb 2025 21:01:54 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-pull/</guid>
-      <description>围绕Git 合并与 Pull 过程中常见问题及解决方案，重点总结🌟 目录、1️⃣ git pull 时的常见问题及解决方案，并给出可执行实践。</description>
+      <description>汇总 git pull 与合并中的典型报错场景，提供可直接执行的排查与修复步骤。</description>
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git/</guid>
-      <description>通过 PowerShell 7 和任务调度器，您可以实现一个自动化任务，每次开机时自动更新 Git 仓库</description>
+      <description>演示用 PowerShell 与任务计划实现开机自动更新多个 Git 仓库的完整流程。</description>
     </item>
     <item>
       <title>✨晕倒不死指南：Scoop包管理</title>
       <link>https://blog.ahaknow.com/posts/aiknow/scoop/</link>
       <pubDate>Tue, 04 Feb 2025 13:09:08 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/scoop/</guid>
-      <description>Scoop 为 Windows 用户带来了一个简单、轻量、便捷的包管理方案，特别适合开发者和命令行爱好者</description>
+      <description>介绍 Scoop 在 Windows 的安装与使用方法，帮助建立轻量可维护的命令行软件管理流。</description>
     </item>
     <item>
       <title>GitHub README 美化经验分享</title>
       <link>https://blog.ahaknow.com/posts/aiknow/github-readme/</link>
       <pubDate>Sat, 01 Feb 2025 21:41:12 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/github-readme/</guid>
-      <description>利用 GitHub Actions 你可以让这两部分数据每天定时更新，也可以手动触发更新</description>
+      <description>分享 GitHub README 动态化改造实践，包含 WakaTime 统计与贪吃蛇动画接入。</description>
     </item>
     <item>
       <title>🪄ChatGPT&amp;LLMs 中文调教指南🚀</title>
       <link>https://blog.ahaknow.com/posts/aiknow/chatgpt-llms/</link>
       <pubDate>Sat, 01 Feb 2025 18:22:55 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/chatgpt-llms/</guid>
-      <description>围绕🪄ChatGPT&amp;amp;LLMs 中文调教指南🚀，总结关键问题与可执行方案。</description>
+      <description>结合真实对话案例，梳理 ChatGPT/LLMs 提示词设计的原则、误区与改进路径。</description>
     </item>
     <item>
       <title>macOS 环境下 Python 动态库缺失问题排查与解决方案</title>
       <link>https://blog.ahaknow.com/posts/aiknow/macos-python/</link>
       <pubDate>Sat, 01 Feb 2025 17:19:11 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/macos-python/</guid>
-      <description>3. Python 环境中的动态库路径没有正确配置</description>
+      <description>复盘 macOS 下 Python 动态库缺失问题，给出逐步定位与修复的稳定流程。</description>
     </item>
     <item>
       <title>博客优化：自定义字体加速显示</title>
       <link>https://blog.ahaknow.com/posts/aiknow/optimize-font-acceleration/</link>
       <pubDate>Tue, 09 Apr 2024 21:25:15 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/optimize-font-acceleration/</guid>
-      <description>这是通过jsDelivr与这些平台的集成以及其在全球多个地点的服务器网络实现的</description>
+      <description>比较字体格式与 CDN 策略，给出博客自定义字体加速加载的实现方案。</description>
     </item>
   </channel>
 </rss>

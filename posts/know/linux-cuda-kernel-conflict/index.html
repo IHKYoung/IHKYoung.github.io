@@ -46,7 +46,7 @@
 <meta name="robots" content="index, follow">
 <title>Linux：GPU环境崩了？从Nvidia驱动到TensorRT | AhaKnow</title>
 <meta name="keywords" content="CUDA">
-<meta name="description" content="这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：">
+<meta name="description" content="复盘 Linux GPU 环境冲突排障，串联驱动、内核与 TensorRT 的依赖关系。">
 <meta name="author" content="CKYoung">
 <link rel="canonical" href="https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
@@ -95,15 +95,15 @@
 
     </style>
 </noscript><meta property="og:title" content="Linux：GPU环境崩了？从Nvidia驱动到TensorRT" />
-<meta property="og:description" content="这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：" />
+<meta property="og:description" content="复盘 Linux GPU 环境冲突排障，串联驱动、内核与 TensorRT 的依赖关系。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/know/linux-cuda-kernel-conflict/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-06-03T16:26:02+08:00" />
-<meta property="article:modified_time" content="2026-02-27T10:30:55+08:00" />
+<meta property="article:modified_time" content="2026-03-02T12:17:00+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux：GPU环境崩了？从Nvidia驱动到TensorRT"/>
-<meta name="twitter:description" content="这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装："/>
+<meta name="twitter:description" content="复盘 Linux GPU 环境冲突排障，串联驱动、内核与 TensorRT 的依赖关系。"/>
 
 
 <script type="application/ld+json">
@@ -138,7 +138,7 @@
   "@type": "BlogPosting",
   "headline": "Linux：GPU环境崩了？从Nvidia驱动到TensorRT",
   "name": "Linux：GPU环境崩了？从Nvidia驱动到TensorRT",
-  "description": "这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：",
+  "description": "复盘 Linux GPU 环境冲突排障，串联驱动、内核与 TensorRT 的依赖关系。",
   "keywords": [
     "CUDA"
   ],
@@ -146,7 +146,7 @@
   "wordCount" : "681",
   "inLanguage": "zh",
   "datePublished": "2024-06-03T16:26:02+08:00",
-  "dateModified": "2026-02-27T10:30:55+08:00",
+  "dateModified": "2026-03-02T12:17:00+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -259,7 +259,7 @@
       Linux：GPU环境崩了？从Nvidia驱动到TensorRT
     </h1>
     <div class="post-description">
-      这次完全是装不了，刚才也说了，采用逆向分析应该是内核版本的原因，但是Nvidia相关如果要重装，那也得卸载干净了再重装：
+      复盘 Linux GPU 环境冲突排障，串联驱动、内核与 TensorRT 的依赖关系。
     </div>
     <div class="post-meta">
 
@@ -293,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-02-27
+            <span>2026-03-02
                 &nbsp;&nbsp;
             </span>
         </span>

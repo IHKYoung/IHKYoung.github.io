@@ -6,35 +6,35 @@
     <description>Recent content in 双指针 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leetcode：80. 删除有序数组中的重复项 II</title>
       <link>https://blog.ahaknow.com/posts/know/leetcode-80-duplicates-sorted-array-ii/</link>
       <pubDate>Fri, 12 Apr 2024 13:19:53 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/leetcode-80-duplicates-sorted-array-ii/</guid>
-      <description>一道值得反复品味的经典双指针算法</description>
+      <description>解析有序数组去重 II 的双指针控制方法，处理“最多保留两次”约束。</description>
     </item>
     <item>
       <title>Leetcode：26删除有序数组中的重复项</title>
       <link>https://blog.ahaknow.com/posts/know/leetcode-26-duplicates-sorted-array/</link>
       <pubDate>Thu, 11 Apr 2024 11:41:10 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/leetcode-26-duplicates-sorted-array/</guid>
-      <description>这个问题可以使用类似于LeetCode26的解决方案，即使用双指针法</description>
+      <description>讲解有序数组去重题的双指针解法，强调原地修改与边界处理。</description>
     </item>
     <item>
       <title>Leetcode：27移除元素</title>
       <link>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</link>
       <pubDate>Thu, 11 Apr 2024 11:14:47 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/leetcode-27-remove-element/</guid>
-      <description>通过这种方式，可以实现原地修改数组，同时只使用 O(1) 的额外空间</description>
+      <description>总结移除元素题的原地覆盖策略，说明 O(1) 空间实现与代码要点。</description>
     </item>
     <item>
       <title>Leetcode：88合并两个有序数组</title>
       <link>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</link>
       <pubDate>Thu, 11 Apr 2024 10:19:57 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/leetcode-88-merge-sorted-array/</guid>
-      <description>（你还记得你多年未写算法题，想到了双指针，结果一上来写了两个for的蠢事嘛🤣）</description>
+      <description>复盘合并两个有序数组题的逆向双指针解法与常见实现误区。</description>
     </item>
   </channel>
 </rss>

@@ -6,28 +6,28 @@
     <description>Recent content in SLAM屠龙之路 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/slam%E5%B1%A0%E9%BE%99%E4%B9%8B%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SLAM十四讲第二讲：初识SLAM</title>
       <link>https://blog.ahaknow.com/posts/know/slam14-ch2/</link>
       <pubDate>Tue, 09 Apr 2024 16:03:13 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/slam14-ch2/</guid>
-      <description>重复是学习之母，再读SLAM第一篇</description>
+      <description>梳理 SLAM 十四讲第二章核心概念，建立视觉 SLAM 的问题定义与数学表达。</description>
     </item>
     <item>
       <title>SLAM十四讲第一讲：预备知识</title>
       <link>https://blog.ahaknow.com/posts/know/slam14-ch1/</link>
       <pubDate>Mon, 08 Apr 2024 20:27:50 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/slam14-ch1/</guid>
-      <description>边做题边学习</description>
+      <description>配合习题回顾 SLAM 十四讲第一章预备知识，巩固线代与概率基础。</description>
     </item>
     <item>
       <title>二维平面下的坐标系变换</title>
       <link>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</link>
       <pubDate>Sat, 06 Apr 2024 21:13:29 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/aha-2d-coordinate-transformation/</guid>
-      <description>以实际的移动机器人为例，学习坐标系变换的数学原理</description>
+      <description>以移动机器人案例讲清二维坐标变换，包含公式推导、参数含义与验证方法。</description>
     </item>
   </channel>
 </rss>

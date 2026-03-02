@@ -6,21 +6,35 @@
     <description>Recent content in 人工很智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E5%BE%88%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>从Prompt说起，用大白话说清楚Skills、MCP、Agent、Sub-Agents到底是啥</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/</link>
+      <pubDate>Mon, 02 Mar 2026 08:57:28 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/</guid>
+      <description>围绕From Prompt to Multi Agents，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>我花了半个下午，将一人Agent对话打造成了一人Agents公司</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/</link>
+      <pubDate>Sun, 01 Mar 2026 21:03:22 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/</guid>
+      <description>围绕Multi Agents Startup，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
+    <item>
       <title>📖算法工程师面试指南</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/algorithm-engineer-interview-guide/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/algorithm-engineer-interview-guide/</link>
       <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/algorithm-engineer-interview-guide/</guid>
-      <description>|代码能力|30%|实现能力、代码质量、工程实践及优化|</description>
+      <guid>https://blog.ahaknow.com/posts/aiknow/algorithm-engineer-interview-guide/</guid>
+      <description>从能力维度与题型分布出发，构建算法工程师面试准备框架与实战清单。</description>
     </item>
     <item>
       <title>你好～ Merlin</title>
       <link>https://blog.ahaknow.com/posts/life/merlin/</link>
       <pubDate>Thu, 23 May 2024 15:20:14 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/life/merlin/</guid>
-      <description>我是才知道： 贾维斯的全称，Just Another Rather Very Intelligent System（只是一个相当聪明的智能系统）； 伊迪斯的全称，Even d…</description>
+      <description>由 Marvel AI 管家命名出发，延展到智能助手设定与产品想象的随笔记录。</description>
     </item>
   </channel>
 </rss>

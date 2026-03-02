@@ -13,7 +13,7 @@
       <link>https://blog.ahaknow.com/posts/know/note-mp4-audio-track-repair/</link>
       <pubDate>Tue, 09 Apr 2024 22:40:15 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/note-mp4-audio-track-repair/</guid>
-      <description>这里用到两个Python的工具：pydub、moviepy，直接安装就好</description>
+      <description>记录用 Python 修复 MP4 音轨异常的实践，基于 pydub 与 moviepy 落地。</description>
     </item>
   </channel>
 </rss>

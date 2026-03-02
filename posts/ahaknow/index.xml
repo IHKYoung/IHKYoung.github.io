@@ -8,32 +8,25 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/ahaknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AhaKnow博客备忘录</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/memo-blog/</link>
-      <pubDate>Sun, 25 Jan 2026 22:56:50 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/memo-blog/</guid>
-      <description>又是两年过去了。 AhaKnow的博客咋使用的我都忘记了，需要记录一下。 博客的主题在themes路径下，直接修改就行。 然后本地运行： 尽可能避免记忆，主要是两个功能，同步…</description>
+      <title>从Prompt说起，用大白话说清楚Skills、MCP、Agent、Sub-Agents到底是啥</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/</link>
+      <pubDate>Mon, 02 Mar 2026 08:57:28 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/</guid>
+      <description>围绕From Prompt to Multi Agents，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
     </item>
     <item>
-      <title>开发前的一些准备工作～</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/preparation-development/</link>
-      <pubDate>Tue, 19 Aug 2025 11:03:49 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/preparation-development/</guid>
-      <description>沿用之前的模式，Ohmyzsh方案：p10k&#43;自动高亮和补充这种</description>
-    </item>
-    <item>
-      <title>📖算法工程师面试指南</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/algorithm-engineer-interview-guide/</link>
-      <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/algorithm-engineer-interview-guide/</guid>
-      <description>|代码能力|30%|实现能力、代码质量、工程实践及优化|</description>
+      <title>我花了半个下午，将一人Agent对话打造成了一人Agents公司</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/</link>
+      <pubDate>Sun, 01 Mar 2026 21:03:22 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/</guid>
+      <description>围绕Multi Agents Startup，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
     </item>
     <item>
       <title>AhaKnow开发笔记</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/notes-development/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/ahaknow-2026/</link>
       <pubDate>Tue, 25 Feb 2025 22:22:43 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/notes-development/</guid>
-      <description>2026年！ 再次开始开发AhaKnow。 2025年尝试了一半，属于残缺版，不过也算是实现了一点点自己的想法，但是缺乏交流，容易陷入自我感动之中。</description>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/ahaknow-2026/</guid>
+      <description>复盘 AhaKnow 重启开发阶段的目标、问题与迭代方向，明确后续推进节奏。</description>
     </item>
   </channel>
 </rss>

@@ -6,14 +6,14 @@
     <description>Recent content in 面向对象编程 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
       <link>https://blog.ahaknow.com/posts/know/dev-header-source/</link>
       <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-header-source/</guid>
-      <description>围绕开发实战：为什么要将函数实现与头文件分离，重点总结C&#43;&#43;编译角度的理解、1. 预处理阶段，并给出可执行实践。</description>
+      <description>从编译与链接机制解释头源分离的必要性，并给出组织代码的实操建议。</description>
     </item>
   </channel>
 </rss>

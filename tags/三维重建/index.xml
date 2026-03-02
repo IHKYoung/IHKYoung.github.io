@@ -6,14 +6,14 @@
     <description>Recent content in 三维重建 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
       <link>https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/</link>
       <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/</guid>
-      <description>这个标题很有意思～ 置身三维重建于死地而后生，啥也不说了，死磕到底吧！ 如果现在我手里有一台相机，我呢在一片陌生的场景里，我能用这台相机去把周围的环境拍下来记录，可以尽可能地…</description>
+      <description>从拍照建模问题出发，串联三维重建的核心目标、技术路线与学习动机。</description>
     </item>
   </channel>
 </rss>

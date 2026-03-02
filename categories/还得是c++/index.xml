@@ -6,35 +6,35 @@
     <description>Recent content in 还得是C&#43;&#43; on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E8%BF%98%E5%BE%97%E6%98%AFc++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：CMake实现可执行文件的安装与打包分发</title>
       <link>https://blog.ahaknow.com/posts/know/dev-cpack-release/</link>
       <pubDate>Mon, 20 May 2024 17:54:35 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-cpack-release/</guid>
-      <description>围绕开发实战：CMake实现可执行文件的安装与打包分发，重点总结CPack，并给出可执行实践。</description>
+      <description>讲解用 CMake/CPack 打包与分发可执行程序的完整流程及配置要点。</description>
     </item>
     <item>
       <title>开发实战：为什么要将函数实现与头文件分离</title>
       <link>https://blog.ahaknow.com/posts/know/dev-header-source/</link>
       <pubDate>Sun, 28 Apr 2024 14:02:22 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-header-source/</guid>
-      <description>围绕开发实战：为什么要将函数实现与头文件分离，重点总结C&#43;&#43;编译角度的理解、1. 预处理阶段，并给出可执行实践。</description>
+      <description>从编译与链接机制解释头源分离的必要性，并给出组织代码的实操建议。</description>
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
       <link>https://blog.ahaknow.com/posts/know/parse-development-h264-lz4/</link>
       <pubDate>Thu, 18 Apr 2024 14:43:01 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/parse-development-h264-lz4/</guid>
-      <description>这意味着通常不需要手动解析 H.264 数据帧，除非需要非常定制化的处理</description>
+      <description>讲解 H.264 与 LZ4 图像数据解析链路，梳理关键难点与实现要点。</description>
     </item>
     <item>
       <title>开发实战：解析二进制文件</title>
       <link>https://blog.ahaknow.com/posts/know/dev-parse-binary-file/</link>
       <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-parse-binary-file/</guid>
-      <description>因为一开始采用直接“复制-粘贴（ChatGPT指导）”的方式，遇到了解析失败的情况，根据结果一点点分析，始终没发现问题在哪</description>
+      <description>复盘二进制解析失败到修复的全过程，重点解释端序问题与调试方法。</description>
     </item>
   </channel>
 </rss>

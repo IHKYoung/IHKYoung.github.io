@@ -6,14 +6,14 @@
     <description>Recent content in 字节流 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/%E5%AD%97%E8%8A%82%E6%B5%81/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>开发实战：解析二进制文件</title>
       <link>https://blog.ahaknow.com/posts/know/dev-parse-binary-file/</link>
       <pubDate>Wed, 17 Apr 2024 16:34:35 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/dev-parse-binary-file/</guid>
-      <description>因为一开始采用直接“复制-粘贴（ChatGPT指导）”的方式，遇到了解析失败的情况，根据结果一点点分析，始终没发现问题在哪</description>
+      <description>复盘二进制解析失败到修复的全过程，重点解释端序问题与调试方法。</description>
     </item>
   </channel>
 </rss>

@@ -6,21 +6,21 @@
     <description>Recent content in 还会一点前端 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E8%BF%98%E4%BC%9A%E4%B8%80%E7%82%B9%E5%89%8D%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>博客优化：自定义字体加速显示</title>
       <link>https://blog.ahaknow.com/posts/aiknow/optimize-font-acceleration/</link>
       <pubDate>Tue, 09 Apr 2024 21:25:15 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/optimize-font-acceleration/</guid>
-      <description>这是通过jsDelivr与这些平台的集成以及其在全球多个地点的服务器网络实现的</description>
+      <description>比较字体格式与 CDN 策略，给出博客自定义字体加速加载的实现方案。</description>
     </item>
     <item>
       <title>博客自定义：实现Mac风格的代码栏</title>
       <link>https://blog.ahaknow.com/posts/know/blog-mac-style-code/</link>
       <pubDate>Wed, 27 Mar 2024 20:39:16 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/blog-mac-style-code/</guid>
-      <description>直接看实现过这个效果的的网站是怎么实现的（只要是HTML&#43;CSS方式的，就能读出来，如果全是JS生成的，那就</description>
+      <description>记录博客实现 Mac 风格代码栏的思路与样式方案，便于在 Hugo 主题中复用。</description>
     </item>
   </channel>
 </rss>

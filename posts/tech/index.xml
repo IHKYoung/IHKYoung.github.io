@@ -12,14 +12,21 @@
       <link>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</link>
       <pubDate>Thu, 26 Feb 2026 19:45:00 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</guid>
-      <description>复盘 Outlook 邮箱中 OpenAI 登录验证码自动转发飞书机器人的完整过程，覆盖关键踩坑、修复路径与稳定运行配置。</description>
+      <description>完整复盘 Outlook 验证码自动转发飞书的排障过程与最终稳定方案。</description>
+    </item>
+    <item>
+      <title>开发前的一些准备工作～</title>
+      <link>https://blog.ahaknow.com/posts/tech/preparation-development/</link>
+      <pubDate>Tue, 19 Aug 2025 11:03:49 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/tech/preparation-development/</guid>
+      <description>整理开发前的环境准备项，覆盖终端配置、网络处理与常用工具安装。</description>
     </item>
     <item>
       <title>顺手写了个Obsidian插件😄</title>
       <link>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</link>
       <pubDate>Tue, 10 Dec 2024 22:33:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</guid>
-      <description>感觉自己很牛逼！！！ 为啥想到写这个插件呢？ 因为我想把Obsidian和Hugo结合起来，但是有两个小问题很麻烦，虽然很小，但用多了会很烦！会写代码的一般都很懒，所以绝对不…</description>
+      <description>记录为 Obsidian 与 Hugo 协作而开发首个插件的动机、实现与收获。</description>
     </item>
   </channel>
 </rss>

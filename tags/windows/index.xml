@@ -6,14 +6,14 @@
     <description>Recent content in Windows on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Feb 2026 10:30:55 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>🚀 Git 与 CRLF（换行符）完全指南</title>
       <link>https://blog.ahaknow.com/posts/aiknow/git-crlf/</link>
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf/</guid>
-      <description>希望这篇指南能帮助你彻底理解 Git 和 CRLF 的关系，让你在跨平台开发中不再被换行符问题困扰</description>
+      <description>讲清 Git 在 CRLF/LF 场景下的处理机制，并给出跨平台项目的稳妥配置方案。</description>
     </item>
   </channel>
 </rss>
