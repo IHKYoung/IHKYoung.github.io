@@ -8,6 +8,13 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/aiknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/</link>
+      <pubDate>Tue, 03 Mar 2026 21:20:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/</guid>
+      <description>从证书准备到 GitHub Release 的完整实操，覆盖 Developer ID 签名、公证、staple 验证与常见错误排查。</description>
+    </item>
+    <item>
       <title>Linux Git配置代理完全指南(HTTP&amp;SSH)</title>
       <link>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</link>
       <pubDate>Sat, 14 Feb 2026 17:48:03 +0800</pubDate>

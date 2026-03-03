@@ -99,7 +99,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2026-03-02T08:57:28+08:00" />
-<meta property="article:modified_time" content="2026-03-02T12:17:00+08:00" />
+<meta property="article:modified_time" content="2026-03-03T10:30:37+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从Prompt说起，用大白话说清楚Skills、MCP、Agent、Sub-Agents到底是啥"/>
@@ -142,11 +142,11 @@
   "keywords": [
     "AhaKnow"
   ],
-  "articleBody": " 如果我不能用大白话把一个新东西给一个外行讲清楚，那么就说明我还没有真正搞懂。\n于是，我还是觉得自己思考、自己动手写。\n最近是Sub-Agents火起来了，我自己也是后知后觉地把它给实践起来，哪怕自己本身是工作在“AI前沿”的开发者。所以，如果我自己不说、不表达，那么我永远没有出头之日，永远只是一个小虾米，直到有一天被一条大龙虾🦞无情的吃掉。。。\n从Prompt说起…… 2024年的时候，网络上流传最多的是如何写好一个Prompt，甚至有很多声音是：以后会有很多Prompt Engineer（提示词工程师）的岗位。现在2026年，两年过去了，这中间出现了很多新词：Agent（智能体）、Skills（技能）、MCP（模型上下文协议）、WorkFlow（工作流）、Sub-Agents（子智能体）、Multi-Agents（多智能体）。我自己呢，非常惭愧，因为我闭塞地自以为这些新词背后的本质依旧是写Prompt，所以我就没去学习，没有跟进，坚守着自己的清高，浑浑噩噩地使用了两三年的AI。好像很有经验，但其实啥沉淀都没有，直到被越来越多**“之前一行代码没写过，却用AI新技术玩出花样”的AI Native（AI原生民）们当头一棒又一棒，重重敲醒！**\n反思完毕，开始正题。\n下面我就用一个“小黑屋里的天才”的故事，来讲清楚这些AI新词汇：LLM（大语言模型）、Prompt（提示词）、Agent（智能体）、Skills（技能）、MCP（模型上下文协议）、WorkFlow（工作流）、Sub-Agents（子智能体）、Multi-Agents（多智能体）。\n第一节 小黑屋里的天才（LLM与Prompt） 第二节 天才走出小黑屋，但缺了“手脚”（Agent 与 Skills） 第三节 车同轨、书同文的统一度量衡（MCP） 第四节 从散兵游勇到等级森严（WorkFlow） 第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents） ",
-  "wordCount" : "811",
+  "articleBody": " 如果我不能用大白话把一个新东西给一个外行讲清楚，那么就说明我还没有真正搞懂。\n于是，我还是觉得自己思考、自己动手写。\n最近是Sub-Agents火起来了，我自己也是后知后觉地把它给实践起来，哪怕自己本身是工作在“AI前沿”的开发者。所以，如果我自己不说、不表达，那么我永远没有出头之日，永远只是一个小虾米，直到有一天被一条大龙虾🦞无情的吃掉。。。\n从Prompt说起…… 2024年的时候，网络上流传最多的是如何写好一个Prompt，甚至有很多声音是：以后会有很多Prompt Engineer（提示词工程师）的岗位。现在2026年，两年过去了，这中间出现了很多新词：Agent（智能体）、Skills（技能）、MCP（模型上下文协议）、WorkFlow（工作流）、Sub-Agents（子智能体）、Multi-Agents（多智能体）。我自己呢，非常惭愧，因为我闭塞地自以为这些新词背后的本质依旧是写Prompt，所以我就没去学习，没有跟进，坚守着自己的清高，浑浑噩噩地使用了两三年的AI。好像很有经验，但其实啥沉淀都没有，直到被越来越多**“之前一行代码没写过，却用AI新技术玩出花样”的AI Native（AI原生民）们当头一棒又一棒，重重敲醒！**\n反思完毕，开始正题。\n下面我就用一个“小黑屋里的天才”的故事，来讲清楚这些AI新词汇：LLM（大语言模型）、Prompt（提示词）、Agent（智能体）、Skills（技能）、MCP（模型上下文协议）、WorkFlow（工作流）、Sub-Agents（子智能体）、Multi-Agents（多智能体）。\n第一节 小黑屋里的天才（LLM与Prompt） LLM大语言模型 —— 被关在小黑屋的“最强大脑” 想象一下，你花了重金聘请了一位“博览群书”的天才（比如GPT-4，Claude-3），但是这个天才是被关在一个没有电脑、没有网络的小黑屋里的。\n这个天才的脑袋里装满了各种各样真实世界中的已知知识，你问他2023年以前的问题，它可以对答如流，但是你要是问它：“2026年的春节联会有哪些节目？”，它其实并不知道，但是它可能为了考虑你的感受，会硬生生编造出一些回答，看着好像跟真的一样。（这就是2024年那会最常被议论到的“大模型的幻觉”）\nPrompt提示词 —— 通过门缝塞进去的“纸条” 为了能够跟小黑屋里的天才去交流，你需要写一张“纸条”从门缝里塞进去（这个“纸条”所承载的就是Prompt），比如，我想问它：“我想要学习经济学基本原理。”你在纸条上写上了这些话塞进去，小黑屋的天才看到了这个这句话，想了想，经济学基本原理的大概是这样的，然后它也洋洋洒洒地回了你一个纸条，上方写的是内容还挺多。你看了一眼发现它回复的好宽泛啊。于是，你开始了一次一次塞“纸条”跟天才对话的过程。在你不断地写纸条跟这个天才对话后，你逐渐意识到，你的“纸条”内写的问题，只有越具体，这个天才回复的答案也才会越具体。\n（这就好比：大模型是一张非常详尽的世界地图、包括万象，可以无法放大到真实世界的每一寸土地对应。因此需要去到你想要去的地方，你需要给一个准确的坐标，而Prompt是坐标，你只有给一个非常详细的坐标信息，比如精确到某个城市、区域、街道、甚至具体楼层和房间号后，那么才能在这个“世界地图”上找到你想要的正确位置）\n第二节 天才走出小黑屋（Agent 与 Skills） 你通过传递“纸条”方式跟天才交流了很多，你发现它确实很“聪明”，可以帮我写文案，可以教我“新知识”，似乎我问的每一个问题都能得到一个回应。但你逐渐也发现了它的局限性：\n它终究只是一个有点“聪明”的对话机器，不能实际帮你去干活。\n随着科技界的发展，这个天才也随着升级了，这位天才终于可以走出关着它的小黑屋了。\nAgent智能体 —— 天才可以独立去探索世界了 当天才走出小黑屋之后，终于这个天才“像点人样”了，你甚至觉得，可以把它作为你的一个实习生、或者小弟来看待了。于是你把它安排在了“工位”上，给了它一台可以上网的电脑。这时你开始让它上网查资料来回答你的问题，比如：“调研一下最新的AI技术的发展，总结一份报告给我。”（这句话还是一个Prompt），只不过这时的天才是一个智能体了，它知道你说的调研是上网去查询最新的信息，于是它哼哧哼哧开始干活了。你看了一样它的进度，发现还真的有模有样的上网查了资料，过了一会，它真的给了你一份详细的报告，于是你把它复制出来，粘贴到了自己的Word中。你开始觉得，这个天才好像真能干一点事了。\n于是你尝试把你工作中的一些琐事交给它：“这是一份客户回访信息的Excel表格，我发给你了，你把其中的客户进行一个分类整理，最后返回给我一个结构清晰的表格。”天才回答收到，然后就开始干活了，过了一会你来验收，这时你发现这个天才给你的回答里，用户的名字都是错误的，你耐心的回复到：“xxx名字错了，你仔细检查一遍，其他的也一起检查。”天才说好的，再过了一会你来验收，发现又有其他问题，你有点不耐烦的跟天才说……就这样折腾了一下午，你最后决定还是自己做吧，你感慨了一句：“这个天才终究差点火候……”。\nSkills技能 —— 天才开始施展神通 第三节 车同轨、书同文的统一度量衡（MCP） 第四节 从散兵游勇到等级森严（WorkFlow） 第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents） 最后的回响 ",
+  "wordCount" : "2200",
   "inLanguage": "zh",
   "datePublished": "2026-03-02T08:57:28+08:00",
-  "dateModified": "2026-03-02T12:17:00+08:00",
+  "dateModified": "2026-03-03T10:30:37+08:00",
   "author":[{
     "@type": "Person",
     "name": "Clarke"
@@ -293,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-02
+            <span>2026-03-03
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -305,13 +305,13 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>811 字
+        <span>2200 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>2 分钟
+        <span>5 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -345,15 +345,29 @@
                 <li>
                     <a href="#%e4%bb%8eprompt%e8%af%b4%e8%b5%b7" aria-label="从Prompt说起……">从Prompt说起……</a></li>
                 <li>
-                    <a href="#%e7%ac%ac%e4%b8%80%e8%8a%82-%e5%b0%8f%e9%bb%91%e5%b1%8b%e9%87%8c%e7%9a%84%e5%a4%a9%e6%89%8dllm%e4%b8%8eprompt" aria-label="第一节 小黑屋里的天才（LLM与Prompt）">第一节 小黑屋里的天才（LLM与Prompt）</a></li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e8%8a%82-%e5%b0%8f%e9%bb%91%e5%b1%8b%e9%87%8c%e7%9a%84%e5%a4%a9%e6%89%8dllm%e4%b8%8eprompt" aria-label="第一节 小黑屋里的天才（LLM与Prompt）">第一节 小黑屋里的天才（LLM与Prompt）</a><ul>
+                        
                 <li>
-                    <a href="#%e7%ac%ac%e4%ba%8c%e8%8a%82-%e5%a4%a9%e6%89%8d%e8%b5%b0%e5%87%ba%e5%b0%8f%e9%bb%91%e5%b1%8b%e4%bd%86%e7%bc%ba%e4%ba%86%e6%89%8b%e8%84%9aagent-%e4%b8%8e-skills" aria-label="第二节 天才走出小黑屋，但缺了“手脚”（Agent 与 Skills）">第二节 天才走出小黑屋，但缺了“手脚”（Agent 与 Skills）</a></li>
+                    <a href="#llm%e5%a4%a7%e8%af%ad%e8%a8%80%e6%a8%a1%e5%9e%8b--%e8%a2%ab%e5%85%b3%e5%9c%a8%e5%b0%8f%e9%bb%91%e5%b1%8b%e7%9a%84%e6%9c%80%e5%bc%ba%e5%a4%a7%e8%84%91" aria-label="LLM大语言模型 —— 被关在小黑屋的“最强大脑”">LLM大语言模型 —— 被关在小黑屋的“最强大脑”</a></li>
+                <li>
+                    <a href="#prompt%e6%8f%90%e7%a4%ba%e8%af%8d--%e9%80%9a%e8%bf%87%e9%97%a8%e7%bc%9d%e5%a1%9e%e8%bf%9b%e5%8e%bb%e7%9a%84%e7%ba%b8%e6%9d%a1" aria-label="Prompt提示词 —— 通过门缝塞进去的“纸条”">Prompt提示词 —— 通过门缝塞进去的“纸条”</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e8%8a%82-%e5%a4%a9%e6%89%8d%e8%b5%b0%e5%87%ba%e5%b0%8f%e9%bb%91%e5%b1%8bagent-%e4%b8%8e-skills" aria-label="第二节 天才走出小黑屋（Agent 与 Skills）">第二节 天才走出小黑屋（Agent 与 Skills）</a><ul>
+                        
+                <li>
+                    <a href="#agent%e6%99%ba%e8%83%bd%e4%bd%93--%e5%a4%a9%e6%89%8d%e5%8f%af%e4%bb%a5%e7%8b%ac%e7%ab%8b%e5%8e%bb%e6%8e%a2%e7%b4%a2%e4%b8%96%e7%95%8c%e4%ba%86" aria-label="Agent智能体 —— 天才可以独立去探索世界了">Agent智能体 —— 天才可以独立去探索世界了</a></li>
+                <li>
+                    <a href="#skills%e6%8a%80%e8%83%bd--%e5%a4%a9%e6%89%8d%e5%bc%80%e5%a7%8b%e6%96%bd%e5%b1%95%e7%a5%9e%e9%80%9a" aria-label="Skills技能 —— 天才开始施展神通">Skills技能 —— 天才开始施展神通</a></li></ul>
+                </li>
                 <li>
                     <a href="#%e7%ac%ac%e4%b8%89%e8%8a%82-%e8%bd%a6%e5%90%8c%e8%bd%a8%e4%b9%a6%e5%90%8c%e6%96%87%e7%9a%84%e7%bb%9f%e4%b8%80%e5%ba%a6%e9%87%8f%e8%a1%a1mcp" aria-label="第三节 车同轨、书同文的统一度量衡（MCP）">第三节 车同轨、书同文的统一度量衡（MCP）</a></li>
                 <li>
                     <a href="#%e7%ac%ac%e5%9b%9b%e8%8a%82-%e4%bb%8e%e6%95%a3%e5%85%b5%e6%b8%b8%e5%8b%87%e5%88%b0%e7%ad%89%e7%ba%a7%e6%a3%ae%e4%b8%a5workflow" aria-label="第四节 从散兵游勇到等级森严（WorkFlow）">第四节 从散兵游勇到等级森严（WorkFlow）</a></li>
                 <li>
-                    <a href="#%e7%ac%ac%e4%ba%94%e8%8a%82-%e7%bb%84%e5%bb%ba%e6%a2%a6%e4%b9%8b%e9%98%9f%e5%b7%a6%e8%84%9a%e8%b8%a9%e5%8f%b3%e8%84%9a%e4%b8%8a%e5%a4%a9sub-agents-%e4%b8%8e-multi-agents" aria-label="第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents）">第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents）</a>
+                    <a href="#%e7%ac%ac%e4%ba%94%e8%8a%82-%e7%bb%84%e5%bb%ba%e6%a2%a6%e4%b9%8b%e9%98%9f%e5%b7%a6%e8%84%9a%e8%b8%a9%e5%8f%b3%e8%84%9a%e4%b8%8a%e5%a4%a9sub-agents-%e4%b8%8e-multi-agents" aria-label="第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents）">第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents）</a></li>
+                <li>
+                    <a href="#%e6%9c%80%e5%90%8e%e7%9a%84%e5%9b%9e%e5%93%8d" aria-label="最后的回响">最后的回响</a>
                 </li>
             </ul>
         </div>
@@ -443,10 +457,24 @@
 <p><strong>反思完毕，开始正题。</strong></p>
 <p>下面我就用一个“小黑屋里的天才”的故事，来讲清楚这些AI新词汇：LLM（大语言模型）、Prompt（提示词）、Agent（智能体）、Skills（技能）、MCP（模型上下文协议）、WorkFlow（工作流）、Sub-Agents（子智能体）、Multi-Agents（多智能体）。</p>
 <h2 id="第一节-小黑屋里的天才llm与prompt">第一节 小黑屋里的天才（LLM与Prompt）<a hidden class="anchor" aria-hidden="true" href="#第一节-小黑屋里的天才llm与prompt">#</a></h2>
-<h2 id="第二节-天才走出小黑屋但缺了手脚agent-与-skills">第二节 天才走出小黑屋，但缺了“手脚”（Agent 与 Skills）<a hidden class="anchor" aria-hidden="true" href="#第二节-天才走出小黑屋但缺了手脚agent-与-skills">#</a></h2>
+<h3 id="llm大语言模型--被关在小黑屋的最强大脑">LLM大语言模型 —— 被关在小黑屋的“最强大脑”<a hidden class="anchor" aria-hidden="true" href="#llm大语言模型--被关在小黑屋的最强大脑">#</a></h3>
+<p>想象一下，你花了重金聘请了一位“博览群书”的天才（比如GPT-4，Claude-3），但是这个天才是被关在一个没有电脑、没有网络的小黑屋里的。</p>
+<p>这个天才的脑袋里装满了各种各样真实世界中的已知知识，你问他2023年以前的问题，它可以对答如流，但是你要是问它：“2026年的春节联会有哪些节目？”，它其实并不知道，但是它可能为了考虑你的感受，会硬生生编造出一些回答，看着好像跟真的一样。（这就是2024年那会最常被议论到的“大模型的幻觉”）</p>
+<h3 id="prompt提示词--通过门缝塞进去的纸条">Prompt提示词 —— 通过门缝塞进去的“纸条”<a hidden class="anchor" aria-hidden="true" href="#prompt提示词--通过门缝塞进去的纸条">#</a></h3>
+<p>为了能够跟小黑屋里的天才去交流，你需要写一张“纸条”从门缝里塞进去（这个“纸条”所承载的就是Prompt），比如，我想问它：“我想要学习经济学基本原理。”你在纸条上写上了这些话塞进去，小黑屋的天才看到了这个这句话，想了想，经济学基本原理的大概是这样的，然后它也洋洋洒洒地回了你一个纸条，上方写的是内容还挺多。你看了一眼发现它回复的好宽泛啊。于是，你开始了一次一次塞“纸条”跟天才对话的过程。在你不断地写纸条跟这个天才对话后，<strong>你逐渐意识到，你的“纸条”内写的问题，只有越具体，这个天才回复的答案也才会越具体。</strong></p>
+<p><strong>（这就好比：大模型是一张非常详尽的世界地图、包括万象，可以无法放大到真实世界的每一寸土地对应。因此需要去到你想要去的地方，你需要给一个准确的坐标，而Prompt是坐标，你只有给一个非常详细的坐标信息，比如精确到某个城市、区域、街道、甚至具体楼层和房间号后，那么才能在这个“世界地图”上找到你想要的正确位置）</strong></p>
+<h2 id="第二节-天才走出小黑屋agent-与-skills">第二节 天才走出小黑屋（Agent 与 Skills）<a hidden class="anchor" aria-hidden="true" href="#第二节-天才走出小黑屋agent-与-skills">#</a></h2>
+<p>你通过传递“纸条”方式跟天才交流了很多，你发现它确实很“聪明”，可以帮我写文案，可以教我“新知识”，似乎我问的每一个问题都能得到一个回应。但你逐渐也发现了它的局限性：</p>
+<p><strong>它终究只是一个有点“聪明”的对话机器，不能实际帮你去干活。</strong></p>
+<p>随着科技界的发展，这个天才也随着升级了，这位天才终于可以走出关着它的小黑屋了。</p>
+<h3 id="agent智能体--天才可以独立去探索世界了">Agent智能体 —— 天才可以独立去探索世界了<a hidden class="anchor" aria-hidden="true" href="#agent智能体--天才可以独立去探索世界了">#</a></h3>
+<p>当天才走出小黑屋之后，终于这个天才“像点人样”了，你甚至觉得，可以把它作为你的一个实习生、或者小弟来看待了。于是你把它安排在了“工位”上，给了它一台可以上网的电脑。这时你开始让它上网查资料来回答你的问题，比如：“调研一下最新的AI技术的发展，总结一份报告给我。”（这句话还是一个Prompt），只不过这时的天才是一个智能体了，它知道你说的调研是上网去查询最新的信息，于是它哼哧哼哧开始干活了。你看了一样它的进度，发现还真的有模有样的上网查了资料，过了一会，它真的给了你一份详细的报告，于是你把它复制出来，粘贴到了自己的Word中。你开始觉得，这个天才好像真能干一点事了。</p>
+<p>于是你尝试把你工作中的一些琐事交给它：“这是一份客户回访信息的Excel表格，我发给你了，你把其中的客户进行一个分类整理，最后返回给我一个结构清晰的表格。”天才回答收到，然后就开始干活了，过了一会你来验收，这时你发现这个天才给你的回答里，用户的名字都是错误的，你耐心的回复到：“xxx名字错了，你仔细检查一遍，其他的也一起检查。”天才说好的，再过了一会你来验收，发现又有其他问题，你有点不耐烦的跟天才说……就这样折腾了一下午，你最后决定还是自己做吧，你感慨了一句：“这个天才终究差点火候……”。</p>
+<h3 id="skills技能--天才开始施展神通">Skills技能 —— 天才开始施展神通<a hidden class="anchor" aria-hidden="true" href="#skills技能--天才开始施展神通">#</a></h3>
 <h2 id="第三节-车同轨书同文的统一度量衡mcp">第三节 车同轨、书同文的统一度量衡（MCP）<a hidden class="anchor" aria-hidden="true" href="#第三节-车同轨书同文的统一度量衡mcp">#</a></h2>
 <h2 id="第四节-从散兵游勇到等级森严workflow">第四节 从散兵游勇到等级森严（WorkFlow）<a hidden class="anchor" aria-hidden="true" href="#第四节-从散兵游勇到等级森严workflow">#</a></h2>
 <h2 id="第五节-组建梦之队左脚踩右脚上天sub-agents-与-multi-agents">第五节 组建梦之队，左脚踩右脚上天（Sub-Agents 与 Multi-Agents）<a hidden class="anchor" aria-hidden="true" href="#第五节-组建梦之队左脚踩右脚上天sub-agents-与-multi-agents">#</a></h2>
+<h2 id="最后的回响">最后的回响<a hidden class="anchor" aria-hidden="true" href="#最后的回响">#</a></h2>
 
 
   </div>
@@ -504,10 +532,10 @@
       <li><a href="https://blog.ahaknow.com/tags/ahaknow/">AhaKnow</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://blog.ahaknow.com/posts/know/collection-notes/">
+  <a class="prev" href="https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/">
     <span class="title">« 上一页</span>
     <br>
-    <span class="post-nav-title" title="站在前人的肩膀上：笔记收集录">站在前人的肩膀上：笔记收集录</span>
+    <span class="post-nav-title" title="Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证">Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证</span>
   </a>
   <a class="next" href="https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/">
     <span class="title">下一页 »</span>

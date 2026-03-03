@@ -18,16 +18,37 @@
     <lastmod>2026-02-27T10:30:55+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/tags/code-signing/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/tags/macos/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/tags/notarization/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/tags/release/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/tags/tauri/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/tags/ahaknow/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E5%BE%88%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
@@ -92,9 +113,6 @@
     <loc>https://blog.ahaknow.com/posts/aiknow/linux-git-http-ssh/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
-  </url><url>
     <loc>https://blog.ahaknow.com/categories/%E4%B8%8D%E5%A6%82%E5%86%99%E5%86%99%E6%97%A5%E8%AE%B0/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
@@ -132,7 +150,7 @@
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/categories/%E5%A5%BD%E8%AE%B0%E6%80%A7%E4%B8%8D%E5%A6%82%E7%83%82%E7%AC%94%E5%A4%B4/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/diary/2026-01-06/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
@@ -162,7 +180,7 @@
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/ahaknow/ahaknow-2026/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-03T10:30:37+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/tags/conda/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
@@ -228,9 +246,6 @@
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/aiknow/chatgpt-llms/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ahaknow.com/tags/macos/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/aiknow/macos-python/</loc>

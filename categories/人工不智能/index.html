@@ -198,6 +198,91 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>本文是可直接复用的发布 SOP。目标是产出一个可以在其他 Mac 上正常打开的安装包，而不是只能在本机运行的临时构建。
+1. 前置条件 必须满足以下条件：
+Apple Developer 付费账号（免费账号无法做 Notarization）。 Keychain 中已安装 Developer ID Application 证书，并且证书带私钥。 已安装 Xcode Command Line Tools（含 xcrun、notarytool、stapler）。 Tauri 项目可正常本地构建。 检查证书：
+...</p>
+  </div>
+  <footer class="entry-footer">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2026-03-03
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2026-03-03
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1135 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>3 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>CKYoung
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/tauri/" style="color: var(--secondary)!important;">Tauri</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/macos/" style="color: var(--secondary)!important;">MacOS</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/notarization/" style="color: var(--secondary)!important;">Notarization</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/code-signing/" style="color: var(--secondary)!important;">Code Signing</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/release/" style="color: var(--secondary)!important;">Release</a>
+            </span>
+        </span>
+    </span>
+</span></footer>
+  <a class="entry-link" aria-label="post link to Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证" href="https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Linux Git配置代理完全指南(HTTP&amp;SSH)
     </h2>
   </header>
@@ -931,87 +1016,6 @@ debug1: Executing proxy command: ... debug1: Local version string SSH-2.0-OpenSS
     </span>
 </span></footer>
   <a class="entry-link" aria-label="post link to GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦" href="https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>📌 介绍 在软件开发过程中，我们常常需要将本地的 Git 仓库自动提交并推送到远程仓库，以保持代码或内容的最新状态。本文将介绍如何编写一个适用于 Windows (Git Bash)、macOS 和 Linux 的自动 push 脚本，并详细解析其中的关键点。
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-02
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2025-02-06
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>1300 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>3 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>CKYoung
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://blog.ahaknow.com/tags/git/" style="color: var(--secondary)!important;">Git</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to 🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案" href="https://blog.ahaknow.com/posts/aiknow/git-push/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

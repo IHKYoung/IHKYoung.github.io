@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>🧑‍💻 能智工人 | AhaKnow</title>
+<title>Code Signing | AhaKnow</title>
 <meta name="keywords" content="">
-<meta name="description" content="从人的判断出发，把想法锻造成可落地的作品。">
+<meta name="description" content="想到了就记下来，想写的就好好写，日进一步，亦有点滴欣喜～">
 <meta name="author" content="CKYoung">
-<link rel="canonical" href="https://blog.ahaknow.com/posts/ahaknow/">
+<link rel="canonical" href="https://blog.ahaknow.com/tags/code-signing/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
@@ -57,8 +57,8 @@
 <link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://blog.ahaknow.com/posts/ahaknow/index.xml">
-<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/ahaknow/">
+<link rel="alternate" type="application/rss+xml" href="https://blog.ahaknow.com/tags/code-signing/index.xml">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/tags/code-signing/">
 <noscript>
     <style>
         #theme-toggle,
@@ -95,36 +95,15 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="🧑‍💻 能智工人" />
-<meta property="og:description" content="从人的判断出发，把想法锻造成可落地的作品。" />
+</noscript><meta property="og:title" content="Code Signing" />
+<meta property="og:description" content="想到了就记下来，想写的就好好写，日进一步，亦有点滴欣喜～" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://blog.ahaknow.com/posts/ahaknow/" />
+<meta property="og:url" content="https://blog.ahaknow.com/tags/code-signing/" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="🧑‍💻 能智工人"/>
-<meta name="twitter:description" content="从人的判断出发，把想法锻造成可落地的作品。"/>
+<meta name="twitter:title" content="Code Signing"/>
+<meta name="twitter:description" content="想到了就记下来，想写的就好好写，日进一步，亦有点滴欣喜～"/>
 
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "🚀 持续生长",
-      "item": "https://blog.ahaknow.com/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "🧑‍💻 能智工人",
-      "item": "https://blog.ahaknow.com/posts/ahaknow/"
-    }
-  ]
-}
-</script>
     
     
     
@@ -211,29 +190,24 @@
     </nav>
 </header>
 <main class="main"> 
-<header class="page-header"><div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a></div>
+<header class="page-header"><div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/tags/">🏷️ 标签</a></div>
   <h1>
-    🧑‍💻 能智工人
+    Code Signing
   </h1>
-  <div class="post-description">
-    从人的判断出发，把想法锻造成可落地的作品。
-  </div>
 </header>
 
-<article class="post-entry"> 
+<article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">从Prompt说起，用大白话说清楚Skills、MCP、Agent、Sub-Agents到底是啥
+    <h2 class="entry-hint-parent">Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证
     </h2>
   </header>
   <div class="entry-content">
-    <p> 如果我不能用大白话把一个新东西给一个外行讲清楚，那么就说明我还没有真正搞懂。
-于是，我还是觉得自己思考、自己动手写。
-最近是Sub-Agents火起来了，我自己也是后知后觉地把它给实践起来，哪怕自己本身是工作在“AI前沿”的开发者。所以，如果我自己不说、不表达，那么我永远没有出头之日，永远只是一个小虾米，直到有一天被一条大龙虾🦞无情的吃掉。。。
+    <p>本文是可直接复用的发布 SOP。目标是产出一个可以在其他 Mac 上正常打开的安装包，而不是只能在本机运行的临时构建。
+1. 前置条件 必须满足以下条件：
+Apple Developer 付费账号（免费账号无法做 Notarization）。 Keychain 中已安装 Developer ID Application 证书，并且证书带私钥。 已安装 Xcode Command Line Tools（含 xcrun、notarytool、stapler）。 Tauri 项目可正常本地构建。 检查证书：
 ...</p>
   </div>
   <footer class="entry-footer">
-
-
 
 
 
@@ -269,184 +243,19 @@
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2026-03-02
+        <span>2026-03-03
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>2200 字
+        <span>1135 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>5 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>Clarke
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://blog.ahaknow.com/tags/ahaknow/" style="color: var(--secondary)!important;">AhaKnow</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to 从Prompt说起，用大白话说清楚Skills、MCP、Agent、Sub-Agents到底是啥" href="https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">我花了半个下午，将一人Agent对话打造成了一人Agents公司
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p> 引子： 很久没有自己写文字来记录“知识”的收获了。 今天利用周末的半个下午，跟AI一起聊了聊Codex的Multi Agents到底怎么玩的之后，我决定：下次拾起笔，把每一天、每一次的收获，记录和沉淀下来。
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-02
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2026-03-01
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>1713 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>4 分钟
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_5">
-        <span class="fa fa-user-o"></span>
-        <span>Clarke
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_6">
-        <span class="fa fa-tags" style="opacity: 0.8"></span>
-        <span>
-            <span class="post-tags-meta">
-                <a href="https://blog.ahaknow.com/tags/ahaknow/" style="color: var(--secondary)!important;">AhaKnow</a>
-            </span>
-        </span>
-    </span>
-</span></footer>
-  <a class="entry-link" aria-label="post link to 我花了半个下午，将一人Agent对话打造成了一人Agents公司" href="https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">AhaKnow开发笔记
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>2026年！
-再次开始开发AhaKnow。
-2025年尝试了一半，属于残缺版，不过也算是实现了一点点自己的想法，但是缺乏交流，容易陷入自我感动之中。
-打破自己自我感动的方式就是，继续做下去！
-...</p>
-  </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<span class="parent-post-meta">
-        <span id="post_meta_style_1">
-            <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-03
-                &nbsp;&nbsp;
-            </span>
-        </span>
-        <span id="post_meta_style_2">
-        <span class="fa fa-calendar-plus-o"></span>
-        <span>2025-02-25
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_3">
-        <span class="fa fa-file-word-o"></span>
-        <span>120 字
-            &nbsp;&nbsp;
-        </span>
-    </span>
-    <span id="post_meta_style_4">
-        <span class="fa fa-clock-o"></span>
-        <span>1 分钟
+        <span>3 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -460,12 +269,16 @@
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://blog.ahaknow.com/tags/ahaknow/" style="color: var(--secondary)!important;">AhaKnow</a>
+                <a href="https://blog.ahaknow.com/tags/tauri/" style="color: var(--secondary)!important;">Tauri</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/macos/" style="color: var(--secondary)!important;">MacOS</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/notarization/" style="color: var(--secondary)!important;">Notarization</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/code-signing/" style="color: var(--secondary)!important;">Code Signing</a>
+                &nbsp;<a href="https://blog.ahaknow.com/tags/release/" style="color: var(--secondary)!important;">Release</a>
             </span>
         </span>
     </span>
 </span></footer>
-  <a class="entry-link" aria-label="post link to AhaKnow开发笔记" href="https://blog.ahaknow.com/posts/ahaknow/ahaknow-2026/"></a>
+  <a class="entry-link" aria-label="post link to Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证" href="https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/"></a>
 </article>
 </main>
 
