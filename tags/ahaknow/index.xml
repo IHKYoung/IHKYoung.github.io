@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Mar 2026 10:30:44 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 10:30:44 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/ahaknow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>养虾日记 Vol.01 | 从“人工智障”到“掌控一切”，我的AI全自动情报局搭建实录</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/myclaw-001/</link>
+      <pubDate>Tue, 10 Mar 2026 12:32:32 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/myclaw-001/</guid>
+      <description>养虾系列第一篇，从安装开始！</description>
+    </item>
     <item>
       <title>从Prompt说起，用大白话说清楚Skills、MCP、Agent、Sub-Agents到底是啥</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/from-prompt-to-multi-agents/</link>
