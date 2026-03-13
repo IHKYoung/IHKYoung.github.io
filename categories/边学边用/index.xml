@@ -6,8 +6,15 @@
     <description>Recent content in 边学边用 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 20:26:32 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E8%BE%B9%E5%AD%A6%E8%BE%B9%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Supabase优雅接回本地CLI</title>
+      <link>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</link>
+      <pubDate>Fri, 13 Mar 2026 19:48:18 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</guid>
+      <description>围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。</description>
+    </item>
     <item>
       <title>Outlook 验证码自动转发飞书：一次从 0 到 1 的全链路排障记录</title>
       <link>https://blog.ahaknow.com/posts/tech/outlook-openai-code-forward-to-feishu-via-make/</link>

@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 13 Mar 2026 10:30:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 20:26:32 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/ahaknow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我把一直在网页端乱改的 Supabase，终于接回了本地 CLI</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</link>
+      <pubDate>Fri, 13 Mar 2026 15:48:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</guid>
+      <description>围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。</description>
+    </item>
     <item>
       <title>养虾日记 Vol.02</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/myclaw-002/</link>

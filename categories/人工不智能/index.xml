@@ -6,8 +6,15 @@
     <description>Recent content in 人工不智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 03 Mar 2026 10:30:37 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 20:26:32 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我把一直在网页端乱改的 Supabase，终于接回了本地 CLI</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</link>
+      <pubDate>Fri, 13 Mar 2026 15:48:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</guid>
+      <description>围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。</description>
+    </item>
     <item>
       <title>Tauri macOS 发布全流程：Developer ID 签名 &#43; Notarization &#43; 验证</title>
       <link>https://blog.ahaknow.com/posts/aiknow/tauri-macos-developer-id-notarization-release/</link>

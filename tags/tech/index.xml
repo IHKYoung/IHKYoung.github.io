@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tech on AhaKnow</title>
+    <link>https://blog.ahaknow.com/tags/tech/</link>
+    <description>Recent content in Tech on AhaKnow</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 13 Mar 2026 20:26:32 +0800</lastBuildDate>
+    <atom:link href="https://blog.ahaknow.com/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Supabase优雅接回本地CLI</title>
+      <link>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</link>
+      <pubDate>Fri, 13 Mar 2026 19:48:18 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</guid>
+      <description>围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。</description>
+    </item>
+  </channel>
+</rss>

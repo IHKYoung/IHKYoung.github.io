@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>我把一直在网页端乱改的 Supabase，终于接回了本地 CLI | AhaKnow</title>
+<meta name="keywords" content="AhaKnow">
+<meta name="description" content="围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。">
+<meta name="author" content="Clarke">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="我把一直在网页端乱改的 Supabase，终于接回了本地 CLI" />
+<meta property="og:description" content="围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-03-13T15:48:00+08:00" />
+<meta property="article:modified_time" content="2026-03-13T20:26:32+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="我把一直在网页端乱改的 Supabase，终于接回了本地 CLI"/>
+<meta name="twitter:description" content="围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 持续生长",
+      "item": "https://blog.ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🤖 人工智能",
+      "item": "https://blog.ahaknow.com/posts/aiknow/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "我把一直在网页端乱改的 Supabase，终于接回了本地 CLI",
+      "item": "https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "我把一直在网页端乱改的 Supabase，终于接回了本地 CLI",
+  "name": "我把一直在网页端乱改的 Supabase，终于接回了本地 CLI",
+  "description": "围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。",
+  "keywords": [
+    "AhaKnow"
+  ],
+  "articleBody": "之前我用 Supabase 的方式很野。\n基本就是：\n去 Dashboard 里建表、改 SQL 去网页端贴 Edge Function 改完能跑就算结束 这种方式前期很爽，后期就会越来越乱。因为你会慢慢发现：\n线上到底改了什么，仓库里没有真值 本地代码和线上函数会漂 下次想继续改，不知道该从哪里接手 想做 migration、回滚、review，都会很别扭 于是我决定把项目正式接回本地，用 Supabase CLI 来管理。\n这篇文章记录的是一个非常具体的场景：\n项目之前已经在线上跑起来了 数据库和函数很多都是在网页端改的 现在想把它们拉回本地，作为 Git 真值继续维护 如果你也是这个状态，这篇就够用了。\n先说结论 我最后确认下来的最稳流程是：\n安装 Node.js 和 Docker Desktop 用 npx supabase 跑 CLI supabase link 绑定线上项目 supabase db pull 拉远端 schema 到本地 migration 如果是第一次接管旧项目，把这次 pull 下来的 schema 记成 baseline migration supabase functions list supabase functions download 把线上函数全部拉到本地 从这一刻开始，以本地 supabase/ 目录作为唯一真值 一句话总结就是：\n先把远端现状完整拉下来，再开始继续开发。\n我这次的目标是什么 我当前项目是 AddrGO，线上项目已经存在，项目 ref 是：\nnjcmytzzgduawiepvpdy 我做这件事的目标不是“新建一个 Supabase 项目”，而是：\n保留当前线上数据库 保留当前线上 Edge Functions 把线上当前状态拉回本地 后面继续通过 CLI 和 Git 去维护 这点一定要想清楚。\n因为如果你的目标不同，比如你是要全新初始化项目，那流程会简单很多。\n第一步：先把 CLI 跑起来 我没有先全局安装 supabase，而是直接用 npx：\nnpx supabase --help 这样有几个好处：\n不污染全局环境 版本跟着项目走 换机器时也更方便 如果你要固定在项目里，也可以：\nnpm install -D supabase 然后继续用：\nnpx supabase ... 第二步：先安装 Docker Desktop 这个坑我一开始就踩了。\n我第一次执行：\nnpx supabase db pull 结果直接报错，说连不上 Docker daemon。\n后来才明白，db pull 这类数据库同步流程会依赖 Docker。\n所以本地想认真用 Supabase CLI，Docker Desktop 基本是必备项。\n安装：\nbrew install --cask docker open -a Docker 验证：\ndocker ps 只要 docker ps 能正常返回，不管是空列表还是容器列表，都说明 Docker 基本起来了。\n我在 Docker 这里还踩了一个旧环境坑 我的机器以前装过 Docker Desktop，于是 /usr/local/bin 里残留了很多旧链接，比如：\n/usr/local/bin/hub-tool /usr/local/bin/kubectl.docker /usr/local/bin/docker-credential-ecr-login /usr/local/bin/docker-index /usr/local/bin/vpnkit 它们都还指向旧的：\n/Applications/Docker.app/Contents/Resources/bin/... 结果 Homebrew 每次安装 Docker Desktop，装到一半就因为这些旧链接冲突而回滚。\n解决方式就是把这些旧的软链接清掉，再重装 Docker Desktop。\n所以如果你也遇到：\nError: It seems there is already a Binary at '/usr/local/bin/...' 先别慌，十有八九就是旧 Docker 残留。\n第三步：登录并 link 到线上项目 先登录：\nnpx supabase login 然后列出你账号下的项目：\nnpx supabase projects list 我这次看到的是：\nAddrGO -\u003e njcmytzzgduawiepvpdy StillHere -\u003e rcxgkzmxywcpkhkvqvza 明确要用 AddrGO 之后，执行：\nnpx supabase link --project-ref njcmytzzgduawiepvpdy 这一步成功之后，本地仓库里的 supabase/.temp/project-ref 就会写入当前项目。\n第四步：第一次接管旧项目，先做 db pull 这是最关键的一步：\nnpx supabase db pull 如果你之前一直在 Dashboard 里改数据库，那么这一步的意义就是：\n把远端 schema 导出成一份本地 migration 让本地仓库第一次拥有“数据库结构真值” 我这次拉下来之后，最终生成的是：\nsupabase/migrations/20260313072854_remote_schema.sql 这个文件就是我当前线上数据库的 baseline。\n第五步：如果第一次接管，要把 baseline 标记成已应用 这里我又踩了两个坑。\n坑 1：上一次失败留下了空 migration 文件 我第一次 db pull 中途失败，结果在本地留下了一个空文件：\nsupabase/migrations/20260313071414_remote_schema.sql 它是 0 字节。\n这会导致本地和远端 migration history 看起来不一致。\n所以如果你碰到类似问题，先检查：\nls -l supabase/migrations 如果发现某个新 migration 文件是 0 字节，先删掉这个空文件，再重新 db pull。\n坑 2：Update remote migration history table? [Y/n] 之后报 EOF 我这次 db pull 成功后，CLI 询问我：\nUpdate remote migration history table? [Y/n] 我按了 Y，结果报：\nfailed to create migration table: unexpected EOF 后来开 --debug 看，真正原因不是 schema 拉取失败，而是：\npassword authentication failed for user \"cli_login_postgres\" 也就是说，数据库密码没配对。\n注意，这里的数据库密码：\n不是 anon key 不是 service_role key 不是 API Keys 它是数据库自己的 password。\n如果你需要重新设置，可以先导出环境变量：\nexport SUPABASE_DB_PASSWORD='\u003c你的数据库密码\u003e' 然后重新 link：\nnpx supabase link --project-ref njcmytzzgduawiepvpdy 之后再把刚才那份 migration 标记为已应用：\nnpx supabase migration repair --linked --status applied 20260313072854 验证：\nnpx supabase migration list --linked 我最后看到的是：\nLocal | Remote | Time (UTC) 20260313072854 | 20260313072854 | 2026-03-13 07:28:54 看到这里，说明数据库 schema 的 CLI 接管已经完成。\n第六步：把线上 Edge Functions 也拉回本地 数据库搞定后，接下来就是函数。\n先看线上现在有哪些函数：\nnpx supabase functions list 我这次线上看到的是：\nlog-translation translate-address code-auth issue-access-code-batch web-history web-translate-address 然后把它们全部下载到本地：\nnpx supabase functions download translate-address npx supabase functions download code-auth npx supabase functions download issue-access-code-batch npx supabase functions download web-history npx supabase functions download web-translate-address npx supabase functions download log-translation 下载后，本地目录就会变成：\nsupabase/functions/code-auth/index.ts supabase/functions/issue-access-code-batch/index.ts supabase/functions/log-translation/index.ts supabase/functions/translate-address/index.ts supabase/functions/web-history/index.ts supabase/functions/web-translate-address/index.ts 到这一步，线上函数真值也正式回到了本地。\n第七步：从这一刻开始，本地仓库就是唯一真值 这是最重要的认知切换。\n之前我的习惯是：\n本地改一点 网页端再补一点 SQL Editor 再改一点 以后最好不要这样了。\n一旦本地接管完成，后面就应该以仓库里的这些目录为真值：\nsupabase/migrations/ supabase/functions/ 后续数据库改动：\nnpx supabase db push 后续函数部署：\nnpx supabase functions deploy \u003cfunction-name\u003e 如果你又忍不住回 Dashboard 里直接改了数据库或函数，那就必须立刻同步回来：\n数据库改了：再做一次 db pull 函数改了：立刻 functions download 否则仓库和线上很快又会漂。\n第八步：我给自己总结的一套最稳工作流 我后面准备固定按这套来：\n1. 初始化一台新机器 brew install node brew install --cask docker open -a Docker 2. 项目初始化 cd npx supabase login npx supabase link --project-ref 3. 接管已有线上项目 npx supabase db pull npx supabase migration repair --linked --status applied npx supabase functions list npx supabase functions download \u003cfunction-name\u003e 4. 日常开发 数据库结构变更：先本地 migration，再 db push Edge Function 修改：改本地 supabase/functions/*，再 deploy 全部内容进入 Git 最后说一句 我这次最深的感受其实不是“Supabase CLI 真难”，而是：\n一旦项目开始正式跑起来，就一定要尽快收口真值。\n前期在网页端改来改去，真的很爽。 但是一旦项目开始变复杂，函数一多、SQL 一多、环境一多，迟早会陷入一种状态：\n“好像哪都能改，但其实已经没人知道真相到底在哪。”\n所以这次接回本地，不只是工具切换，而是工程习惯切换。\n从现在开始：\n数据库真值在 supabase/migrations/ 函数真值在 supabase/functions/ 线上只是运行态，不再是唯一记忆体 这样后面再继续扩展，我心里就踏实多了。\n",
+  "wordCount" : "2296",
+  "inLanguage": "zh",
+  "datePublished": "2026-03-13T15:48:00+08:00",
+  "dateModified": "2026-03-13T20:26:32+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Clarke"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://blog.ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/aiknow/">🤖 人工智能</a></div>
+    <h1 class="post-title entry-hint-parent">
+      我把一直在网页端乱改的 Supabase，终于接回了本地 CLI
+    </h1>
+    <div class="post-description">
+      围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2026-03-13
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2026-03-13
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>2296 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>5 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Clarke
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/ahaknow/" style="color: var(--secondary)!important;">AhaKnow</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%85%88%e8%af%b4%e7%bb%93%e8%ae%ba" aria-label="先说结论">先说结论</a></li>
+                <li>
+                    <a href="#%e6%88%91%e8%bf%99%e6%ac%a1%e7%9a%84%e7%9b%ae%e6%a0%87%e6%98%af%e4%bb%80%e4%b9%88" aria-label="我这次的目标是什么">我这次的目标是什么</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e5%85%88%e6%8a%8a-cli-%e8%b7%91%e8%b5%b7%e6%9d%a5" aria-label="第一步：先把 CLI 跑起来">第一步：先把 CLI 跑起来</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e5%85%88%e5%ae%89%e8%a3%85-docker-desktop" aria-label="第二步：先安装 Docker Desktop">第二步：先安装 Docker Desktop</a><ul>
+                        
+                <li>
+                    <a href="#%e6%88%91%e5%9c%a8-docker-%e8%bf%99%e9%87%8c%e8%bf%98%e8%b8%a9%e4%ba%86%e4%b8%80%e4%b8%aa%e6%97%a7%e7%8e%af%e5%a2%83%e5%9d%91" aria-label="我在 Docker 这里还踩了一个旧环境坑">我在 Docker 这里还踩了一个旧环境坑</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%89%e6%ad%a5%e7%99%bb%e5%bd%95%e5%b9%b6-link-%e5%88%b0%e7%ba%bf%e4%b8%8a%e9%a1%b9%e7%9b%ae" aria-label="第三步：登录并 link 到线上项目">第三步：登录并 link 到线上项目</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e7%ac%ac%e4%b8%80%e6%ac%a1%e6%8e%a5%e7%ae%a1%e6%97%a7%e9%a1%b9%e7%9b%ae%e5%85%88%e5%81%9a-db-pull" aria-label="第四步：第一次接管旧项目，先做 db pull">第四步：第一次接管旧项目，先做 db pull</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%94%e6%ad%a5%e5%a6%82%e6%9e%9c%e7%ac%ac%e4%b8%80%e6%ac%a1%e6%8e%a5%e7%ae%a1%e8%a6%81%e6%8a%8a-baseline-%e6%a0%87%e8%ae%b0%e6%88%90%e5%b7%b2%e5%ba%94%e7%94%a8" aria-label="第五步：如果第一次接管，要把 baseline 标记成已应用">第五步：如果第一次接管，要把 baseline 标记成已应用</a><ul>
+                        
+                <li>
+                    <a href="#%e5%9d%91-1%e4%b8%8a%e4%b8%80%e6%ac%a1%e5%a4%b1%e8%b4%a5%e7%95%99%e4%b8%8b%e4%ba%86%e7%a9%ba-migration-%e6%96%87%e4%bb%b6" aria-label="坑 1：上一次失败留下了空 migration 文件">坑 1：上一次失败留下了空 migration 文件</a></li>
+                <li>
+                    <a href="#%e5%9d%91-2update-remote-migration-history-table-yn-%e4%b9%8b%e5%90%8e%e6%8a%a5-eof" aria-label="坑 2：Update remote migration history table? [Y/n] 之后报 EOF">坑 2：<code>Update remote migration history table? [Y/n]</code> 之后报 EOF</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%85%ad%e6%ad%a5%e6%8a%8a%e7%ba%bf%e4%b8%8a-edge-functions-%e4%b9%9f%e6%8b%89%e5%9b%9e%e6%9c%ac%e5%9c%b0" aria-label="第六步：把线上 Edge Functions 也拉回本地">第六步：把线上 Edge Functions 也拉回本地</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%83%e6%ad%a5%e4%bb%8e%e8%bf%99%e4%b8%80%e5%88%bb%e5%bc%80%e5%a7%8b%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e5%b0%b1%e6%98%af%e5%94%af%e4%b8%80%e7%9c%9f%e5%80%bc" aria-label="第七步：从这一刻开始，本地仓库就是唯一真值">第七步：从这一刻开始，本地仓库就是唯一真值</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%85%ab%e6%ad%a5%e6%88%91%e7%bb%99%e8%87%aa%e5%b7%b1%e6%80%bb%e7%bb%93%e7%9a%84%e4%b8%80%e5%a5%97%e6%9c%80%e7%a8%b3%e5%b7%a5%e4%bd%9c%e6%b5%81" aria-label="第八步：我给自己总结的一套最稳工作流">第八步：我给自己总结的一套最稳工作流</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%88%9d%e5%a7%8b%e5%8c%96%e4%b8%80%e5%8f%b0%e6%96%b0%e6%9c%ba%e5%99%a8" aria-label="1. 初始化一台新机器">1. 初始化一台新机器</a></li>
+                <li>
+                    <a href="#2-%e9%a1%b9%e7%9b%ae%e5%88%9d%e5%a7%8b%e5%8c%96" aria-label="2. 项目初始化">2. 项目初始化</a></li>
+                <li>
+                    <a href="#3-%e6%8e%a5%e7%ae%a1%e5%b7%b2%e6%9c%89%e7%ba%bf%e4%b8%8a%e9%a1%b9%e7%9b%ae" aria-label="3. 接管已有线上项目">3. 接管已有线上项目</a></li>
+                <li>
+                    <a href="#4-%e6%97%a5%e5%b8%b8%e5%bc%80%e5%8f%91" aria-label="4. 日常开发">4. 日常开发</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e6%9c%80%e5%90%8e%e8%af%b4%e4%b8%80%e5%8f%a5" aria-label="最后说一句">最后说一句</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+</div>
+
+
+  <div class="post-content" id="post-content" style="display: none;"><p>之前我用 Supabase 的方式很野。</p>
+<p>基本就是：</p>
+<ul>
+<li>去 Dashboard 里建表、改 SQL</li>
+<li>去网页端贴 Edge Function</li>
+<li>改完能跑就算结束</li>
+</ul>
+<p>这种方式前期很爽，后期就会越来越乱。因为你会慢慢发现：</p>
+<ul>
+<li>线上到底改了什么，仓库里没有真值</li>
+<li>本地代码和线上函数会漂</li>
+<li>下次想继续改，不知道该从哪里接手</li>
+<li>想做 migration、回滚、review，都会很别扭</li>
+</ul>
+<p>于是我决定把项目正式接回本地，用 Supabase CLI 来管理。</p>
+<p>这篇文章记录的是一个非常具体的场景：</p>
+<ul>
+<li>项目之前已经在线上跑起来了</li>
+<li>数据库和函数很多都是在网页端改的</li>
+<li>现在想把它们拉回本地，作为 Git 真值继续维护</li>
+</ul>
+<p>如果你也是这个状态，这篇就够用了。</p>
+<h2 id="先说结论">先说结论<a hidden class="anchor" aria-hidden="true" href="#先说结论">#</a></h2>
+<p>我最后确认下来的最稳流程是：</p>
+<ol>
+<li>安装 Node.js 和 Docker Desktop</li>
+<li>用 <code>npx supabase</code> 跑 CLI</li>
+<li><code>supabase link</code> 绑定线上项目</li>
+<li><code>supabase db pull</code> 拉远端 schema 到本地 migration</li>
+<li>如果是第一次接管旧项目，把这次 pull 下来的 schema 记成 baseline migration</li>
+<li><code>supabase functions list</code></li>
+<li><code>supabase functions download &lt;name&gt;</code> 把线上函数全部拉到本地</li>
+<li>从这一刻开始，以本地 <code>supabase/</code> 目录作为唯一真值</li>
+</ol>
+<p>一句话总结就是：</p>
+<p><strong>先把远端现状完整拉下来，再开始继续开发。</strong></p>
+<h2 id="我这次的目标是什么">我这次的目标是什么<a hidden class="anchor" aria-hidden="true" href="#我这次的目标是什么">#</a></h2>
+<p>我当前项目是 <code>AddrGO</code>，线上项目已经存在，项目 ref 是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">njcmytzzgduawiepvpdy
+</span></span></code></pre></div><p>我做这件事的目标不是“新建一个 Supabase 项目”，而是：</p>
+<ul>
+<li>保留当前线上数据库</li>
+<li>保留当前线上 Edge Functions</li>
+<li>把线上当前状态拉回本地</li>
+<li>后面继续通过 CLI 和 Git 去维护</li>
+</ul>
+<p>这点一定要想清楚。</p>
+<p>因为如果你的目标不同，比如你是要全新初始化项目，那流程会简单很多。</p>
+<h2 id="第一步先把-cli-跑起来">第一步：先把 CLI 跑起来<a hidden class="anchor" aria-hidden="true" href="#第一步先把-cli-跑起来">#</a></h2>
+<p>我没有先全局安装 <code>supabase</code>，而是直接用 <code>npx</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase --help
+</span></span></code></pre></div><p>这样有几个好处：</p>
+<ul>
+<li>不污染全局环境</li>
+<li>版本跟着项目走</li>
+<li>换机器时也更方便</li>
+</ul>
+<p>如果你要固定在项目里，也可以：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -D supabase
+</span></span></code></pre></div><p>然后继续用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase ...
+</span></span></code></pre></div><h2 id="第二步先安装-docker-desktop">第二步：先安装 Docker Desktop<a hidden class="anchor" aria-hidden="true" href="#第二步先安装-docker-desktop">#</a></h2>
+<p>这个坑我一开始就踩了。</p>
+<p>我第一次执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase db pull
+</span></span></code></pre></div><p>结果直接报错，说连不上 Docker daemon。</p>
+<p>后来才明白，<code>db pull</code> 这类数据库同步流程会依赖 Docker。</p>
+<p>所以本地想认真用 Supabase CLI，Docker Desktop 基本是必备项。</p>
+<p>安装：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install --cask docker
+</span></span><span class="line"><span class="cl">open -a Docker
+</span></span></code></pre></div><p>验证：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker ps
+</span></span></code></pre></div><p>只要 <code>docker ps</code> 能正常返回，不管是空列表还是容器列表，都说明 Docker 基本起来了。</p>
+<h3 id="我在-docker-这里还踩了一个旧环境坑">我在 Docker 这里还踩了一个旧环境坑<a hidden class="anchor" aria-hidden="true" href="#我在-docker-这里还踩了一个旧环境坑">#</a></h3>
+<p>我的机器以前装过 Docker Desktop，于是 <code>/usr/local/bin</code> 里残留了很多旧链接，比如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/usr/local/bin/hub-tool
+</span></span><span class="line"><span class="cl">/usr/local/bin/kubectl.docker
+</span></span><span class="line"><span class="cl">/usr/local/bin/docker-credential-ecr-login
+</span></span><span class="line"><span class="cl">/usr/local/bin/docker-index
+</span></span><span class="line"><span class="cl">/usr/local/bin/vpnkit
+</span></span></code></pre></div><p>它们都还指向旧的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">/Applications/Docker.app/Contents/Resources/bin/...
+</span></span></code></pre></div><p>结果 Homebrew 每次安装 Docker Desktop，装到一半就因为这些旧链接冲突而回滚。</p>
+<p>解决方式就是把这些旧的软链接清掉，再重装 Docker Desktop。</p>
+<p>所以如果你也遇到：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Error: It seems there is already a Binary at &#39;/usr/local/bin/...&#39;
+</span></span></code></pre></div><p>先别慌，十有八九就是旧 Docker 残留。</p>
+<h2 id="第三步登录并-link-到线上项目">第三步：登录并 link 到线上项目<a hidden class="anchor" aria-hidden="true" href="#第三步登录并-link-到线上项目">#</a></h2>
+<p>先登录：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase login
+</span></span></code></pre></div><p>然后列出你账号下的项目：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase projects list
+</span></span></code></pre></div><p>我这次看到的是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">AddrGO    -&gt; njcmytzzgduawiepvpdy
+</span></span><span class="line"><span class="cl">StillHere -&gt; rcxgkzmxywcpkhkvqvza
+</span></span></code></pre></div><p>明确要用 <code>AddrGO</code> 之后，执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase link --project-ref njcmytzzgduawiepvpdy
+</span></span></code></pre></div><p>这一步成功之后，本地仓库里的 <code>supabase/.temp/project-ref</code> 就会写入当前项目。</p>
+<h2 id="第四步第一次接管旧项目先做-db-pull">第四步：第一次接管旧项目，先做 db pull<a hidden class="anchor" aria-hidden="true" href="#第四步第一次接管旧项目先做-db-pull">#</a></h2>
+<p>这是最关键的一步：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase db pull
+</span></span></code></pre></div><p>如果你之前一直在 Dashboard 里改数据库，那么这一步的意义就是：</p>
+<ul>
+<li>把远端 schema 导出成一份本地 migration</li>
+<li>让本地仓库第一次拥有“数据库结构真值”</li>
+</ul>
+<p>我这次拉下来之后，最终生成的是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">supabase/migrations/20260313072854_remote_schema.sql
+</span></span></code></pre></div><p>这个文件就是我当前线上数据库的 baseline。</p>
+<h2 id="第五步如果第一次接管要把-baseline-标记成已应用">第五步：如果第一次接管，要把 baseline 标记成已应用<a hidden class="anchor" aria-hidden="true" href="#第五步如果第一次接管要把-baseline-标记成已应用">#</a></h2>
+<p>这里我又踩了两个坑。</p>
+<h3 id="坑-1上一次失败留下了空-migration-文件">坑 1：上一次失败留下了空 migration 文件<a hidden class="anchor" aria-hidden="true" href="#坑-1上一次失败留下了空-migration-文件">#</a></h3>
+<p>我第一次 <code>db pull</code> 中途失败，结果在本地留下了一个空文件：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">supabase/migrations/20260313071414_remote_schema.sql
+</span></span></code></pre></div><p>它是 0 字节。</p>
+<p>这会导致本地和远端 migration history 看起来不一致。</p>
+<p>所以如果你碰到类似问题，先检查：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -l supabase/migrations
+</span></span></code></pre></div><p>如果发现某个新 migration 文件是 0 字节，先删掉这个空文件，再重新 <code>db pull</code>。</p>
+<h3 id="坑-2update-remote-migration-history-table-yn-之后报-eof">坑 2：<code>Update remote migration history table? [Y/n]</code> 之后报 EOF<a hidden class="anchor" aria-hidden="true" href="#坑-2update-remote-migration-history-table-yn-之后报-eof">#</a></h3>
+<p>我这次 <code>db pull</code> 成功后，CLI 询问我：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Update remote migration history table? [Y/n]
+</span></span></code></pre></div><p>我按了 <code>Y</code>，结果报：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">failed to create migration table: unexpected EOF
+</span></span></code></pre></div><p>后来开 <code>--debug</code> 看，真正原因不是 schema 拉取失败，而是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">password authentication failed for user &#34;cli_login_postgres&#34;
+</span></span></code></pre></div><p>也就是说，<strong>数据库密码没配对</strong>。</p>
+<p>注意，这里的数据库密码：</p>
+<ul>
+<li>不是 <code>anon key</code></li>
+<li>不是 <code>service_role key</code></li>
+<li>不是 API Keys</li>
+</ul>
+<p>它是数据库自己的 password。</p>
+<p>如果你需要重新设置，可以先导出环境变量：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SUPABASE_DB_PASSWORD</span><span class="o">=</span><span class="s1">&#39;&lt;你的数据库密码&gt;&#39;</span>
+</span></span></code></pre></div><p>然后重新 link：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase link --project-ref njcmytzzgduawiepvpdy
+</span></span></code></pre></div><p>之后再把刚才那份 migration 标记为已应用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase migration repair --linked --status applied <span class="m">20260313072854</span>
+</span></span></code></pre></div><p>验证：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase migration list --linked
+</span></span></code></pre></div><p>我最后看到的是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Local          | Remote         | Time (UTC)
+</span></span><span class="line"><span class="cl">20260313072854 | 20260313072854 | 2026-03-13 07:28:54
+</span></span></code></pre></div><p>看到这里，说明数据库 schema 的 CLI 接管已经完成。</p>
+<h2 id="第六步把线上-edge-functions-也拉回本地">第六步：把线上 Edge Functions 也拉回本地<a hidden class="anchor" aria-hidden="true" href="#第六步把线上-edge-functions-也拉回本地">#</a></h2>
+<p>数据库搞定后，接下来就是函数。</p>
+<p>先看线上现在有哪些函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase functions list
+</span></span></code></pre></div><p>我这次线上看到的是：</p>
+<ul>
+<li><code>log-translation</code></li>
+<li><code>translate-address</code></li>
+<li><code>code-auth</code></li>
+<li><code>issue-access-code-batch</code></li>
+<li><code>web-history</code></li>
+<li><code>web-translate-address</code></li>
+</ul>
+<p>然后把它们全部下载到本地：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase functions download translate-address
+</span></span><span class="line"><span class="cl">npx supabase functions download code-auth
+</span></span><span class="line"><span class="cl">npx supabase functions download issue-access-code-batch
+</span></span><span class="line"><span class="cl">npx supabase functions download web-history
+</span></span><span class="line"><span class="cl">npx supabase functions download web-translate-address
+</span></span><span class="line"><span class="cl">npx supabase functions download log-translation
+</span></span></code></pre></div><p>下载后，本地目录就会变成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">supabase/functions/code-auth/index.ts
+</span></span><span class="line"><span class="cl">supabase/functions/issue-access-code-batch/index.ts
+</span></span><span class="line"><span class="cl">supabase/functions/log-translation/index.ts
+</span></span><span class="line"><span class="cl">supabase/functions/translate-address/index.ts
+</span></span><span class="line"><span class="cl">supabase/functions/web-history/index.ts
+</span></span><span class="line"><span class="cl">supabase/functions/web-translate-address/index.ts
+</span></span></code></pre></div><p>到这一步，线上函数真值也正式回到了本地。</p>
+<h2 id="第七步从这一刻开始本地仓库就是唯一真值">第七步：从这一刻开始，本地仓库就是唯一真值<a hidden class="anchor" aria-hidden="true" href="#第七步从这一刻开始本地仓库就是唯一真值">#</a></h2>
+<p>这是最重要的认知切换。</p>
+<p>之前我的习惯是：</p>
+<ul>
+<li>本地改一点</li>
+<li>网页端再补一点</li>
+<li>SQL Editor 再改一点</li>
+</ul>
+<p>以后最好不要这样了。</p>
+<p>一旦本地接管完成，后面就应该以仓库里的这些目录为真值：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">supabase/migrations/
+</span></span><span class="line"><span class="cl">supabase/functions/
+</span></span></code></pre></div><p>后续数据库改动：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase db push
+</span></span></code></pre></div><p>后续函数部署：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase functions deploy &lt;<span class="k">function</span>-name&gt;
+</span></span></code></pre></div><p>如果你又忍不住回 Dashboard 里直接改了数据库或函数，那就必须立刻同步回来：</p>
+<ul>
+<li>数据库改了：再做一次 <code>db pull</code></li>
+<li>函数改了：立刻 <code>functions download &lt;name&gt;</code></li>
+</ul>
+<p>否则仓库和线上很快又会漂。</p>
+<h2 id="第八步我给自己总结的一套最稳工作流">第八步：我给自己总结的一套最稳工作流<a hidden class="anchor" aria-hidden="true" href="#第八步我给自己总结的一套最稳工作流">#</a></h2>
+<p>我后面准备固定按这套来：</p>
+<h3 id="1-初始化一台新机器">1. 初始化一台新机器<a hidden class="anchor" aria-hidden="true" href="#1-初始化一台新机器">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install node
+</span></span><span class="line"><span class="cl">brew install --cask docker
+</span></span><span class="line"><span class="cl">open -a Docker
+</span></span></code></pre></div><h3 id="2-项目初始化">2. 项目初始化<a hidden class="anchor" aria-hidden="true" href="#2-项目初始化">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> &lt;repo&gt;
+</span></span><span class="line"><span class="cl">npx supabase login
+</span></span><span class="line"><span class="cl">npx supabase link --project-ref &lt;project-ref&gt;
+</span></span></code></pre></div><h3 id="3-接管已有线上项目">3. 接管已有线上项目<a hidden class="anchor" aria-hidden="true" href="#3-接管已有线上项目">#</a></h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase db pull
+</span></span><span class="line"><span class="cl">npx supabase migration repair --linked --status applied &lt;timestamp&gt;
+</span></span><span class="line"><span class="cl">npx supabase functions list
+</span></span><span class="line"><span class="cl">npx supabase functions download &lt;<span class="k">function</span>-name&gt;
+</span></span></code></pre></div><h3 id="4-日常开发">4. 日常开发<a hidden class="anchor" aria-hidden="true" href="#4-日常开发">#</a></h3>
+<ul>
+<li>数据库结构变更：先本地 migration，再 <code>db push</code></li>
+<li>Edge Function 修改：改本地 <code>supabase/functions/*</code>，再 deploy</li>
+<li>全部内容进入 Git</li>
+</ul>
+<h2 id="最后说一句">最后说一句<a hidden class="anchor" aria-hidden="true" href="#最后说一句">#</a></h2>
+<p>我这次最深的感受其实不是“Supabase CLI 真难”，而是：</p>
+<p><strong>一旦项目开始正式跑起来，就一定要尽快收口真值。</strong></p>
+<p>前期在网页端改来改去，真的很爽。
+但是一旦项目开始变复杂，函数一多、SQL 一多、环境一多，迟早会陷入一种状态：</p>
+<p>“好像哪都能改，但其实已经没人知道真相到底在哪。”</p>
+<p>所以这次接回本地，不只是工具切换，而是工程习惯切换。</p>
+<p>从现在开始：</p>
+<ul>
+<li>数据库真值在 <code>supabase/migrations/</code></li>
+<li>函数真值在 <code>supabase/functions/</code></li>
+<li>线上只是运行态，不再是唯一记忆体</li>
+</ul>
+<p>这样后面再继续扩展，我心里就踏实多了。</p>
+
+
+  </div>
+
+  <script>
+    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
+    document.getElementById("ai-check-text").innerText = aiChallengeText;
+
+    function verifyHuman() {
+      let inputText = document.getElementById("ai-input").value;
+      if (inputText === aiChallengeText) {
+        document.getElementById("ai-check").style.display = "none";
+        document.getElementById("post-content").style.display = "block";
+      } else {
+        let errorMsg = document.getElementById("ai-error");
+        errorMsg.style.display = "block";
+        errorMsg.classList.add("shake");
+        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+      }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/ahaknow/">AhaKnow</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ahaknow.com/posts/tech/supabase-cli-setup/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span class="post-nav-title" title="Supabase优雅接回本地CLI">Supabase优雅接回本地CLI</span>
+  </a>
+  <a class="next" href="https://blog.ahaknow.com/posts/ahaknow/myclaw-002/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span class="post-nav-title" title="养虾日记 Vol.02">养虾日记 Vol.02</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 <a href="https://blog.ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

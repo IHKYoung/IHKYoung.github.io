@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Supabase优雅接回本地CLI | AhaKnow</title>
+<meta name="keywords" content="Tech">
+<meta name="description" content="围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。">
+<meta name="author" content="Clarke">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/tech/supabase-cli-setup/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/tech/supabase-cli-setup/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Supabase优雅接回本地CLI" />
+<meta property="og:description" content="围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/tech/supabase-cli-setup/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-03-13T19:48:18+08:00" />
+<meta property="article:modified_time" content="2026-03-13T20:26:32+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Supabase优雅接回本地CLI"/>
+<meta name="twitter:description" content="围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 持续生长",
+      "item": "https://blog.ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "✨ 工艺手记",
+      "item": "https://blog.ahaknow.com/posts/tech/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Supabase优雅接回本地CLI",
+      "item": "https://blog.ahaknow.com/posts/tech/supabase-cli-setup/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Supabase优雅接回本地CLI",
+  "name": "Supabase优雅接回本地CLI",
+  "description": "围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。",
+  "keywords": [
+    "Tech"
+  ],
+  "articleBody": "告别“野路子”：如何将网页端乱改的 Supabase 优雅接回本地 CLI 之前用 Supabase 的方式，一直很野。\n基本工作流就是：去 Dashboard 里建表、改 SQL；去网页端贴 Edge Function 代码；改完能跑就算大功告成。\n这种方式前期确实爽，业务跑得飞快。但到了后期，就会越来越抓狂，因为你会发现一个残酷的现实：线上到底改了什么，你的 Git 仓库里根本没有真值（Source of Truth）。\n本地代码和线上函数开始“漂移”，下次想继续开发不知道该从哪接手，想做数据库回滚、代码 Review 更是天方夜谭。\n痛定思痛，我决定把项目正式接回本地，用 Supabase CLI 来接管。\n这篇文章记录的是一个非常具体的实战场景：项目已经在线上跑起来了，很多东西是在网页端改的，现在要把它们完整拉回本地，作为 Git 真值继续维护。\n如果你也正处于这种“骑虎难下”的状态，这篇避坑指南就够用了。\n核心结论：接管线上项目的黄金准则 不要急着敲代码，一句话总结我们的目标：先把远端现状完整拉下来，再开始继续开发。\n我最后确认下来的最稳接管流程如下：\n安装 Node.js 和 Docker Desktop。 优先使用 npx supabase 运行 CLI。 supabase link 绑定线上项目。 supabase db pull 拉取远端 Schema 到本地。 将第一次 Pull 下来的 Schema 记为 Baseline Migration 并标记已应用。 supabase functions download 将线上函数全部拉取到本地。 从跑通这一刻起，以本地 supabase/ 目录作为唯一真值。\n步步为营：完整接管流程与踩坑实录 明确了目标不是“新建项目”而是“接管现有项目（保留现有数据库和函数）”后，我们开始实操。\n第一步：跑起 CLI 与 Docker（注意旧环境避坑） 我建议直接使用 npx supabase 而不是全局安装。这样不污染全局环境，版本跟着项目走，换电脑协作也更方便。\n同时，Docker Desktop 是必备项。db pull 这类数据库同步流程强依赖 Docker 守护进程。但在安装 Docker 时，我踩了一个大坑。\n如果你以前装过 Docker，在使用 Homebrew 重装时可能会遇到冲突报错。这是因为 /usr/local/bin 里残留了指向旧版 Docker 的软链接（如 hub-tool、vpnkit 等）。\n解决办法： 遇到提示 already a Binary at... 时别慌，清理掉这些旧的软链接，重新安装即可。只要 docker ps 能正常响应，环境就准备就绪了。\n第二步：登录并绑定线上项目 先登录你的账号：\nnpx supabase login 列出账号下的项目，找到你需要接管的项目 Ref ID：\nnpx supabase projects list 明确目标后，执行绑定：\nnpx supabase link --project-ref \u003c你的项目Ref\u003e 成功后，本地仓库的 .temp 目录就会写入当前项目的上下文。\n第三步：拉取数据库真值（最关键的一步） 既然之前都在 Dashboard 里改数据库，现在就要把远端 Schema 导出成一份本地 Migration。\nnpx supabase db pull 这一步会让你的本地仓库第一次拥有“数据库结构真值”，生成类似 20260313xxxxxx_remote_schema.sql 的文件。这也是你当前线上数据库的 Baseline（基线）。\n这里有两个高频踩坑点：\n坑 1：残留空文件导致历史不一致。 如果某次 db pull 中途失败，可能会在 migrations 目录下留下一个 0 字节的空文件。这会导致后续同步报错。一定要先删掉空文件，再重新 pull。 坑 2：密码验证失败导致报错 EOF。 拉取成功后，CLI 会询问是否更新远端 migration 历史表（Update remote migration history table?）。选 Y 后如果报错 unexpected EOF，通常是因为数据库密码没配对。 注意：这里需要的是数据库自身的 Password，不是 anon key，也不是 API Keys。 通过 export SUPABASE_DB_PASSWORD='\u003c你的数据库密码\u003e' 注入环境变量，重新 link 后，再通过命令修复并标记为已应用： npx supabase migration repair --linked --status applied \u003c时间戳\u003e 第四步：接管 Edge Functions 数据库搞定了，接下来是云函数。先查看线上有哪些函数：\nnpx supabase functions list 然后挨个把它们下载到本地：\nnpx supabase functions download 下载完成后，你的 supabase/functions/ 目录下就会整整齐齐排列好所有的函数代码。到这一步，线上函数的真值也正式回到了本地。\n认知升级：从“网页直改”到“本地真值” 这是最重要的一次工程习惯切换。工具的改变是表象，思维的转变才是核心。\n对比维度 过去的“野路子”模式 现在的“工程化”模式 真实来源 (Truth) 网页端 Dashboard + 本地零散代码 本地 Git 仓库的 supabase/ 目录 数据库变更 SQL Editor 随手执行 本地编写 Migration -\u003e db push 云函数修改 网页端粘贴代码 -\u003e Save 修改本地 functions/ -\u003e deploy 历史追溯 靠脑子记，找不回历史版本 Git 提交记录一目了然 以后绝对不要再出现“本地改一点，网页端补一点”的情况。一旦本地接管完成，后续的任何改动都应该遵循以下流程：\n数据库改动： npx supabase db push 函数部署： npx supabase functions deploy 如果你真的忍不住在网页端临时改了东西（比如为了紧急修 Bug），必须立刻同步回本地（db pull 或 functions download），否则仓库和线上很快又会发生不可逆的漂移。\n写在最后 一旦项目开始正式跑起来，就一定要尽快收口真值。\n前期在网页端改来改去真的很爽，但随着项目变复杂，函数变多、SQL 变多、甚至需要区分测试/生产环境时，迟早会陷入一种“好像哪里都能改，但没人知道真相到底在哪”的泥潭。\n这次接回本地，线上环境从“唯一记忆体”退回到了它应有的位置——“运行态”。真值掌握在 Git 手里，后面再做任何扩展，心里就踏实多了。\n",
+  "wordCount" : "1926",
+  "inLanguage": "zh",
+  "datePublished": "2026-03-13T19:48:18+08:00",
+  "dateModified": "2026-03-13T20:26:32+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Clarke"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ahaknow.com/posts/tech/supabase-cli-setup/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://blog.ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/tech/">✨ 工艺手记</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Supabase优雅接回本地CLI
+    </h1>
+    <div class="post-description">
+      围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2026-03-13
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2026-03-13
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>1926 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>4 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Clarke
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/tech/" style="color: var(--secondary)!important;">Tech</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%91%8a%e5%88%ab%e9%87%8e%e8%b7%af%e5%ad%90%e5%a6%82%e4%bd%95%e5%b0%86%e7%bd%91%e9%a1%b5%e7%ab%af%e4%b9%b1%e6%94%b9%e7%9a%84-supabase-%e4%bc%98%e9%9b%85%e6%8e%a5%e5%9b%9e%e6%9c%ac%e5%9c%b0-cli" aria-label="告别“野路子”：如何将网页端乱改的 Supabase 优雅接回本地 CLI">告别“野路子”：如何将网页端乱改的 Supabase 优雅接回本地 CLI</a><ul>
+                        
+                <li>
+                    <a href="#%e6%a0%b8%e5%bf%83%e7%bb%93%e8%ae%ba%e6%8e%a5%e7%ae%a1%e7%ba%bf%e4%b8%8a%e9%a1%b9%e7%9b%ae%e7%9a%84%e9%bb%84%e9%87%91%e5%87%86%e5%88%99" aria-label="核心结论：接管线上项目的黄金准则">核心结论：接管线上项目的黄金准则</a></li>
+                <li>
+                    <a href="#%e6%ad%a5%e6%ad%a5%e4%b8%ba%e8%90%a5%e5%ae%8c%e6%95%b4%e6%8e%a5%e7%ae%a1%e6%b5%81%e7%a8%8b%e4%b8%8e%e8%b8%a9%e5%9d%91%e5%ae%9e%e5%bd%95" aria-label="步步为营：完整接管流程与踩坑实录">步步为营：完整接管流程与踩坑实录</a><ul>
+                        
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e8%b7%91%e8%b5%b7-cli-%e4%b8%8e-docker%e6%b3%a8%e6%84%8f%e6%97%a7%e7%8e%af%e5%a2%83%e9%81%bf%e5%9d%91" aria-label="第一步：跑起 CLI 与 Docker（注意旧环境避坑）">第一步：跑起 CLI 与 Docker（注意旧环境避坑）</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e7%99%bb%e5%bd%95%e5%b9%b6%e7%bb%91%e5%ae%9a%e7%ba%bf%e4%b8%8a%e9%a1%b9%e7%9b%ae" aria-label="第二步：登录并绑定线上项目">第二步：登录并绑定线上项目</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e4%b8%89%e6%ad%a5%e6%8b%89%e5%8f%96%e6%95%b0%e6%8d%ae%e5%ba%93%e7%9c%9f%e5%80%bc%e6%9c%80%e5%85%b3%e9%94%ae%e7%9a%84%e4%b8%80%e6%ad%a5" aria-label="第三步：拉取数据库真值（最关键的一步）">第三步：拉取数据库真值（最关键的一步）</a></li>
+                <li>
+                    <a href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e6%8e%a5%e7%ae%a1-edge-functions" aria-label="第四步：接管 Edge Functions">第四步：接管 Edge Functions</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e8%ae%a4%e7%9f%a5%e5%8d%87%e7%ba%a7%e4%bb%8e%e7%bd%91%e9%a1%b5%e7%9b%b4%e6%94%b9%e5%88%b0%e6%9c%ac%e5%9c%b0%e7%9c%9f%e5%80%bc" aria-label="认知升级：从“网页直改”到“本地真值”">认知升级：从“网页直改”到“本地真值”</a></li>
+                <li>
+                    <a href="#%e5%86%99%e5%9c%a8%e6%9c%80%e5%90%8e" aria-label="写在最后">写在最后</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+</div>
+
+
+  <div class="post-content" id="post-content" style="display: none;"><h2 id="告别野路子如何将网页端乱改的-supabase-优雅接回本地-cli">告别“野路子”：如何将网页端乱改的 Supabase 优雅接回本地 CLI<a hidden class="anchor" aria-hidden="true" href="#告别野路子如何将网页端乱改的-supabase-优雅接回本地-cli">#</a></h2>
+<p>之前用 Supabase 的方式，一直很野。</p>
+<p>基本工作流就是：去 Dashboard 里建表、改 SQL；去网页端贴 Edge Function 代码；改完能跑就算大功告成。</p>
+<p>这种方式前期确实爽，业务跑得飞快。但到了后期，就会越来越抓狂，因为你会发现一个残酷的现实：<strong>线上到底改了什么，你的 Git 仓库里根本没有真值（Source of Truth）。</strong></p>
+<p>本地代码和线上函数开始“漂移”，下次想继续开发不知道该从哪接手，想做数据库回滚、代码 Review 更是天方夜谭。</p>
+<p>痛定思痛，我决定把项目正式接回本地，用 Supabase CLI 来接管。</p>
+<p>这篇文章记录的是一个非常具体的实战场景：<strong>项目已经在线上跑起来了，很多东西是在网页端改的，现在要把它们完整拉回本地，作为 Git 真值继续维护。</strong></p>
+<p>如果你也正处于这种“骑虎难下”的状态，这篇避坑指南就够用了。</p>
+<hr>
+<h3 id="核心结论接管线上项目的黄金准则">核心结论：接管线上项目的黄金准则<a hidden class="anchor" aria-hidden="true" href="#核心结论接管线上项目的黄金准则">#</a></h3>
+<p>不要急着敲代码，一句话总结我们的目标：<strong>先把远端现状完整拉下来，再开始继续开发。</strong></p>
+<p>我最后确认下来的最稳接管流程如下：</p>
+<ol>
+<li>安装 Node.js 和 Docker Desktop。</li>
+<li>优先使用 <code>npx supabase</code> 运行 CLI。</li>
+<li><code>supabase link</code> 绑定线上项目。</li>
+<li><code>supabase db pull</code> 拉取远端 Schema 到本地。</li>
+<li>将第一次 Pull 下来的 Schema 记为 Baseline Migration 并标记已应用。</li>
+<li><code>supabase functions download &lt;name&gt;</code> 将线上函数全部拉取到本地。</li>
+</ol>
+<p>从跑通这一刻起，以本地 <code>supabase/</code> 目录作为唯一真值。</p>
+<hr>
+<h3 id="步步为营完整接管流程与踩坑实录">步步为营：完整接管流程与踩坑实录<a hidden class="anchor" aria-hidden="true" href="#步步为营完整接管流程与踩坑实录">#</a></h3>
+<p>明确了目标不是“新建项目”而是“接管现有项目（保留现有数据库和函数）”后，我们开始实操。</p>
+<h4 id="第一步跑起-cli-与-docker注意旧环境避坑">第一步：跑起 CLI 与 Docker（注意旧环境避坑）<a hidden class="anchor" aria-hidden="true" href="#第一步跑起-cli-与-docker注意旧环境避坑">#</a></h4>
+<p>我建议直接使用 <code>npx supabase</code> 而不是全局安装。这样不污染全局环境，版本跟着项目走，换电脑协作也更方便。</p>
+<p>同时，<strong>Docker Desktop 是必备项</strong>。<code>db pull</code> 这类数据库同步流程强依赖 Docker 守护进程。但在安装 Docker 时，我踩了一个大坑。</p>
+<p>如果你以前装过 Docker，在使用 Homebrew 重装时可能会遇到冲突报错。这是因为 <code>/usr/local/bin</code> 里残留了指向旧版 Docker 的软链接（如 <code>hub-tool</code>、<code>vpnkit</code> 等）。</p>
+<p><strong>解决办法：</strong> 遇到提示 <code>already a Binary at...</code> 时别慌，清理掉这些旧的软链接，重新安装即可。只要 <code>docker ps</code> 能正常响应，环境就准备就绪了。</p>
+<h4 id="第二步登录并绑定线上项目">第二步：登录并绑定线上项目<a hidden class="anchor" aria-hidden="true" href="#第二步登录并绑定线上项目">#</a></h4>
+<p>先登录你的账号：</p>
+<pre tabindex="0"><code>npx supabase login
+</code></pre><p>列出账号下的项目，找到你需要接管的项目 Ref ID：</p>
+<pre tabindex="0"><code>npx supabase projects list
+</code></pre><p>明确目标后，执行绑定：</p>
+<pre tabindex="0"><code>npx supabase link --project-ref &lt;你的项目Ref&gt;
+</code></pre><p>成功后，本地仓库的 <code>.temp</code> 目录就会写入当前项目的上下文。</p>
+<h4 id="第三步拉取数据库真值最关键的一步">第三步：拉取数据库真值（最关键的一步）<a hidden class="anchor" aria-hidden="true" href="#第三步拉取数据库真值最关键的一步">#</a></h4>
+<p>既然之前都在 Dashboard 里改数据库，现在就要把远端 Schema 导出成一份本地 Migration。</p>
+<pre tabindex="0"><code>npx supabase db pull
+</code></pre><p>这一步会让你的本地仓库第一次拥有“数据库结构真值”，生成类似 <code>20260313xxxxxx_remote_schema.sql</code> 的文件。这也是你当前线上数据库的 Baseline（基线）。</p>
+<p><strong>这里有两个高频踩坑点：</strong></p>
+<ul>
+<li><strong>坑 1：残留空文件导致历史不一致。</strong> 如果某次 <code>db pull</code> 中途失败，可能会在 <code>migrations</code> 目录下留下一个 0 字节的空文件。这会导致后续同步报错。一定要先删掉空文件，再重新 pull。</li>
+<li><strong>坑 2：密码验证失败导致报错 EOF。</strong> 拉取成功后，CLI 会询问是否更新远端 migration 历史表（<code>Update remote migration history table?</code>）。选 Y 后如果报错 <code>unexpected EOF</code>，通常是因为数据库密码没配对。
+<ul>
+<li>注意：这里需要的是<strong>数据库自身的 Password</strong>，<mark>不是 anon key，也不是 API Keys。</mark></li>
+<li>通过 <code>export SUPABASE_DB_PASSWORD='&lt;你的数据库密码&gt;'</code> 注入环境变量，重新 link 后，再通过命令修复并标记为已应用：</li>
+<li><code>npx supabase migration repair --linked --status applied &lt;时间戳&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="第四步接管-edge-functions">第四步：接管 Edge Functions<a hidden class="anchor" aria-hidden="true" href="#第四步接管-edge-functions">#</a></h4>
+<p>数据库搞定了，接下来是云函数。先查看线上有哪些函数：</p>
+<pre tabindex="0"><code>npx supabase functions list
+</code></pre><p>然后挨个把它们下载到本地：</p>
+<pre tabindex="0"><code>npx supabase functions download &lt;function-name&gt;
+</code></pre><p>下载完成后，你的 <code>supabase/functions/</code> 目录下就会整整齐齐排列好所有的函数代码。到这一步，线上函数的真值也正式回到了本地。</p>
+<hr>
+<h3 id="认知升级从网页直改到本地真值">认知升级：从“网页直改”到“本地真值”<a hidden class="anchor" aria-hidden="true" href="#认知升级从网页直改到本地真值">#</a></h3>
+<p>这是最重要的一次工程习惯切换。工具的改变是表象，思维的转变才是核心。</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>对比维度</strong></th>
+          <th><strong>过去的“野路子”模式</strong></th>
+          <th><strong>现在的“工程化”模式</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>真实来源 (Truth)</strong></td>
+          <td>网页端 Dashboard + 本地零散代码</td>
+          <td>本地 Git 仓库的 <code>supabase/</code> 目录</td>
+      </tr>
+      <tr>
+          <td><strong>数据库变更</strong></td>
+          <td>SQL Editor 随手执行</td>
+          <td>本地编写 Migration -&gt; <code>db push</code></td>
+      </tr>
+      <tr>
+          <td><strong>云函数修改</strong></td>
+          <td>网页端粘贴代码 -&gt; Save</td>
+          <td>修改本地 <code>functions/</code> -&gt; <code>deploy</code></td>
+      </tr>
+      <tr>
+          <td><strong>历史追溯</strong></td>
+          <td>靠脑子记，找不回历史版本</td>
+          <td>Git 提交记录一目了然</td>
+      </tr>
+  </tbody>
+</table>
+<p>以后<strong>绝对不要</strong>再出现“本地改一点，网页端补一点”的情况。一旦本地接管完成，后续的任何改动都应该遵循以下流程：</p>
+<ul>
+<li><strong>数据库改动：</strong> <code>npx supabase db push</code></li>
+<li><strong>函数部署：</strong> <code>npx supabase functions deploy &lt;function-name&gt;</code></li>
+</ul>
+<p>如果你真的忍不住在网页端临时改了东西（比如为了紧急修 Bug），<strong>必须立刻同步回本地</strong>（<code>db pull</code> 或 <code>functions download</code>），否则仓库和线上很快又会发生不可逆的漂移。</p>
+<h3 id="写在最后">写在最后<a hidden class="anchor" aria-hidden="true" href="#写在最后">#</a></h3>
+<p>一旦项目开始正式跑起来，就一定要尽快<strong>收口真值</strong>。</p>
+<p>前期在网页端改来改去真的很爽，但随着项目变复杂，函数变多、SQL 变多、甚至需要区分测试/生产环境时，迟早会陷入一种“好像哪里都能改，但没人知道真相到底在哪”的泥潭。</p>
+<p>这次接回本地，线上环境从“唯一记忆体”退回到了它应有的位置——“运行态”。真值掌握在 Git 手里，后面再做任何扩展，心里就踏实多了。</p>
+
+
+  </div>
+
+  <script>
+    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
+    document.getElementById("ai-check-text").innerText = aiChallengeText;
+
+    function verifyHuman() {
+      let inputText = document.getElementById("ai-input").value;
+      if (inputText === aiChallengeText) {
+        document.getElementById("ai-check").style.display = "none";
+        document.getElementById("post-content").style.display = "block";
+      } else {
+        let errorMsg = document.getElementById("ai-error");
+        errorMsg.style.display = "block";
+        errorMsg.classList.add("shake");
+        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+      }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/tech/">Tech</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ahaknow.com/posts/know/collection-notes/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span class="post-nav-title" title="站在前人的肩膀上：笔记收集录">站在前人的肩膀上：笔记收集录</span>
+  </a>
+  <a class="next" href="https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span class="post-nav-title" title="我把一直在网页端乱改的 Supabase，终于接回了本地 CLI">我把一直在网页端乱改的 Supabase，终于接回了本地 CLI</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 <a href="https://blog.ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>

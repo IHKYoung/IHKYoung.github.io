@@ -6,7 +6,7 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 13 Mar 2026 10:30:40 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2026 20:26:32 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>逐镜探维：置身三维重建而后生</title>
@@ -21,6 +21,20 @@
       <pubDate>Wed, 24 Apr 2024 10:26:36 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/collection-notes/</guid>
       <description>汇总可复用的外部技术资料与文档入口，构建持续扩展的个人参考索引。</description>
+    </item>
+    <item>
+      <title>Supabase优雅接回本地CLI</title>
+      <link>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</link>
+      <pubDate>Fri, 13 Mar 2026 19:48:18 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</guid>
+      <description>围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>我把一直在网页端乱改的 Supabase，终于接回了本地 CLI</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</link>
+      <pubDate>Fri, 13 Mar 2026 15:48:00 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</guid>
+      <description>围绕 Supabase CLI 本地接管流程，沉淀从 Dashboard 走向本地 schema 与 functions 真值管理的完整步骤和踩坑记录。</description>
     </item>
     <item>
       <title>养虾日记 Vol.02</title>
