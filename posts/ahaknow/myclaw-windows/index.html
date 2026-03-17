@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+    };
+
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function (x) {
+            x.parentElement.classList += 'has-jax'
+        })
+    });
+</script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+
+<html lang="zh" dir="zh-cn">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒 | AhaKnow</title>
+<meta name="keywords" content="AhaKnow">
+<meta name="description" content="继续从0到放弃再到继续，终于在在一台8年前的老Windows笔记本上，安装好了小龙虾的心路历程">
+<meta name="author" content="Clarke">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/ahaknow/myclaw-windows/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.ahaknow.com/Q.gif">
+<link rel="apple-touch-icon" href="https://blog.ahaknow.com/Q.gif">
+<link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/ahaknow/myclaw-windows/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒" />
+<meta property="og:description" content="继续从0到放弃再到继续，终于在在一台8年前的老Windows笔记本上，安装好了小龙虾的心路历程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/ahaknow/myclaw-windows/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-03-12T08:50:41+08:00" />
+<meta property="article:modified_time" content="2026-03-17T11:19:32+08:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒"/>
+<meta name="twitter:description" content="继续从0到放弃再到继续，终于在在一台8年前的老Windows笔记本上，安装好了小龙虾的心路历程"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "🚀 持续生长",
+      "item": "https://blog.ahaknow.com/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "🧑‍💻 能智工人",
+      "item": "https://blog.ahaknow.com/posts/ahaknow/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒",
+      "item": "https://blog.ahaknow.com/posts/ahaknow/myclaw-windows/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒",
+  "name": "写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒",
+  "description": "继续从0到放弃再到继续，终于在在一台8年前的老Windows笔记本上，安装好了小龙虾的心路历程",
+  "keywords": [
+    "AhaKnow"
+  ],
+  "articleBody": "写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒 经历了“艰难险阻”，我终于在一台8年前的老Windows笔记本上，安装好了小龙虾。放在十天以前，这好像是一件非常“值得骄傲”的事，因为那会儿“几乎全国的人”都在抢着装龙虾，什么“500元龙虾到家服务”，什么“P8高管上门安装龙虾”……并且国内有很大的用户群体使用的是Windows操作系统。而从技术角度来说，**想要在Windows上安装好龙虾，是一件能够做到，但过程有点麻烦的事。因为它不能完全一键安装，它还需要完整的Know-How，需要技术打底的背景知识，需要几个隐晦的网络知识，更需要些许耐心。**所以，这就是为啥市场里有了几百元上门服务的“天下盛况”了。\n“晕到死”的折腾：在老系统上迎难而上 还是从Windows说起吧。\nWindows系统，天生就是图形化界面（GUI），最初的设计是让用户通过鼠标点点点来完成对电脑的所有操作，所以本身就不是让用户用命令去指挥的。Windows系统自带的黑底命令行工具生来就不是给正经用户使用的（并且其样式还停留在了1998年以前的DOS风格），正常人能理解的命令指令不支持不说了，一旦不小心输入错了，它蹦出来的红得发亮的报错也非常容易让人抓狂。再加上Windows是出了名的开发依赖难安装，以及动不动地莫名其妙蓝屏死机，总之给一句==“晕到死（Win-dow-s谐音）”==不足为过。\n那为啥还要在Windows上瞎折腾呢？\n我一开始的想法很简单：因为这台Windows笔记本不用也报废了，放一个小龙虾，一直插着电，当个“远程主机”来使用呗！这虽然是8年前的老电脑了，但其性能总比云服务器的2核CPU、1G内存要强上不知道多少倍吧！\n所以就尝试去安装了。一开始直接尝试一键安装的命令，具体的感受是：艰难地打开Windows自带的终端命令行，然后右键粘贴命令，回车运行，等了一小会，直接鲜红色报错，直接看懵的那种。然后我想着Windows嘛，一键安装失败能理解，毕竟这是“晕到死”。\n于是，我尝试分步骤安装。因为小龙虾（OpenClaw）最核心的依赖其实就是Node.js（可以理解为一个现代很潮流很快捷的软件开发脚手架），那么我就去装Node.js。登录Node.js官网查看Windows的安装教程，按理说，现在2026年了，安装这种非常成熟的工具应该是非常直接和容易的，应该一个命令就能实现。但事实是，Windows的小黑底命令行运行了将近10分钟后，又是一堆鲜红的报错！（估计一开始就出错了，只不过是没达到超时时间，所以一直卡了十多分钟）。\n其实到这里，我就有点想放弃了。想要在Windows上装小龙虾，确实很难啊！**要不我把这个Windows给格式化了，装一个Linux吧！**我还真的去这么做了，去下载Linux镜像，去制作Linux安装U盘……但后来看了看老Windows里还有一些尘封的记忆文件，想了想，还是继续探索折腾一下吧。\n这其实已经说明了，对于一个小白用户，想要自己动手在自己的电脑上安装小龙虾，是一个极具挑战的过程。即使网上有很多教程，但“教程本身往往是一种幸存者偏差”，它没法预估你的真实情况并做出相应对策。反而在一次又一次鲜红色的报错中，会让人感受到深深的挫败。\n屡败屡战：配置现代兵器库的填坑之旅 冷静了一两天，主要是白天也非常忙，能抽出来的闲暇时间不多。\n我这一次想的是：既然Windows这么难搞，特别是自带的工具这么难用，那么我先给你装上一套好用的兵器库，然后再去尝试！（因为我之前也做过Windows的软件开发，深知Windows开发的痛。当时是打造了一整套非常舒服和顺手的工具链去做软件开发的，不然其过程要比想象的更糟糕。）\n于是，我让ChatGPT去仔细调研了在最新的Windows进行开发的话，需要准备哪些软件和工具。它经过了半个多小时的思考，告诉我，需要先安装Windows Terminal 和 Powershell 7。这个符合我的预期，因为之前我自己打造Windows开发环境的时候也是先下载安装的这两个软件。\n这两个工具安装完了之后，我再让ChatGPT去仔细调研了一下在Windows上安装Node.js的最佳实践。它又思考了快半小时，告诉我，可以通过安装Volta（可以理解为是一个帮你解决好依赖关系的，可以直接下载和管理Node.js的管家工具），通过winget工具就行（winget是Windows上的一个非常稳定和成熟的软件安装命令行工具）。然后我尝试安装，得到的提示是安装成功了，但是winget工具有点小问题，通过给的提示信息排查了一下，发现只需要重置一下就可以。\nwinget install --id Volta.Volta -e --source winget Volta安装完成，尝试通过Volta来安装Node.js，但是发现一直报错，提示没有Volta。一直尝试一直如此，哪怕重新激活命令行也不行（一般使用pwsh重新激活Powershell 7）。后来才知道，Windows的特性是：软件不重启，压根就不会重新加载配置文件。因为刚才装了Volta，需要重新启动软件，重新加载系统配置文件，系统才知道装上了Volta……\n好，重启 Windows Terminal 这个终端命令行软件，然后安装Node.js，终于这次可以了！！\nvolta install node Node.js终于安装完成了，这下子可以安装小龙虾了！！我粘贴了一个命令，然后就进入了漫长的等待中……不至于吧？我记得之前在云服务器上分分钟就安装完了，现在在本地咋装了这么久。\n20分钟之后……\n小龙虾的安装终于报错退出了（应该又是超时了才报错退出），显示的是Git相关的报错（这里是因为看到有git相关的字样）。如果小白一步一步跟着走到了这一步，且教程里也没有解释，可能会再次崩溃吧？我之前其实不理解为啥小白们很容易没能从0走到1就直接放弃了，因为很早时候自己自学踩过了很多坑，这些经验都内化了，现在遇到问题就是解决问题的思路；但可能很多小白遇到这种错误就傻眼了，不知道该怎么做。可能这就是“门槛”或者“障碍”？就像我现在自己去学习新东西的时候，也需要克服自己很强的路径依赖和内心的恐惧。\n好吧，可能是我忘记了装Git或者Git有问题？那我用最佳实践的方式重装一下，安装完之后还是重启 Windows Terminal。（如果不重启，还会是一样的错误，因为系统配置文件没有被重新加载）。\nwinget install --id Git.Git -e --source winget 现在再来重新安装一下小龙虾：\nnpm install -g openclaw@latest 回车，然后又是等待……倒是不漫长了。\n终于，在大概2分钟之后，看到了 added 563 packages in 2m 这样的提示！！说明小龙虾安装成功了，虽然同时也有一堆警告信息，但这不影响。\n见证奇迹：跨越最后的网关障碍 下一步就是激动人心的激活小龙虾的过程啦！我直接运行：\nopenclaw onboard --install-daemon 这是官方推荐的快速开始命令，可以一键完成后端大模型的登录调用、网关设计、插件和工具配置等。\n等了几十秒……熟悉的画面出现了！！就是问我是否同意小龙虾的免责通知。我直接Yes开始。\n之后的过程就是配置后端大模型，比如可以选择ChatGPT、Claude以及国内的大模型提供商（一般在国内使用国内的大模型提供商即可，如果用国外的话，正常情况下网络是不允许的）；后面是可以对接外部工具，比如接飞书机器人（当然如果接Telegram的机器人是最好的，但也是网络环境不允许）；再后面就是设置插件和其他配置，这些可选，也可以跳过。\n最后这些都配置完，小龙虾的自动安装程序会自动安装网关服务（gateway）。我在这里又卡了一道，因为我看到的运行结果是gateway安装失败。\n后来查了一下，大致意思是：**Windows不允许把Gateway注册成Windows后台服务，所以失败了，但是可以手动启动 openclaw gateway run**。\n手动启动之后，再在另一个窗口里运行 openclaw dashboard，果然就正常启动了！然后通过提示给我的浏览器链接就可以直接访问啦，通常是 http://127.0.0.1:18789 ，或者是通过 openclaw tui 直接在终端命令行里对话（可能这个方式大多数人不习惯吧）。\n这里有一点要说明，如果使用了国外的大模型服务，这里可能还会有问题，因为无法连接网络，所以会显示很多鲜红色的报错信息。想要解决这个问题，又是另一个话题啦。\n卸载潮背后的反思：AI浪潮下的焦虑与释然 兜兜转转，我为了一开始的一个小想法：**用安装小龙虾让我的老电脑重焕青春。**但没想到这个过程会是如此复杂，我自己都放弃了两次，后来只是因为觉得不甘心，抱着一定要搞明白的念头，才继续探索出来的。\n所以，写下这些文字也是作为一种分享吧。\n然而在这几天里，小龙虾的新闻也是不断，并且从小龙虾安装潮变成了小龙虾卸载潮，类似“399上门彻底清理小龙虾”的帖子又占据了大半江山。我想了想确实，如果是当时找外面的人花钱装的，而且还是装在自己工作电脑上的，自己又不太理解安装的原理，还真的可能不知道怎么卸载，可能花点钱买一个体验是最优解。\n不得不佩服，国人的机智果敢！\n但其实，对我自己而言，我对于小龙虾的存在并没有那么激动（可能是早就开始每天跟AI打交道了？也可能是自己太闭塞，毕竟之前也没有尝试公开表达）。我去年年底就听说了，但也一直到周围不懂任何计算机的人来跟我说想养一只小龙虾的时候，我才去购买了云服务器安装了一只。后面又听说很多人想要本地安装，我听完想了想，如果是MacOS或者Linux的话应该很简单，Windows的话可能麻烦点，但也能尝试安装出来（于是就有了上面的文章）。\n但一直到现在，我对小龙虾的探索激情也没有那么强烈，除了每天让小龙虾给我整理新闻和休息提醒（实际体感像是一个定时任务，不会根据你的回应做出调整，也许可能是模型不行）。\n能智工人的觉醒：拥抱文科生时代的AI利器 但我非常喜欢将想法变成产品。现在有了AI加持，我能很快地迭代，我现在甚至不需要管代码到底怎么实现，我只关注产品的美感与交互的质感。加入自己的想法和独特品味，去调出一个又一个优雅的软件产品，就像做菜和调酒一样。这也是我为啥一直在说：“文科生的时代来了！”因为，你不再需要去学习代码，你只需要去审阅，做得不好就提要求继续改进，直到达到你认为好的阶段。然后再继续迭代，进入下一个阶段。\n之前我在焦虑，因为看到了AI Coding的强大，觉得自己将会一无是处；加上很多非技术人员直接让AI去Coding了，这更让我觉得自己将没有任何竞争力。甚至各种“羡慕嫉妒恨”的情绪涌上心头：羡慕嫉妒以前不写代码的人开始炫耀自己AI Coding的心得后得到很多追捧和赞扬，恨自己为啥身在其中，反而更加落后，还非常闭塞。我近乎有两个月的时间一直沉陷在这种悲观消极之中，甚至自暴自弃。\n但这一切，放到现在来看，已经算是过眼云烟了。\n因为既然之前没有技术背景的人，都可以在AI工具的辅助下去大肆驰骋新世界；我呢，从旧时代手工写代码走过来的人，更应该自信地利用各种AI工具，充分武装自己！\n就像“能智工人”（人工智能反过来读）是我在2024年7月份想到的（有能力且智慧，善于利用工具不断进步的新人类），并创建的公众号，但一直到2026年3月才写了第一篇文章。如果我在两年前就坚持公开表达，估计现在应该会很不一样吧！至少能够保持开放，在面对新技术带来的困惑时永远保持清醒，不那么容易陷入闭塞。\n最后，写一点关于小龙虾的锐评：\n小龙虾只不过是一个会自己写程序，拥有一台它可以自己控制的电脑，能上网、能冲浪、能帮你做自动化的任务，成为你的私人电脑助理的工具。但它终究代替不了你的身心和生活，你需要多陪陪你爱的人和爱你的人，一起去感受这精彩纷呈的现实生活，好好锻炼和保护身体，成为更持久的历史见证者。\n继续坚持表达，哪怕写得不是很多，但坚持输出！\n",
+  "wordCount" : "4669",
+  "inLanguage": "zh",
+  "datePublished": "2026-03-12T08:50:41+08:00",
+  "dateModified": "2026-03-17T11:19:32+08:00",
+  "author":[{
+    "@type": "Person",
+    "name": "Clarke"
+  }],
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://blog.ahaknow.com/posts/ahaknow/myclaw-windows/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AhaKnow",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.ahaknow.com/Q.gif"
+    }
+  }
+}
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://blog.ahaknow.com/" accesskey="h" title="AhaKnow (Alt + H)">
+                <img src="https://blog.ahaknow.com/Q.gif" alt="" aria-label="logo"
+                    height="35">AhaKnow</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                    <span>🪄探索</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                    <span>🏡首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
+                    <span>🚀持续生长</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                    <span>⏱️时序长廊</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                    <span>🏷️词语标引</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                    <span>🖇专题归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                    <span>🧰工具栈</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/ahaknow/">🧑‍💻 能智工人</a></div>
+    <h1 class="post-title entry-hint-parent">
+      写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒
+    </h1>
+    <div class="post-description">
+      继续从0到放弃再到继续，终于在在一台8年前的老Windows笔记本上，安装好了小龙虾的心路历程
+    </div>
+    <div class="post-meta">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<span class="parent-post-meta">
+        <span id="post_meta_style_1">
+            <span class="fa fa-calendar-check-o"></span>
+            <span>2026-03-17
+                &nbsp;&nbsp;
+            </span>
+        </span>
+        <span id="post_meta_style_2">
+        <span class="fa fa-calendar-plus-o"></span>
+        <span>2026-03-12
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_3">
+        <span class="fa fa-file-word-o"></span>
+        <span>4669 字
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_4">
+        <span class="fa fa-clock-o"></span>
+        <span>10 分钟
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_5">
+        <span class="fa fa-user-o"></span>
+        <span>Clarke
+            &nbsp;&nbsp;
+        </span>
+    </span>
+    <span id="post_meta_style_6">
+        <span class="fa fa-tags" style="opacity: 0.8"></span>
+        <span>
+            <span class="post-tags-meta">
+                <a href="https://blog.ahaknow.com/tags/ahaknow/" style="color: var(--secondary)!important;">AhaKnow</a>
+            </span>
+        </span>
+    </span>
+</span>
+
+</div>
+  </header>
+
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%86%99%e5%9c%a8%e6%8a%98%e8%85%be%e5%b0%8f%e9%be%99%e8%99%beopenclaw%e4%b9%8b%e5%90%8e%e6%8a%80%e6%9c%af%e7%84%a6%e8%99%91%e4%b8%8e%e6%96%b0%e4%ba%ba%e7%b1%bb%e7%9a%84%e8%a7%89%e9%86%92" aria-label="写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒">写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#%e6%99%95%e5%88%b0%e6%ad%bb%e7%9a%84%e6%8a%98%e8%85%be%e5%9c%a8%e8%80%81%e7%b3%bb%e7%bb%9f%e4%b8%8a%e8%bf%8e%e9%9a%be%e8%80%8c%e4%b8%8a" aria-label="“晕到死”的折腾：在老系统上迎难而上">“晕到死”的折腾：在老系统上迎难而上</a></li>
+                <li>
+                    <a href="#%e5%b1%a1%e8%b4%a5%e5%b1%a1%e6%88%98%e9%85%8d%e7%bd%ae%e7%8e%b0%e4%bb%a3%e5%85%b5%e5%99%a8%e5%ba%93%e7%9a%84%e5%a1%ab%e5%9d%91%e4%b9%8b%e6%97%85" aria-label="屡败屡战：配置现代兵器库的填坑之旅">屡败屡战：配置现代兵器库的填坑之旅</a></li>
+                <li>
+                    <a href="#%e8%a7%81%e8%af%81%e5%a5%87%e8%bf%b9%e8%b7%a8%e8%b6%8a%e6%9c%80%e5%90%8e%e7%9a%84%e7%bd%91%e5%85%b3%e9%9a%9c%e7%a2%8d" aria-label="见证奇迹：跨越最后的网关障碍">见证奇迹：跨越最后的网关障碍</a></li>
+                <li>
+                    <a href="#%e5%8d%b8%e8%bd%bd%e6%bd%ae%e8%83%8c%e5%90%8e%e7%9a%84%e5%8f%8d%e6%80%9dai%e6%b5%aa%e6%bd%ae%e4%b8%8b%e7%9a%84%e7%84%a6%e8%99%91%e4%b8%8e%e9%87%8a%e7%84%b6" aria-label="卸载潮背后的反思：AI浪潮下的焦虑与释然">卸载潮背后的反思：AI浪潮下的焦虑与释然</a></li>
+                <li>
+                    <a href="#%e8%83%bd%e6%99%ba%e5%b7%a5%e4%ba%ba%e7%9a%84%e8%a7%89%e9%86%92%e6%8b%a5%e6%8a%b1%e6%96%87%e7%a7%91%e7%94%9f%e6%97%b6%e4%bb%a3%e7%9a%84ai%e5%88%a9%e5%99%a8" aria-label="能智工人的觉醒：拥抱文科生时代的AI利器">能智工人的觉醒：拥抱文科生时代的AI利器</a>
+                </li>
+            </ul>
+            </ul>
+            </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
+
+  
+  
+  
+  <div id="ai-check" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
+    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
+    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
+    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
+    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
+    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
+    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
+</div>
+
+
+  <div class="post-content" id="post-content" style="display: none;"><h1 id="写在折腾小龙虾openclaw之后技术焦虑与新人类的觉醒">写在折腾小龙虾（OpenClaw）之后：技术、焦虑与新人类的觉醒<a hidden class="anchor" aria-hidden="true" href="#写在折腾小龙虾openclaw之后技术焦虑与新人类的觉醒">#</a></h1>
+<p><mark>经历了“艰难险阻”，我终于在一台8年前的老Windows笔记本上，安装好了小龙虾。</mark>放在十天以前，这好像是一件非常“值得骄傲”的事，因为那会儿“几乎全国的人”都在抢着装龙虾，什么“500元龙虾到家服务”，什么“P8高管上门安装龙虾”……并且国内有很大的用户群体使用的是Windows操作系统。而从技术角度来说，**想要在Windows上安装好龙虾，是一件能够做到，但过程有点麻烦的事。因为它不能完全一键安装，它还需要完整的Know-How，需要技术打底的背景知识，需要几个隐晦的网络知识，更需要些许耐心。**所以，这就是为啥市场里有了几百元上门服务的“天下盛况”了。</p>
+<h3 id="晕到死的折腾在老系统上迎难而上">“晕到死”的折腾：在老系统上迎难而上<a hidden class="anchor" aria-hidden="true" href="#晕到死的折腾在老系统上迎难而上">#</a></h3>
+<p>还是从Windows说起吧。</p>
+<p>Windows系统，天生就是图形化界面（GUI），最初的设计是让用户通过鼠标点点点来完成对电脑的所有操作，所以本身就不是让用户用命令去指挥的。Windows系统自带的黑底命令行工具生来就不是给正经用户使用的（并且其样式还停留在了1998年以前的DOS风格），正常人能理解的命令指令不支持不说了，一旦不小心输入错了，它蹦出来的红得发亮的报错也非常容易让人抓狂。再加上Windows是出了名的开发依赖难安装，以及动不动地莫名其妙蓝屏死机，总之给一句==“晕到死（Win-dow-s谐音）”==不足为过。</p>
+<p>那为啥还要在Windows上瞎折腾呢？</p>
+<p>我一开始的想法很简单：因为这台Windows笔记本不用也报废了，放一个小龙虾，一直插着电，当个“远程主机”来使用呗！这虽然是8年前的老电脑了，但其性能总比云服务器的2核CPU、1G内存要强上不知道多少倍吧！</p>
+<p>所以就尝试去安装了。一开始直接尝试一键安装的命令，具体的感受是：艰难地打开Windows自带的终端命令行，然后右键粘贴命令，回车运行，等了一小会，直接鲜红色报错，直接看懵的那种。然后我想着Windows嘛，一键安装失败能理解，毕竟这是“晕到死”。</p>
+<p>于是，我尝试分步骤安装。因为小龙虾（OpenClaw）最核心的依赖其实就是Node.js（可以理解为一个现代很潮流很快捷的软件开发脚手架），那么我就去装Node.js。登录Node.js官网查看Windows的安装教程，按理说，现在2026年了，安装这种非常成熟的工具应该是非常直接和容易的，应该一个命令就能实现。但事实是，Windows的小黑底命令行运行了将近10分钟后，又是一堆鲜红的报错！（估计一开始就出错了，只不过是没达到超时时间，所以一直卡了十多分钟）。</p>
+<p>其实到这里，我就有点想放弃了。想要在Windows上装小龙虾，确实很难啊！**要不我把这个Windows给格式化了，装一个Linux吧！**我还真的去这么做了，去下载Linux镜像，去制作Linux安装U盘……但后来看了看老Windows里还有一些尘封的记忆文件，想了想，还是继续探索折腾一下吧。</p>
+<p><strong>这其实已经说明了，对于一个小白用户，想要自己动手在自己的电脑上安装小龙虾，是一个极具挑战的过程。即使网上有很多教程，但“教程本身往往是一种幸存者偏差”，它没法预估你的真实情况并做出相应对策。反而在一次又一次鲜红色的报错中，会让人感受到深深的挫败。</strong></p>
+<h3 id="屡败屡战配置现代兵器库的填坑之旅">屡败屡战：配置现代兵器库的填坑之旅<a hidden class="anchor" aria-hidden="true" href="#屡败屡战配置现代兵器库的填坑之旅">#</a></h3>
+<p>冷静了一两天，主要是白天也非常忙，能抽出来的闲暇时间不多。</p>
+<p>我这一次想的是：<mark>既然Windows这么难搞，特别是自带的工具这么难用，那么我先给你装上一套好用的兵器库，然后再去尝试！</mark>（因为我之前也做过Windows的软件开发，深知Windows开发的痛。当时是打造了一整套非常舒服和顺手的工具链去做软件开发的，不然其过程要比想象的更糟糕。）</p>
+<p>于是，我让ChatGPT去仔细调研了在最新的Windows进行开发的话，需要准备哪些软件和工具。它经过了半个多小时的思考，告诉我，需要先安装<strong>Windows Terminal 和 Powershell 7</strong>。这个符合我的预期，因为之前我自己打造Windows开发环境的时候也是先下载安装的这两个软件。</p>
+<p>这两个工具安装完了之后，我再让ChatGPT去仔细调研了一下在Windows上安装Node.js的最佳实践。它又思考了快半小时，告诉我，可以通过安装Volta（可以理解为是一个帮你解决好依赖关系的，可以直接下载和管理Node.js的管家工具），通过winget工具就行（winget是Windows上的一个非常稳定和成熟的软件安装命令行工具）。然后我尝试安装，得到的提示是安装成功了，但是winget工具有点小问题，通过给的提示信息排查了一下，发现只需要重置一下就可以。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">winget install --id Volta.Volta -e --source winget
+</span></span></code></pre></div><p>Volta安装完成，尝试通过Volta来安装Node.js，但是发现一直报错，提示没有Volta。一直尝试一直如此，哪怕重新激活命令行也不行（一般使用pwsh重新激活Powershell 7）。后来才知道，Windows的特性是：软件不重启，压根就不会重新加载配置文件。因为刚才装了Volta，需要重新启动软件，重新加载系统配置文件，系统才知道装上了Volta……</p>
+<p>好，重启 <strong>Windows Terminal</strong> 这个终端命令行软件，然后安装Node.js，终于这次可以了！！</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">volta install node
+</span></span></code></pre></div><p>Node.js终于安装完成了，这下子可以安装小龙虾了！！我粘贴了一个命令，然后就进入了漫长的等待中……不至于吧？我记得之前在云服务器上分分钟就安装完了，现在在本地咋装了这么久。</p>
+<p>20分钟之后……</p>
+<p>小龙虾的安装终于报错退出了（应该又是超时了才报错退出），显示的是Git相关的报错（这里是因为看到有git相关的字样）。<strong>如果小白一步一步跟着走到了这一步，且教程里也没有解释，可能会再次崩溃吧？我之前其实不理解为啥小白们很容易没能从0走到1就直接放弃了，因为很早时候自己自学踩过了很多坑，这些经验都内化了，现在遇到问题就是解决问题的思路；但可能很多小白遇到这种错误就傻眼了，不知道该怎么做。可能这就是“门槛”或者“障碍”？就像我现在自己去学习新东西的时候，也需要克服自己很强的路径依赖和内心的恐惧。</strong></p>
+<p>好吧，可能是我忘记了装Git或者Git有问题？那我用最佳实践的方式重装一下，安装完之后还是重启 <strong>Windows Terminal</strong>。（如果不重启，还会是一样的错误，因为系统配置文件没有被重新加载）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">winget install --id Git.Git -e --source winget
+</span></span></code></pre></div><p>现在再来重新安装一下小龙虾：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g openclaw@latest
+</span></span></code></pre></div><p>回车，然后又是等待……倒是不漫长了。</p>
+<p>终于，在大概2分钟之后，看到了 <code>added 563 packages in 2m</code> 这样的提示！！说明小龙虾安装成功了，虽然同时也有一堆警告信息，但这不影响。</p>
+<h3 id="见证奇迹跨越最后的网关障碍">见证奇迹：跨越最后的网关障碍<a hidden class="anchor" aria-hidden="true" href="#见证奇迹跨越最后的网关障碍">#</a></h3>
+<p>下一步就是激动人心的激活小龙虾的过程啦！我直接运行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">openclaw onboard --install-daemon
+</span></span></code></pre></div><p>这是官方推荐的快速开始命令，可以一键完成后端大模型的登录调用、网关设计、插件和工具配置等。</p>
+<p>等了几十秒……熟悉的画面出现了！！就是问我是否同意小龙虾的免责通知。我直接Yes开始。</p>
+<p>之后的过程就是配置后端大模型，比如可以选择ChatGPT、Claude以及国内的大模型提供商（一般在国内使用国内的大模型提供商即可，如果用国外的话，正常情况下网络是不允许的）；后面是可以对接外部工具，比如接飞书机器人（当然如果接Telegram的机器人是最好的，但也是网络环境不允许）；再后面就是设置插件和其他配置，这些可选，也可以跳过。</p>
+<p>最后这些都配置完，小龙虾的自动安装程序会自动安装网关服务（gateway）。我在这里又卡了一道，因为我看到的运行结果是gateway安装失败。</p>
+<p>后来查了一下，大致意思是：**Windows不允许把Gateway注册成Windows后台服务，所以失败了，但是可以手动启动 <code>openclaw gateway run**</code>。</p>
+<p>手动启动之后，再在另一个窗口里运行 <code>openclaw dashboard</code>，果然就正常启动了！然后通过提示给我的浏览器链接就可以直接访问啦，通常是 <code>http://127.0.0.1:18789</code> ，或者是通过 <code>openclaw tui</code> 直接在终端命令行里对话（可能这个方式大多数人不习惯吧）。</p>
+<p>这里有一点要说明，如果使用了国外的大模型服务，这里可能还会有问题，因为无法连接网络，所以会显示很多鲜红色的报错信息。想要解决这个问题，又是另一个话题啦。</p>
+<hr>
+<h3 id="卸载潮背后的反思ai浪潮下的焦虑与释然">卸载潮背后的反思：AI浪潮下的焦虑与释然<a hidden class="anchor" aria-hidden="true" href="#卸载潮背后的反思ai浪潮下的焦虑与释然">#</a></h3>
+<p>兜兜转转，我为了一开始的一个小想法：**用安装小龙虾让我的老电脑重焕青春。**但没想到这个过程会是如此复杂，<strong>我自己都放弃了两次</strong>，后来只是因为觉得不甘心，抱着一定要搞明白的念头，才继续探索出来的。</p>
+<p>所以，写下这些文字也是作为一种分享吧。</p>
+<p>然而在这几天里，小龙虾的新闻也是不断，并且从小龙虾安装潮变成了小龙虾卸载潮，类似“399上门彻底清理小龙虾”的帖子又占据了大半江山。我想了想确实，如果是当时找外面的人花钱装的，而且还是装在自己工作电脑上的，自己又不太理解安装的原理，还真的可能不知道怎么卸载，可能花点钱买一个体验是最优解。</p>
+<p>不得不佩服，国人的机智果敢！</p>
+<p>但其实，对我自己而言，我对于小龙虾的存在并没有那么激动（可能是早就开始每天跟AI打交道了？<strong>也可能是自己太闭塞</strong>，毕竟之前也没有尝试公开表达）。我去年年底就听说了，但也一直到周围不懂任何计算机的人来跟我说想养一只小龙虾的时候，我才去购买了云服务器安装了一只。后面又听说很多人想要本地安装，我听完想了想，如果是MacOS或者Linux的话应该很简单，Windows的话可能麻烦点，但也能尝试安装出来（于是就有了上面的文章）。</p>
+<p>但一直到现在，我对小龙虾的探索激情也没有那么强烈，除了每天让小龙虾给我整理新闻和休息提醒（实际体感像是一个定时任务，不会根据你的回应做出调整，也许可能是模型不行）。</p>
+<h3 id="能智工人的觉醒拥抱文科生时代的ai利器">能智工人的觉醒：拥抱文科生时代的AI利器<a hidden class="anchor" aria-hidden="true" href="#能智工人的觉醒拥抱文科生时代的ai利器">#</a></h3>
+<p>但我非常喜欢将想法变成产品。现在有了AI加持，我能很快地迭代，我现在甚至不需要管代码到底怎么实现，我只关注产品的美感与交互的质感。加入自己的想法和独特品味，去调出一个又一个优雅的软件产品，就像做菜和调酒一样。这也是我为啥一直在说：“文科生的时代来了！”因为，<mark>你不再需要去学习代码，你只需要去审阅，做得不好就提要求继续改进，直到达到你认为好的阶段。然后再继续迭代，进入下一个阶段。</mark></p>
+<p>之前我在焦虑，因为看到了AI Coding的强大，觉得自己将会一无是处；加上很多非技术人员直接让AI去Coding了，这更让我觉得自己将没有任何竞争力。甚至各种“羡慕嫉妒恨”的情绪涌上心头：羡慕嫉妒以前不写代码的人开始炫耀自己AI Coding的心得后得到很多追捧和赞扬，恨自己为啥身在其中，反而更加落后，还非常闭塞。我近乎有两个月的时间一直沉陷在这种悲观消极之中，甚至自暴自弃。</p>
+<p>但这一切，放到现在来看，已经算是过眼云烟了。</p>
+<p>因为既然之前没有技术背景的人，都可以在AI工具的辅助下去大肆驰骋新世界；我呢，从旧时代手工写代码走过来的人，更应该自信地利用各种AI工具，充分武装自己！</p>
+<p>就像<mark>“能智工人”</mark>（人工智能反过来读）是我在2024年7月份想到的（<mark>有能力且智慧，善于利用工具不断进步的新人类</mark>），并创建的公众号，但一直到2026年3月才写了第一篇文章。如果我在两年前就坚持公开表达，估计现在应该会很不一样吧！至少能够保持开放，在面对新技术带来的困惑时永远保持清醒，不那么容易陷入闭塞。</p>
+<p>最后，写一点关于小龙虾的锐评：</p>
+<blockquote>
+<p>小龙虾只不过是一个会自己写程序，拥有一台它可以自己控制的电脑，能上网、能冲浪、能帮你做自动化的任务，成为你的私人电脑助理的工具。但它终究代替不了你的身心和生活，你需要多陪陪你爱的人和爱你的人，一起去感受这精彩纷呈的现实生活，好好锻炼和保护身体，成为更持久的历史见证者。</p></blockquote>
+<p>继续坚持表达，哪怕写得不是很多，但坚持输出！</p>
+
+
+  </div>
+
+  <script>
+    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
+    document.getElementById("ai-check-text").innerText = aiChallengeText;
+
+    function verifyHuman() {
+      let inputText = document.getElementById("ai-input").value;
+      if (inputText === aiChallengeText) {
+        document.getElementById("ai-check").style.display = "none";
+        document.getElementById("post-content").style.display = "block";
+      } else {
+        let errorMsg = document.getElementById("ai-error");
+        errorMsg.style.display = "block";
+        errorMsg.classList.add("shake");
+        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+      }
+    }
+  </script>
+
+  <style>
+     
+    #check-button, #ai-check-button {
+        background-color: transparent;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
+    }
+    #check-button:active, #ai-check-button:active {
+        transform: scale(0.9);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+     
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-5px); }
+        50% { transform: translateX(5px); }
+        75% { transform: translateX(-5px); }
+        100% { transform: translateX(0); }
+    }
+    .shake {
+        animation: shake 0.3s ease-in-out;
+    }
+  </style>
+
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://blog.ahaknow.com/tags/ahaknow/">AhaKnow</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span class="post-nav-title" title="我把一直在网页端乱改的 Supabase，终于接回了本地 CLI">我把一直在网页端乱改的 Supabase，终于接回了本地 CLI</span>
+  </a>
+  <a class="next" href="https://blog.ahaknow.com/posts/ahaknow/myclaw-002/">
+    <span class="title">下一页 »</span>
+    <br>
+    <span class="post-nav-title" title="养虾日记 Vol.02">养虾日记 Vol.02</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+</main>
+
+<footer class="footer">
+    <span>&copy; 2026 <a href="https://blog.ahaknow.com/">AhaKnow</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/IHKYoung/CKPaper/" rel="noopener" target="_blank">CKPaper</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '🖨️打印';
+
+        function copyingDone() {
+            copybutton.innerHTML = '📋完成';
+            setTimeout(() => {
+                copybutton.innerHTML = '🖨️打印';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                
+                
+                let copyText = codeblock.textContent + '\r\n————————————————\r\n' + '版权声明：本文为「'+"AhaKnow"+'」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。' + '\r\n原文链接：' + location.href;
+                navigator.clipboard.writeText(copyText);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll('pre > code[class*="language-"]').forEach(function(codeblock) {
+            
+            
+            let language = codeblock.className.match(/language-(\w+)/)[1] || "code";
+
+            
+            let macCodeBlock = document.createElement("div");
+            let macButtons = document.createElement("div");
+            let buttons = ['close', 'minimize', 'maximize'].map(function(className) {
+                let button = document.createElement("div");
+                button.setAttribute('class', `mac-button ${className}`);
+                return button;
+            });
+            let languageType = document.createElement("div");
+            languageType.innerText = language;
+            languageType.setAttribute('class', 'language-type');
+
+            
+            macButtons.setAttribute('class', 'mac-buttons');
+            buttons.forEach(function(button) {
+                macButtons.appendChild(button);
+            });
+            macCodeBlock.appendChild(macButtons);
+            macCodeBlock.appendChild(languageType);
+            macCodeBlock.setAttribute('class', 'mac-code-block');
+
+            
+            codeblock.parentNode.insertBefore(macCodeBlock, codeblock);
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
