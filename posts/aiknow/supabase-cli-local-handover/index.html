@@ -99,7 +99,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2026-03-13T15:48:00+08:00" />
-<meta property="article:modified_time" content="2026-03-13T20:26:32+08:00" />
+<meta property="article:modified_time" content="2026-03-25T12:00:34+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="我把一直在网页端乱改的 Supabase，终于接回了本地 CLI"/>
@@ -142,11 +142,11 @@
   "keywords": [
     "AhaKnow"
   ],
-  "articleBody": "之前我用 Supabase 的方式很野。\n基本就是：\n去 Dashboard 里建表、改 SQL 去网页端贴 Edge Function 改完能跑就算结束 这种方式前期很爽，后期就会越来越乱。因为你会慢慢发现：\n线上到底改了什么，仓库里没有真值 本地代码和线上函数会漂 下次想继续改，不知道该从哪里接手 想做 migration、回滚、review，都会很别扭 于是我决定把项目正式接回本地，用 Supabase CLI 来管理。\n这篇文章记录的是一个非常具体的场景：\n项目之前已经在线上跑起来了 数据库和函数很多都是在网页端改的 现在想把它们拉回本地，作为 Git 真值继续维护 如果你也是这个状态，这篇就够用了。\n先说结论 我最后确认下来的最稳流程是：\n安装 Node.js 和 Docker Desktop 用 npx supabase 跑 CLI supabase link 绑定线上项目 supabase db pull 拉远端 schema 到本地 migration 如果是第一次接管旧项目，把这次 pull 下来的 schema 记成 baseline migration supabase functions list supabase functions download 把线上函数全部拉到本地 从这一刻开始，以本地 supabase/ 目录作为唯一真值 一句话总结就是：\n先把远端现状完整拉下来，再开始继续开发。\n我这次的目标是什么 我当前项目是 AddrGO，线上项目已经存在，项目 ref 是：\nnjcmytzzgduawiepvpdy 我做这件事的目标不是“新建一个 Supabase 项目”，而是：\n保留当前线上数据库 保留当前线上 Edge Functions 把线上当前状态拉回本地 后面继续通过 CLI 和 Git 去维护 这点一定要想清楚。\n因为如果你的目标不同，比如你是要全新初始化项目，那流程会简单很多。\n第一步：先把 CLI 跑起来 我没有先全局安装 supabase，而是直接用 npx：\nnpx supabase --help 这样有几个好处：\n不污染全局环境 版本跟着项目走 换机器时也更方便 如果你要固定在项目里，也可以：\nnpm install -D supabase 然后继续用：\nnpx supabase ... 第二步：先安装 Docker Desktop 这个坑我一开始就踩了。\n我第一次执行：\nnpx supabase db pull 结果直接报错，说连不上 Docker daemon。\n后来才明白，db pull 这类数据库同步流程会依赖 Docker。\n所以本地想认真用 Supabase CLI，Docker Desktop 基本是必备项。\n安装：\nbrew install --cask docker open -a Docker 验证：\ndocker ps 只要 docker ps 能正常返回，不管是空列表还是容器列表，都说明 Docker 基本起来了。\n我在 Docker 这里还踩了一个旧环境坑 我的机器以前装过 Docker Desktop，于是 /usr/local/bin 里残留了很多旧链接，比如：\n/usr/local/bin/hub-tool /usr/local/bin/kubectl.docker /usr/local/bin/docker-credential-ecr-login /usr/local/bin/docker-index /usr/local/bin/vpnkit 它们都还指向旧的：\n/Applications/Docker.app/Contents/Resources/bin/... 结果 Homebrew 每次安装 Docker Desktop，装到一半就因为这些旧链接冲突而回滚。\n解决方式就是把这些旧的软链接清掉，再重装 Docker Desktop。\n所以如果你也遇到：\nError: It seems there is already a Binary at '/usr/local/bin/...' 先别慌，十有八九就是旧 Docker 残留。\n第三步：登录并 link 到线上项目 先登录：\nnpx supabase login 然后列出你账号下的项目：\nnpx supabase projects list 我这次看到的是：\nAddrGO -\u003e njcmytzzgduawiepvpdy StillHere -\u003e rcxgkzmxywcpkhkvqvza 明确要用 AddrGO 之后，执行：\nnpx supabase link --project-ref njcmytzzgduawiepvpdy 这一步成功之后，本地仓库里的 supabase/.temp/project-ref 就会写入当前项目。\n第四步：第一次接管旧项目，先做 db pull 这是最关键的一步：\nnpx supabase db pull 如果你之前一直在 Dashboard 里改数据库，那么这一步的意义就是：\n把远端 schema 导出成一份本地 migration 让本地仓库第一次拥有“数据库结构真值” 我这次拉下来之后，最终生成的是：\nsupabase/migrations/20260313072854_remote_schema.sql 这个文件就是我当前线上数据库的 baseline。\n第五步：如果第一次接管，要把 baseline 标记成已应用 这里我又踩了两个坑。\n坑 1：上一次失败留下了空 migration 文件 我第一次 db pull 中途失败，结果在本地留下了一个空文件：\nsupabase/migrations/20260313071414_remote_schema.sql 它是 0 字节。\n这会导致本地和远端 migration history 看起来不一致。\n所以如果你碰到类似问题，先检查：\nls -l supabase/migrations 如果发现某个新 migration 文件是 0 字节，先删掉这个空文件，再重新 db pull。\n坑 2：Update remote migration history table? [Y/n] 之后报 EOF 我这次 db pull 成功后，CLI 询问我：\nUpdate remote migration history table? [Y/n] 我按了 Y，结果报：\nfailed to create migration table: unexpected EOF 后来开 --debug 看，真正原因不是 schema 拉取失败，而是：\npassword authentication failed for user \"cli_login_postgres\" 也就是说，数据库密码没配对。\n注意，这里的数据库密码：\n不是 anon key 不是 service_role key 不是 API Keys 它是数据库自己的 password。\n如果你需要重新设置，可以先导出环境变量：\nexport SUPABASE_DB_PASSWORD='\u003c你的数据库密码\u003e' 然后重新 link：\nnpx supabase link --project-ref njcmytzzgduawiepvpdy 之后再把刚才那份 migration 标记为已应用：\nnpx supabase migration repair --linked --status applied 20260313072854 验证：\nnpx supabase migration list --linked 我最后看到的是：\nLocal | Remote | Time (UTC) 20260313072854 | 20260313072854 | 2026-03-13 07:28:54 看到这里，说明数据库 schema 的 CLI 接管已经完成。\n第六步：把线上 Edge Functions 也拉回本地 数据库搞定后，接下来就是函数。\n先看线上现在有哪些函数：\nnpx supabase functions list 我这次线上看到的是：\nlog-translation translate-address code-auth issue-access-code-batch web-history web-translate-address 然后把它们全部下载到本地：\nnpx supabase functions download translate-address npx supabase functions download code-auth npx supabase functions download issue-access-code-batch npx supabase functions download web-history npx supabase functions download web-translate-address npx supabase functions download log-translation 下载后，本地目录就会变成：\nsupabase/functions/code-auth/index.ts supabase/functions/issue-access-code-batch/index.ts supabase/functions/log-translation/index.ts supabase/functions/translate-address/index.ts supabase/functions/web-history/index.ts supabase/functions/web-translate-address/index.ts 到这一步，线上函数真值也正式回到了本地。\n第七步：从这一刻开始，本地仓库就是唯一真值 这是最重要的认知切换。\n之前我的习惯是：\n本地改一点 网页端再补一点 SQL Editor 再改一点 以后最好不要这样了。\n一旦本地接管完成，后面就应该以仓库里的这些目录为真值：\nsupabase/migrations/ supabase/functions/ 后续数据库改动：\nnpx supabase db push 后续函数部署：\nnpx supabase functions deploy \u003cfunction-name\u003e 如果你又忍不住回 Dashboard 里直接改了数据库或函数，那就必须立刻同步回来：\n数据库改了：再做一次 db pull 函数改了：立刻 functions download 否则仓库和线上很快又会漂。\n第八步：我给自己总结的一套最稳工作流 我后面准备固定按这套来：\n1. 初始化一台新机器 brew install node brew install --cask docker open -a Docker 2. 项目初始化 cd npx supabase login npx supabase link --project-ref 3. 接管已有线上项目 npx supabase db pull npx supabase migration repair --linked --status applied npx supabase functions list npx supabase functions download \u003cfunction-name\u003e 4. 日常开发 数据库结构变更：先本地 migration，再 db push Edge Function 修改：改本地 supabase/functions/*，再 deploy 全部内容进入 Git 最后说一句 我这次最深的感受其实不是“Supabase CLI 真难”，而是：\n一旦项目开始正式跑起来，就一定要尽快收口真值。\n前期在网页端改来改去，真的很爽。 但是一旦项目开始变复杂，函数一多、SQL 一多、环境一多，迟早会陷入一种状态：\n“好像哪都能改，但其实已经没人知道真相到底在哪。”\n所以这次接回本地，不只是工具切换，而是工程习惯切换。\n从现在开始：\n数据库真值在 supabase/migrations/ 函数真值在 supabase/functions/ 线上只是运行态，不再是唯一记忆体 这样后面再继续扩展，我心里就踏实多了。\n",
+  "articleBody": "之前我用 Supabase 的方式很野。\n基本就是：\n去 Dashboard 里建表、改 SQL 去网页端贴 Edge Function 改完能跑就算结束 这种方式前期很爽，后期就会越来越乱。因为你会慢慢发现：\n线上到底改了什么，仓库里没有真值 本地代码和线上函数会漂 下次想继续改，不知道该从哪里接手 想做 migration、回滚、review，都会很别扭 于是我决定把项目正式接回本地，用 Supabase CLI 来管理。\n这篇文章记录的是一个非常具体的场景：\n项目之前已经在线上跑起来了 数据库和函数很多都是在网页端改的 现在想把它们拉回本地，作为 Git 真值继续维护 如果你也是这个状态，这篇就够用了。\n先说结论 我最后确认下来的最稳流程是：\n安装 Node.js 和 Docker Desktop 用 npx supabase 跑 CLI supabase link 绑定线上项目 supabase db pull 拉远端 schema 到本地 migration 如果是第一次接管旧项目，把这次 pull 下来的 schema 记成 baseline migration supabase functions list supabase functions download 把线上函数全部拉到本地 从这一刻开始，以本地 supabase/ 目录作为唯一真值 一句话总结就是：\n先把远端现状完整拉下来，再开始继续开发。\n我这次的目标是什么 我当前项目是 AddrGO，线上项目已经存在，项目 ref 是：\nxxxxx 我做这件事的目标不是“新建一个 Supabase 项目”，而是：\n保留当前线上数据库 保留当前线上 Edge Functions 把线上当前状态拉回本地 后面继续通过 CLI 和 Git 去维护 这点一定要想清楚。\n因为如果你的目标不同，比如你是要全新初始化项目，那流程会简单很多。\n第一步：先把 CLI 跑起来 我没有先全局安装 supabase，而是直接用 npx：\nnpx supabase --help 这样有几个好处：\n不污染全局环境 版本跟着项目走 换机器时也更方便 如果你要固定在项目里，也可以：\nnpm install -D supabase 然后继续用：\nnpx supabase ... 第二步：先安装 Docker Desktop 这个坑我一开始就踩了。\n我第一次执行：\nnpx supabase db pull 结果直接报错，说连不上 Docker daemon。\n后来才明白，db pull 这类数据库同步流程会依赖 Docker。\n所以本地想认真用 Supabase CLI，Docker Desktop 基本是必备项。\n安装：\nbrew install --cask docker open -a Docker 验证：\ndocker ps 只要 docker ps 能正常返回，不管是空列表还是容器列表，都说明 Docker 基本起来了。\n我在 Docker 这里还踩了一个旧环境坑 我的机器以前装过 Docker Desktop，于是 /usr/local/bin 里残留了很多旧链接，比如：\n/usr/local/bin/hub-tool /usr/local/bin/kubectl.docker /usr/local/bin/docker-credential-ecr-login /usr/local/bin/docker-index /usr/local/bin/vpnkit 它们都还指向旧的：\n/Applications/Docker.app/Contents/Resources/bin/... 结果 Homebrew 每次安装 Docker Desktop，装到一半就因为这些旧链接冲突而回滚。\n解决方式就是把这些旧的软链接清掉，再重装 Docker Desktop。\n所以如果你也遇到：\nError: It seems there is already a Binary at '/usr/local/bin/...' 先别慌，十有八九就是旧 Docker 残留。\n第三步：登录并 link 到线上项目 先登录：\nnpx supabase login 然后列出你账号下的项目：\nnpx supabase projects list 我这次看到的是：\nAddrGO -\u003e xxxxx StillHere -\u003e yyyyy 明确要用 AddrGO 之后，执行：\nnpx supabase link --project-ref xxxxx 这一步成功之后，本地仓库里的 supabase/.temp/project-ref 就会写入当前项目。\n第四步：第一次接管旧项目，先做 db pull 这是最关键的一步：\nnpx supabase db pull 如果你之前一直在 Dashboard 里改数据库，那么这一步的意义就是：\n把远端 schema 导出成一份本地 migration 让本地仓库第一次拥有“数据库结构真值” 我这次拉下来之后，最终生成的是：\nsupabase/migrations/20260313072854_remote_schema.sql 这个文件就是我当前线上数据库的 baseline。\n第五步：如果第一次接管，要把 baseline 标记成已应用 这里我又踩了两个坑。\n坑 1：上一次失败留下了空 migration 文件 我第一次 db pull 中途失败，结果在本地留下了一个空文件：\nsupabase/migrations/20260313071414_remote_schema.sql 它是 0 字节。\n这会导致本地和远端 migration history 看起来不一致。\n所以如果你碰到类似问题，先检查：\nls -l supabase/migrations 如果发现某个新 migration 文件是 0 字节，先删掉这个空文件，再重新 db pull。\n坑 2：Update remote migration history table? [Y/n] 之后报 EOF 我这次 db pull 成功后，CLI 询问我：\nUpdate remote migration history table? [Y/n] 我按了 Y，结果报：\nfailed to create migration table: unexpected EOF 后来开 --debug 看，真正原因不是 schema 拉取失败，而是：\npassword authentication failed for user \"cli_login_postgres\" 也就是说，数据库密码没配对。\n注意，这里的数据库密码：\n不是 anon key 不是 service_role key 不是 API Keys 它是数据库自己的 password。\n如果你需要重新设置，可以先导出环境变量：\nexport SUPABASE_DB_PASSWORD='\u003c你的数据库密码\u003e' 然后重新 link：\nnpx supabase link --project-ref xxxxx 之后再把刚才那份 migration 标记为已应用：\nnpx supabase migration repair --linked --status applied 20260313072854 验证：\nnpx supabase migration list --linked 我最后看到的是：\nLocal | Remote | Time (UTC) 20260313072854 | 20260313072854 | 2026-03-13 07:28:54 看到这里，说明数据库 schema 的 CLI 接管已经完成。\n第六步：把线上 Edge Functions 也拉回本地 数据库搞定后，接下来就是函数。\n先看线上现在有哪些函数：\nnpx supabase functions list 我这次线上看到的是：\nlog-translation translate-address code-auth issue-access-code-batch web-history web-translate-address 然后把它们全部下载到本地：\nnpx supabase functions download translate-address npx supabase functions download code-auth npx supabase functions download issue-access-code-batch npx supabase functions download web-history npx supabase functions download web-translate-address npx supabase functions download log-translation 下载后，本地目录就会变成：\nsupabase/functions/code-auth/index.ts supabase/functions/issue-access-code-batch/index.ts supabase/functions/log-translation/index.ts supabase/functions/translate-address/index.ts supabase/functions/web-history/index.ts supabase/functions/web-translate-address/index.ts 到这一步，线上函数真值也正式回到了本地。\n第七步：从这一刻开始，本地仓库就是唯一真值 这是最重要的认知切换。\n之前我的习惯是：\n本地改一点 网页端再补一点 SQL Editor 再改一点 以后最好不要这样了。\n一旦本地接管完成，后面就应该以仓库里的这些目录为真值：\nsupabase/migrations/ supabase/functions/ 后续数据库改动：\nnpx supabase db push 后续函数部署：\nnpx supabase functions deploy \u003cfunction-name\u003e 如果你又忍不住回 Dashboard 里直接改了数据库或函数，那就必须立刻同步回来：\n数据库改了：再做一次 db pull 函数改了：立刻 functions download 否则仓库和线上很快又会漂。\n第八步：我给自己总结的一套最稳工作流 我后面准备固定按这套来：\n1. 初始化一台新机器 brew install node brew install --cask docker open -a Docker 2. 项目初始化 cd npx supabase login npx supabase link --project-ref 3. 接管已有线上项目 npx supabase db pull npx supabase migration repair --linked --status applied npx supabase functions list npx supabase functions download \u003cfunction-name\u003e 4. 日常开发 数据库结构变更：先本地 migration，再 db push Edge Function 修改：改本地 supabase/functions/*，再 deploy 全部内容进入 Git 最后说一句 我这次最深的感受其实不是“Supabase CLI 真难”，而是：\n一旦项目开始正式跑起来，就一定要尽快收口真值。\n前期在网页端改来改去，真的很爽。 但是一旦项目开始变复杂，函数一多、SQL 一多、环境一多，迟早会陷入一种状态：\n“好像哪都能改，但其实已经没人知道真相到底在哪。”\n所以这次接回本地，不只是工具切换，而是工程习惯切换。\n从现在开始：\n数据库真值在 supabase/migrations/ 函数真值在 supabase/functions/ 线上只是运行态，不再是唯一记忆体 这样后面再继续扩展，我心里就踏实多了。\n",
   "wordCount" : "2296",
   "inLanguage": "zh",
   "datePublished": "2026-03-13T15:48:00+08:00",
-  "dateModified": "2026-03-13T20:26:32+08:00",
+  "dateModified": "2026-03-25T12:00:34+08:00",
   "author":[{
     "@type": "Person",
     "name": "Clarke"
@@ -293,7 +293,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-13
+            <span>2026-03-25
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -453,17 +453,14 @@
   
   
   
-  <div id="ai-check" style="text-align: center; padding: 20px;">
-    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
-    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
-    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
-    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
-    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
-    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
-    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
-</div>
+  <div id="password-protection" style="text-align: center; padding: 20px;">
+    <p style="font-size: 1.2em;">🔒 这里是主人的 <strong>小秘密</strong>！🚀 需要对暗号才能查看哦👇</p>
+    <input type="password" id="post-password" placeholder="✨天王盖地虎✨" />
+    <button id="check-button" onclick="checkPassword()">🐯 验证一下！</button>
+    <p id="error-msg" style="color: #f05b72; display: none; font-size: 1em;">❌ 暗号不对！再试试吧~ 🥺</p>
+  </div>
 
-
+  
   <div class="post-content" id="post-content" style="display: none;"><p>之前我用 Supabase 的方式很野。</p>
 <p>基本就是：</p>
 <ul>
@@ -502,7 +499,7 @@
 <p><strong>先把远端现状完整拉下来，再开始继续开发。</strong></p>
 <h2 id="我这次的目标是什么">我这次的目标是什么<a hidden class="anchor" aria-hidden="true" href="#我这次的目标是什么">#</a></h2>
 <p>我当前项目是 <code>AddrGO</code>，线上项目已经存在，项目 ref 是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">njcmytzzgduawiepvpdy
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">xxxxx
 </span></span></code></pre></div><p>我做这件事的目标不是“新建一个 Supabase 项目”，而是：</p>
 <ul>
 <li>保留当前线上数据库</li>
@@ -558,10 +555,10 @@
 </span></span></code></pre></div><p>然后列出你账号下的项目：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase projects list
 </span></span></code></pre></div><p>我这次看到的是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">AddrGO    -&gt; njcmytzzgduawiepvpdy
-</span></span><span class="line"><span class="cl">StillHere -&gt; rcxgkzmxywcpkhkvqvza
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">AddrGO    -&gt; xxxxx
+</span></span><span class="line"><span class="cl">StillHere -&gt; yyyyy
 </span></span></code></pre></div><p>明确要用 <code>AddrGO</code> 之后，执行：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase link --project-ref njcmytzzgduawiepvpdy
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase link --project-ref xxxxx
 </span></span></code></pre></div><p>这一步成功之后，本地仓库里的 <code>supabase/.temp/project-ref</code> 就会写入当前项目。</p>
 <h2 id="第四步第一次接管旧项目先做-db-pull">第四步：第一次接管旧项目，先做 db pull<a hidden class="anchor" aria-hidden="true" href="#第四步第一次接管旧项目先做-db-pull">#</a></h2>
 <p>这是最关键的一步：</p>
@@ -602,7 +599,7 @@
 <p>如果你需要重新设置，可以先导出环境变量：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SUPABASE_DB_PASSWORD</span><span class="o">=</span><span class="s1">&#39;&lt;你的数据库密码&gt;&#39;</span>
 </span></span></code></pre></div><p>然后重新 link：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase link --project-ref njcmytzzgduawiepvpdy
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase link --project-ref xxxxx
 </span></span></code></pre></div><p>之后再把刚才那份 migration 标记为已应用：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npx supabase migration repair --linked --status applied <span class="m">20260313072854</span>
 </span></span></code></pre></div><p>验证：</p>
@@ -700,22 +697,56 @@
 
   </div>
 
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <script>
-    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
-    document.getElementById("ai-check-text").innerText = aiChallengeText;
+    document.addEventListener("DOMContentLoaded", function () {
+      let storedPassword = sessionStorage.getItem("blog_password_4443e3a9e38cd02e5b9d7b7dc06b9198");
 
-    function verifyHuman() {
-      let inputText = document.getElementById("ai-input").value;
-      if (inputText === aiChallengeText) {
-        document.getElementById("ai-check").style.display = "none";
-        document.getElementById("post-content").style.display = "block";
+      if (!storedPassword) {
+          document.getElementById("password-protection").style.display = "block";
       } else {
-        let errorMsg = document.getElementById("ai-error");
-        errorMsg.style.display = "block";
-        errorMsg.classList.add("shake");
-        setTimeout(() => errorMsg.classList.remove("shake"), 300);
+          unlockContent();
+      }
+    });
+
+    function checkPassword() {
+      let inputPassword = document.getElementById("post-password").value;
+      let correctHash = "faeb225d1f2927270c575c20b7a17989"; 
+      let inputHash = CryptoJS.MD5(inputPassword).toString();  
+
+      let errorMsg = document.getElementById("error-msg");
+      let checkButton = document.getElementById("check-button");
+
+      
+      checkButton.style.transform = "scale(0.95)";
+      setTimeout(() => {
+          checkButton.style.transform = "scale(1)";
+      }, 100);
+
+      if (inputHash === correctHash) {
+        sessionStorage.setItem("blog_password_4443e3a9e38cd02e5b9d7b7dc06b9198", inputHash);
+        unlockContent();
+      } else {
+          
+          errorMsg.style.display = "block";
+          errorMsg.classList.add("shake");
+          setTimeout(() => {
+              errorMsg.classList.remove("shake");
+          }, 300);
       }
     }
+
+    function unlockContent() {
+      document.getElementById("password-protection").style.display = "none";
+      let postContentDiv = document.getElementById("post-content");
+      postContentDiv.style.display = "block";
+    }
+
+    
+    window.addEventListener("beforeunload", function() {
+        sessionStorage.removeItem("blog_password_4443e3a9e38cd02e5b9d7b7dc06b9198");
+    });
   </script>
 
   <style>
