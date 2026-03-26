@@ -8,11 +8,11 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/ahaknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>养虾日记 Vol.02丨手把手教你在MacOS上部署OpenClaw</title>
+      <title>养虾日记 Vol.03丨手把手教你在MacOS上部署OpenClaw</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</link>
       <pubDate>Thu, 26 Mar 2026 19:58:45 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</guid>
-      <description>围绕Myclaw 003，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+      <description>这是一篇在MacOS上部署OpenClaw的实战记录，包括一些踩坑和总结</description>
     </item>
     <item>
       <title>如果用自己的Mac远程连接另一台Mac然后再远程连接回到自己的Mac，会发生什么？</title>
