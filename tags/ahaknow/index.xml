@@ -6,8 +6,15 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 25 Mar 2026 12:00:34 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 10:48:17 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/ahaknow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如果用自己的Mac远程连接另一台Mac然后再远程连接回到自己的Mac，会发生什么？</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/screen-share-mac/</link>
+      <pubDate>Wed, 25 Mar 2026 14:02:39 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/screen-share-mac/</guid>
+      <description>围绕Screen Share Mac，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
     <item>
       <title>打造我的剑侠世界</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/swordld-begain/</link>
@@ -16,10 +23,10 @@
       <description>围绕Swordld Begain，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
     </item>
     <item>
-      <title>Codex001</title>
-      <link>https://blog.ahaknow.com/posts/ahaknow/codex001/</link>
+      <title>Codex101</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/codex101-1/</link>
       <pubDate>Mon, 16 Mar 2026 16:03:20 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/ahaknow/codex001/</guid>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/codex101-1/</guid>
       <description>围绕Codex001，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
     </item>
     <item>
