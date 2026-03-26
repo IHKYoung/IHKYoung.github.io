@@ -6,8 +6,15 @@
     <description>Recent content in AI on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 22:03:23 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS 零基础配置 Git SSH 密钥完全指南（包含 22 端口屏蔽解决方案）</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/macos-ssh-start/</link>
+      <pubDate>Thu, 26 Mar 2026 14:31:20 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/macos-ssh-start/</guid>
+      <description>围绕Macos Ssh Start，重点总结AI、人工不智能，并给出可执行实践。</description>
+    </item>
     <item>
       <title>被 LinkedIn 折腾后，我终于拿到微软 Startup 入口</title>
       <link>https://blog.ahaknow.com/posts/ai-diary/2026-02-27/</link>

@@ -8,6 +8,13 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/aiknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>macOS 零基础配置 Git SSH 密钥完全指南（包含 22 端口屏蔽解决方案）</title>
+      <link>https://blog.ahaknow.com/posts/aiknow/macos-ssh-start/</link>
+      <pubDate>Thu, 26 Mar 2026 14:31:20 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/aiknow/macos-ssh-start/</guid>
+      <description>围绕Macos Ssh Start，重点总结AI、人工不智能，并给出可执行实践。</description>
+    </item>
+    <item>
       <title>我把一直在网页端乱改的 Supabase，终于接回了本地 CLI</title>
       <link>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</link>
       <pubDate>Fri, 13 Mar 2026 15:48:00 +0800</pubDate>
@@ -121,9 +128,9 @@
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-auto-update/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-auto-update/</guid>
       <description>演示用 PowerShell 与任务计划实现开机自动更新多个 Git 仓库的完整流程。</description>
     </item>
     <item>

@@ -18,13 +18,25 @@
     <lastmod>2026-02-27T10:30:55+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/</loc>
-    <lastmod>2026-03-26T10:48:17+08:00</lastmod>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/tags/ahaknow/</loc>
-    <lastmod>2026-03-26T10:48:17+08:00</lastmod>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E5%BE%88%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2026-03-26T10:48:17+08:00</lastmod>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</loc>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/tags/ai/</loc>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/posts/aiknow/macos-ssh-start/</loc>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/ahaknow/screen-share-mac/</loc>
     <lastmod>2026-03-26T10:48:17+08:00</lastmod>
@@ -33,7 +45,7 @@
     <lastmod>2026-03-25T12:00:34+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/ahaknow/codex101-1/</loc>
-    <lastmod>2026-03-16T16:03:20+08:00</lastmod>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/tech/markdown-css/</loc>
     <lastmod>2026-03-14T10:30:32+08:00</lastmod>
@@ -46,9 +58,6 @@
   </url><url>
     <loc>https://blog.ahaknow.com/posts/tech/supabase-cli-setup/</loc>
     <lastmod>2026-03-13T20:26:32+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E4%B8%8D%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2026-03-25T12:00:34+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/aiknow/supabase-cli-local-handover/</loc>
     <lastmod>2026-03-25T12:00:34+08:00</lastmod>
@@ -84,9 +93,6 @@
     <lastmod>2026-03-10T10:30:44+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/ahaknow/multi-agents-startup/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.ahaknow.com/tags/ai/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/categories/ai%E6%97%A5%E8%AE%B0/</loc>
@@ -135,7 +141,7 @@
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/tags/git/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/tags/linux/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
@@ -252,10 +258,10 @@
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/aiknow/git-pull/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
-    <loc>https://blog.ahaknow.com/posts/aiknow/git/</loc>
-    <lastmod>2026-03-02T12:17:00+08:00</lastmod>
+    <loc>https://blog.ahaknow.com/posts/aiknow/git-auto-update/</loc>
+    <lastmod>2026-03-26T22:03:23+08:00</lastmod>
   </url><url>
     <loc>https://blog.ahaknow.com/posts/aiknow/scoop/</loc>
     <lastmod>2026-03-02T12:17:00+08:00</lastmod>

@@ -8,6 +8,13 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/ahaknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>手把手教你在MacOS上部署OpenClaw</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</link>
+      <pubDate>Thu, 26 Mar 2026 19:58:45 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</guid>
+      <description>围绕Myclaw 003，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
+    <item>
       <title>如果用自己的Mac远程连接另一台Mac然后再远程连接回到自己的Mac，会发生什么？</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/screen-share-mac/</link>
       <pubDate>Wed, 25 Mar 2026 14:02:39 +0800</pubDate>
@@ -22,7 +29,7 @@
       <description>围绕Swordld Begain，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
     </item>
     <item>
-      <title>Codex101</title>
+      <title>Codex101 第一篇</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/codex101-1/</link>
       <pubDate>Mon, 16 Mar 2026 16:03:20 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/ahaknow/codex101-1/</guid>

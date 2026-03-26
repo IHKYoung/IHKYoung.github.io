@@ -6,7 +6,7 @@
     <description>Recent content in Git on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 22:03:23 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Git配置代理完全指南(HTTP&amp;SSH)</title>
@@ -45,9 +45,9 @@
     </item>
     <item>
       <title>📝 Git 仓库自动更新脚本</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/git/</link>
+      <link>https://blog.ahaknow.com/posts/aiknow/git-auto-update/</link>
       <pubDate>Thu, 06 Feb 2025 20:58:45 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/git/</guid>
+      <guid>https://blog.ahaknow.com/posts/aiknow/git-auto-update/</guid>
       <description>演示用 PowerShell 与任务计划实现开机自动更新多个 Git 仓库的完整流程。</description>
     </item>
     <item>
