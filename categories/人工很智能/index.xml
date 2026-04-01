@@ -6,8 +6,15 @@
     <description>Recent content in 人工很智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Mar 2026 10:48:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 10:32:29 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E5%BE%88%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>庆祝AhaMark成功取代Typora生态位</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/ahamark-release/</link>
+      <pubDate>Wed, 01 Apr 2026 09:39:03 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/ahamark-release/</guid>
+      <description>围绕Ahamark Release，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
     <item>
       <title>养虾日记 Vol.03丨手把手教你在MacOS上部署OpenClaw</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</link>

@@ -8,6 +8,13 @@
     <language>zh-cn</language>
     <atom:link href="https://blog.ahaknow.com/posts/ahaknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>庆祝AhaMark成功取代Typora生态位</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/ahamark-release/</link>
+      <pubDate>Wed, 01 Apr 2026 09:39:03 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/ahamark-release/</guid>
+      <description>围绕Ahamark Release，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
+    <item>
       <title>养虾日记 Vol.03丨手把手教你在MacOS上部署OpenClaw</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/myclaw-003/</link>
       <pubDate>Thu, 26 Mar 2026 19:58:45 +0800</pubDate>
