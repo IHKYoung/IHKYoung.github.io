@@ -99,7 +99,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/ahaknow/ahamark-intro/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2026-04-02T09:16:58+08:00" />
-<meta property="article:modified_time" content="2026-04-02T09:18:23+08:00" />
+<meta property="article:modified_time" content="2026-04-02T10:32:10+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="好好介绍一下AhaMark"/>
@@ -142,11 +142,11 @@
   "keywords": [
     "AhaKnow"
   ],
-  "articleBody": "这篇文章，我想好好地介绍一下 AhaMark。\n",
-  "wordCount" : "22",
+  "articleBody": "这篇文章，我想好好地介绍一下 AhaMark。 昨天是因为太激动了，分享了太多的感受，对于 AhaMark 的介绍几乎就没有了。今天这篇文章，来把 AhaMark 的自我介绍补充上。\n从灵光一闪到直接开干 故事的起因是之前用了很久的 Markdown 转 CSS 渲染工具无法在微信公众号上实现我预期的排版效果，并且在努力尝试了许久之后仍然无果，最终我选择了自己手搓工具。\n在手搓工具之前也询问了 AI 有没有现成的，发现是有的，并且找到了一个非常好的开源项目。但我没有直接使用那个开源项目（主要还是觉得默认的渲染比较丑），但是那个开源项目让我瞬间有了很多想法。\n因为很早之前就想做一个自己的 Markdown 编辑器，来取代自己使用的 Typora 以及 Obsidian。\n所以我看到这个开源项目之后，第一个反应就是把这个开源项目改成一个真正的产品。因为这个开源项目还属于是一个粗糙的半成品，没有任何的产品思维。\n产品视角的重新审视 我第一个想法，就是要把它做成一个让文字工作者用得很爽的工具：\n可以在本机编辑，编辑完立刻可以看到效果； 同时可以立马导出，导出成他所需要的文件； 如果是发微信公众号的话，可以一键复制，而且复制过去的格式完全不会错乱，是所见即所得。 这个过程中，我其实陷入了好几次完美主义的怪圈。\n一方面是不断打磨 UI 细节，另一方面是反复推翻排版，重新构建新的排版和风格。从文字工作者的使用角度或者成熟产品的设计而言，其实有些理念是相通的：\n中间位置用于文字写作； 左边提供目录或引导相关的功能； 右边则是可视化的部分。 因为实时的 Markdown 预览在底层代码逻辑上比较复杂，我之前尝试过但失败了，所以目前还没有做到像 Typora 那种实时预览（现在想想也没必要，因为这个产品以后，可能可以让不懂 Markdown 的人也能来用，也可以得到一键排版的效果）。现在的方案是把区域分开：写作区就是专注的写作，预览区就是纯粹的预览。\n在和 AI 编程工具打磨了几个晚上之后，其实基本的产品化已经有了，剩下的就是一些细节。我发现我特别容易陷入一些 UI 和 UX 的交互细节之中。我不知道这算不算好事，反正只要自己觉得不爽，就立马把它改掉。\n放在以前，可能由于自己代码能力没那么强，一行一行改要花很久。但现在这种感觉非常爽：**你只要想到，就可以立马去尝试并执行，然后得到很快的反馈，再不断地打磨迭代。**这个迭代速度比我两三年前要快了太多。这使得我现在对于创造产品有了极大的兴趣。\n自嗨完了，也考虑一下给其他用户使用 其实说到这儿，大部分还是自嗨，因为这工具的第一用户，或者说短期内的唯一用户就是我自己。那基本上就是自嗨，做得再好也就自己知道，别人不知道。\n所以当时我想的第一件事就是：让其他人也能用上。于是我就先把它部署到云端，让其他用户可以通过网页直接访问使用。\n现在的 AhaMark 有两种主要的使用方式：\n文件模式：连接本地的文件，就是基于你本地的文件进行创作； 笔记模式：临时的草稿，承载一个在线的 Markdown 转换器，其实非常像一些在线文档排版工具，左边打字右边自动排版，只不过做得更美观一些。 这两者的核心设计都是本地储存，所以是非常安全的。\n后面继续做什么呢？ 其实昨天晚上，我又陷入了无限的空虚之中。因为正如刚才所说，感觉这是一个自嗨的产品，不知道别人会不会用。\n反正目前看下来，身边的人好像也不怎么用。我不知道是因为现在都是大模型生成文章、生成文字了，还是怎么回事，没人去写东西了，还是说有其他什么原因。\n但我决定把它做成一个非常好用的、本地化的写作平台。加上从昨天开始，我尝试使用语音输入。我发现语音输入的速度远远大于打字输入，这让我对于本地创作又产生了一些新的想法。\n我现在使用的是外部工具来实践语音输入，我不太确定要不要在这里面加。我感觉好像不用加，因为如果其他工具做得很好的话，我只需要做一个很好的载体就好了。\n还有一点，就是我现在自己写的文章，最后都会经过一次 AI 的语病检查。我觉得这个功能可以融合进来。\n虽然这个开源项目自带了 AI 工具，我也做了一些简单的整理，但发现并不好用。AI 工具好用与否，两方面都要考虑：\n功能设计上是否好用 大模型本身是不是最顶尖的 可能下一步需要把这一块再打磨一下。\n总结一下，我觉得这一个产品算是一种新的尝试，因为它实现了我之前一直想做的一个小小梦想，就是拥有一个属于自己的本地化 Markdown 写作平台。 现在有了 AhaMark，我已经完全取代了 Typora。至于 Obsidian 这类工具，我之前也给它写过插件来满足自己的需求，但现在感觉好像没必要了。我可以在我这个 Markdown 框架的基础上，加入更多个性化的东西。 对于之前的程序员来讲，他们很喜欢自己定制一些工具来使用。既然现在我有了自己的框架，那么我完全可以自己实现这些自定义功能。同时，我也可以从不断的尝试中，打磨出一套能够面向广大用户使用的版本。 此外我也可以学习其他优秀产品的一些操作，通过支持一些脚本来实现自定义的插件，这个可以慢慢来做。\n我现在还是秉持着要坚持自己的思考和输出，因为即使大模型可以迅速生成高于平均质量的文章，但我觉得人类自己的思考是无法被替代的，也不应该被替代。\n",
+  "wordCount" : "2003",
   "inLanguage": "zh",
   "datePublished": "2026-04-02T09:16:58+08:00",
-  "dateModified": "2026-04-02T09:18:23+08:00",
+  "dateModified": "2026-04-02T10:32:10+08:00",
   "author":[{
     "@type": "Person",
     "name": "Clarke"
@@ -305,13 +305,13 @@
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>22 字
+        <span>2003 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1 分钟
+        <span>4 分钟
             &nbsp;&nbsp;
         </span>
     </span>
@@ -334,7 +334,87 @@
 </div>
   </header>
 
-   
+   <aside id="toc-container" class="toc-container wide">
+    <div class="toc">
+        <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">📚目录</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e4%bb%8e%e7%81%b5%e5%85%89%e4%b8%80%e9%97%aa%e5%88%b0%e7%9b%b4%e6%8e%a5%e5%bc%80%e5%b9%b2" aria-label="从灵光一闪到直接开干">从灵光一闪到直接开干</a></li>
+                <li>
+                    <a href="#%e4%ba%a7%e5%93%81%e8%a7%86%e8%a7%92%e7%9a%84%e9%87%8d%e6%96%b0%e5%ae%a1%e8%a7%86" aria-label="产品视角的重新审视">产品视角的重新审视</a></li>
+                <li>
+                    <a href="#%e8%87%aa%e5%97%a8%e5%ae%8c%e4%ba%86%e4%b9%9f%e8%80%83%e8%99%91%e4%b8%80%e4%b8%8b%e7%bb%99%e5%85%b6%e4%bb%96%e7%94%a8%e6%88%b7%e4%bd%bf%e7%94%a8" aria-label="自嗨完了，也考虑一下给其他用户使用">自嗨完了，也考虑一下给其他用户使用</a></li>
+                <li>
+                    <a href="#%e5%90%8e%e9%9d%a2%e7%bb%a7%e7%bb%ad%e5%81%9a%e4%bb%80%e4%b9%88%e5%91%a2" aria-label="后面继续做什么呢？">后面继续做什么呢？</a>
+                </li>
+            </ul>
+        </div>
+        </details>
+    </div>
+</aside>
+<script>
+    let activeElement;
+    let elements;
+    window.addEventListener('DOMContentLoaded', function (event) {
+        checkTocPosition();
+
+        elements = document.querySelectorAll('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        
+        activeElement = elements[0];
+        const id = encodeURI(activeElement.getAttribute('id')).toLowerCase();
+        document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+    }, false);
+
+    window.addEventListener('resize', function(event) {
+        checkTocPosition();
+    }, false);
+
+    window.addEventListener('scroll', () => {
+        
+        activeElement = Array.from(elements).find((element) => {
+            if ((getOffsetTop(element) - window.pageYOffset) > 0 &&
+                (getOffsetTop(element) - window.pageYOffset) < window.innerHeight/2) {
+                return element;
+            }
+        }) || activeElement
+
+        elements.forEach(element => {
+            const id = encodeURI(element.getAttribute('id')).toLowerCase();
+            if (element === activeElement){
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.add('active');
+            } else {
+                document.querySelector(`.inner ul li a[href="#${id}"]`).classList.remove('active');
+            }
+        })
+    }, false);
+
+    const main = parseInt(getComputedStyle(document.body).getPropertyValue('--article-width'), 10);
+    const toc = parseInt(getComputedStyle(document.body).getPropertyValue('--toc-width'), 10);
+    const gap = parseInt(getComputedStyle(document.body).getPropertyValue('--gap'), 10);
+
+    function checkTocPosition() {
+        const width = document.body.scrollWidth;
+
+        if (width - main - (toc * 2) - (gap * 4) > 0) {
+            document.getElementById("toc-container").classList.add("wide");
+        } else {
+            document.getElementById("toc-container").classList.remove("wide");
+        }
+    }
+
+    function getOffsetTop(element) {
+        if (!element.getClientRects().length) {
+            return 0;
+        }
+        let rect = element.getBoundingClientRect();
+        let win = element.ownerDocument.defaultView;
+        return rect.top + win.pageYOffset;
+    }
+</script>
 
   
   
@@ -350,7 +430,59 @@
 </div>
 
 
-  <div class="post-content" id="post-content" style="display: none;"><p>这篇文章，我想好好地介绍一下 AhaMark。</p>
+  <div class="post-content" id="post-content" style="display: none;"><p>这篇文章，我想好好地介绍一下 AhaMark。
+昨天是因为太激动了，分享了太多的感受，对于 AhaMark 的介绍几乎就没有了。今天这篇文章，来把 AhaMark 的自我介绍补充上。</p>
+<p><img loading="lazy" src="https://fastly.jsdelivr.net/gh/bucketio/img10@main/2026/04/02/1775096925849-c4ae7a10-9959-4b03-a3d4-00bd2e15fddc.png" alt="AhaMark"  />
+</p>
+<h2 id="从灵光一闪到直接开干">从灵光一闪到直接开干<a hidden class="anchor" aria-hidden="true" href="#从灵光一闪到直接开干">#</a></h2>
+<p>故事的起因是之前用了很久的 Markdown 转 CSS 渲染工具无法在微信公众号上实现我预期的排版效果，并且在努力尝试了许久之后仍然无果，最终我选择了自己手搓工具。</p>
+<p>在手搓工具之前也询问了 AI 有没有现成的，发现是有的，并且找到了一个非常好的开源项目。但我没有直接使用那个开源项目（主要还是觉得默认的渲染比较丑），但是那个开源项目让我瞬间有了很多想法。</p>
+<p><mark>因为很早之前就想做一个自己的 Markdown 编辑器，来取代自己使用的 Typora 以及 Obsidian。</mark></p>
+<p>所以我看到这个开源项目之后，第一个反应就是把这个开源项目改成一个真正的产品。因为这个开源项目还属于是一个粗糙的半成品，没有任何的产品思维。</p>
+<h2 id="产品视角的重新审视">产品视角的重新审视<a hidden class="anchor" aria-hidden="true" href="#产品视角的重新审视">#</a></h2>
+<p>我第一个想法，就是要把它做成一个让文字工作者用得很爽的工具：</p>
+<ol>
+<li>可以在本机编辑，编辑完立刻可以看到效果；</li>
+<li>同时可以立马导出，导出成他所需要的文件；</li>
+<li>如果是发微信公众号的话，可以一键复制，而且复制过去的格式完全不会错乱，是所见即所得。</li>
+</ol>
+<p><mark>这个过程中，我其实陷入了好几次完美主义的怪圈。</mark></p>
+<p>一方面是不断打磨 UI 细节，另一方面是反复推翻排版，重新构建新的排版和风格。从文字工作者的使用角度或者成熟产品的设计而言，其实有些理念是相通的：</p>
+<ol>
+<li>中间位置用于文字写作；</li>
+<li>左边提供目录或引导相关的功能；</li>
+<li>右边则是可视化的部分。</li>
+</ol>
+<p>因为实时的 Markdown 预览在底层代码逻辑上比较复杂，我之前尝试过但失败了，所以目前还没有做到像 Typora 那种实时预览（现在想想也没必要，因为这个产品以后，可能可以让不懂 Markdown 的人也能来用，也可以得到一键排版的效果）。现在的方案是把区域分开：写作区就是专注的写作，预览区就是纯粹的预览。</p>
+<p>在和 AI 编程工具打磨了几个晚上之后，其实基本的产品化已经有了，剩下的就是一些细节。我发现我特别容易陷入一些 UI 和 UX 的交互细节之中。我不知道这算不算好事，反正只要自己觉得不爽，就立马把它改掉。</p>
+<p>放在以前，可能由于自己代码能力没那么强，一行一行改要花很久。但现在这种感觉非常爽：**你只要想到，就可以立马去尝试并执行，然后得到很快的反馈，再不断地打磨迭代。**这个迭代速度比我两三年前要快了太多。这使得我现在对于创造产品有了极大的兴趣。</p>
+<h2 id="自嗨完了也考虑一下给其他用户使用">自嗨完了，也考虑一下给其他用户使用<a hidden class="anchor" aria-hidden="true" href="#自嗨完了也考虑一下给其他用户使用">#</a></h2>
+<p>其实说到这儿，大部分还是自嗨，因为这工具的第一用户，或者说短期内的唯一用户就是我自己。那基本上就是自嗨，做得再好也就自己知道，别人不知道。</p>
+<p>所以当时我想的第一件事就是：让其他人也能用上。于是我就先把它部署到云端，让其他用户可以通过<a href="mark.ahaknow.com">网页直接访问使用</a>。</p>
+<p>现在的 AhaMark 有两种主要的使用方式：</p>
+<ol>
+<li>文件模式：连接本地的文件，就是基于你本地的文件进行创作；</li>
+<li>笔记模式：临时的草稿，承载一个在线的 Markdown 转换器，其实非常像一些在线文档排版工具，左边打字右边自动排版，只不过做得更美观一些。</li>
+</ol>
+<p>这两者的核心设计都是本地储存，所以是非常安全的。</p>
+<h2 id="后面继续做什么呢">后面继续做什么呢？<a hidden class="anchor" aria-hidden="true" href="#后面继续做什么呢">#</a></h2>
+<p>其实昨天晚上，我又陷入了无限的空虚之中。因为正如刚才所说，感觉这是一个自嗨的产品，不知道别人会不会用。</p>
+<p>反正目前看下来，身边的人好像也不怎么用。我不知道是因为现在都是大模型生成文章、生成文字了，还是怎么回事，没人去写东西了，还是说有其他什么原因。</p>
+<p>但我决定把它做成一个非常好用的、本地化的写作平台。加上从昨天开始，我尝试使用语音输入。我发现语音输入的速度远远大于打字输入，这让我对于本地创作又产生了一些新的想法。</p>
+<p>我现在使用的是外部工具来实践语音输入，我不太确定要不要在这里面加。我感觉好像不用加，因为如果其他工具做得很好的话，我只需要做一个很好的载体就好了。</p>
+<p>还有一点，就是我现在自己写的文章，最后都会经过一次 AI 的语病检查。我觉得这个功能可以融合进来。</p>
+<p>虽然这个开源项目自带了 AI 工具，我也做了一些简单的整理，但发现并不好用。AI 工具好用与否，两方面都要考虑：</p>
+<ol>
+<li>功能设计上是否好用</li>
+<li>大模型本身是不是最顶尖的</li>
+</ol>
+<p>可能下一步需要把这一块再打磨一下。</p>
+<blockquote>
+<p>总结一下，我觉得这一个产品算是一种新的尝试，因为它实现了我之前一直想做的一个小小梦想，<mark>就是拥有一个属于自己的本地化 Markdown 写作平台。</mark>
+现在有了 AhaMark，我已经完全取代了 Typora。至于 Obsidian 这类工具，我之前也给它写过插件来满足自己的需求，但现在感觉好像没必要了。我可以在我这个 Markdown 框架的基础上，加入更多个性化的东西。
+对于之前的程序员来讲，他们很喜欢自己定制一些工具来使用。既然现在我有了自己的框架，那么我完全可以自己实现这些自定义功能。同时，我也可以从不断的尝试中，打磨出一套能够面向广大用户使用的版本。
+此外我也可以学习其他优秀产品的一些操作，通过支持一些脚本来实现自定义的插件，这个可以慢慢来做。</p></blockquote>
+<p><mark>我现在还是秉持着要坚持自己的思考和输出，因为即使大模型可以迅速生成高于平均质量的文章，但我觉得人类自己的思考是无法被替代的，也不应该被替代。</mark></p>
 
 
   </div>
