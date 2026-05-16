@@ -6,8 +6,22 @@
     <description>Recent content in 人工很智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 02 Apr 2026 10:32:10 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2026 00:10:47 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/categories/%E4%BA%BA%E5%B7%A5%E5%BE%88%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ahaknow Slug Rule</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/ahaknow-slug-rule/</link>
+      <pubDate>Sat, 16 May 2026 23:53:07 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/ahaknow-slug-rule/</guid>
+      <description>围绕Ahaknow Slug Rule，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
+    <item>
+      <title>AI 编程最大的坑：看不懂，但点了继续</title>
+      <link>https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/</link>
+      <pubDate>Sat, 16 May 2026 23:51:16 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/</guid>
+      <description>围绕Ai Coding Control Loss，重点总结AhaKnow、人工很智能，并给出可执行实践。</description>
+    </item>
     <item>
       <title>好好介绍一下AhaMark</title>
       <link>https://blog.ahaknow.com/posts/ahaknow/ahamark-intro/</link>

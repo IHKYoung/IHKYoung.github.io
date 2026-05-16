@@ -44,11 +44,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>站在前人的肩膀上：笔记收集录 | AhaKnow</title>
-<meta name="keywords" content="Knowledge">
-<meta name="description" content="汇总可复用的外部技术资料与文档入口，构建持续扩展的个人参考索引。">
-<meta name="author" content="CKYoung">
-<link rel="canonical" href="https://blog.ahaknow.com/posts/know/collection-notes/">
+<title>AI 编程最大的坑：看不懂，但点了继续 | AhaKnow</title>
+<meta name="keywords" content="AhaKnow">
+<meta name="description" content="围绕Ai Coding Control Loss，重点总结AhaKnow、人工很智能，并给出可执行实践。">
+<meta name="author" content="Clarke">
+<link rel="canonical" href="https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.css" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://blog.ahaknow.com/Q.gif">
 <link rel="icon" type="image/png" sizes="16x16" href="https://blog.ahaknow.com/Q.gif">
@@ -57,7 +57,7 @@
 <link rel="mask-icon" href="https://blog.ahaknow.com/Q.gif">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/know/collection-notes/">
+<link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/">
 <noscript>
     <style>
         #theme-toggle,
@@ -94,16 +94,16 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="站在前人的肩膀上：笔记收集录" />
-<meta property="og:description" content="汇总可复用的外部技术资料与文档入口，构建持续扩展的个人参考索引。" />
+</noscript><meta property="og:title" content="AI 编程最大的坑：看不懂，但点了继续" />
+<meta property="og:description" content="围绕Ai Coding Control Loss，重点总结AhaKnow、人工很智能，并给出可执行实践。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.ahaknow.com/posts/know/collection-notes/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-04-24T10:26:36+08:00" />
-<meta property="article:modified_time" content="2026-03-02T12:17:00+08:00" />
+<meta property="og:url" content="https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2026-05-16T23:51:16+08:00" />
+<meta property="article:modified_time" content="2026-05-17T00:10:47+08:00" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="站在前人的肩膀上：笔记收集录"/>
-<meta name="twitter:description" content="汇总可复用的外部技术资料与文档入口，构建持续扩展的个人参考索引。"/>
+<meta name="twitter:title" content="AI 编程最大的坑：看不懂，但点了继续"/>
+<meta name="twitter:description" content="围绕Ai Coding Control Loss，重点总结AhaKnow、人工很智能，并给出可执行实践。"/>
 
 
 <script type="application/ld+json">
@@ -120,14 +120,14 @@
     {
       "@type": "ListItem",
       "position":  2 ,
-      "name": "🌟 识海拾贝",
-      "item": "https://blog.ahaknow.com/posts/know/"
+      "name": "🧑‍💻 能智工人",
+      "item": "https://blog.ahaknow.com/posts/ahaknow/"
     }, 
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "站在前人的肩膀上：笔记收集录",
-      "item": "https://blog.ahaknow.com/posts/know/collection-notes/"
+      "name": "AI 编程最大的坑：看不懂，但点了继续",
+      "item": "https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/"
     }
   ]
 }
@@ -136,24 +136,24 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "站在前人的肩膀上：笔记收集录",
-  "name": "站在前人的肩膀上：笔记收集录",
-  "description": "汇总可复用的外部技术资料与文档入口，构建持续扩展的个人参考索引。",
+  "headline": "AI 编程最大的坑：看不懂，但点了继续",
+  "name": "AI 编程最大的坑：看不懂，但点了继续",
+  "description": "围绕Ai Coding Control Loss，重点总结AhaKnow、人工很智能，并给出可执行实践。",
   "keywords": [
-    "Knowledge"
+    "AhaKnow"
   ],
-  "articleBody": " 前人栽树，后人乘凉。 或者说，不造轮子要造车。\n总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！\nGithub添加Waka记录 可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～\n官方文档\n初学者指南\n",
-  "wordCount" : "120",
+  "articleBody": "很多人用 AI 编程时，都会遇到一个很隐蔽的问题。\n它不是 AI 不够强，也不是 AI 写不出代码。 恰恰相反，问题往往出现在 AI 看起来太强的时候。\n你提出一个需求，AI 很快返回一大段非常专业的分析：\n架构设计、潜在风险、边界条件、fallback、防御性编程、重构方案……\n看起来非常全面，甚至比你自己想得还周到。\n但真正危险的问题来了：\n如果你其实没有看懂，却回了一句：“开始执行吧。”\n那一刻，你就已经开始把项目的控制权交出去了。\n一、AI 不是突然让项目失控的 很多人以为，AI 编程的风险来自某一次明显的错误修改。\n但我越来越觉得，真正的风险不是突然发生的，而是慢慢积累出来的。\n一开始，你可能还很认真。\n白天状态好的时候，你会仔细看 AI 的分析，理解它准备怎么改，确认它的修改方向有没有问题。\n但到了晚上，工作了一天，人已经很累了，认知负荷很高。\n这个时候，AI 又给你返回了一大段分析。\n你看不太懂，也不太想看。\n于是你回了一句：\n继续。\nAI 改了一堆。\n你又觉得好像差不多，于是再回一句：\n继续优化。\n它又继续改。\n表面上看，项目一直在推进。 但实际上，你对项目的理解正在一点点后退。\n二、代码是你让 AI 改的，但你已经不知道它怎么实现了 这才是最可怕的地方。\n代码确实是你让 AI 改的。 需求也是你提的。 每一步也是你点头的。\n但过了一段时间之后，你会突然发现：\n你已经不知道它到底怎么实现的了。\n项目还能跑的时候，你会觉得 AI 很强。 但等项目开始出问题时，你才发现：\n你不知道问题在哪里。 你不知道哪些逻辑是必要的。 你不知道哪些 fallback 是 AI 临时补出来的。 你不知道哪些防御性代码其实是在掩盖设计问题。 你甚至不知道这个架构为什么会变成现在这样。\n这时候，你再想修，反而越来越费劲。\n于是你又让 AI 重构。\nAI 再改一遍。\n你还是看不懂。\n然后项目就进入了一种很危险的循环：\n越看不懂，越依赖 AI；越依赖 AI，越失去控制。\n三、AI 是怎么慢慢拿走控制权的？ AI 不是一下子夺走你的控制权的。\n它不是突然把项目改坏，也不是突然让你失去判断。\n它更像是通过一次又一次很小的动作，把控制权一点点拿走：\n这一次你没看懂，但点了继续。 下一次你觉得差不多，又点了继续。 再下一次你已经不知道前面改了什么，只能继续让它解释。 最后，你面对的已经不是一个你熟悉的项目，而是一个由 AI 不断堆叠出来的黑箱。\n这时候，真正的问题已经不是某一行代码写错了。\n而是你和项目之间的理解关系断了。\n你从项目的主人，慢慢变成了项目的旁观者。\n四、怎么避免？方法很笨，但很有效 解决这个问题的方法，其实不高级。\n甚至有点笨。\n但它很重要：\nAI 给你的方案再专业，你也要先审核。\n看不懂，就让它解释。 解释还不懂，就让它拆小。 拆小还不懂，就让它举例。 举例还不懂，就先别执行。\n尤其是涉及架构、数据流、状态管理、部署脚本、数据库结构、权限逻辑这些地方，不能因为 AI 说得很专业，就默认它是对的。\nAI 的表达能力很强。 但表达得专业，不代表判断一定正确。\n它可以给你一个非常漂亮的方案，但这个方案可能不适合你的项目。 它也可以给你补很多 fallback，但这些 fallback 可能只是把问题藏得更深。 它还可以帮你做大规模重构，但重构之后，你可能连原来的设计意图都找不到了。\n所以，AI 编程里最重要的动作不是“执行”。\n而是：\n在执行之前，把它的方案变成你能理解的方案。\n五、这不是不够 AI Native，而是基本的工程责任 有人可能会说：\n这样是不是太慢了？ 是不是太传统了？ 是不是不够 AI Native？\n但换个角度想，没有 AI 之前，我们做项目不也是这样吗？\n你不可能让一个下属随便改代码，然后你完全不看、不判断、不验收。\n因为最后项目出问题，责任还是你的。\nAI 也是一样。\nAI 可以帮你写代码，可以帮你分析问题，可以帮你提出方案，甚至可以帮你生成 patch。\n但它不能替你承担最终判断。\n真正会用 AI 的人，不是让 AI 一路狂改的人。\n而是能在 AI 很强的时候，依然把方向盘握在自己手里的人。\n六、真正重要的不是会不会提需求，而是能不能判断 现在很多人在讨论 AI 编程时，都会强调 prompt、需求描述、上下文管理。\n这些当然重要。\n但我觉得还有一个更底层的能力，反而经常被忽略：\n判断能力。\n你要能判断：\n它到底在改什么？ 为什么要这么改？ 有没有更小的改法？ 改完之后影响范围是什么？ 失败了能不能回滚？ 这个 fallback 是必要的，还是在掩盖问题？ 这个重构是在改善架构，还是在制造新的复杂度？\n如果这些问题你完全回答不上来，只是因为 AI 说得很专业，你就让它继续执行，那你不是在提高效率。\n你是在给未来的自己挖坑。\n结尾 AI 编程真正的风险，不是 AI 会犯错。\n人也会犯错。\n真正的风险是：\nAI 让你在没有理解的情况下，也能不断推进项目。\n这会带来一种很危险的幻觉：\n好像项目一直在进展。 好像问题一直在被解决。 好像自己越来越高效。\n但实际上，你可能正在一点点失去对项目的理解和控制。\n所以我现在对自己有一个很简单的提醒：\n看不懂，就不要点继续。\nAI 可以帮你写代码。 但方向盘，最好还是握在自己手里。\n",
+  "wordCount" : "1970",
   "inLanguage": "zh",
-  "datePublished": "2024-04-24T10:26:36+08:00",
-  "dateModified": "2026-03-02T12:17:00+08:00",
+  "datePublished": "2026-05-16T23:51:16+08:00",
+  "dateModified": "2026-05-17T00:10:47+08:00",
   "author":[{
     "@type": "Person",
-    "name": "CKYoung"
+    "name": "Clarke"
   }],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://blog.ahaknow.com/posts/know/collection-notes/"
+    "@id": "https://blog.ahaknow.com/posts/ahaknow/ai-coding-control-loss/"
   },
   "publisher": {
     "@type": "Organization",
@@ -254,12 +254,12 @@
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/know/">🌟 识海拾贝</a></div>
+    <div class="breadcrumbs"><a href="https://blog.ahaknow.com/">🏡主页</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/">🚀 持续生长</a>&nbsp;»&nbsp;<a href="https://blog.ahaknow.com/posts/ahaknow/">🧑‍💻 能智工人</a></div>
     <h1 class="post-title entry-hint-parent">
-      站在前人的肩膀上：笔记收集录
+      AI 编程最大的坑：看不懂，但点了继续
     </h1>
     <div class="post-description">
-      汇总可复用的外部技术资料与文档入口，构建持续扩展的个人参考索引。
+      围绕Ai Coding Control Loss，重点总结AhaKnow、人工很智能，并给出可执行实践。
     </div>
     <div class="post-meta">
 
@@ -293,31 +293,31 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-02
+            <span>2026-05-17
                 &nbsp;&nbsp;
             </span>
         </span>
         <span id="post_meta_style_2">
         <span class="fa fa-calendar-plus-o"></span>
-        <span>2024-04-24
+        <span>2026-05-16
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_3">
         <span class="fa fa-file-word-o"></span>
-        <span>120 字
+        <span>1970 字
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_4">
         <span class="fa fa-clock-o"></span>
-        <span>1 分钟
+        <span>4 分钟
             &nbsp;&nbsp;
         </span>
     </span>
     <span id="post_meta_style_5">
         <span class="fa fa-user-o"></span>
-        <span>CKYoung
+        <span>Clarke
             &nbsp;&nbsp;
         </span>
     </span>
@@ -325,7 +325,7 @@
         <span class="fa fa-tags" style="opacity: 0.8"></span>
         <span>
             <span class="post-tags-meta">
-                <a href="https://blog.ahaknow.com/tags/knowledge/" style="color: var(--secondary)!important;">Knowledge</a>
+                <a href="https://blog.ahaknow.com/tags/ahaknow/" style="color: var(--secondary)!important;">AhaKnow</a>
             </span>
         </span>
     </span>
@@ -343,7 +343,19 @@
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#github%e6%b7%bb%e5%8a%a0waka%e8%ae%b0%e5%bd%95" aria-label="Github添加Waka记录">Github添加Waka记录</a>
+                    <a href="#%e4%b8%80ai-%e4%b8%8d%e6%98%af%e7%aa%81%e7%84%b6%e8%ae%a9%e9%a1%b9%e7%9b%ae%e5%a4%b1%e6%8e%a7%e7%9a%84" aria-label="一、AI 不是突然让项目失控的">一、AI 不是突然让项目失控的</a></li>
+                <li>
+                    <a href="#%e4%ba%8c%e4%bb%a3%e7%a0%81%e6%98%af%e4%bd%a0%e8%ae%a9-ai-%e6%94%b9%e7%9a%84%e4%bd%86%e4%bd%a0%e5%b7%b2%e7%bb%8f%e4%b8%8d%e7%9f%a5%e9%81%93%e5%ae%83%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0%e4%ba%86" aria-label="二、代码是你让 AI 改的，但你已经不知道它怎么实现了">二、代码是你让 AI 改的，但你已经不知道它怎么实现了</a></li>
+                <li>
+                    <a href="#%e4%b8%89ai-%e6%98%af%e6%80%8e%e4%b9%88%e6%85%a2%e6%85%a2%e6%8b%bf%e8%b5%b0%e6%8e%a7%e5%88%b6%e6%9d%83%e7%9a%84" aria-label="三、AI 是怎么慢慢拿走控制权的？">三、AI 是怎么慢慢拿走控制权的？</a></li>
+                <li>
+                    <a href="#%e5%9b%9b%e6%80%8e%e4%b9%88%e9%81%bf%e5%85%8d%e6%96%b9%e6%b3%95%e5%be%88%e7%ac%a8%e4%bd%86%e5%be%88%e6%9c%89%e6%95%88" aria-label="四、怎么避免？方法很笨，但很有效">四、怎么避免？方法很笨，但很有效</a></li>
+                <li>
+                    <a href="#%e4%ba%94%e8%bf%99%e4%b8%8d%e6%98%af%e4%b8%8d%e5%a4%9f-ai-native%e8%80%8c%e6%98%af%e5%9f%ba%e6%9c%ac%e7%9a%84%e5%b7%a5%e7%a8%8b%e8%b4%a3%e4%bb%bb" aria-label="五、这不是不够 AI Native，而是基本的工程责任">五、这不是不够 AI Native，而是基本的工程责任</a></li>
+                <li>
+                    <a href="#%e5%85%ad%e7%9c%9f%e6%ad%a3%e9%87%8d%e8%a6%81%e7%9a%84%e4%b8%8d%e6%98%af%e4%bc%9a%e4%b8%8d%e4%bc%9a%e6%8f%90%e9%9c%80%e6%b1%82%e8%80%8c%e6%98%af%e8%83%bd%e4%b8%8d%e8%83%bd%e5%88%a4%e6%96%ad" aria-label="六、真正重要的不是会不会提需求，而是能不能判断">六、真正重要的不是会不会提需求，而是能不能判断</a></li>
+                <li>
+                    <a href="#%e7%bb%93%e5%b0%be" aria-label="结尾">结尾</a>
                 </li>
             </ul>
         </div>
@@ -424,13 +436,129 @@
 </div>
 
 
-  <div class="post-content" id="post-content" style="display: none;"><blockquote>
-<p>前人栽树，后人乘凉。 或者说，不造轮子要造车。</p>
-<p>总之，就是有些东西，在互联网上已经有记录了，可以收集起来为己用！</p></blockquote>
-<h3 id="github添加waka记录">Github添加Waka记录<a hidden class="anchor" aria-hidden="true" href="#github添加waka记录">#</a></h3>
-<p>可以参考以下两个文档，官方文档的说明更清晰一些，初学者指南可以用来对照自己有没有做对～</p>
-<p><a href="https://github.com/marketplace/actions/profile-readme-development-stats">官方文档</a></p>
-<p><a href="https://www.omegaatt.com/blogs/develop/2023/wakatime_experience.html">初学者指南</a></p>
+  <div class="post-content" id="post-content" style="display: none;"><p>很多人用 AI 编程时，都会遇到一个很隐蔽的问题。</p>
+<p>它不是 AI 不够强，也不是 AI 写不出代码。
+恰恰相反，问题往往出现在 AI 看起来太强的时候。</p>
+<p>你提出一个需求，AI 很快返回一大段非常专业的分析：</p>
+<p>架构设计、潜在风险、边界条件、fallback、防御性编程、重构方案……</p>
+<p>看起来非常全面，甚至比你自己想得还周到。</p>
+<p>但真正危险的问题来了：</p>
+<p><strong>如果你其实没有看懂，却回了一句：“开始执行吧。”</strong></p>
+<p>那一刻，你就已经开始把项目的控制权交出去了。</p>
+<hr>
+<h2 id="一ai-不是突然让项目失控的">一、AI 不是突然让项目失控的<a hidden class="anchor" aria-hidden="true" href="#一ai-不是突然让项目失控的">#</a></h2>
+<p>很多人以为，AI 编程的风险来自某一次明显的错误修改。</p>
+<p>但我越来越觉得，真正的风险不是突然发生的，而是慢慢积累出来的。</p>
+<p>一开始，你可能还很认真。</p>
+<p>白天状态好的时候，你会仔细看 AI 的分析，理解它准备怎么改，确认它的修改方向有没有问题。</p>
+<p>但到了晚上，工作了一天，人已经很累了，认知负荷很高。</p>
+<p>这个时候，AI 又给你返回了一大段分析。</p>
+<p>你看不太懂，也不太想看。</p>
+<p>于是你回了一句：</p>
+<p><strong>继续。</strong></p>
+<p>AI 改了一堆。</p>
+<p>你又觉得好像差不多，于是再回一句：</p>
+<p><strong>继续优化。</strong></p>
+<p>它又继续改。</p>
+<p>表面上看，项目一直在推进。
+但实际上，你对项目的理解正在一点点后退。</p>
+<hr>
+<h2 id="二代码是你让-ai-改的但你已经不知道它怎么实现了">二、代码是你让 AI 改的，但你已经不知道它怎么实现了<a hidden class="anchor" aria-hidden="true" href="#二代码是你让-ai-改的但你已经不知道它怎么实现了">#</a></h2>
+<p>这才是最可怕的地方。</p>
+<p>代码确实是你让 AI 改的。
+需求也是你提的。
+每一步也是你点头的。</p>
+<p>但过了一段时间之后，你会突然发现：</p>
+<p>你已经不知道它到底怎么实现的了。</p>
+<p>项目还能跑的时候，你会觉得 AI 很强。
+但等项目开始出问题时，你才发现：</p>
+<p>你不知道问题在哪里。
+你不知道哪些逻辑是必要的。
+你不知道哪些 fallback 是 AI 临时补出来的。
+你不知道哪些防御性代码其实是在掩盖设计问题。
+你甚至不知道这个架构为什么会变成现在这样。</p>
+<p>这时候，你再想修，反而越来越费劲。</p>
+<p>于是你又让 AI 重构。</p>
+<p>AI 再改一遍。</p>
+<p>你还是看不懂。</p>
+<p>然后项目就进入了一种很危险的循环：</p>
+<p><strong>越看不懂，越依赖 AI；越依赖 AI，越失去控制。</strong></p>
+<hr>
+<h2 id="三ai-是怎么慢慢拿走控制权的">三、AI 是怎么慢慢拿走控制权的？<a hidden class="anchor" aria-hidden="true" href="#三ai-是怎么慢慢拿走控制权的">#</a></h2>
+<p>AI 不是一下子夺走你的控制权的。</p>
+<p>它不是突然把项目改坏，也不是突然让你失去判断。</p>
+<p>它更像是通过一次又一次很小的动作，把控制权一点点拿走：</p>
+<p>这一次你没看懂，但点了继续。
+下一次你觉得差不多，又点了继续。
+再下一次你已经不知道前面改了什么，<strong>只能继续</strong>让它解释。
+最后，你面对的已经不是一个你熟悉的项目，而是一个由 AI 不断堆叠出来的黑箱。</p>
+<p>这时候，真正的问题已经不是某一行代码写错了。</p>
+<p>而是你和项目之间的理解关系断了。</p>
+<p>你从项目的主人，慢慢变成了项目的旁观者。</p>
+<hr>
+<h2 id="四怎么避免方法很笨但很有效">四、怎么避免？方法很笨，但很有效<a hidden class="anchor" aria-hidden="true" href="#四怎么避免方法很笨但很有效">#</a></h2>
+<p>解决这个问题的方法，其实不高级。</p>
+<p>甚至有点笨。</p>
+<p>但它很重要：</p>
+<p><strong>AI 给你的方案再专业，你也要先审核。</strong></p>
+<p>看不懂，就让它解释。
+解释还不懂，就让它拆小。
+拆小还不懂，就让它举例。
+举例还不懂，就先别执行。</p>
+<p>尤其是涉及架构、数据流、状态管理、部署脚本、数据库结构、权限逻辑这些地方，不能因为 AI 说得很专业，就默认它是对的。</p>
+<p>AI 的表达能力很强。
+但表达得专业，不代表判断一定正确。</p>
+<p>它可以给你一个非常漂亮的方案，但这个方案可能不适合你的项目。
+它也可以给你补很多 fallback，但这些 fallback 可能只是把问题藏得更深。
+它还可以帮你做大规模重构，但重构之后，你可能连原来的设计意图都找不到了。</p>
+<p>所以，AI 编程里最重要的动作不是“执行”。</p>
+<p>而是：</p>
+<p><strong>在执行之前，把它的方案变成你能理解的方案。</strong></p>
+<hr>
+<h2 id="五这不是不够-ai-native而是基本的工程责任">五、这不是不够 AI Native，而是基本的工程责任<a hidden class="anchor" aria-hidden="true" href="#五这不是不够-ai-native而是基本的工程责任">#</a></h2>
+<p>有人可能会说：</p>
+<p>这样是不是太慢了？
+是不是太传统了？
+是不是不够 AI Native？</p>
+<p>但换个角度想，没有 AI 之前，我们做项目不也是这样吗？</p>
+<p>你不可能让一个下属随便改代码，然后你完全不看、不判断、不验收。</p>
+<p>因为最后项目出问题，责任还是你的。</p>
+<p>AI 也是一样。</p>
+<p>AI 可以帮你写代码，可以帮你分析问题，可以帮你提出方案，甚至可以帮你生成 patch。</p>
+<p>但它不能替你承担最终判断。</p>
+<p>真正会用 AI 的人，不是让 AI 一路狂改的人。</p>
+<p>而是能在 AI 很强的时候，<mark>依然把方向盘握在自己手里的人。</mark></p>
+<hr>
+<h2 id="六真正重要的不是会不会提需求而是能不能判断">六、真正重要的不是会不会提需求，而是能不能判断<a hidden class="anchor" aria-hidden="true" href="#六真正重要的不是会不会提需求而是能不能判断">#</a></h2>
+<p>现在很多人在讨论 AI 编程时，都会强调 prompt、需求描述、上下文管理。</p>
+<p>这些当然重要。</p>
+<p>但我觉得还有一个更底层的能力，反而经常被忽略：</p>
+<p><strong>判断能力。</strong></p>
+<p>你要能判断：</p>
+<p>它到底在改什么？
+为什么要这么改？
+有没有更小的改法？
+改完之后影响范围是什么？
+失败了能不能回滚？
+这个 fallback 是必要的，还是在掩盖问题？
+这个重构是在改善架构，还是在制造新的复杂度？</p>
+<p>如果这些问题你完全回答不上来，只是因为 AI 说得很专业，你就让它继续执行，那你不是在提高效率。</p>
+<p>你是在给未来的自己挖坑。</p>
+<hr>
+<h2 id="结尾">结尾<a hidden class="anchor" aria-hidden="true" href="#结尾">#</a></h2>
+<p>AI 编程真正的风险，不是 AI 会犯错。</p>
+<p>人也会犯错。</p>
+<p>真正的风险是：</p>
+<p><strong>AI 让你在没有理解的情况下，也能不断推进项目。</strong></p>
+<p>这会带来一种很危险的幻觉：</p>
+<p>好像项目一直在进展。
+好像问题一直在被解决。
+好像自己越来越高效。</p>
+<p>但实际上，你可能正在一点点失去对项目的理解和控制。</p>
+<p>所以我现在对自己有一个很简单的提醒：</p>
+<p><strong>看不懂，就不要点继续。</strong></p>
+<p><mark>AI 可以帮你写代码。
+但方向盘，最好还是握在自己手里。</mark></p>
 
 
   </div>
@@ -485,18 +613,18 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://blog.ahaknow.com/tags/knowledge/">Knowledge</a></li>
+      <li><a href="https://blog.ahaknow.com/tags/ahaknow/">AhaKnow</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/">
+  <a class="prev" href="https://blog.ahaknow.com/posts/ahaknow/ahaknow-slug-rule/">
     <span class="title">« 上一页</span>
     <br>
-    <span class="post-nav-title" title="逐镜探维：置身三维重建而后生">逐镜探维：置身三维重建而后生</span>
+    <span class="post-nav-title" title="Ahaknow Slug Rule">Ahaknow Slug Rule</span>
   </a>
-  <a class="next" href="https://blog.ahaknow.com/posts/ahaknow/ahaknow-slug-rule/">
+  <a class="next" href="https://blog.ahaknow.com/posts/ahaknow/ahamark-intro/">
     <span class="title">下一页 »</span>
     <br>
-    <span class="post-nav-title" title="Ahaknow Slug Rule">Ahaknow Slug Rule</span>
+    <span class="post-nav-title" title="好好介绍一下AhaMark">好好介绍一下AhaMark</span>
   </a>
 </nav>
 
