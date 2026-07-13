@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       讲解 H.264 与 LZ4 图像数据解析链路，梳理关键难点与实现要点。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -466,7 +439,8 @@
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>在<a href="../dev-parse-binary-file">上一篇</a>打通了读取字节流文件后，能够得到每一帧的字节数据了，这一篇就来解决为这些数据赋予实际意义。</p>
 <p>彩色图像采用H.264编码 -&gt; 那就需要按照H.264解码</p>
-<p>视差图像采用LZ4压缩 -&gt; 视差图保存的16位无符号整数，采用LZ4解压缩（开源）</p></blockquote>
+<p>视差图像采用LZ4压缩 -&gt; 视差图保存的16位无符号整数，采用LZ4解压缩（开源）</p>
+</blockquote>
 <h2 id="背景知识">背景知识<a hidden class="anchor" aria-hidden="true" href="#背景知识">#</a></h2>
 <h3 id="lz4">LZ4<a hidden class="anchor" aria-hidden="true" href="#lz4">#</a></h3>
 <p><a href="https://lz4.org/"><strong>LZ4</strong></a> 是一个非常快速的压缩算法，提供了实时压缩速度和非常快的解压缩速度，由 Yann Collet（FaceBook大佬） 开发。它属于无损压缩算法，意味着压缩后的数据可以完全恢复到其原始形态。LZ4 主要设计用于非常高速的场景（解压速度可以达到数GB每秒），例如实时数据传输、日志数据处理等。</p>
@@ -495,25 +469,25 @@
 </span></span></code></pre></div><p>有可能 CMake 仍然找不到 LZ4，这时候可以手动指定 LZ4 库和头文件的路径。首先需要确定 <code>liblz4.so</code> 和 LZ4 的头文件 <code>lz4.h</code> 的位置。这些文件通常位于 <code>/usr/include</code> 和 <code>/usr/lib</code> 下，<strong>如果不确定可以通过 <code>find /usr -name lz4.h</code>命令查找</strong> 。</p>
 <p>修改 <code>CMakeLists.txt</code> 文件，手动设置路径：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.10</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">project</span><span class="p">(</span><span class="s">DataFrameParser</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">project</span><span class="p">(</span><span class="s">DataFrameParser</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Find OpenCV
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Find OpenCV
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Include directories for OpenCV and manually for LZ4
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">include_directories</span><span class="p">(</span>
+</span></span></span><span class="line"><span class="cl"><span class="c"># Include directories for OpenCV and manually for LZ4
+</span></span></span><span class="line"><span class="cl"><span class="nb">include_directories</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">OpenCV_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="s">/usr/include</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Link directories for LZ4
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">link_directories</span><span class="p">(</span><span class="s">/usr/lib</span> <span class="s">/usr/lib/x86_64-linux-gnu</span><span class="p">)</span>  <span class="c"># Adjust this path according to your system
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_executable</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">main.cpp</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">lz4</span> <span class="o">${</span><span class="nv">OpenCV_LIBS</span><span class="o">}</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Link directories for LZ4
+</span></span></span><span class="line"><span class="cl"><span class="nb">link_directories</span><span class="p">(</span><span class="s">/usr/lib</span> <span class="s">/usr/lib/x86_64-linux-gnu</span><span class="p">)</span>  <span class="c"># Adjust this path according to your system
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">add_executable</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">main.cpp</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">lz4</span> <span class="o">${</span><span class="nv">OpenCV_LIBS</span><span class="o">}</span><span class="p">)</span><span class="err">
 </span></span></span></code></pre></div><p>这里，这里使用了 <code>link_directories</code> 和 <code>target_link_libraries</code> 中直接指定 <code>lz4</code>，而不是 <code>${LZ4_LIBRARIES}</code>。这是因为没有使用 <code>find_package</code> 来定义 <code>LZ4_LIBRARIES</code> 变量。</p>
 <h3 id="项目中使用ffmpeg">项目中使用FFmpeg<a hidden class="anchor" aria-hidden="true" href="#项目中使用ffmpeg">#</a></h3>
 <p><strong>安装 FFmpeg 和相应的开发库</strong>：</p>
@@ -523,22 +497,22 @@
 </span></span></code></pre></div><p>这些开发库包括用于处理视频编解码的 <code>libavcodec</code>，用于处理多媒体容器格式的 <code>libavformat</code>，以及用于视频缩放和格式转换的 <code>libswscale</code> 等。</p>
 <p>在 CMake 项目中使用 FFmpeg，则需要在 <code>CMakeLists.txt</code> 文件中正确设置找到和链接这些库，举例如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.10</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">project</span><span class="p">(</span><span class="s">DataFrameParser</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">project</span><span class="p">(</span><span class="s">DataFrameParser</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Find OpenCV
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Find OpenCV
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Find FFmpeg components
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PkgConfig</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVCODEC</span> <span class="s">REQUIRED</span> <span class="s">libavcodec</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVFORMAT</span> <span class="s">REQUIRED</span> <span class="s">libavformat</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">SWSCALE</span> <span class="s">REQUIRED</span> <span class="s">libswscale</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVUTIL</span> <span class="s">REQUIRED</span> <span class="s">libavutil</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Find FFmpeg components
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">PkgConfig</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVCODEC</span> <span class="s">REQUIRED</span> <span class="s">libavcodec</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVFORMAT</span> <span class="s">REQUIRED</span> <span class="s">libavformat</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">SWSCALE</span> <span class="s">REQUIRED</span> <span class="s">libswscale</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVUTIL</span> <span class="s">REQUIRED</span> <span class="s">libavutil</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">include_directories</span><span class="p">(</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">include_directories</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">OpenCV_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVCODEC_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVFORMAT_INCLUDE_DIRS</span><span class="o">}</span>
@@ -546,9 +520,9 @@
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVUTIL_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_executable</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">main.cpp</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">add_executable</span><span class="p">(</span><span class="s">DataFrameParser</span> <span class="s">main.cpp</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">DataFrameParser</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">DataFrameParser</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">OpenCV_LIBS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVCODEC_LIBRARIES</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVFORMAT_LIBRARIES</span><span class="o">}</span>
@@ -585,7 +559,7 @@
 </ol>
 <h4 id="代码实现">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 全局变量或类成员变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AVCodecContext</span><span class="o">*</span> <span class="n">context</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">AVCodecContext</span><span class="o">*</span> <span class="n">context</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="nf">initializeDecoder</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">AVCodec</span><span class="o">*</span> <span class="n">codec</span> <span class="o">=</span> <span class="n">avcodec_find_decoder</span><span class="p">(</span><span class="n">AV_CODEC_ID_H264</span><span class="p">);</span>
@@ -624,8 +598,8 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">av_init_packet</span><span class="p">(</span><span class="n">pkt</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// set data source
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">pkt</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>  <span class="c1">// Unsafe cast, data must be non-const
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">pkt</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>  <span class="c1">// Unsafe cast, data must be non-const
+</span></span></span><span class="line"><span class="cl">    <span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">avcodec_send_packet</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">pkt</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
@@ -648,8 +622,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1">// Convert AVFrame to cv::Mat
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// yuvj420p
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Pixel Format: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">av_get_pix_fmt_name</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">AVPixelFormat</span><span class="o">&gt;</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">format</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">    <span class="c1">// yuvj420p
+</span></span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Pixel Format: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">av_get_pix_fmt_name</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">AVPixelFormat</span><span class="o">&gt;</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">format</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Pixel Format Enum: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">format</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="n">SwsContext</span><span class="o">*</span> <span class="n">img_convert_ctx</span> <span class="o">=</span> <span class="n">sws_getContext</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">                                                 <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">AVPixelFormat</span><span class="o">&gt;</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">format</span><span class="p">),</span>
@@ -657,7 +631,7 @@
 </span></span><span class="line"><span class="cl">                                                 <span class="n">SWS_BICUBIC</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">linesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span> <span class="o">*</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">};</span>  <span class="c1">// RGB stride
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">CV_8UC3</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">    <span class="n">image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">CV_8UC3</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">sws_scale</span><span class="p">(</span><span class="n">img_convert_ctx</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">linesize</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">image</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">linesize</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">sws_freeContext</span><span class="p">(</span><span class="n">img_convert_ctx</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="n">av_frame_free</span><span class="p">(</span><span class="o">&amp;</span><span class="n">frame</span><span class="p">);</span>
@@ -670,7 +644,7 @@
 <p>以下是上述代码的逐行解释：</p>
 <h4 id="初始化解码器">初始化解码器<a hidden class="anchor" aria-hidden="true" href="#初始化解码器">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 找到并确认解码器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AVCodec</span><span class="o">*</span> <span class="n">codec</span> <span class="o">=</span> <span class="n">avcodec_find_decoder</span><span class="p">(</span><span class="n">AV_CODEC_ID_H264</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">AVCodec</span><span class="o">*</span> <span class="n">codec</span> <span class="o">=</span> <span class="n">avcodec_find_decoder</span><span class="p">(</span><span class="n">AV_CODEC_ID_H264</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">codec</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Codec not found.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
@@ -680,7 +654,7 @@
 <li><code>if (!codec)</code>: 如果没有找到解码器，输出错误信息并返回失败。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 分配编解码器上下文
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AVCodecContext</span><span class="o">*</span> <span class="n">context</span> <span class="o">=</span> <span class="n">avcodec_alloc_context3</span><span class="p">(</span><span class="n">codec</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">AVCodecContext</span><span class="o">*</span> <span class="n">context</span> <span class="o">=</span> <span class="n">avcodec_alloc_context3</span><span class="p">(</span><span class="n">codec</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">context</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Could not allocate video codec context.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
@@ -690,7 +664,7 @@
 <li><code>if (!context)</code>: 如果上下文分配失败，输出错误信息并返回失败。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 打开解码器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="n">avcodec_open2</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">codec</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">avcodec_open2</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">codec</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Could not open codec.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -700,7 +674,7 @@
 </ul>
 <h4 id="处理单帧数据">处理单帧数据<a hidden class="anchor" aria-hidden="true" href="#处理单帧数据">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 分配数据包
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AVPacket</span><span class="o">*</span> <span class="n">pkt</span> <span class="o">=</span> <span class="n">av_packet_alloc</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">AVPacket</span><span class="o">*</span> <span class="n">pkt</span> <span class="o">=</span> <span class="n">av_packet_alloc</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pkt</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Could not allocate AVPacket.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
@@ -710,15 +684,15 @@
 <li><code>if (!pkt)</code>: 如果数据包分配失败，输出错误信息并返回失败。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 初始化数据包并设置数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">av_init_packet</span><span class="p">(</span><span class="n">pkt</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">av_init_packet</span><span class="p">(</span><span class="n">pkt</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">pkt</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">uint8_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>  <span class="c1">// Unsafe cast, data must be non-const
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">pkt</span><span class="o">-&gt;</span><span class="n">size</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span></code></pre></div><ul>
 <li><code>av_init_packet</code>: 初始化分配的数据包。</li>
 <li><code>pkt-&gt;data</code>, <code>pkt-&gt;size</code>: 设置数据包的数据指针和大小。<code>data</code> 是函数传入的H.264数据。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 发送数据包到解码器
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">avcodec_send_packet</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">pkt</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">avcodec_send_packet</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">pkt</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Error sending a packet for decoding.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
@@ -729,7 +703,7 @@
 </ul>
 <h4 id="接收解码后的帧并转换为cvmat">接收解码后的帧并转换为cv::Mat<a hidden class="anchor" aria-hidden="true" href="#接收解码后的帧并转换为cvmat">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 分配帧存储解码后的数据
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">AVFrame</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">av_frame_alloc</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">AVFrame</span><span class="o">*</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">av_frame_alloc</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="n">ret</span> <span class="o">=</span> <span class="n">avcodec_receive_frame</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">frame</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="n">AVERROR</span><span class="p">(</span><span class="n">EAGAIN</span><span class="p">)</span> <span class="o">||</span> <span class="n">ret</span> <span class="o">==</span> <span class="n">AVERROR_EOF</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="n">av_frame_free</span><span class="p">(</span><span class="o">&amp;</span><span class="n">frame</span><span class="p">);</span>
@@ -744,10 +718,10 @@
 <li><code>if (ret == AVERROR(EAGAIN) || ret == AVERROR_EOF)</code>: 检查是否全部数据已处理完毕或需要更多数据。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 转换解码后的帧为cv::Mat格式
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">SwsContext</span><span class="o">*</span> <span class="n">img_convert_ctx</span> <span class="o">=</span> <span class="n">sws_getContext</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">AVPixelFormat</span><span class="o">&gt;</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">format</span><span class="p">),</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="n">AV_PIX_FMT_BGR24</span><span class="p">,</span> <span class="n">SWS_BICUBIC</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">SwsContext</span><span class="o">*</span> <span class="n">img_convert_ctx</span> <span class="o">=</span> <span class="n">sws_getContext</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">AVPixelFormat</span><span class="o">&gt;</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">format</span><span class="p">),</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="n">AV_PIX_FMT_BGR24</span><span class="p">,</span> <span class="n">SWS_BICUBIC</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">linesize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span> <span class="o">*</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">};</span>  <span class="c1">// RGB stride
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">CV_8UC3</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl"><span class="n">image</span> <span class="o">=</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="p">(</span><span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">width</span><span class="p">,</span> <span class="n">CV_8UC3</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">sws_scale</span><span class="p">(</span><span class="n">img_convert_ctx</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">linesize</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">frame</span><span class="o">-&gt;</span><span class="n">height</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">image</span><span class="p">.</span><span class="n">data</span><span class="p">,</span> <span class="n">linesize</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="n">sws_freeContext</span><span class="p">(</span><span class="n">img_convert_ctx</span><span class="p">);</span>
 </span></span></code></pre></div><ul>

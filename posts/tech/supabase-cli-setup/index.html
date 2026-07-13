@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       围绕Supabase Cli Setup，重点总结Tech、边学边用，并给出可执行实践。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -507,35 +480,35 @@
 <h3 id="认知升级从网页直改到本地真值">认知升级：从“网页直改”到“本地真值”<a hidden class="anchor" aria-hidden="true" href="#认知升级从网页直改到本地真值">#</a></h3>
 <p>这是最重要的一次工程习惯切换。工具的改变是表象，思维的转变才是核心。</p>
 <table>
-  <thead>
-      <tr>
-          <th><strong>对比维度</strong></th>
-          <th><strong>过去的“野路子”模式</strong></th>
-          <th><strong>现在的“工程化”模式</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>真实来源 (Truth)</strong></td>
-          <td>网页端 Dashboard + 本地零散代码</td>
-          <td>本地 Git 仓库的 <code>supabase/</code> 目录</td>
-      </tr>
-      <tr>
-          <td><strong>数据库变更</strong></td>
-          <td>SQL Editor 随手执行</td>
-          <td>本地编写 Migration -&gt; <code>db push</code></td>
-      </tr>
-      <tr>
-          <td><strong>云函数修改</strong></td>
-          <td>网页端粘贴代码 -&gt; Save</td>
-          <td>修改本地 <code>functions/</code> -&gt; <code>deploy</code></td>
-      </tr>
-      <tr>
-          <td><strong>历史追溯</strong></td>
-          <td>靠脑子记，找不回历史版本</td>
-          <td>Git 提交记录一目了然</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>对比维度</strong></th>
+					<th><strong>过去的“野路子”模式</strong></th>
+					<th><strong>现在的“工程化”模式</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>真实来源 (Truth)</strong></td>
+					<td>网页端 Dashboard + 本地零散代码</td>
+					<td>本地 Git 仓库的 <code>supabase/</code> 目录</td>
+			</tr>
+			<tr>
+					<td><strong>数据库变更</strong></td>
+					<td>SQL Editor 随手执行</td>
+					<td>本地编写 Migration -&gt; <code>db push</code></td>
+			</tr>
+			<tr>
+					<td><strong>云函数修改</strong></td>
+					<td>网页端粘贴代码 -&gt; Save</td>
+					<td>修改本地 <code>functions/</code> -&gt; <code>deploy</code></td>
+			</tr>
+			<tr>
+					<td><strong>历史追溯</strong></td>
+					<td>靠脑子记，找不回历史版本</td>
+					<td>Git 提交记录一目了然</td>
+			</tr>
+	</tbody>
 </table>
 <p>以后<strong>绝对不要</strong>再出现“本地改一点，网页端补一点”的情况。一旦本地接管完成，后续的任何改动都应该遵循以下流程：</p>
 <ul>

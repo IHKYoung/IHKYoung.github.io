@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,33 +261,7 @@
     <div class="post-description">
       按场景整理 LaTeX 数学公式语法，覆盖行内、块级、常见符号与排版细节。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -328,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -553,1204 +528,1204 @@ $$</p>
 <h2 id="-2-保留字符"><strong>🔣 2. 保留字符</strong><a hidden class="anchor" aria-hidden="true" href="#-2-保留字符">#</a></h2>
 <p>LaTeX 环境中具有特殊含义的保留字符，不能直接使用，必须通过指定的语法实现：</p>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>#</td>
-          <td><code>\#</code></td>
-          <td>井号，数学环境中无特殊含义</td>
-      </tr>
-      <tr>
-          <td>$</td>
-          <td><code>\$</code></td>
-          <td>美元符号，通常用于货币符号</td>
-      </tr>
-      <tr>
-          <td>%</td>
-          <td><code>\%</code></td>
-          <td>百分号，表示百分比</td>
-      </tr>
-      <tr>
-          <td>&amp;</td>
-          <td><code>\&amp;</code></td>
-          <td>与符号，通常用于逻辑表达</td>
-      </tr>
-      <tr>
-          <td>_</td>
-          <td><code>\_</code></td>
-          <td>下划线，LaTeX 需要转义</td>
-      </tr>
-      <tr>
-          <td>{}</td>
-          <td><code>\{ \}</code></td>
-          <td>花括号，用于分组</td>
-      </tr>
-      <tr>
-          <td>\</td>
-          <td><code>\backslash</code></td>
-          <td>反斜杠，LaTeX 转义符</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>#</td>
+					<td><code>\#</code></td>
+					<td>井号，数学环境中无特殊含义</td>
+			</tr>
+			<tr>
+					<td>$</td>
+					<td><code>\$</code></td>
+					<td>美元符号，通常用于货币符号</td>
+			</tr>
+			<tr>
+					<td>%</td>
+					<td><code>\%</code></td>
+					<td>百分号，表示百分比</td>
+			</tr>
+			<tr>
+					<td>&amp;</td>
+					<td><code>\&amp;</code></td>
+					<td>与符号，通常用于逻辑表达</td>
+			</tr>
+			<tr>
+					<td>_</td>
+					<td><code>\_</code></td>
+					<td>下划线，LaTeX 需要转义</td>
+			</tr>
+			<tr>
+					<td>{}</td>
+					<td><code>\{ \}</code></td>
+					<td>花括号，用于分组</td>
+			</tr>
+			<tr>
+					<td>\</td>
+					<td><code>\backslash</code></td>
+					<td>反斜杠，LaTeX 转义符</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-3-希腊字母"><strong>🔠 3. 希腊字母</strong><a hidden class="anchor" aria-hidden="true" href="#-3-希腊字母">#</a></h2>
 <h3 id="31-小写希腊字母"><strong>3.1. 小写希腊字母</strong><a hidden class="anchor" aria-hidden="true" href="#31-小写希腊字母">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文音译</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\alpha$</td>
-          <td><code>\alpha</code></td>
-          <td>阿尔法</td>
-      </tr>
-      <tr>
-          <td>$\beta$</td>
-          <td><code>\beta</code></td>
-          <td>贝塔</td>
-      </tr>
-      <tr>
-          <td>$\gamma$</td>
-          <td><code>\gamma</code></td>
-          <td>伽马</td>
-      </tr>
-      <tr>
-          <td>$\delta$</td>
-          <td><code>\delta</code></td>
-          <td>德尔塔</td>
-      </tr>
-      <tr>
-          <td>$\epsilon$</td>
-          <td><code>\epsilon</code></td>
-          <td>艾普西龙（普通 epsilon）</td>
-      </tr>
-      <tr>
-          <td>$\varepsilon$</td>
-          <td><code>\varepsilon</code></td>
-          <td>伪艾普西龙（变体 epsilon）</td>
-      </tr>
-      <tr>
-          <td>$\zeta$</td>
-          <td><code>\zeta</code></td>
-          <td>截塔</td>
-      </tr>
-      <tr>
-          <td>$\eta$</td>
-          <td><code>\eta</code></td>
-          <td>伊塔</td>
-      </tr>
-      <tr>
-          <td>$\theta$</td>
-          <td><code>\theta</code></td>
-          <td>西塔</td>
-      </tr>
-      <tr>
-          <td>$\vartheta$</td>
-          <td><code>\vartheta</code></td>
-          <td>变体西塔</td>
-      </tr>
-      <tr>
-          <td>$\iota$</td>
-          <td><code>\iota</code></td>
-          <td>约塔</td>
-      </tr>
-      <tr>
-          <td>$\kappa$</td>
-          <td><code>\kappa</code></td>
-          <td>卡帕</td>
-      </tr>
-      <tr>
-          <td>$\lambda$</td>
-          <td><code>\lambda</code></td>
-          <td>兰布达</td>
-      </tr>
-      <tr>
-          <td>$\mu$</td>
-          <td><code>\mu</code></td>
-          <td>缪</td>
-      </tr>
-      <tr>
-          <td>$\nu$</td>
-          <td><code>\nu</code></td>
-          <td>纽</td>
-      </tr>
-      <tr>
-          <td>$\xi$</td>
-          <td><code>\xi</code></td>
-          <td>克西</td>
-      </tr>
-      <tr>
-          <td>$\pi$</td>
-          <td><code>\pi</code></td>
-          <td>派（圆周率）</td>
-      </tr>
-      <tr>
-          <td>$\varpi$</td>
-          <td><code>\varpi</code></td>
-          <td>变体派</td>
-      </tr>
-      <tr>
-          <td>$\rho$</td>
-          <td><code>\rho</code></td>
-          <td>罗</td>
-      </tr>
-      <tr>
-          <td>$\varrho$</td>
-          <td><code>\varrho</code></td>
-          <td>变体罗</td>
-      </tr>
-      <tr>
-          <td>$\sigma$</td>
-          <td><code>\sigma</code></td>
-          <td>西格玛</td>
-      </tr>
-      <tr>
-          <td>$\varsigma$</td>
-          <td><code>\varsigma</code></td>
-          <td>终结西格玛（变体 sigma）</td>
-      </tr>
-      <tr>
-          <td>$\tau$</td>
-          <td><code>\tau</code></td>
-          <td>陶</td>
-      </tr>
-      <tr>
-          <td>$\upsilon$</td>
-          <td><code>\upsilon</code></td>
-          <td>宇普西龙</td>
-      </tr>
-      <tr>
-          <td>$\phi$</td>
-          <td><code>\phi</code></td>
-          <td>菲</td>
-      </tr>
-      <tr>
-          <td>$\varphi$</td>
-          <td><code>\varphi</code></td>
-          <td>变体菲</td>
-      </tr>
-      <tr>
-          <td>$\chi$</td>
-          <td><code>\chi</code></td>
-          <td>氚（发音接近“开”）</td>
-      </tr>
-      <tr>
-          <td>$\psi$</td>
-          <td><code>\psi</code></td>
-          <td>普赛</td>
-      </tr>
-      <tr>
-          <td>$\omega$</td>
-          <td><code>\omega</code></td>
-          <td>欧米伽</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文音译</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\alpha$</td>
+					<td><code>\alpha</code></td>
+					<td>阿尔法</td>
+			</tr>
+			<tr>
+					<td>$\beta$</td>
+					<td><code>\beta</code></td>
+					<td>贝塔</td>
+			</tr>
+			<tr>
+					<td>$\gamma$</td>
+					<td><code>\gamma</code></td>
+					<td>伽马</td>
+			</tr>
+			<tr>
+					<td>$\delta$</td>
+					<td><code>\delta</code></td>
+					<td>德尔塔</td>
+			</tr>
+			<tr>
+					<td>$\epsilon$</td>
+					<td><code>\epsilon</code></td>
+					<td>艾普西龙（普通 epsilon）</td>
+			</tr>
+			<tr>
+					<td>$\varepsilon$</td>
+					<td><code>\varepsilon</code></td>
+					<td>伪艾普西龙（变体 epsilon）</td>
+			</tr>
+			<tr>
+					<td>$\zeta$</td>
+					<td><code>\zeta</code></td>
+					<td>截塔</td>
+			</tr>
+			<tr>
+					<td>$\eta$</td>
+					<td><code>\eta</code></td>
+					<td>伊塔</td>
+			</tr>
+			<tr>
+					<td>$\theta$</td>
+					<td><code>\theta</code></td>
+					<td>西塔</td>
+			</tr>
+			<tr>
+					<td>$\vartheta$</td>
+					<td><code>\vartheta</code></td>
+					<td>变体西塔</td>
+			</tr>
+			<tr>
+					<td>$\iota$</td>
+					<td><code>\iota</code></td>
+					<td>约塔</td>
+			</tr>
+			<tr>
+					<td>$\kappa$</td>
+					<td><code>\kappa</code></td>
+					<td>卡帕</td>
+			</tr>
+			<tr>
+					<td>$\lambda$</td>
+					<td><code>\lambda</code></td>
+					<td>兰布达</td>
+			</tr>
+			<tr>
+					<td>$\mu$</td>
+					<td><code>\mu</code></td>
+					<td>缪</td>
+			</tr>
+			<tr>
+					<td>$\nu$</td>
+					<td><code>\nu</code></td>
+					<td>纽</td>
+			</tr>
+			<tr>
+					<td>$\xi$</td>
+					<td><code>\xi</code></td>
+					<td>克西</td>
+			</tr>
+			<tr>
+					<td>$\pi$</td>
+					<td><code>\pi</code></td>
+					<td>派（圆周率）</td>
+			</tr>
+			<tr>
+					<td>$\varpi$</td>
+					<td><code>\varpi</code></td>
+					<td>变体派</td>
+			</tr>
+			<tr>
+					<td>$\rho$</td>
+					<td><code>\rho</code></td>
+					<td>罗</td>
+			</tr>
+			<tr>
+					<td>$\varrho$</td>
+					<td><code>\varrho</code></td>
+					<td>变体罗</td>
+			</tr>
+			<tr>
+					<td>$\sigma$</td>
+					<td><code>\sigma</code></td>
+					<td>西格玛</td>
+			</tr>
+			<tr>
+					<td>$\varsigma$</td>
+					<td><code>\varsigma</code></td>
+					<td>终结西格玛（变体 sigma）</td>
+			</tr>
+			<tr>
+					<td>$\tau$</td>
+					<td><code>\tau</code></td>
+					<td>陶</td>
+			</tr>
+			<tr>
+					<td>$\upsilon$</td>
+					<td><code>\upsilon</code></td>
+					<td>宇普西龙</td>
+			</tr>
+			<tr>
+					<td>$\phi$</td>
+					<td><code>\phi</code></td>
+					<td>菲</td>
+			</tr>
+			<tr>
+					<td>$\varphi$</td>
+					<td><code>\varphi</code></td>
+					<td>变体菲</td>
+			</tr>
+			<tr>
+					<td>$\chi$</td>
+					<td><code>\chi</code></td>
+					<td>氚（发音接近“开”）</td>
+			</tr>
+			<tr>
+					<td>$\psi$</td>
+					<td><code>\psi</code></td>
+					<td>普赛</td>
+			</tr>
+			<tr>
+					<td>$\omega$</td>
+					<td><code>\omega</code></td>
+					<td>欧米伽</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="32-大写希腊字母"><strong>3.2. 大写希腊字母</strong><a hidden class="anchor" aria-hidden="true" href="#32-大写希腊字母">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文音译</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\Gamma$</td>
-          <td><code>\Gamma</code></td>
-          <td>伽马（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Delta$</td>
-          <td><code>\Delta</code></td>
-          <td>德尔塔（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Theta$</td>
-          <td><code>\Theta</code></td>
-          <td>西塔（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Lambda$</td>
-          <td><code>\Lambda</code></td>
-          <td>兰布达（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Xi$</td>
-          <td><code>\Xi</code></td>
-          <td>克西（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Pi$</td>
-          <td><code>\Pi</code></td>
-          <td>派（大写，数学常用于求和）</td>
-      </tr>
-      <tr>
-          <td>$\Sigma$</td>
-          <td><code>\Sigma</code></td>
-          <td>西格玛（大写，数学常用于求和）</td>
-      </tr>
-      <tr>
-          <td>$\Upsilon$</td>
-          <td><code>\Upsilon</code></td>
-          <td>宇普西龙（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Phi$</td>
-          <td><code>\Phi</code></td>
-          <td>菲（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Psi$</td>
-          <td><code>\Psi</code></td>
-          <td>普赛（大写）</td>
-      </tr>
-      <tr>
-          <td>$\Omega$</td>
-          <td><code>\Omega</code></td>
-          <td>欧米伽（大写，数学物理常用）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文音译</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\Gamma$</td>
+					<td><code>\Gamma</code></td>
+					<td>伽马（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Delta$</td>
+					<td><code>\Delta</code></td>
+					<td>德尔塔（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Theta$</td>
+					<td><code>\Theta</code></td>
+					<td>西塔（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Lambda$</td>
+					<td><code>\Lambda</code></td>
+					<td>兰布达（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Xi$</td>
+					<td><code>\Xi</code></td>
+					<td>克西（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Pi$</td>
+					<td><code>\Pi</code></td>
+					<td>派（大写，数学常用于求和）</td>
+			</tr>
+			<tr>
+					<td>$\Sigma$</td>
+					<td><code>\Sigma</code></td>
+					<td>西格玛（大写，数学常用于求和）</td>
+			</tr>
+			<tr>
+					<td>$\Upsilon$</td>
+					<td><code>\Upsilon</code></td>
+					<td>宇普西龙（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Phi$</td>
+					<td><code>\Phi</code></td>
+					<td>菲（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Psi$</td>
+					<td><code>\Psi</code></td>
+					<td>普赛（大写）</td>
+			</tr>
+			<tr>
+					<td>$\Omega$</td>
+					<td><code>\Omega</code></td>
+					<td>欧米伽（大写，数学物理常用）</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-4-二元运算符"><strong>➗ 4. 二元运算符</strong><a hidden class="anchor" aria-hidden="true" href="#-4-二元运算符">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$+$</td>
-          <td><code>+</code></td>
-          <td>加号</td>
-      </tr>
-      <tr>
-          <td>$-$</td>
-          <td><code>-</code></td>
-          <td>减号</td>
-      </tr>
-      <tr>
-          <td>$\times$</td>
-          <td><code>\times</code></td>
-          <td>乘号</td>
-      </tr>
-      <tr>
-          <td>$\div$</td>
-          <td><code>\div</code></td>
-          <td>除号</td>
-      </tr>
-      <tr>
-          <td>$\cdot$</td>
-          <td><code>\cdot</code></td>
-          <td>乘积点</td>
-      </tr>
-      <tr>
-          <td>$\oplus$</td>
-          <td><code>\oplus</code></td>
-          <td>直和（用于向量空间、群论）</td>
-      </tr>
-      <tr>
-          <td>$\ominus$</td>
-          <td><code>\ominus</code></td>
-          <td>直差</td>
-      </tr>
-      <tr>
-          <td>$\otimes$</td>
-          <td><code>\otimes</code></td>
-          <td>直积</td>
-      </tr>
-      <tr>
-          <td>$\oslash$</td>
-          <td><code>\oslash</code></td>
-          <td>直除</td>
-      </tr>
-      <tr>
-          <td>$\odot$</td>
-          <td><code>\odot</code></td>
-          <td>圆点乘法</td>
-      </tr>
-      <tr>
-          <td>$\star$</td>
-          <td><code>\star</code></td>
-          <td>星乘法</td>
-      </tr>
-      <tr>
-          <td>$\circ$</td>
-          <td><code>\circ</code></td>
-          <td>复合映射</td>
-      </tr>
-      <tr>
-          <td>$\bullet$</td>
-          <td><code>\bullet</code></td>
-          <td>实心点（乘法或列表符号）</td>
-      </tr>
-      <tr>
-          <td>$\pm$</td>
-          <td><code>\pm</code></td>
-          <td>正负号</td>
-      </tr>
-      <tr>
-          <td>$\mp$</td>
-          <td><code>\mp</code></td>
-          <td>负正号</td>
-      </tr>
-      <tr>
-          <td>$\bigoplus$</td>
-          <td><code>\bigoplus</code></td>
-          <td>直和运算符（大运算符版本）</td>
-      </tr>
-      <tr>
-          <td>$\bigotimes$</td>
-          <td><code>\bigotimes</code></td>
-          <td>直积运算符（大运算符版本）</td>
-      </tr>
-      <tr>
-          <td>$\bigodot$</td>
-          <td><code>\bigodot</code></td>
-          <td>直乘运算符（大运算符版本）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$+$</td>
+					<td><code>+</code></td>
+					<td>加号</td>
+			</tr>
+			<tr>
+					<td>$-$</td>
+					<td><code>-</code></td>
+					<td>减号</td>
+			</tr>
+			<tr>
+					<td>$\times$</td>
+					<td><code>\times</code></td>
+					<td>乘号</td>
+			</tr>
+			<tr>
+					<td>$\div$</td>
+					<td><code>\div</code></td>
+					<td>除号</td>
+			</tr>
+			<tr>
+					<td>$\cdot$</td>
+					<td><code>\cdot</code></td>
+					<td>乘积点</td>
+			</tr>
+			<tr>
+					<td>$\oplus$</td>
+					<td><code>\oplus</code></td>
+					<td>直和（用于向量空间、群论）</td>
+			</tr>
+			<tr>
+					<td>$\ominus$</td>
+					<td><code>\ominus</code></td>
+					<td>直差</td>
+			</tr>
+			<tr>
+					<td>$\otimes$</td>
+					<td><code>\otimes</code></td>
+					<td>直积</td>
+			</tr>
+			<tr>
+					<td>$\oslash$</td>
+					<td><code>\oslash</code></td>
+					<td>直除</td>
+			</tr>
+			<tr>
+					<td>$\odot$</td>
+					<td><code>\odot</code></td>
+					<td>圆点乘法</td>
+			</tr>
+			<tr>
+					<td>$\star$</td>
+					<td><code>\star</code></td>
+					<td>星乘法</td>
+			</tr>
+			<tr>
+					<td>$\circ$</td>
+					<td><code>\circ</code></td>
+					<td>复合映射</td>
+			</tr>
+			<tr>
+					<td>$\bullet$</td>
+					<td><code>\bullet</code></td>
+					<td>实心点（乘法或列表符号）</td>
+			</tr>
+			<tr>
+					<td>$\pm$</td>
+					<td><code>\pm</code></td>
+					<td>正负号</td>
+			</tr>
+			<tr>
+					<td>$\mp$</td>
+					<td><code>\mp</code></td>
+					<td>负正号</td>
+			</tr>
+			<tr>
+					<td>$\bigoplus$</td>
+					<td><code>\bigoplus</code></td>
+					<td>直和运算符（大运算符版本）</td>
+			</tr>
+			<tr>
+					<td>$\bigotimes$</td>
+					<td><code>\bigotimes</code></td>
+					<td>直积运算符（大运算符版本）</td>
+			</tr>
+			<tr>
+					<td>$\bigodot$</td>
+					<td><code>\bigodot</code></td>
+					<td>直乘运算符（大运算符版本）</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-5-二元关系符"><strong>⚖️ 5. 二元关系符</strong><a hidden class="anchor" aria-hidden="true" href="#-5-二元关系符">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$=$</td>
-          <td><code>=</code></td>
-          <td>等于</td>
-      </tr>
-      <tr>
-          <td>$\neq$</td>
-          <td><code>\neq</code></td>
-          <td>不等于</td>
-      </tr>
-      <tr>
-          <td>$\approx$</td>
-          <td><code>\approx</code></td>
-          <td>约等于</td>
-      </tr>
-      <tr>
-          <td>$\equiv$</td>
-          <td><code>\equiv</code></td>
-          <td>恒等于</td>
-      </tr>
-      <tr>
-          <td>$&lt;$</td>
-          <td><code>&lt;</code></td>
-          <td>小于</td>
-      </tr>
-      <tr>
-          <td>$&gt;$</td>
-          <td><code>&gt;</code></td>
-          <td>大于</td>
-      </tr>
-      <tr>
-          <td>$\leq$</td>
-          <td><code>\leq</code></td>
-          <td>小于等于</td>
-      </tr>
-      <tr>
-          <td>$\geq$</td>
-          <td><code>\geq</code></td>
-          <td>大于等于</td>
-      </tr>
-      <tr>
-          <td>$\ll$</td>
-          <td><code>\ll</code></td>
-          <td>远小于</td>
-      </tr>
-      <tr>
-          <td>$\gg$</td>
-          <td><code>\gg</code></td>
-          <td>远大于</td>
-      </tr>
-      <tr>
-          <td>$\prec$</td>
-          <td><code>\prec</code></td>
-          <td>先于（偏序关系）</td>
-      </tr>
-      <tr>
-          <td>$\succ$</td>
-          <td><code>\succ</code></td>
-          <td>后于（偏序关系）</td>
-      </tr>
-      <tr>
-          <td>$\preceq$</td>
-          <td><code>\preceq</code></td>
-          <td>小于等于（偏序）</td>
-      </tr>
-      <tr>
-          <td>$\succeq$</td>
-          <td><code>\succeq</code></td>
-          <td>大于等于（偏序）</td>
-      </tr>
-      <tr>
-          <td>$\sim$</td>
-          <td><code>\sim</code></td>
-          <td>相似于</td>
-      </tr>
-      <tr>
-          <td>$\nsim$</td>
-          <td><code>\nsim</code></td>
-          <td>不相似</td>
-      </tr>
-      <tr>
-          <td>$\simeq$</td>
-          <td><code>\simeq</code></td>
-          <td>同构</td>
-      </tr>
-      <tr>
-          <td>$\asymp$</td>
-          <td><code>\asymp</code></td>
-          <td>渐近等于</td>
-      </tr>
-      <tr>
-          <td>$\propto$</td>
-          <td><code>\propto</code></td>
-          <td>成比例</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$=$</td>
+					<td><code>=</code></td>
+					<td>等于</td>
+			</tr>
+			<tr>
+					<td>$\neq$</td>
+					<td><code>\neq</code></td>
+					<td>不等于</td>
+			</tr>
+			<tr>
+					<td>$\approx$</td>
+					<td><code>\approx</code></td>
+					<td>约等于</td>
+			</tr>
+			<tr>
+					<td>$\equiv$</td>
+					<td><code>\equiv</code></td>
+					<td>恒等于</td>
+			</tr>
+			<tr>
+					<td>$&lt;$</td>
+					<td><code>&lt;</code></td>
+					<td>小于</td>
+			</tr>
+			<tr>
+					<td>$&gt;$</td>
+					<td><code>&gt;</code></td>
+					<td>大于</td>
+			</tr>
+			<tr>
+					<td>$\leq$</td>
+					<td><code>\leq</code></td>
+					<td>小于等于</td>
+			</tr>
+			<tr>
+					<td>$\geq$</td>
+					<td><code>\geq</code></td>
+					<td>大于等于</td>
+			</tr>
+			<tr>
+					<td>$\ll$</td>
+					<td><code>\ll</code></td>
+					<td>远小于</td>
+			</tr>
+			<tr>
+					<td>$\gg$</td>
+					<td><code>\gg</code></td>
+					<td>远大于</td>
+			</tr>
+			<tr>
+					<td>$\prec$</td>
+					<td><code>\prec</code></td>
+					<td>先于（偏序关系）</td>
+			</tr>
+			<tr>
+					<td>$\succ$</td>
+					<td><code>\succ</code></td>
+					<td>后于（偏序关系）</td>
+			</tr>
+			<tr>
+					<td>$\preceq$</td>
+					<td><code>\preceq</code></td>
+					<td>小于等于（偏序）</td>
+			</tr>
+			<tr>
+					<td>$\succeq$</td>
+					<td><code>\succeq</code></td>
+					<td>大于等于（偏序）</td>
+			</tr>
+			<tr>
+					<td>$\sim$</td>
+					<td><code>\sim</code></td>
+					<td>相似于</td>
+			</tr>
+			<tr>
+					<td>$\nsim$</td>
+					<td><code>\nsim</code></td>
+					<td>不相似</td>
+			</tr>
+			<tr>
+					<td>$\simeq$</td>
+					<td><code>\simeq</code></td>
+					<td>同构</td>
+			</tr>
+			<tr>
+					<td>$\asymp$</td>
+					<td><code>\asymp</code></td>
+					<td>渐近等于</td>
+			</tr>
+			<tr>
+					<td>$\propto$</td>
+					<td><code>\propto</code></td>
+					<td>成比例</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-6-逻辑符号"><strong>🧠 6. 逻辑符号</strong><a hidden class="anchor" aria-hidden="true" href="#-6-逻辑符号">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\wedge$</td>
-          <td><code>\wedge</code></td>
-          <td>逻辑与（合取）</td>
-      </tr>
-      <tr>
-          <td>$\vee$</td>
-          <td><code>\vee</code></td>
-          <td>逻辑或（析取）</td>
-      </tr>
-      <tr>
-          <td>$\neg$</td>
-          <td><code>\neg</code></td>
-          <td>逻辑非（否定）</td>
-      </tr>
-      <tr>
-          <td>$\Rightarrow$</td>
-          <td><code>\Rightarrow</code></td>
-          <td>蕴含（如果&hellip;那么）</td>
-      </tr>
-      <tr>
-          <td>$\Leftrightarrow$</td>
-          <td><code>\Leftrightarrow</code></td>
-          <td>当且仅当</td>
-      </tr>
-      <tr>
-          <td>$\forall$</td>
-          <td><code>\forall</code></td>
-          <td>对所有</td>
-      </tr>
-      <tr>
-          <td>$\exists$</td>
-          <td><code>\exists</code></td>
-          <td>存在</td>
-      </tr>
-      <tr>
-          <td>$\nexists$</td>
-          <td><code>\nexists</code></td>
-          <td>不存在</td>
-      </tr>
-      <tr>
-          <td>$\top$</td>
-          <td><code>\top</code></td>
-          <td>逻辑真</td>
-      </tr>
-      <tr>
-          <td>$\bot$</td>
-          <td><code>\bot</code></td>
-          <td>逻辑假</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\wedge$</td>
+					<td><code>\wedge</code></td>
+					<td>逻辑与（合取）</td>
+			</tr>
+			<tr>
+					<td>$\vee$</td>
+					<td><code>\vee</code></td>
+					<td>逻辑或（析取）</td>
+			</tr>
+			<tr>
+					<td>$\neg$</td>
+					<td><code>\neg</code></td>
+					<td>逻辑非（否定）</td>
+			</tr>
+			<tr>
+					<td>$\Rightarrow$</td>
+					<td><code>\Rightarrow</code></td>
+					<td>蕴含（如果&hellip;那么）</td>
+			</tr>
+			<tr>
+					<td>$\Leftrightarrow$</td>
+					<td><code>\Leftrightarrow</code></td>
+					<td>当且仅当</td>
+			</tr>
+			<tr>
+					<td>$\forall$</td>
+					<td><code>\forall</code></td>
+					<td>对所有</td>
+			</tr>
+			<tr>
+					<td>$\exists$</td>
+					<td><code>\exists</code></td>
+					<td>存在</td>
+			</tr>
+			<tr>
+					<td>$\nexists$</td>
+					<td><code>\nexists</code></td>
+					<td>不存在</td>
+			</tr>
+			<tr>
+					<td>$\top$</td>
+					<td><code>\top</code></td>
+					<td>逻辑真</td>
+			</tr>
+			<tr>
+					<td>$\bot$</td>
+					<td><code>\bot</code></td>
+					<td>逻辑假</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-7-集合符号"><strong>📦 7. 集合符号</strong><a hidden class="anchor" aria-hidden="true" href="#-7-集合符号">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\emptyset$</td>
-          <td><code>\emptyset</code></td>
-          <td>空集</td>
-      </tr>
-      <tr>
-          <td>$\in$</td>
-          <td><code>\in</code></td>
-          <td>属于</td>
-      </tr>
-      <tr>
-          <td>$\notin$</td>
-          <td><code>\notin</code></td>
-          <td>不属于</td>
-      </tr>
-      <tr>
-          <td>$\subseteq$</td>
-          <td><code>\subseteq</code></td>
-          <td>子集</td>
-      </tr>
-      <tr>
-          <td>$\subset$</td>
-          <td><code>\subset</code></td>
-          <td>真子集</td>
-      </tr>
-      <tr>
-          <td>$\nsubseteq$</td>
-          <td><code>\nsubseteq</code></td>
-          <td>不是子集</td>
-      </tr>
-      <tr>
-          <td>$\supset$</td>
-          <td><code>\supset</code></td>
-          <td>包含</td>
-      </tr>
-      <tr>
-          <td>$\supseteq$</td>
-          <td><code>\supseteq</code></td>
-          <td>超集</td>
-      </tr>
-      <tr>
-          <td>$\nsupseteq$</td>
-          <td><code>\nsupseteq</code></td>
-          <td>不是超集</td>
-      </tr>
-      <tr>
-          <td>$\cup$</td>
-          <td><code>\cup</code></td>
-          <td>并集</td>
-      </tr>
-      <tr>
-          <td>$\cap$</td>
-          <td><code>\cap</code></td>
-          <td>交集</td>
-      </tr>
-      <tr>
-          <td>$\setminus$</td>
-          <td><code>\setminus</code></td>
-          <td>差集</td>
-      </tr>
-      <tr>
-          <td>$\bigcup$</td>
-          <td><code>\bigcup</code></td>
-          <td>大并集</td>
-      </tr>
-      <tr>
-          <td>$\bigcap$</td>
-          <td><code>\bigcap</code></td>
-          <td>大交集</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\emptyset$</td>
+					<td><code>\emptyset</code></td>
+					<td>空集</td>
+			</tr>
+			<tr>
+					<td>$\in$</td>
+					<td><code>\in</code></td>
+					<td>属于</td>
+			</tr>
+			<tr>
+					<td>$\notin$</td>
+					<td><code>\notin</code></td>
+					<td>不属于</td>
+			</tr>
+			<tr>
+					<td>$\subseteq$</td>
+					<td><code>\subseteq</code></td>
+					<td>子集</td>
+			</tr>
+			<tr>
+					<td>$\subset$</td>
+					<td><code>\subset</code></td>
+					<td>真子集</td>
+			</tr>
+			<tr>
+					<td>$\nsubseteq$</td>
+					<td><code>\nsubseteq</code></td>
+					<td>不是子集</td>
+			</tr>
+			<tr>
+					<td>$\supset$</td>
+					<td><code>\supset</code></td>
+					<td>包含</td>
+			</tr>
+			<tr>
+					<td>$\supseteq$</td>
+					<td><code>\supseteq</code></td>
+					<td>超集</td>
+			</tr>
+			<tr>
+					<td>$\nsupseteq$</td>
+					<td><code>\nsupseteq</code></td>
+					<td>不是超集</td>
+			</tr>
+			<tr>
+					<td>$\cup$</td>
+					<td><code>\cup</code></td>
+					<td>并集</td>
+			</tr>
+			<tr>
+					<td>$\cap$</td>
+					<td><code>\cap</code></td>
+					<td>交集</td>
+			</tr>
+			<tr>
+					<td>$\setminus$</td>
+					<td><code>\setminus</code></td>
+					<td>差集</td>
+			</tr>
+			<tr>
+					<td>$\bigcup$</td>
+					<td><code>\bigcup</code></td>
+					<td>大并集</td>
+			</tr>
+			<tr>
+					<td>$\bigcap$</td>
+					<td><code>\bigcap</code></td>
+					<td>大交集</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-8-箭头符号"><strong>↔️ 8. 箭头符号</strong><a hidden class="anchor" aria-hidden="true" href="#-8-箭头符号">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\to$</td>
-          <td><code>\to</code></td>
-          <td>右箭头</td>
-      </tr>
-      <tr>
-          <td>$\leftarrow$</td>
-          <td><code>\leftarrow</code></td>
-          <td>左箭头</td>
-      </tr>
-      <tr>
-          <td>$\Rightarrow$</td>
-          <td><code>\Rightarrow</code></td>
-          <td>右蕴含箭头</td>
-      </tr>
-      <tr>
-          <td>$\Leftarrow$</td>
-          <td><code>\Leftarrow</code></td>
-          <td>左蕴含箭头</td>
-      </tr>
-      <tr>
-          <td>$\leftrightarrow$</td>
-          <td><code>\leftrightarrow</code></td>
-          <td>左右箭头</td>
-      </tr>
-      <tr>
-          <td>$\Leftrightarrow$</td>
-          <td><code>\Leftrightarrow</code></td>
-          <td>双向蕴含箭头</td>
-      </tr>
-      <tr>
-          <td>$\longrightarrow$</td>
-          <td><code>\longrightarrow</code></td>
-          <td>长右箭头</td>
-      </tr>
-      <tr>
-          <td>$\longleftarrow$</td>
-          <td><code>\longleftarrow</code></td>
-          <td>长左箭头</td>
-      </tr>
-      <tr>
-          <td>$\mapsto$</td>
-          <td><code>\mapsto</code></td>
-          <td>映射箭头</td>
-      </tr>
-      <tr>
-          <td>$\longmapsto$</td>
-          <td><code>\longmapsto</code></td>
-          <td>长映射箭头</td>
-      </tr>
-      <tr>
-          <td>$\uparrow$</td>
-          <td><code>\uparrow</code></td>
-          <td>向上箭头</td>
-      </tr>
-      <tr>
-          <td>$\downarrow$</td>
-          <td><code>\downarrow</code></td>
-          <td>向下箭头</td>
-      </tr>
-      <tr>
-          <td>$\updownarrow$</td>
-          <td><code>\updownarrow</code></td>
-          <td>上下箭头</td>
-      </tr>
-      <tr>
-          <td>$\Uparrow$</td>
-          <td><code>\Uparrow</code></td>
-          <td>向上双箭头</td>
-      </tr>
-      <tr>
-          <td>$\Downarrow$</td>
-          <td><code>\Downarrow</code></td>
-          <td>向下双箭头</td>
-      </tr>
-      <tr>
-          <td>$\Updownarrow$</td>
-          <td><code>\Updownarrow</code></td>
-          <td>上下双箭头</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\to$</td>
+					<td><code>\to</code></td>
+					<td>右箭头</td>
+			</tr>
+			<tr>
+					<td>$\leftarrow$</td>
+					<td><code>\leftarrow</code></td>
+					<td>左箭头</td>
+			</tr>
+			<tr>
+					<td>$\Rightarrow$</td>
+					<td><code>\Rightarrow</code></td>
+					<td>右蕴含箭头</td>
+			</tr>
+			<tr>
+					<td>$\Leftarrow$</td>
+					<td><code>\Leftarrow</code></td>
+					<td>左蕴含箭头</td>
+			</tr>
+			<tr>
+					<td>$\leftrightarrow$</td>
+					<td><code>\leftrightarrow</code></td>
+					<td>左右箭头</td>
+			</tr>
+			<tr>
+					<td>$\Leftrightarrow$</td>
+					<td><code>\Leftrightarrow</code></td>
+					<td>双向蕴含箭头</td>
+			</tr>
+			<tr>
+					<td>$\longrightarrow$</td>
+					<td><code>\longrightarrow</code></td>
+					<td>长右箭头</td>
+			</tr>
+			<tr>
+					<td>$\longleftarrow$</td>
+					<td><code>\longleftarrow</code></td>
+					<td>长左箭头</td>
+			</tr>
+			<tr>
+					<td>$\mapsto$</td>
+					<td><code>\mapsto</code></td>
+					<td>映射箭头</td>
+			</tr>
+			<tr>
+					<td>$\longmapsto$</td>
+					<td><code>\longmapsto</code></td>
+					<td>长映射箭头</td>
+			</tr>
+			<tr>
+					<td>$\uparrow$</td>
+					<td><code>\uparrow</code></td>
+					<td>向上箭头</td>
+			</tr>
+			<tr>
+					<td>$\downarrow$</td>
+					<td><code>\downarrow</code></td>
+					<td>向下箭头</td>
+			</tr>
+			<tr>
+					<td>$\updownarrow$</td>
+					<td><code>\updownarrow</code></td>
+					<td>上下箭头</td>
+			</tr>
+			<tr>
+					<td>$\Uparrow$</td>
+					<td><code>\Uparrow</code></td>
+					<td>向上双箭头</td>
+			</tr>
+			<tr>
+					<td>$\Downarrow$</td>
+					<td><code>\Downarrow</code></td>
+					<td>向下双箭头</td>
+			</tr>
+			<tr>
+					<td>$\Updownarrow$</td>
+					<td><code>\Updownarrow</code></td>
+					<td>上下双箭头</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="-9-分数"><strong>🔢 9. 分数</strong><a hidden class="anchor" aria-hidden="true" href="#-9-分数">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\frac{a}{b}$</td>
-          <td><code>\frac{a}{b}</code></td>
-          <td>普通分数</td>
-      </tr>
-      <tr>
-          <td>$\dfrac{a}{b}$</td>
-          <td><code>\dfrac{a}{b}</code></td>
-          <td>强制分数（适用于行内公式）</td>
-      </tr>
-      <tr>
-          <td>$\tfrac{a}{b}$</td>
-          <td><code>\tfrac{a}{b}</code></td>
-          <td>小型分数（适用于较小的公式）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\frac{a}{b}$</td>
+					<td><code>\frac{a}{b}</code></td>
+					<td>普通分数</td>
+			</tr>
+			<tr>
+					<td>$\dfrac{a}{b}$</td>
+					<td><code>\dfrac{a}{b}</code></td>
+					<td>强制分数（适用于行内公式）</td>
+			</tr>
+			<tr>
+					<td>$\tfrac{a}{b}$</td>
+					<td><code>\tfrac{a}{b}</code></td>
+					<td>小型分数（适用于较小的公式）</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-10-根式"><strong>✔️ 10. 根式</strong><a hidden class="anchor" aria-hidden="true" href="#-10-根式">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\sqrt{x}$</td>
-          <td><code>\sqrt{x}</code></td>
-          <td>平方根</td>
-      </tr>
-      <tr>
-          <td>$\sqrt[n]{x}$</td>
-          <td><code>\sqrt[n]{x}</code></td>
-          <td>n 次方根</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\sqrt{x}$</td>
+					<td><code>\sqrt{x}</code></td>
+					<td>平方根</td>
+			</tr>
+			<tr>
+					<td>$\sqrt[n]{x}$</td>
+					<td><code>\sqrt[n]{x}</code></td>
+					<td>n 次方根</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-11-指数与对数"><strong>📈 11. 指数与对数</strong><a hidden class="anchor" aria-hidden="true" href="#-11-指数与对数">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$a^b$</td>
-          <td><code>a^b</code></td>
-          <td>指数</td>
-      </tr>
-      <tr>
-          <td>$e^x$</td>
-          <td><code>e^x</code></td>
-          <td>自然指数</td>
-      </tr>
-      <tr>
-          <td>$\log x$</td>
-          <td><code>\log x</code></td>
-          <td>对数（默认底数为10）</td>
-      </tr>
-      <tr>
-          <td>$\ln x$</td>
-          <td><code>\ln x</code></td>
-          <td>自然对数（底数为 e）</td>
-      </tr>
-      <tr>
-          <td>$\log_a b$</td>
-          <td><code>\log_a b</code></td>
-          <td>底数 a 的对数</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$a^b$</td>
+					<td><code>a^b</code></td>
+					<td>指数</td>
+			</tr>
+			<tr>
+					<td>$e^x$</td>
+					<td><code>e^x</code></td>
+					<td>自然指数</td>
+			</tr>
+			<tr>
+					<td>$\log x$</td>
+					<td><code>\log x</code></td>
+					<td>对数（默认底数为10）</td>
+			</tr>
+			<tr>
+					<td>$\ln x$</td>
+					<td><code>\ln x</code></td>
+					<td>自然对数（底数为 e）</td>
+			</tr>
+			<tr>
+					<td>$\log_a b$</td>
+					<td><code>\log_a b</code></td>
+					<td>底数 a 的对数</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-12-微分与导数"><strong>📉 12. 微分与导数</strong><a hidden class="anchor" aria-hidden="true" href="#-12-微分与导数">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\frac{d}{dx} f(x)$</td>
-          <td><code>\frac{d}{dx} f(x)</code></td>
-          <td>一阶导数</td>
-      </tr>
-      <tr>
-          <td>$\frac{d^2}{dx^2} f(x)$</td>
-          <td><code>\frac{d^2}{dx^2} f(x)</code></td>
-          <td>二阶导数</td>
-      </tr>
-      <tr>
-          <td>$\frac{\partial f}{\partial x}$</td>
-          <td><code>\frac{\partial f}{\partial x}</code></td>
-          <td>偏导数</td>
-      </tr>
-      <tr>
-          <td>$\nabla f$</td>
-          <td><code>\nabla f</code></td>
-          <td>梯度</td>
-      </tr>
-      <tr>
-          <td>$\Delta f$</td>
-          <td><code>\Delta f</code></td>
-          <td>拉普拉斯算子</td>
-      </tr>
-      <tr>
-          <td>$\dot{x}$</td>
-          <td><code>\dot{x}</code></td>
-          <td>一阶导数（牛顿记号）</td>
-      </tr>
-      <tr>
-          <td>$\ddot{x}$</td>
-          <td><code>\ddot{x}</code></td>
-          <td>二阶导数（牛顿记号）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\frac{d}{dx} f(x)$</td>
+					<td><code>\frac{d}{dx} f(x)</code></td>
+					<td>一阶导数</td>
+			</tr>
+			<tr>
+					<td>$\frac{d^2}{dx^2} f(x)$</td>
+					<td><code>\frac{d^2}{dx^2} f(x)</code></td>
+					<td>二阶导数</td>
+			</tr>
+			<tr>
+					<td>$\frac{\partial f}{\partial x}$</td>
+					<td><code>\frac{\partial f}{\partial x}</code></td>
+					<td>偏导数</td>
+			</tr>
+			<tr>
+					<td>$\nabla f$</td>
+					<td><code>\nabla f</code></td>
+					<td>梯度</td>
+			</tr>
+			<tr>
+					<td>$\Delta f$</td>
+					<td><code>\Delta f</code></td>
+					<td>拉普拉斯算子</td>
+			</tr>
+			<tr>
+					<td>$\dot{x}$</td>
+					<td><code>\dot{x}</code></td>
+					<td>一阶导数（牛顿记号）</td>
+			</tr>
+			<tr>
+					<td>$\ddot{x}$</td>
+					<td><code>\ddot{x}</code></td>
+					<td>二阶导数（牛顿记号）</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-13-极限"><strong>🔝 13. 极限</strong><a hidden class="anchor" aria-hidden="true" href="#-13-极限">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\lim_{x \to a} f(x)$</td>
-          <td><code>\lim_{x \to a} f(x)</code></td>
-          <td>极限</td>
-      </tr>
-      <tr>
-          <td>$\lim_{x \to \infty} f(x)$</td>
-          <td><code>\lim_{x \to \infty} f(x)</code></td>
-          <td>无穷极限</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\lim_{x \to a} f(x)$</td>
+					<td><code>\lim_{x \to a} f(x)</code></td>
+					<td>极限</td>
+			</tr>
+			<tr>
+					<td>$\lim_{x \to \infty} f(x)$</td>
+					<td><code>\lim_{x \to \infty} f(x)</code></td>
+					<td>无穷极限</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-14-积分"><strong>∫ 14. 积分</strong><a hidden class="anchor" aria-hidden="true" href="#-14-积分">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\int f(x)dx$</td>
-          <td><code>\int f(x)dx</code></td>
-          <td>不定积分</td>
-      </tr>
-      <tr>
-          <td>$\int_{a}^{b} f(x)dx$</td>
-          <td><code>\int_{a}^{b} f(x)dx</code></td>
-          <td>定积分</td>
-      </tr>
-      <tr>
-          <td>$\iint f(x,y)dxdy$</td>
-          <td><code>\iint f(x,y)dxdy</code></td>
-          <td>二重积分</td>
-      </tr>
-      <tr>
-          <td>$\iiint f(x,y,z)dxdydz$</td>
-          <td><code>\iiint f(x,y,z)dxdydz</code></td>
-          <td>三重积分</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\int f(x)dx$</td>
+					<td><code>\int f(x)dx</code></td>
+					<td>不定积分</td>
+			</tr>
+			<tr>
+					<td>$\int_{a}^{b} f(x)dx$</td>
+					<td><code>\int_{a}^{b} f(x)dx</code></td>
+					<td>定积分</td>
+			</tr>
+			<tr>
+					<td>$\iint f(x,y)dxdy$</td>
+					<td><code>\iint f(x,y)dxdy</code></td>
+					<td>二重积分</td>
+			</tr>
+			<tr>
+					<td>$\iiint f(x,y,z)dxdydz$</td>
+					<td><code>\iiint f(x,y,z)dxdydz</code></td>
+					<td>三重积分</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-15-矩阵"><strong>✍️ 15. 矩阵</strong><a hidden class="anchor" aria-hidden="true" href="#-15-矩阵">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$</td>
-          <td><code>\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}</code></td>
-          <td>方括号矩阵</td>
-      </tr>
-      <tr>
-          <td>$\begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}$</td>
-          <td><code>\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</code></td>
-          <td>圆括号矩阵</td>
-      </tr>
-      <tr>
-          <td>$\begin{vmatrix} a &amp; b \ c &amp; d \end{vmatrix}$</td>
-          <td><code>\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}</code></td>
-          <td>行列式</td>
-      </tr>
-      <tr>
-          <td>$\begin{Vmatrix} a &amp; b \ c &amp; d \end{Vmatrix}$</td>
-          <td><code>\begin{Vmatrix} a &amp; b \\ c &amp; d \end{Vmatrix}</code></td>
-          <td>双竖线矩阵</td>
-      </tr>
-      <tr>
-          <td>$\begin{matrix} a &amp; b \ c &amp; d \end{matrix}$</td>
-          <td><code>\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}</code></td>
-          <td>无括号矩阵</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\begin{bmatrix} a &amp; b \ c &amp; d \end{bmatrix}$</td>
+					<td><code>\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}</code></td>
+					<td>方括号矩阵</td>
+			</tr>
+			<tr>
+					<td>$\begin{pmatrix} a &amp; b \ c &amp; d \end{pmatrix}$</td>
+					<td><code>\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</code></td>
+					<td>圆括号矩阵</td>
+			</tr>
+			<tr>
+					<td>$\begin{vmatrix} a &amp; b \ c &amp; d \end{vmatrix}$</td>
+					<td><code>\begin{vmatrix} a &amp; b \\ c &amp; d \end{vmatrix}</code></td>
+					<td>行列式</td>
+			</tr>
+			<tr>
+					<td>$\begin{Vmatrix} a &amp; b \ c &amp; d \end{Vmatrix}$</td>
+					<td><code>\begin{Vmatrix} a &amp; b \\ c &amp; d \end{Vmatrix}</code></td>
+					<td>双竖线矩阵</td>
+			</tr>
+			<tr>
+					<td>$\begin{matrix} a &amp; b \ c &amp; d \end{matrix}$</td>
+					<td><code>\begin{matrix} a &amp; b \\ c &amp; d \end{matrix}</code></td>
+					<td>无括号矩阵</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-16-向量"><strong>➡️ 16. 向量</strong><a hidden class="anchor" aria-hidden="true" href="#-16-向量">#</a></h2>
 <h3 id="161-向量的加粗表示"><strong>16.1 向量的加粗表示</strong><a hidden class="anchor" aria-hidden="true" href="#161-向量的加粗表示">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\mathbf{v}$</td>
-          <td><code>\mathbf{v}</code></td>
-          <td>向量，适用于字母</td>
-      </tr>
-      <tr>
-          <td>$\mathbf{v}$</td>
-          <td><code>\bm{v}</code></td>
-          <td>加粗向量（适用于所有数学符号，需 <code>\usepackage{bm}</code>）</td>
-      </tr>
-      <tr>
-          <td>$\boldsymbol{\alpha}$</td>
-          <td><code>\boldsymbol{\alpha}</code></td>
-          <td>加粗希腊字母（适用于 <code>\alpha, \beta</code> 等）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\mathbf{v}$</td>
+					<td><code>\mathbf{v}</code></td>
+					<td>向量，适用于字母</td>
+			</tr>
+			<tr>
+					<td>$\mathbf{v}$</td>
+					<td><code>\bm{v}</code></td>
+					<td>加粗向量（适用于所有数学符号，需 <code>\usepackage{bm}</code>）</td>
+			</tr>
+			<tr>
+					<td>$\boldsymbol{\alpha}$</td>
+					<td><code>\boldsymbol{\alpha}</code></td>
+					<td>加粗希腊字母（适用于 <code>\alpha, \beta</code> 等）</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="162-向量的箭头表示"><strong>16.2. 向量的箭头表示</strong><a hidden class="anchor" aria-hidden="true" href="#162-向量的箭头表示">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\vec{v}$</td>
-          <td><code>\vec{v}</code></td>
-          <td>向量符号，表示带箭头的向量</td>
-      </tr>
-      <tr>
-          <td>$\overrightarrow{AB}$</td>
-          <td><code>\overrightarrow{AB}</code></td>
-          <td>表示从 A 指向 B 的向量</td>
-      </tr>
-      <tr>
-          <td>$\overleftarrow{AB}$</td>
-          <td><code>\overleftarrow{AB}</code></td>
-          <td>表示从 B 指向 A 的向量</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\vec{v}$</td>
+					<td><code>\vec{v}</code></td>
+					<td>向量符号，表示带箭头的向量</td>
+			</tr>
+			<tr>
+					<td>$\overrightarrow{AB}$</td>
+					<td><code>\overrightarrow{AB}</code></td>
+					<td>表示从 A 指向 B 的向量</td>
+			</tr>
+			<tr>
+					<td>$\overleftarrow{AB}$</td>
+					<td><code>\overleftarrow{AB}</code></td>
+					<td>表示从 B 指向 A 的向量</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="163-单位向量"><strong>16.3 单位向量</strong><a hidden class="anchor" aria-hidden="true" href="#163-单位向量">#</a></h3>
 <p>单位向量表示方向向量，通常用 <strong>加帽符号</strong>：</p>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\hat{v}$</td>
-          <td><code>\hat{v}</code></td>
-          <td>单位向量</td>
-      </tr>
-      <tr>
-          <td>$\hat{i}, \hat{j}, \hat{k}$</td>
-          <td><code>\hat{i}, \hat{j}, \hat{k}</code></td>
-          <td>直角坐标系中的标准基向量</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\hat{v}$</td>
+					<td><code>\hat{v}</code></td>
+					<td>单位向量</td>
+			</tr>
+			<tr>
+					<td>$\hat{i}, \hat{j}, \hat{k}$</td>
+					<td><code>\hat{i}, \hat{j}, \hat{k}</code></td>
+					<td>直角坐标系中的标准基向量</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="164-向量的点积与叉积"><strong>16.4 向量的点积与叉积</strong><a hidden class="anchor" aria-hidden="true" href="#164-向量的点积与叉积">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\mathbf{a} \cdot \mathbf{b}$</td>
-          <td><code>\mathbf{a} \cdot \mathbf{b}</code></td>
-          <td>向量的点积</td>
-      </tr>
-      <tr>
-          <td>$\mathbf{a} \times \mathbf{b}$</td>
-          <td><code>\mathbf{a} \times \mathbf{b}</code></td>
-          <td>向量的叉积</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\mathbf{a} \cdot \mathbf{b}$</td>
+					<td><code>\mathbf{a} \cdot \mathbf{b}</code></td>
+					<td>向量的点积</td>
+			</tr>
+			<tr>
+					<td>$\mathbf{a} \times \mathbf{b}$</td>
+					<td><code>\mathbf{a} \times \mathbf{b}</code></td>
+					<td>向量的叉积</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-17-方程与方程组">🔄 <strong>17. 方程与方程组</strong><a hidden class="anchor" aria-hidden="true" href="#-17-方程与方程组">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\begin{align} x + y &amp;= 2 \ x - y &amp;= 0 \end{align}$</td>
-          <td><code>\begin{align} x + y &amp;= 2 \\ x - y &amp;= 0 \end{align}</code></td>
-          <td>对齐的方程组</td>
-      </tr>
-      <tr>
-          <td>$\begin{cases} ax + by = c \ dx + ey = f \end{cases}$</td>
-          <td><code>\begin{cases} ax + by = c \\ dx + ey = f \end{cases}</code></td>
-          <td>分段定义或方程组</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\begin{align} x + y &amp;= 2 \ x - y &amp;= 0 \end{align}$</td>
+					<td><code>\begin{align} x + y &amp;= 2 \\ x - y &amp;= 0 \end{align}</code></td>
+					<td>对齐的方程组</td>
+			</tr>
+			<tr>
+					<td>$\begin{cases} ax + by = c \ dx + ey = f \end{cases}$</td>
+					<td><code>\begin{cases} ax + by = c \\ dx + ey = f \end{cases}</code></td>
+					<td>分段定义或方程组</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-18-空格与换行">✏️ <strong>18. 空格与换行</strong><a hidden class="anchor" aria-hidden="true" href="#-18-空格与换行">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$a\ b$</td>
-          <td><code>a\ b</code></td>
-          <td>小空格</td>
-      </tr>
-      <tr>
-          <td>$a\quad b$</td>
-          <td><code>a\quad b</code></td>
-          <td>大空格</td>
-      </tr>
-      <tr>
-          <td>$a\qquad b$</td>
-          <td><code>a\qquad b</code></td>
-          <td>超大空格</td>
-      </tr>
-      <tr>
-          <td>$a\ b$</td>
-          <td><code>a\\ b</code></td>
-          <td>换行</td>
-      </tr>
-      <tr>
-          <td>$a,b$</td>
-          <td><code>a\,b</code></td>
-          <td>细小空格</td>
-      </tr>
-      <tr>
-          <td>$a!b$</td>
-          <td><code>a\!b</code></td>
-          <td>负空格（缩小间距）</td>
-      </tr>
-      <tr>
-          <td>$\text{This is a~test.}$</td>
-          <td><code>\text{This is a~test.}</code></td>
-          <td>硬空格</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$a\ b$</td>
+					<td><code>a\ b</code></td>
+					<td>小空格</td>
+			</tr>
+			<tr>
+					<td>$a\quad b$</td>
+					<td><code>a\quad b</code></td>
+					<td>大空格</td>
+			</tr>
+			<tr>
+					<td>$a\qquad b$</td>
+					<td><code>a\qquad b</code></td>
+					<td>超大空格</td>
+			</tr>
+			<tr>
+					<td>$a\ b$</td>
+					<td><code>a\\ b</code></td>
+					<td>换行</td>
+			</tr>
+			<tr>
+					<td>$a,b$</td>
+					<td><code>a\,b</code></td>
+					<td>细小空格</td>
+			</tr>
+			<tr>
+					<td>$a!b$</td>
+					<td><code>a\!b</code></td>
+					<td>负空格（缩小间距）</td>
+			</tr>
+			<tr>
+					<td>$\text{This is a~test.}$</td>
+					<td><code>\text{This is a~test.}</code></td>
+					<td>硬空格</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-19-颜色">🎨 <strong>19. 颜色</strong><a hidden class="anchor" aria-hidden="true" href="#-19-颜色">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\textcolor{red}{text}$</td>
-          <td><code>\textcolor{red}{text}</code></td>
-          <td>颜色（红色）</td>
-      </tr>
-      <tr>
-          <td>$\textcolor{blue}{text}$</td>
-          <td><code>\textcolor{blue}{text}</code></td>
-          <td>颜色（蓝色）</td>
-      </tr>
-      <tr>
-          <td>$\color{green}text$</td>
-          <td><code>\color{green}text</code></td>
-          <td>颜色（绿色）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\textcolor{red}{text}$</td>
+					<td><code>\textcolor{red}{text}</code></td>
+					<td>颜色（红色）</td>
+			</tr>
+			<tr>
+					<td>$\textcolor{blue}{text}$</td>
+					<td><code>\textcolor{blue}{text}</code></td>
+					<td>颜色（蓝色）</td>
+			</tr>
+			<tr>
+					<td>$\color{green}text$</td>
+					<td><code>\color{green}text</code></td>
+					<td>颜色（绿色）</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-20-字体">🖍️ <strong>20. 字体</strong><a hidden class="anchor" aria-hidden="true" href="#-20-字体">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>符号</th>
-          <th>LaTeX 代码</th>
-          <th>中文说明</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>$\mathbf{x}$</td>
-          <td><code>\mathbf{x}</code></td>
-          <td>加粗</td>
-      </tr>
-      <tr>
-          <td>$\mathit{x}$</td>
-          <td><code>\mathit{x}</code></td>
-          <td>斜体</td>
-      </tr>
-      <tr>
-          <td>$\mathcal{L}$</td>
-          <td><code>\mathcal{L}</code></td>
-          <td>手写体</td>
-      </tr>
-      <tr>
-          <td>$\mathbb{R}$</td>
-          <td><code>\mathbb{R}</code></td>
-          <td>黑板体（常用于数集）</td>
-      </tr>
-      <tr>
-          <td>$\mathrm{x}$</td>
-          <td><code>\mathrm{x}</code></td>
-          <td>直立体</td>
-      </tr>
-      <tr>
-          <td>$\mathtt{x}$</td>
-          <td><code>\mathtt{x}</code></td>
-          <td>打字机字体</td>
-      </tr>
-      <tr>
-          <td>$\mathscr{L}$</td>
-          <td><code>\mathscr{L}</code></td>
-          <td>花体（数学符号）</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>符号</th>
+					<th>LaTeX 代码</th>
+					<th>中文说明</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>$\mathbf{x}$</td>
+					<td><code>\mathbf{x}</code></td>
+					<td>加粗</td>
+			</tr>
+			<tr>
+					<td>$\mathit{x}$</td>
+					<td><code>\mathit{x}</code></td>
+					<td>斜体</td>
+			</tr>
+			<tr>
+					<td>$\mathcal{L}$</td>
+					<td><code>\mathcal{L}</code></td>
+					<td>手写体</td>
+			</tr>
+			<tr>
+					<td>$\mathbb{R}$</td>
+					<td><code>\mathbb{R}</code></td>
+					<td>黑板体（常用于数集）</td>
+			</tr>
+			<tr>
+					<td>$\mathrm{x}$</td>
+					<td><code>\mathrm{x}</code></td>
+					<td>直立体</td>
+			</tr>
+			<tr>
+					<td>$\mathtt{x}$</td>
+					<td><code>\mathtt{x}</code></td>
+					<td>打字机字体</td>
+			</tr>
+			<tr>
+					<td>$\mathscr{L}$</td>
+					<td><code>\mathscr{L}</code></td>
+					<td>花体（数学符号）</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h1 id="完整示例">💎<strong>完整示例</strong><a hidden class="anchor" aria-hidden="true" href="#完整示例">#</a></h1>
@@ -1759,7 +1734,7 @@ $$</p>
 <p>给定两个矩阵 $A \in \mathbb{R}^{m \times n}$ 和 $B \in \mathbb{R}^{n \times p}$，它们的<strong>矩阵乘法</strong>定义如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">C </span><span class="o">=</span><span class="nb"> AB, </span><span class="nv">\quad</span><span class="nb"> C_{ij} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{k</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{n} A_{ik} B_{kj}, </span><span class="nv">\quad</span><span class="nb"> C </span><span class="nv">\in</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{R}^{m </span><span class="nv">\times</span><span class="nb"> p}
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 C = AB, \quad C_{ij} = \sum_{k=1}^{n} A_{ik} B_{kj}, \quad C \in \mathbb{R}^{m \times p}
 $$</p>
@@ -1769,7 +1744,7 @@ $$</p>
 <p>对于方阵 $A \in \mathbb{R}^{n \times n}$，如果存在非零向量 $\bm{v}$ 和标量 $\lambda$ 使得：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">A</span><span class="nv">\mathbf</span><span class="nb">{v} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\lambda</span><span class="nb"> </span><span class="nv">\mathbf</span><span class="nb">{v}
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>则称 $\lambda$ 为矩阵 $A$ 的<strong>特征值</strong>，$\mathbf{v}$ 为对应的<strong>特征向量</strong>。</p>
 <p>$$
 A\mathbf{v} = \lambda \mathbf{v}
@@ -1780,7 +1755,7 @@ $$</p>
 <p>任意矩阵 $A \in \mathbb{R}^{m \times n}$ 可分解为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">A </span><span class="o">=</span><span class="nb"> U </span><span class="nv">\Sigma</span><span class="nb"> V^T
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>其中：</p>
 <ul>
 <li>$U \in \mathbb{R}^{m \times m}$ 是正交矩阵，</li>
@@ -1797,7 +1772,7 @@ $$</p>
 <p>对于事件 $A$ 和 $B$，如果 $P(B) &gt; 0$，则贝叶斯定理表示为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">P</span><span class="o">(</span><span class="nb">A </span><span class="nv">\mid</span><span class="nb"> B</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{P</span><span class="o">(</span><span class="nb">B </span><span class="nv">\mid</span><span class="nb"> A</span><span class="o">)</span><span class="nb"> P</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb">}{P</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="nb">}
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}
 $$</p>
@@ -1807,8 +1782,8 @@ $$</p>
 <h4 id="221-期望"><strong>2.2.1 期望</strong><a hidden class="anchor" aria-hidden="true" href="#221-期望">#</a></h4>
 <p>设随机变量 $X$ 服从概率分布 $P(X)$，则：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\mathbb</span><span class="nb">{E}</span><span class="o">[</span><span class="nb">X</span><span class="o">]</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{x} x P</span><span class="o">(</span><span class="nb">X </span><span class="o">=</span><span class="nb"> x</span><span class="o">)</span><span class="nb">
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="nv">\mathbb</span><span class="nb">{E}</span><span class="o">[</span><span class="nb">X</span><span class="o">]</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{x} x P</span><span class="o">(</span><span class="nb">X </span><span class="o">=</span><span class="nb"> x</span><span class="o">)</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 \mathbb{E}[X] = \sum_{x} x P(X = x)
 $$</p>
@@ -1816,8 +1791,8 @@ $$</p>
 <h4 id="222-方差"><strong>2.2.2 方差</strong><a hidden class="anchor" aria-hidden="true" href="#222-方差">#</a></h4>
 <p>随机变量 $X$ 的方差定义为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="nv">\mathrm</span><span class="nb">{Var}</span><span class="o">(</span><span class="nb">X</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{E}</span><span class="o">[(</span><span class="nb">X </span><span class="o">-</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{E}</span><span class="o">[</span><span class="nb">X</span><span class="o">])</span><span class="nb">^</span><span class="m">2</span><span class="o">]</span><span class="nb">
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="nv">\mathrm</span><span class="nb">{Var}</span><span class="o">(</span><span class="nb">X</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{E}</span><span class="o">[(</span><span class="nb">X </span><span class="o">-</span><span class="nb"> </span><span class="nv">\mathbb</span><span class="nb">{E}</span><span class="o">[</span><span class="nb">X</span><span class="o">])</span><span class="nb">^</span><span class="m">2</span><span class="o">]</span><span class="nb">
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 \mathrm{Var}(X) = \mathbb{E}[(X - \mathbb{E}[X])^2]
 $$</p>
@@ -1827,7 +1802,7 @@ $$</p>
 <p>随机变量 $X$ 服从均值 $\mu$，方差 $\sigma^2$ 的高斯分布（正态分布），其概率密度函数（PDF）为：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">p</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="m">2</span><span class="nb"> </span><span class="nv">\pi</span><span class="nb"> </span><span class="nv">\sigma</span><span class="nb">^</span><span class="m">2</span><span class="nb">}} </span><span class="nv">\exp</span><span class="nb"> </span><span class="nv">\left</span><span class="o">(-</span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">x </span><span class="o">-</span><span class="nb"> </span><span class="nv">\mu</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{</span><span class="m">2</span><span class="nv">\sigma</span><span class="nb">^</span><span class="m">2</span><span class="nb">} </span><span class="nv">\right</span><span class="o">)</span><span class="nb">
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp \left(-\frac{(x - \mu)^2}{2\sigma^2} \right)
 $$</p>
@@ -1838,14 +1813,14 @@ $$</p>
 <p>在<strong>线性回归模型</strong>中，如果试图找到一个线性函数来拟合数据点 $(x_i, y_i)$，那么数学表达式如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">y </span><span class="o">=</span><span class="nb"> w^T x </span><span class="o">+</span><span class="nb"> b
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 y = w^T x + b
 $$</p>
 <p>使用最小二乘法（OLS）来估计参数 $w$，会用到最小化<strong>均方误差（MSE）</strong>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">L</span><span class="o">(</span><span class="nb">w, b</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{N} </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{N} </span><span class="o">(</span><span class="nb">y_i </span><span class="o">-</span><span class="nb"> </span><span class="o">(</span><span class="nb">w^T x_i </span><span class="o">+</span><span class="nb"> b</span><span class="o">))</span><span class="nb">^</span><span class="m">2</span><span class="nb">
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 L(w, b) = \frac{1}{N} \sum_{i=1}^{N} (y_i - (w^T x_i + b))^2
 $$</p>
@@ -1855,14 +1830,14 @@ $$</p>
 <p>KL 散度用于衡量两个概率分布 $P(x)$ 和 $Q(x)$ 之间的差异，定义如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">D_{KL}</span><span class="o">(</span><span class="nb">P </span><span class="nv">\parallel</span><span class="nb"> Q</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_x P</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="nv">\log</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{P</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{Q</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 D_{KL}(P \parallel Q) = \sum_x P(x) \log \frac{P(x)}{Q(x)}
 $$</p>
 <p>或者对于连续概率分布：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-latex" data-lang="latex"><span class="line"><span class="cl"><span class="sb">$$</span><span class="nb">
 </span></span></span><span class="line"><span class="cl"><span class="nb">D_{KL}</span><span class="o">(</span><span class="nb">P </span><span class="nv">\parallel</span><span class="nb"> Q</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\int</span><span class="nb"> P</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="nv">\log</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{P</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">}{Q</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb">} dx
-</span></span></span><span class="line"><span class="cl"><span class="nb"></span><span class="s">$$</span>
+</span></span></span><span class="line"><span class="cl"><span class="s">$$</span>
 </span></span></code></pre></div><p>$$
 D_{KL}(P \parallel Q) = \int P(x) \log \frac{P(x)}{Q(x)} dx
 $$</p>

@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       复盘 macOS 下 Python 动态库缺失问题，给出逐步定位与修复的稳定流程。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -504,40 +477,40 @@ Reason: tried: &#39;/Users/username/anaconda3/envs/myenv/lib/libportaudio.2.dyli
 <hr>
 <h2 id="-4-总结"><strong>🔖 4. 总结</strong><a hidden class="anchor" aria-hidden="true" href="#-4-总结">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>步骤</th>
-          <th>命令</th>
-          <th>作用</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td><code>cd &quot;$(python -c 'import sys; print(sys.prefix)')/lib&quot; &amp;&amp; ls -l libportaudio*</code></td>
-          <td>查看是否缺少 <code>.dylib</code></td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td><code>ln -s libportaudio.dylib libportaudio.2.dylib</code></td>
-          <td>创建符号链接</td>
-      </tr>
-      <tr>
-          <td>3</td>
-          <td><code>conda remove pyaudio portaudio &amp;&amp; conda install -c conda-forge portaudio pyaudio</code></td>
-          <td>重新安装库</td>
-      </tr>
-      <tr>
-          <td>4</td>
-          <td><code>export DYLD_LIBRARY_PATH=&quot;$(python -c 'import sys; print(sys.prefix)')/lib:$DYLD_LIBRARY_PATH&quot;</code></td>
-          <td>让 Python 识别库</td>
-      </tr>
-      <tr>
-          <td>5</td>
-          <td><code>python -c &quot;import pyaudio; print(pyaudio.__version__)</code></td>
-          <td>测试是否修复</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>步骤</th>
+					<th>命令</th>
+					<th>作用</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>1</td>
+					<td><code>cd &quot;$(python -c 'import sys; print(sys.prefix)')/lib&quot; &amp;&amp; ls -l libportaudio*</code></td>
+					<td>查看是否缺少 <code>.dylib</code></td>
+			</tr>
+			<tr>
+					<td>2</td>
+					<td><code>ln -s libportaudio.dylib libportaudio.2.dylib</code></td>
+					<td>创建符号链接</td>
+			</tr>
+			<tr>
+					<td>3</td>
+					<td><code>conda remove pyaudio portaudio &amp;&amp; conda install -c conda-forge portaudio pyaudio</code></td>
+					<td>重新安装库</td>
+			</tr>
+			<tr>
+					<td>4</td>
+					<td><code>export DYLD_LIBRARY_PATH=&quot;$(python -c 'import sys; print(sys.prefix)')/lib:$DYLD_LIBRARY_PATH&quot;</code></td>
+					<td>让 Python 识别库</td>
+			</tr>
+			<tr>
+					<td>5</td>
+					<td><code>python -c &quot;import pyaudio; print(pyaudio.__version__)</code></td>
+					<td>测试是否修复</td>
+			</tr>
+	</tbody>
 </table>
 <p>如果你未来在 macOS 上遇到类似的问题，可以优先尝试这个流程，基本上可以解决 90% 以上的 <code>Library not loaded</code> 问题。</p>
 <hr>

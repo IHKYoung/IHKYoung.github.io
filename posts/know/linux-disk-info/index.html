@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       汇总 Linux 查看硬盘健康与读写信息的命令工具及关键指标解释。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -442,7 +415,8 @@
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>去年2023年，固态硬盘低谷的时候买了一个2T的，现在没啥用了，原本想着装移动版的MacOS系统的，但是看了看雷电3硬盘盒的读写速度，三星的比较稳定，这个雷克沙属实。。。拉垮。</p>
 <p>准备卖了，现在的价格是799，想着卖700可以的吧？<strong>结果最后被砍到600。。。</strong></p>
-<p>砍就砍了，结果还要我给他一个硬盘检测的信息，Windows上这种软件挺多，Linux？估计没有，但理论上讲，Linux获取这些信息会更直接，也更方便，什么硬盘的通电次数、通电时间，读写量啊，应该用命令行就能查看。</p></blockquote>
+<p>砍就砍了，结果还要我给他一个硬盘检测的信息，Windows上这种软件挺多，Linux？估计没有，但理论上讲，Linux获取这些信息会更直接，也更方便，什么硬盘的通电次数、通电时间，读写量啊，应该用命令行就能查看。</p>
+</blockquote>
 <p>在Linux系统下，有几种工具可以用来查看固态硬盘（SSD）的通电次数、通电时间，以及读写的数据量。以下是一些常用的工具和命令：</p>
 <h3 id="1-smartctl-工具">1. <code>smartctl</code> 工具<a hidden class="anchor" aria-hidden="true" href="#1-smartctl-工具">#</a></h3>
 <p><code>smartctl</code> 是 <code>smartmontools</code> 软件包中的一个工具，用于监控和管理硬盘的SMART属性。可以使用它来查看SSD的详细信息。</p>

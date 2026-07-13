@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -264,35 +264,7 @@
     <div class="post-description">
       记录 Hugo 文章密码保护的落地方案，兼顾访问控制、体验与明文泄露风险。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -333,6 +305,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -463,10 +436,10 @@
 <h3 id="-31-文章-markdown-文件配置"><strong>📌 3.1 文章 Markdown 文件配置</strong><a hidden class="anchor" aria-hidden="true" href="#-31-文章-markdown-文件配置">#</a></h3>
 <p>在 Hugo 文章 <code>.md</code> 文件的 <strong>Front Matter</strong> 里，<strong>存储密码的 MD5 哈希值</strong>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;私人日记&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2025-02-09</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;5f4dcc3b5aa765d61d8327deb882cf99&#34;</span><span class="w">  </span><span class="c"># &#34;password&#34; 的 MD5 哈希</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;私人日记&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="ld">2025-02-09</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;5f4dcc3b5aa765d61d8327deb882cf99&#34;</span><span class="w">  </span><span class="c"># &#34;password&#34; 的 MD5 哈希</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span></code></pre></div><p>🔹 <strong>如何获取 MD5 哈希？</strong><br>
 在 <strong>Windows PowerShell</strong> 运行：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$md5</span> <span class="p">=</span> <span class="nb">New-Object</span> <span class="n">-TypeName</span> <span class="n">System</span><span class="p">.</span><span class="py">Security</span><span class="p">.</span><span class="py">Cryptography</span><span class="p">.</span><span class="py">MD5CryptoServiceProvider</span>
@@ -529,13 +502,13 @@
 </span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">checkPassword</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">inputPassword</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;post-password&#34;</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">correctHash</span> <span class="o">=</span> <span class="s2">&#34;{{ .Params.password }}&#34;</span><span class="p">;</span>  <span class="c1">// 从 Hugo 读取 MD5 哈希值
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="kd">let</span> <span class="nx">inputHash</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">MD5</span><span class="p">(</span><span class="nx">inputPassword</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span>  <span class="c1">// 计算用户输入的 MD5
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">inputHash</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">MD5</span><span class="p">(</span><span class="nx">inputPassword</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span>  <span class="c1">// 计算用户输入的 MD5
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">errorMsg</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;error-msg&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">      <span class="kd">let</span> <span class="nx">checkButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&#34;check-button&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">      <span class="c1">// 按钮增加点击反馈
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">checkButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s2">&#34;scale(0.95)&#34;</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">      <span class="nx">checkButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s2">&#34;scale(0.95)&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="nx">checkButton</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">transform</span> <span class="o">=</span> <span class="s2">&#34;scale(1)&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span> <span class="mi">100</span><span class="p">);</span>
@@ -545,7 +518,7 @@
 </span></span><span class="line"><span class="cl">          <span class="nx">unlockContent</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="c1">// 让错误提示抖动，并显示出来
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;block&#34;</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">          <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">=</span> <span class="s2">&#34;block&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">          <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;shake&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">          
 </span></span><span class="line"><span class="cl">          <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
@@ -560,7 +533,7 @@
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="c1">// 页面关闭时清空密码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;beforeunload&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;beforeunload&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">removeItem</span><span class="p">(</span><span class="s2">&#34;blog_password_{{ .File.UniqueID }}&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -576,40 +549,40 @@
 <hr>
 <h2 id="-5-其他替代方案"><strong>📌 5. 其他替代方案</strong><a hidden class="anchor" aria-hidden="true" href="#-5-其他替代方案">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>方案</th>
-          <th>适用场景</th>
-          <th>安全性</th>
-          <th>易用性</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>前端 JavaScript 明文密码</strong></td>
-          <td>简单静态站点</td>
-          <td>❌ 低（F12 可查看）</td>
-          <td>✅ 简单</td>
-      </tr>
-      <tr>
-          <td><strong>Hugo 里存 MD5 哈希，前端比对</strong></td>
-          <td>个人博客</td>
-          <td>✅ 高</td>
-          <td>✅ 中等</td>
-      </tr>
-      <tr>
-          <td><strong>Nginx Basic Auth</strong></td>
-          <td>服务器保护</td>
-          <td>🔒 更高</td>
-          <td>❌ 需 Nginx</td>
-      </tr>
-      <tr>
-          <td><strong>Cloudflare Workers 保护</strong></td>
-          <td>CDN 部署</td>
-          <td>🔒 更高</td>
-          <td>❌ 需 Cloudflare</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>方案</th>
+					<th>适用场景</th>
+					<th>安全性</th>
+					<th>易用性</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>前端 JavaScript 明文密码</strong></td>
+					<td>简单静态站点</td>
+					<td>❌ 低（F12 可查看）</td>
+					<td>✅ 简单</td>
+			</tr>
+			<tr>
+					<td><strong>Hugo 里存 MD5 哈希，前端比对</strong></td>
+					<td>个人博客</td>
+					<td>✅ 高</td>
+					<td>✅ 中等</td>
+			</tr>
+			<tr>
+					<td><strong>Nginx Basic Auth</strong></td>
+					<td>服务器保护</td>
+					<td>🔒 更高</td>
+					<td>❌ 需 Nginx</td>
+			</tr>
+			<tr>
+					<td><strong>Cloudflare Workers 保护</strong></td>
+					<td>CDN 部署</td>
+					<td>🔒 更高</td>
+					<td>❌ 需 Cloudflare</td>
+			</tr>
+	</tbody>
 </table>
 <p>💡 <strong>本方案适合 Hugo 个人博客，提供前端级别的密码保护，同时避免明文密码泄露！</strong></p>
 <hr>

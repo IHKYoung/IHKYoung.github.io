@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -205,35 +205,7 @@
     <p>关于服务器后台持续性的问题，之前使用的是nohup这个。 但是更好的做法是使用system的这种。比如：
 [Unit] Description=4DVCam ATS Service After=network.target [Service] Type=simple ExecStart=/home/clarke/miniconda3/envs/4DV/bin/python /home/clarke/4dcam-ats/main.py # Ensure that the environment variables are set properly Environment=&#34;4DVCAMATS_ENV=production&#34; Environment=&#34;4DVCAMATS_PORT=5000&#34; Environment=&#34;4DVCAMATS_CAM_CONTROL_PORT=8088&#34; # Log to the file, append output and error StandardOutput=append:/home/clarke/4dvcam_ats.log StandardError=append:/home/clarke/4dvcam_ats.log # Restart service in case of failure Restart=always RestartSec=3 # Run as the correct user and group User=clarke Group=clarke [Install] WantedBy=default.target </p>
   </div>
-  <footer class="entry-footer">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <footer class="entry-footer"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -273,7 +245,8 @@
             </span>
         </span>
     </span>
-</span></footer>
+</span>
+</footer>
   <a class="entry-link" aria-label="post link to 好记性不如烂笔头" href="https://blog.ahaknow.com/posts/diary/2025-08-25/"></a>
 </article>
 </main>

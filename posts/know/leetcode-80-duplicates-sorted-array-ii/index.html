@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       解析有序数组去重 II 的双指针控制方法，处理“最多保留两次”约束。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -510,7 +483,8 @@ for (int i = 0; i &lt; len; i++) {
 <p><strong>其实解题的本质和上一题是一样的，还是使用双指针，但是实现逻辑上稍有不同，需要注意‼️</strong></p>
 <p>不管是只出现两次还是n次，</p>
 <p>因为是升序排列，<strong>只能出现一次是比较一次，那么只能出现两次那就判断两次</strong></p>
-<p>但比较一次可以简化为比较不同，<strong>比较两次则要保证不受到原地替换的影响，在逻辑上有巧妙之处。</strong></p></blockquote>
+<p>但比较一次可以简化为比较不同，<strong>比较两次则要保证不受到原地替换的影响，在逻辑上有巧妙之处。</strong></p>
+</blockquote>
 <h3 id="上菜">🌽上菜<a hidden class="anchor" aria-hidden="true" href="#上菜">#</a></h3>
 <p>这个问题是<a href="../leetcode-26-remove-duplicates-from-sorted-array">前一个问题</a>的一个变体，不同之处在于需要保留每个元素最多两次，而不是一次。因此，仍然可以采用双指针的方法来解决这个问题，只是需要对比较逻辑做一些调整，以确保每个元素最多出现两次。</p>
 <p>解题思路：</p>
@@ -522,12 +496,12 @@ for (int i = 0; i &lt; len; i++) {
 <p><strong>需要特别注意： <code>if (nums[fast] != nums[slow - 2])</code>，与之前的写法不同！</strong></p>
 <p>具体代码实现（C++）如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">removeDuplicates</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">slow</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 因为允许元素最多出现两次，所以从索引2开始检查
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fast</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">fast</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">fast</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fast</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">fast</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="o">++</span><span class="n">fast</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="p">[</span><span class="n">slow</span> <span class="o">-</span> <span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">nums</span><span class="p">[</span><span class="n">slow</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>

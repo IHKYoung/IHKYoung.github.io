@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       从环境模型与命令对照入手，系统说明 Conda 迁移到 uv 的步骤、差异与注意点。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -462,172 +435,172 @@
 <h2 id="1-核心思维转变-mental-model-shift">1. 核心思维转变 (Mental Model Shift)<a hidden class="anchor" aria-hidden="true" href="#1-核心思维转变-mental-model-shift">#</a></h2>
 <p>在使用 uv 之前，你需要调整对“环境管理”的理解。</p>
 <table>
-  <thead>
-      <tr>
-          <th><strong>特性</strong></th>
-          <th><strong>Conda (传统模式)</strong></th>
-          <th><strong>uv (现代模式)</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>环境位置</strong></td>
-          <td><strong>集中式</strong> (<code>~/anaconda3/envs/myenv</code>)。环境与项目分离。</td>
-          <td><strong>项目式</strong> (<code>./.venv</code>)。环境通常直接放在项目文件夹内。</td>
-      </tr>
-      <tr>
-          <td><strong>Python 来源</strong></td>
-          <td>Conda 仓库 (二进制包)。</td>
-          <td>官方构建 (uv 自动管理下载，更纯净)。</td>
-      </tr>
-      <tr>
-          <td><strong>依赖解析</strong></td>
-          <td>求解器较慢，经常出现 Conflict。</td>
-          <td>极速解析，使用 <code>uv.lock</code> 锁定精确版本。</td>
-      </tr>
-      <tr>
-          <td><strong>项目定义</strong></td>
-          <td><code>environment.yml</code> (非标准)。</td>
-          <td><code>pyproject.toml</code> (PEP 621 Python 官方标准)。</td>
-      </tr>
-      <tr>
-          <td><strong>激活习惯</strong></td>
-          <td>必须 <code>conda activate</code> 才能工作。</td>
-          <td>推荐 <code>uv run</code> 直接运行，或像 venv 一样激活。</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>特性</strong></th>
+					<th><strong>Conda (传统模式)</strong></th>
+					<th><strong>uv (现代模式)</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>环境位置</strong></td>
+					<td><strong>集中式</strong> (<code>~/anaconda3/envs/myenv</code>)。环境与项目分离。</td>
+					<td><strong>项目式</strong> (<code>./.venv</code>)。环境通常直接放在项目文件夹内。</td>
+			</tr>
+			<tr>
+					<td><strong>Python 来源</strong></td>
+					<td>Conda 仓库 (二进制包)。</td>
+					<td>官方构建 (uv 自动管理下载，更纯净)。</td>
+			</tr>
+			<tr>
+					<td><strong>依赖解析</strong></td>
+					<td>求解器较慢，经常出现 Conflict。</td>
+					<td>极速解析，使用 <code>uv.lock</code> 锁定精确版本。</td>
+			</tr>
+			<tr>
+					<td><strong>项目定义</strong></td>
+					<td><code>environment.yml</code> (非标准)。</td>
+					<td><code>pyproject.toml</code> (PEP 621 Python 官方标准)。</td>
+			</tr>
+			<tr>
+					<td><strong>激活习惯</strong></td>
+					<td>必须 <code>conda activate</code> 才能工作。</td>
+					<td>推荐 <code>uv run</code> 直接运行，或像 venv 一样激活。</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="2-命令对照速查表-cheat-sheet">2. 命令对照速查表 (Cheat Sheet)<a hidden class="anchor" aria-hidden="true" href="#2-命令对照速查表-cheat-sheet">#</a></h2>
 <p>这是你最需要的部分，建议保存。</p>
 <h3 id="基础操作">基础操作<a hidden class="anchor" aria-hidden="true" href="#基础操作">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th><strong>动作</strong></th>
-          <th><strong>Conda 命令</strong></th>
-          <th><strong>uv 命令 (推荐)</strong></th>
-          <th><strong>备注</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>安装 Python</strong></td>
-          <td><code>conda install python=3.11</code></td>
-          <td><code>uv python install 3.11</code></td>
-          <td>uv 是全局管理 Python 版本</td>
-      </tr>
-      <tr>
-          <td><strong>创建环境</strong></td>
-          <td><code>conda create -n myenv</code></td>
-          <td><code>uv venv</code></td>
-          <td>默认在当前目录创建 .venv</td>
-      </tr>
-      <tr>
-          <td><strong>指定版本创建</strong></td>
-          <td><code>conda create -n myenv python=3.10</code></td>
-          <td><code>uv venv --python 3.10</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><strong>激活环境</strong></td>
-          <td><code>conda activate myenv</code></td>
-          <td><code>source .venv/bin/activate</code></td>
-          <td>Windows: <code>.venv\Scripts\activate</code></td>
-      </tr>
-      <tr>
-          <td><strong>退出环境</strong></td>
-          <td><code>conda deactivate</code></td>
-          <td><code>deactivate</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><strong>删除环境</strong></td>
-          <td><code>conda env remove -n myenv</code></td>
-          <td><code>rm -rf .venv</code></td>
-          <td>直接删文件夹即可</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>动作</strong></th>
+					<th><strong>Conda 命令</strong></th>
+					<th><strong>uv 命令 (推荐)</strong></th>
+					<th><strong>备注</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>安装 Python</strong></td>
+					<td><code>conda install python=3.11</code></td>
+					<td><code>uv python install 3.11</code></td>
+					<td>uv 是全局管理 Python 版本</td>
+			</tr>
+			<tr>
+					<td><strong>创建环境</strong></td>
+					<td><code>conda create -n myenv</code></td>
+					<td><code>uv venv</code></td>
+					<td>默认在当前目录创建 .venv</td>
+			</tr>
+			<tr>
+					<td><strong>指定版本创建</strong></td>
+					<td><code>conda create -n myenv python=3.10</code></td>
+					<td><code>uv venv --python 3.10</code></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><strong>激活环境</strong></td>
+					<td><code>conda activate myenv</code></td>
+					<td><code>source .venv/bin/activate</code></td>
+					<td>Windows: <code>.venv\Scripts\activate</code></td>
+			</tr>
+			<tr>
+					<td><strong>退出环境</strong></td>
+					<td><code>conda deactivate</code></td>
+					<td><code>deactivate</code></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><strong>删除环境</strong></td>
+					<td><code>conda env remove -n myenv</code></td>
+					<td><code>rm -rf .venv</code></td>
+					<td>直接删文件夹即可</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="包管理-在项目内">包管理 (在项目内)<a hidden class="anchor" aria-hidden="true" href="#包管理-在项目内">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th><strong>动作</strong></th>
-          <th><strong>Conda 命令</strong></th>
-          <th><strong>uv 命令 (项目模式)</strong></th>
-          <th><strong>备注</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>初始化项目</strong></td>
-          <td>(无直接对应)</td>
-          <td><code>uv init</code></td>
-          <td>生成 pyproject.toml</td>
-      </tr>
-      <tr>
-          <td><strong>安装包</strong></td>
-          <td><code>conda install numpy</code></td>
-          <td><code>uv add numpy</code></td>
-          <td>自动更新 lock 文件</td>
-      </tr>
-      <tr>
-          <td><strong>安装特定版本</strong></td>
-          <td><code>conda install numpy=1.24</code></td>
-          <td><code>uv add &quot;numpy==1.24&quot;</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><strong>卸载包</strong></td>
-          <td><code>conda remove numpy</code></td>
-          <td><code>uv remove numpy</code></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td><strong>安装开发依赖</strong></td>
-          <td>(无区分)</td>
-          <td><code>uv add --dev pytest</code></td>
-          <td>测试/格式化工具专用</td>
-      </tr>
-      <tr>
-          <td><strong>列出已装包</strong></td>
-          <td><code>conda list</code></td>
-          <td><code>uv tree</code></td>
-          <td>树状显示，更清晰</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>动作</strong></th>
+					<th><strong>Conda 命令</strong></th>
+					<th><strong>uv 命令 (项目模式)</strong></th>
+					<th><strong>备注</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>初始化项目</strong></td>
+					<td>(无直接对应)</td>
+					<td><code>uv init</code></td>
+					<td>生成 pyproject.toml</td>
+			</tr>
+			<tr>
+					<td><strong>安装包</strong></td>
+					<td><code>conda install numpy</code></td>
+					<td><code>uv add numpy</code></td>
+					<td>自动更新 lock 文件</td>
+			</tr>
+			<tr>
+					<td><strong>安装特定版本</strong></td>
+					<td><code>conda install numpy=1.24</code></td>
+					<td><code>uv add &quot;numpy==1.24&quot;</code></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><strong>卸载包</strong></td>
+					<td><code>conda remove numpy</code></td>
+					<td><code>uv remove numpy</code></td>
+					<td></td>
+			</tr>
+			<tr>
+					<td><strong>安装开发依赖</strong></td>
+					<td>(无区分)</td>
+					<td><code>uv add --dev pytest</code></td>
+					<td>测试/格式化工具专用</td>
+			</tr>
+			<tr>
+					<td><strong>列出已装包</strong></td>
+					<td><code>conda list</code></td>
+					<td><code>uv tree</code></td>
+					<td>树状显示，更清晰</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="环境复现与同步">环境复现与同步<a hidden class="anchor" aria-hidden="true" href="#环境复现与同步">#</a></h3>
 <table>
-  <thead>
-      <tr>
-          <th><strong>动作</strong></th>
-          <th><strong>Conda 命令</strong></th>
-          <th><strong>uv 命令</strong></th>
-          <th><strong>核心差异</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>导出依赖</strong></td>
-          <td><code>conda env export &gt; env.yml</code></td>
-          <td>(自动维护)</td>
-          <td>uv 自动维护 <code>uv.lock</code>，无需手动导出</td>
-      </tr>
-      <tr>
-          <td><strong>复现环境</strong></td>
-          <td><code>conda env create -f env.yml</code></td>
-          <td><code>uv sync</code></td>
-          <td><strong>这是 uv 的杀手锏</strong>，一键同步</td>
-      </tr>
-      <tr>
-          <td><strong>更新所有包</strong></td>
-          <td><code>conda update --all</code></td>
-          <td><code>uv lock --upgrade</code></td>
-          <td>更新 lock 文件中的版本</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>动作</strong></th>
+					<th><strong>Conda 命令</strong></th>
+					<th><strong>uv 命令</strong></th>
+					<th><strong>核心差异</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>导出依赖</strong></td>
+					<td><code>conda env export &gt; env.yml</code></td>
+					<td>(自动维护)</td>
+					<td>uv 自动维护 <code>uv.lock</code>，无需手动导出</td>
+			</tr>
+			<tr>
+					<td><strong>复现环境</strong></td>
+					<td><code>conda env create -f env.yml</code></td>
+					<td><code>uv sync</code></td>
+					<td><strong>这是 uv 的杀手锏</strong>，一键同步</td>
+			</tr>
+			<tr>
+					<td><strong>更新所有包</strong></td>
+					<td><code>conda update --all</code></td>
+					<td><code>uv lock --upgrade</code></td>
+					<td>更新 lock 文件中的版本</td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="3-详细工作流指南">3. 详细工作流指南<a hidden class="anchor" aria-hidden="true" href="#3-详细工作流指南">#</a></h2>

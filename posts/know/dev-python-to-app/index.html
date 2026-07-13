@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       记录从 Python 脚本走向独立应用的路线图，覆盖工具链选择与工程化要点。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -700,7 +673,8 @@
 <ul>
 <li>Windows和Linux在构建系统上的差异主要体现在工具链和编译器上。Linux拥有标准的GNU工具链和 <code>make</code>，而Windows默认使用Visual Studio和MSVC编译器，导致在Windows上开发时，通常需要依赖Visual Studio或其他第三方工具。</li>
 <li>如果你不想使用Visual Studio，可以通过安装MinGW-w64、MSYS2、Cygwin或WSL来获得类似于Linux的开发体验，在Windows上直接使用 <code>cmake</code> 和 <code>make</code>。</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <p>实际尝试后发现：</p>
 <ol>
 <li>MSYS2是个好东西，通过设置Path可以在PowerShell中使用，但单独使用MSYS2自带的终端会更好用，因为完全是类Unix风格；</li>
@@ -759,7 +733,8 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pacman -Syu
 </span></span></code></pre></div><blockquote>
 <p>You may need to close and reopen MSYS2 to continue the update.<br>
-你可能需要关闭并重新打开 MSYS2 来继续更新。</p></blockquote>
+你可能需要关闭并重新打开 MSYS2 来继续更新。</p>
+</blockquote>
 </li>
 <li>
 <p>After reopening, run the update again to ensure everything is up to date:<br>
@@ -861,7 +836,8 @@
 <p>With this guide, you should now be able to install and configure MSYS2, use pacman to manage packages, and set up a working development environment.<br>
 通过本指南，你现在应该能够安装和配置 MSYS2，使用 pacman 管理软件包，并设置一个可用的开发环境。</p>
 <hr>
-<p>That&rsquo;s it! 🎉 I hope the bilingual style helps you with both your development and language learning.</p></blockquote>
+<p>That&rsquo;s it! 🎉 I hope the bilingual style helps you with both your development and language learning.</p>
+</blockquote>
 <p>总的来说结合使用MSYS2，MinGW，pacman这些，是可以不依赖Visual Studio来实现exe的编译。</p>
 <p><mark>其实一开始也遇到很多小问题，比如没有PCL库，然后PCL又依赖各种库，一开始的想法就是各种尝试嘛，甚至想到了手动安装，然后手动编译安装也是一个巨大的坑啊，后来是配合pacman一起服用了，虽然不及apt那么强大，但至少常用的库都有的，然后再编译需要的库就会顺畅很多。</mark></p>
 <h3 id="python打包exe">Python打包exe<a hidden class="anchor" aria-hidden="true" href="#python打包exe">#</a></h3>
@@ -1012,7 +988,8 @@
 <li><strong>Py2exe</strong> 是Windows专用的工具，适合Windows平台开发者。</li>
 <li><strong>PyOxidizer</strong> 和 <strong>Briefcase</strong> 则是一些新兴的工具，适合对性能和特定平台有特殊需求的场景。</li>
 </ul>
-<p>根据你的需求，可以选择最合适的工具进行打包。如果你需要灵活且简单的方案，<strong>PyInstaller</strong> 是推荐的首选。如果你对文件大小和执行效率有要求，可以考虑 <strong>Nuitka</strong>。</p></blockquote>
+<p>根据你的需求，可以选择最合适的工具进行打包。如果你需要灵活且简单的方案，<strong>PyInstaller</strong> 是推荐的首选。如果你对文件大小和执行效率有要求，可以考虑 <strong>Nuitka</strong>。</p>
+</blockquote>
 <p>搜索之后，大致有了了解，就可以开始尝试了，<strong>看着比较简单的是：cx_Freeze</strong>，于是就先试了它，采取什么策略来尝试呢？</p>
 <p>比如，从最小可实现的方式出发吧，调用opencv读取图像并显示出来。尝试可行，似乎路能走通，并且发现了一些在Windows开发的一些规律：</p>
 <ul>
@@ -1344,7 +1321,8 @@
 </ul>
 <h4 id="总结-1">总结<a hidden class="anchor" aria-hidden="true" href="#总结-1">#</a></h4>
 <p>在现代Windows环境中，<strong>Dependencies</strong> 是当前最适合替代 <strong>Dependency Walker</strong> 的工具，尤其对于Windows 10的API Set Schema和SxS支持，它具有极佳的处理能力。如果你需要动态分析DLL加载情况，<strong>Process Monitor</strong> 提供了实时监控功能，适合调试复杂的依赖问题。对于轻量级和特定场景的需求，<strong>ListDLLs</strong>、<strong>Sigcheck</strong>、<strong>CFF Explorer</strong> 等工具则可以快速、有效地帮助你分析问题。</p>
-<p>根据你的具体需求，选择合适的工具可以帮助你更快地找到和解决DLL缺失、加载失败或依赖冲突问题。</p></blockquote>
+<p>根据你的具体需求，选择合适的工具可以帮助你更快地找到和解决DLL缺失、加载失败或依赖冲突问题。</p>
+</blockquote>
 <p>以上都不重要，关键是能用，所以第一步要做的是先上手，后来实际发现Dependencies挺好用的，<strong>在其他Windows上运行程序时，如果出现一打开就直接挂掉，那么直接用DependenciesGUI分析一下，一般就能找到是哪个dll缺失，然后再把缺失的dll放到程序运行的目录就能解决了。</strong></p>
 <h3 id="查找exe的所有dll依赖并复制在一起">查找exe的所有dll依赖并复制在一起<a hidden class="anchor" aria-hidden="true" href="#查找exe的所有dll依赖并复制在一起">#</a></h3>
 <p><mark>实际开发过程中，我还产生了一个新的需求：比如我cmake编译的exe，运行时所依赖的dll在哪？我想把这些dll 都放到一起，那么这样在其他Windows上，不就可以运行这个exe了吗？</mark></p>
@@ -1576,15 +1554,15 @@
 <li>
 <p><strong>示例 <code>.nsi</code> 文件</strong>：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nsi" data-lang="nsi"><span class="line"><span class="cl"><span class="k">OutFile</span><span class="w"> </span><span class="s2">&#34;setup.exe&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">InstallDir</span><span class="w"> </span><span class="s2">&#34;</span><span class="nv">$PROGRAMFILES</span><span class="s2">\MyApp&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">InstallDir</span><span class="w"> </span><span class="s2">&#34;</span><span class="nv">$PROGRAMFILES</span><span class="s2">\MyApp&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">Section</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SetOutPath</span><span class="w"> </span><span class="vg">$INSTDIR</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">File</span><span class="w"> </span><span class="s2">&#34;bin\MyApp.exe&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">File</span><span class="w"> </span><span class="s2">&#34;bin\MyLibrary.dll&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">Section</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">SetOutPath</span><span class="w"> </span><span class="vg">$INSTDIR</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">File</span><span class="w"> </span><span class="s2">&#34;bin\MyApp.exe&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">File</span><span class="w"> </span><span class="s2">&#34;bin\MyLibrary.dll&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CreateShortcut</span><span class="w"> </span><span class="s2">&#34;</span><span class="nb">$DESKTOP</span><span class="s2">\MyApp.lnk&#34;</span><span class="w"> </span><span class="s2">&#34;</span><span class="vg">$INSTDIR</span><span class="s2">\MyApp.exe&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SectionEnd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">CreateShortcut</span><span class="w"> </span><span class="s2">&#34;</span><span class="nb">$DESKTOP</span><span class="s2">\MyApp.lnk&#34;</span><span class="w"> </span><span class="s2">&#34;</span><span class="vg">$INSTDIR</span><span class="s2">\MyApp.exe&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="k">SectionEnd</span><span class="w">
 </span></span></span></code></pre></div></li>
 </ul>
 <h4 id="3-wix-toolset-windows-installer-xml">3. <strong>WiX Toolset (Windows Installer XML)</strong><a hidden class="anchor" aria-hidden="true" href="#3-wix-toolset-windows-installer-xml">#</a></h4>
@@ -1680,7 +1658,8 @@
 <li><strong>WiX Toolset</strong> 非常适合需要创建企业级 <code>.msi</code> 安装包的场景，但其学习曲线较陡。</li>
 <li><strong>Advanced Installer</strong> 和 <strong>InstallShield</strong> 则提供了图形界面，更适合那些不希望编写脚本的开发者或需要高级功能的企业项目。</li>
 </ul>
-<p>根据项目的规模和复杂度选择合适的打包工具，可以显著提高打包效率并优化安装流程。</p></blockquote>
+<p>根据项目的规模和复杂度选择合适的打包工具，可以显著提高打包效率并优化安装流程。</p>
+</blockquote>
 <p>实际使用的感受发现： <strong>Inno Setup</strong>很好用。</p>
 <p><strong>因为在后面的测试中发现，由于我安装位置需要发生读写，一般而来，C盘软件的默认安装位置的文件删除、更改等操作是需要管理员权限的，其实这个挺费劲，当然可以以管理员权限重新打开程序（晕到死上很多盗版软件需要这么操作吧？）但更好的方式应该是可以手动设置一个文件夹，这个文件夹是可以支持读写的。</strong></p>
 <p>当然，我觉得还有更多的功能可以探索，这个可以需要的时候再去搜索了。</p>
@@ -1936,7 +1915,8 @@
 <li><strong>Dear PyGui</strong>：适合高性能的图形和数据可视化应用。</li>
 <li><strong>Flask + Electron/Pywebview</strong>：结合 Web 技术构建跨平台桌面应用。</li>
 </ul>
-<p>根据项目的需求和你的技术栈，选择合适的工具可以帮助你更快地完成 GUI 的开发。</p></blockquote>
+<p>根据项目的需求和你的技术栈，选择合适的工具可以帮助你更快地完成 GUI 的开发。</p>
+</blockquote>
 <p>但我记得，一开始偷懒，写的很low，使用的是tk，就是一个对话窗口，没有设计风格，土土的Windows98的感觉。</p>
 <p>然后呢，又发现python脚本启动慢，<mark>后面发现是和import有关系，import可以后置</mark>，然后灵机一动，还搞出来一个程序启动的logo，甚至还加了logo等待，等待import那么大的库完成之后，比如torch之类，再把logo去掉，用户体验上感觉是好多了。</p>
 <p>后来，觉得tk太土，尝试使用qt，qt确实好用，可以使用类似css的方式来美化界面，所以就可能搞出很多花里胡哨的设计了，比如什么:</p>
@@ -2046,7 +2026,8 @@
 <li><strong>npm run</strong> 常用于启动开发服务器或执行构建任务。</li>
 <li><strong>Web 应用在生产环境中不需要依赖 Node.js 和 npm</strong>，只需要最终的 HTML、CSS 和 JavaScript 静态文件即可。</li>
 </ul>
-<p>虽然 <strong>Node.js 和 npm</strong> 在开发阶段提供了许多便利，但在最终的生产环境中，前端项目通常只依赖静态资源，并不需要 Node.js 运行。因此，理论上来说，HTML + CSS + JavaScript 是不依赖于 Node.js 和 npm 的，除非你在使用某些需要服务器端支持的动态功能（如 SSR 或 API）。</p></blockquote>
+<p>虽然 <strong>Node.js 和 npm</strong> 在开发阶段提供了许多便利，但在最终的生产环境中，前端项目通常只依赖静态资源，并不需要 Node.js 运行。因此，理论上来说，HTML + CSS + JavaScript 是不依赖于 Node.js 和 npm 的，除非你在使用某些需要服务器端支持的动态功能（如 SSR 或 API）。</p>
+</blockquote>
 <p>后来其实也是用了python来实现，启动了一个python的web服务，然后也遇到了CORS的问题，查阅收集的信息如下：</p>
 <blockquote>
 <p>如果不用 <strong>npm</strong> 来启动开发服务器，完全可以使用 <strong>Python</strong> 提供的轻量级服务器来启动 HTML 文件。Python 自带的 HTTP 服务器可以通过简单的命令快速启动，直接服务静态文件，例如 HTML、CSS 和 JavaScript。</p>
@@ -2140,7 +2121,8 @@
 <li><strong>解决 CORS</strong> 问题的最佳方法是在服务器端设置合适的 CORS 头信息，允许客户端跨域访问资源。</li>
 <li>如果无法修改服务端配置，前端代理也是一个有效的替代方案。</li>
 </ul>
-<p>通过理解和正确处理 CORS 问题，你可以在开发和生产环境中避免不必要的跨域错误，从而更高效地开发和部署 Web 应用。</p></blockquote>
+<p>通过理解和正确处理 CORS 问题，你可以在开发和生产环境中避免不必要的跨域错误，从而更高效地开发和部署 Web 应用。</p>
+</blockquote>
 <h2 id="代码记录">代码记录<a hidden class="anchor" aria-hidden="true" href="#代码记录">#</a></h2>
 <h3 id="使用pyqt">使用PyQT<a hidden class="anchor" aria-hidden="true" href="#使用pyqt">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>

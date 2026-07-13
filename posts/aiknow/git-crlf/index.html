@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       讲清 Git 在 CRLF/LF 场景下的处理机制，并给出跨平台项目的稳妥配置方案。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -331,6 +303,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -482,34 +455,34 @@
 <p>Git <strong>默认内部存储文本文件时使用 <code>LF</code></strong>，但它提供了一些配置选项来处理不同操作系统上的换行符问题。最主要的配置是：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git config --global core.autocrlf &lt;value&gt;
 </span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th>🎯 <code>core.autocrlf</code> 选项</th>
-          <th>📝 提交时 (<code>git commit</code>)</th>
-          <th>📂 检出时 (<code>git checkout</code>)</th>
-          <th>🚀 适用场景</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>true</code></td>
-          <td><code>CRLF</code> → <code>LF</code> ✅</td>
-          <td><code>LF</code> → <code>CRLF</code> ✅</td>
-          <td>Windows 开发者（<strong>本地文件 <code>CRLF</code>，仓库中 <code>LF</code></strong>）</td>
-      </tr>
-      <tr>
-          <td><code>input</code></td>
-          <td><code>CRLF</code> → <code>LF</code> ✅</td>
-          <td><strong>保持 <code>LF</code></strong> ✅</td>
-          <td>Linux/macOS 或跨平台开发者（<strong>推荐</strong> ⚡）</td>
-      </tr>
-      <tr>
-          <td><code>false</code></td>
-          <td><strong>不转换</strong> ❌</td>
-          <td><strong>不转换</strong> ❌</td>
-          <td>需要严格保持文件换行符一致的场景</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>🎯 <code>core.autocrlf</code> 选项</th>
+					<th>📝 提交时 (<code>git commit</code>)</th>
+					<th>📂 检出时 (<code>git checkout</code>)</th>
+					<th>🚀 适用场景</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>true</code></td>
+					<td><code>CRLF</code> → <code>LF</code> ✅</td>
+					<td><code>LF</code> → <code>CRLF</code> ✅</td>
+					<td>Windows 开发者（<strong>本地文件 <code>CRLF</code>，仓库中 <code>LF</code></strong>）</td>
+			</tr>
+			<tr>
+					<td><code>input</code></td>
+					<td><code>CRLF</code> → <code>LF</code> ✅</td>
+					<td><strong>保持 <code>LF</code></strong> ✅</td>
+					<td>Linux/macOS 或跨平台开发者（<strong>推荐</strong> ⚡）</td>
+			</tr>
+			<tr>
+					<td><code>false</code></td>
+					<td><strong>不转换</strong> ❌</td>
+					<td><strong>不转换</strong> ❌</td>
+					<td>需要严格保持文件换行符一致的场景</td>
+			</tr>
+	</tbody>
 </table>
 <h3 id="-推荐方案">📌 <strong>推荐方案</strong><a hidden class="anchor" aria-hidden="true" href="#-推荐方案">#</a></h3>
 <ul>
@@ -584,30 +557,30 @@
 </span></span></code></pre></div><hr>
 <h2 id="-7-结论如何优雅处理-git-和-crlf">🎯 <strong>7. 结论：如何优雅处理 Git 和 CRLF</strong><a hidden class="anchor" aria-hidden="true" href="#-7-结论如何优雅处理-git-和-crlf">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th>🚀 目标</th>
-          <th>🎯 推荐配置</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>🖥 Windows 开发者（但希望仓库文件保持 <code>LF</code>）</td>
-          <td><code>git config --global core.autocrlf input</code></td>
-      </tr>
-      <tr>
-          <td>🐧 Linux/macOS 开发者</td>
-          <td><code>git config --global core.autocrlf input</code></td>
-      </tr>
-      <tr>
-          <td>🏗 团队开发（希望所有人提交的文件格式一致）</td>
-          <td><code>.gitattributes</code> 配置 <code>eol=lf</code></td>
-      </tr>
-      <tr>
-          <td>🚫 不希望 Git 处理换行符</td>
-          <td><code>git config --global core.autocrlf false</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>🚀 目标</th>
+					<th>🎯 推荐配置</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>🖥 Windows 开发者（但希望仓库文件保持 <code>LF</code>）</td>
+					<td><code>git config --global core.autocrlf input</code></td>
+			</tr>
+			<tr>
+					<td>🐧 Linux/macOS 开发者</td>
+					<td><code>git config --global core.autocrlf input</code></td>
+			</tr>
+			<tr>
+					<td>🏗 团队开发（希望所有人提交的文件格式一致）</td>
+					<td><code>.gitattributes</code> 配置 <code>eol=lf</code></td>
+			</tr>
+			<tr>
+					<td>🚫 不希望 Git 处理换行符</td>
+					<td><code>git config --global core.autocrlf false</code></td>
+			</tr>
+	</tbody>
 </table>
 <p>✅ <strong>最佳实践</strong>：在团队协作时，推荐所有人使用 <code>core.autocrlf=input</code> 并在 <code>.gitattributes</code> 中定义 <code>eol=lf</code>，确保仓库文件保持一致性，避免跨平台换行符混乱的问题。</p>
 <hr>

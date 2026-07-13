@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       总结数组轮转题的多种解法，对比时间空间复杂度与适用场景。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -501,7 +474,8 @@ rotate 2 steps to the right: [3,99,-1,-100]
 <blockquote>
 <p>轮转数组，比较直接的方法就是重新开辟了一个新数组，然后复制过去，这种方法能够解决问题，但是不够巧妙。</p>
 <p>再进一步想，可以<strong>环状替换</strong>，这种方法就比较有意思，需要一个额外的中间变量，然后实现一种环状的，前后衔接的，依次交替的更换（这种方法稍微有点复杂，动手笔画理解得可能更好）。</p>
-<p>另外一种就比较奇特，**通过多次整体翻转的策略，**这个算法将在下文中仔细说明。</p></blockquote>
+<p>另外一种就比较奇特，**通过多次整体翻转的策略，**这个算法将在下文中仔细说明。</p>
+</blockquote>
 <h3 id="上菜">🌽上菜<a hidden class="anchor" aria-hidden="true" href="#上菜">#</a></h3>
 <h3 id="方法一使用额外数组">方法一：使用额外数组<a hidden class="anchor" aria-hidden="true" href="#方法一使用额外数组">#</a></h3>
 <p>可以创建一个新的数组来重新排列元素。</p>
@@ -666,7 +640,8 @@ rotate 2 steps to the right: [3,99,-1,-100]
 <li>使用类似欧几里得算法的方法来找到两个多项式的最大公共因子。</li>
 </ul>
 </li>
-</ol></blockquote>
+</ol>
+</blockquote>
 <p>使用这个 <code>gcd</code> 函数，我们可以计算出 <code>n</code> 和 <code>k</code> 的 GCD，从而确定需要进行的环状替换的起始位置数。</p>
 <h3 id="方法三反转数组">方法三：反转数组<a hidden class="anchor" aria-hidden="true" href="#方法三反转数组">#</a></h3>
 <p>使用数组反转可以巧妙地实现旋转，而不需要额外的空间：</p>
@@ -693,27 +668,27 @@ rotate 2 steps to the right: [3,99,-1,-100]
 </ol>
 <h3 id="代码实现">代码实现<a hidden class="anchor" aria-hidden="true" href="#代码实现">#</a></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="line"><span class="cl"><span class="c1">// 189. Rotate Array
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 方法一 使用额外的数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">rotate</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 错误写法，自己反思一下吧
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// k = n % k;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 处理给的k大于n的情况
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">k</span> <span class="o">=</span>  <span class="n">k</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span> 
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// k = n % k;
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// 处理给的k大于n的情况
+</span></span></span><span class="line"><span class="cl">        <span class="n">k</span> <span class="o">=</span>  <span class="n">k</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span> 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums_new</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 注意这种错误写法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// nums_new[i] = nums[i + k];
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 肯定要从nums[0]开始，不然会越界的
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">nums_new</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span></span><span class="line"><span class="cl">            <span class="c1">// nums_new[i] = nums[i + k];
+</span></span></span><span class="line"><span class="cl">            <span class="c1">// 肯定要从nums[0]开始，不然会越界的
+</span></span></span><span class="line"><span class="cl">            <span class="n">nums_new</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">nums</span> <span class="o">=</span> <span class="n">nums_new</span><span class="p">;</span>
@@ -722,10 +697,10 @@ rotate 2 steps to the right: [3,99,-1,-100]
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 方法二 环状替换（循环替换）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// 需要计算最大公约数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">gcd</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">;</span>
@@ -743,14 +718,14 @@ rotate 2 steps to the right: [3,99,-1,-100]
 </span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">prev</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">start</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">            <span class="k">do</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 注意这里写错了
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// int next = (start + k) % n;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="c1">// 因为已经知道current，start标记的是大循环
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="n">current</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                <span class="c1">// int next = (start + k) % n;
+</span></span></span><span class="line"><span class="cl">                <span class="c1">// 因为已经知道current，start标记的是大循环
+</span></span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="p">(</span><span class="n">current</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">next</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">next</span><span class="p">]</span> <span class="o">=</span> <span class="n">prev</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="n">prev</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 还需要更新current
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                <span class="n">current</span> <span class="o">=</span> <span class="n">next</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">current</span> <span class="o">!=</span> <span class="n">start</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        
@@ -759,7 +734,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 方法三 反转数组
 </span></span></span><span class="line"><span class="cl"><span class="c1">// 直接使用vector的reverse方法
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">rotate</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
@@ -767,8 +742,8 @@ rotate 2 steps to the right: [3,99,-1,-100]
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="n">reverse</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 反转两次，顺序就会复原
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 左闭右开区间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">reverse</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">k</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// 左闭右开区间
+</span></span></span><span class="line"><span class="cl">        <span class="n">reverse</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">k</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="n">reverse</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">k</span><span class="p">,</span> <span class="n">nums</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>

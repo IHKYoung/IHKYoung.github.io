@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       提供一套跨平台自动 push 脚本方案，涵盖定时执行、异常处理与安全回退策略。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -522,7 +495,7 @@
 <h2 id="-4-linuxmacos-专用-bash-版本"><strong>🐧 4. Linux/macOS 专用 Bash 版本</strong><a hidden class="anchor" aria-hidden="true" href="#-4-linuxmacos-专用-bash-版本">#</a></h2>
 <p><strong>📌 <code>push.sh</code>（适用于 Linux/macOS/Git Bash）</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 🚀 Git 自动 Push 脚本（Linux/macOS/Git Bash 专用）</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 确保脚本在当前目录执行</span>
@@ -567,35 +540,35 @@
 </span></span></code></pre></div><hr>
 <h2 id="-5-git-推送常见错误及解决方案"><strong>🔄 5. Git 推送常见错误及解决方案</strong><a hidden class="anchor" aria-hidden="true" href="#-5-git-推送常见错误及解决方案">#</a></h2>
 <table>
-  <thead>
-      <tr>
-          <th><strong>错误信息</strong></th>
-          <th><strong>原因</strong></th>
-          <th><strong>解决方案</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>error: src refspec public does not match any</code></td>
-          <td>本地 <code>public</code> 分支不存在或无提交</td>
-          <td><code>git checkout -b public &amp;&amp; git commit --allow-empty -m &quot;init&quot; &amp;&amp; git push -u origin public</code></td>
-      </tr>
-      <tr>
-          <td><code>fatal: refusing to merge unrelated histories</code></td>
-          <td>本地仓库和远程仓库是两个不同的历史</td>
-          <td><code>git pull origin main --allow-unrelated-histories</code></td>
-      </tr>
-      <tr>
-          <td><code>Your local changes would be overwritten by merge</code></td>
-          <td>本地文件有未提交的修改</td>
-          <td><code>git stash &amp;&amp; git pull &amp;&amp; git stash pop</code></td>
-      </tr>
-      <tr>
-          <td><code>public/ is ignored by one of your .gitignore files</code></td>
-          <td><code>public/</code> 目录被 <code>.gitignore</code> 忽略</td>
-          <td><code>git add -f public</code> 或 <code>sed -i '/public/d' .gitignore</code></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>错误信息</strong></th>
+					<th><strong>原因</strong></th>
+					<th><strong>解决方案</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>error: src refspec public does not match any</code></td>
+					<td>本地 <code>public</code> 分支不存在或无提交</td>
+					<td><code>git checkout -b public &amp;&amp; git commit --allow-empty -m &quot;init&quot; &amp;&amp; git push -u origin public</code></td>
+			</tr>
+			<tr>
+					<td><code>fatal: refusing to merge unrelated histories</code></td>
+					<td>本地仓库和远程仓库是两个不同的历史</td>
+					<td><code>git pull origin main --allow-unrelated-histories</code></td>
+			</tr>
+			<tr>
+					<td><code>Your local changes would be overwritten by merge</code></td>
+					<td>本地文件有未提交的修改</td>
+					<td><code>git stash &amp;&amp; git pull &amp;&amp; git stash pop</code></td>
+			</tr>
+			<tr>
+					<td><code>public/ is ignored by one of your .gitignore files</code></td>
+					<td><code>public/</code> 目录被 <code>.gitignore</code> 忽略</td>
+					<td><code>git add -f public</code> 或 <code>sed -i '/public/d' .gitignore</code></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="-6-最佳实践总结"><strong>🏆 6. 最佳实践总结</strong><a hidden class="anchor" aria-hidden="true" href="#-6-最佳实践总结">#</a></h2>

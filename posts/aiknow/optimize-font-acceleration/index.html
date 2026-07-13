@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       比较字体格式与 CDN 策略，给出博客自定义字体加速加载的实现方案。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -451,7 +424,8 @@
 <li>压缩字体</li>
 <li>先显示后加载</li>
 <li>使用CDN加速</li>
-</ul></blockquote>
+</ul>
+</blockquote>
 <h3 id="压缩字体">压缩字体<a hidden class="anchor" aria-hidden="true" href="#压缩字体">#</a></h3>
 <h4 id="truetype-font-ttf">TrueType Font (TTF)<a hidden class="anchor" aria-hidden="true" href="#truetype-font-ttf">#</a></h4>
 <p>常见的字体文件格式，由Apple和Microsoft在上世纪80年代末共同开发。TTF使用二次贝塞尔曲线来描述字符形状，这种曲线可以精确地表示复杂形状，并且在放大时保持平滑。</p>
@@ -481,7 +455,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">custom</span><span class="o">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">families</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;MyCustomFont&#39;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">      <span class="nx">urls</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;path/to/your/css/file.css&#39;</span><span class="p">]</span> <span class="c1">// CSS文件的路径（可以不特别设置）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">});</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h3 id="使用jsdelivr实现cdn加速">使用jsDelivr实现CDN加速<a hidden class="anchor" aria-hidden="true" href="#使用jsdelivr实现cdn加速">#</a></h3>
@@ -500,7 +474,8 @@
 <p><strong>4. 性能优化</strong></p>
 <p>jsDelivr 不仅仅提供文件的CDN加速，还对文件进行了优化处理。例如，它可以自动压缩文件以减少文件大小，从而加快加载速度。此外，它还提供了一个可以合并多个文件的功能，减少了网页加载时的请求数量。</p>
 <p><strong>5. 易用性和无成本</strong></p>
-<p>jsDelivr 是完全免费的服务，为开发者和网站提供了一个零成本的解决方案来优化其资源的分发。它的设置非常简单，只需要修改文件的URL即可开始使用，无需复杂的配置。</p></blockquote>
+<p>jsDelivr 是完全免费的服务，为开发者和网站提供了一个零成本的解决方案来优化其资源的分发。它的设置非常简单，只需要修改文件的URL即可开始使用，无需复杂的配置。</p>
+</blockquote>
 <p>通过GitHub和jsDelivr实现字体文件（如WOFF2格式）的CDN加速：</p>
 <h4 id="步骤-1-准备字体文件">步骤 1: 准备字体文件<a hidden class="anchor" aria-hidden="true" href="#步骤-1-准备字体文件">#</a></h4>
 <p>首先，确保拥有字体文件的使用权，并且该字体文件已经是WOFF2格式。WOFF2是一种为网络优化的字体格式，具有良好的压缩率和快速的加载性能。</p>

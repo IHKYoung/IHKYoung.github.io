@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       从景深、信噪比与进光量三条主线，解释跨画幅画质等效的判断框架。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -465,46 +438,47 @@
   <div class="post-content" id="post-content" style="display: none;"><h1 id="跨画幅影像系统等效性分析">跨画幅影像系统等效性分析<a hidden class="anchor" aria-hidden="true" href="#跨画幅影像系统等效性分析">#</a></h1>
 <blockquote>
 <p><strong>Cross-Format Imaging Equivalence: 1/1.8&quot; vs. M4/3 Wide</strong></p>
-<p>1/1.8英寸传感器与M4/3宽幅模式的等效光圈、ISO及总进光量换算</p></blockquote>
+<p>1/1.8英寸传感器与M4/3宽幅模式的等效光圈、ISO及总进光量换算</p>
+</blockquote>
 <hr>
 <h2 id="1-核心结论-executive-summary">1. 核心结论 (Executive Summary)<a hidden class="anchor" aria-hidden="true" href="#1-核心结论-executive-summary">#</a></h2>
 <p>在跨画幅对比中，为了实现<strong>完全一致的画质表现</strong>（即：相同的景深、相同的信噪比/颗粒感、相同的物理总进光量），必须遵循“全链路等效”原则。</p>
 <p>针对 <strong>1/1.8英寸</strong> 与 <strong>M4/3宽幅 (17.78mm)</strong> 两个系统，实战等效转换标准如下：</p>
 <table>
-  <thead>
-      <tr>
-          <th><strong>参数项</strong></th>
-          <th><strong>1/1.8英寸系统 (源)</strong></th>
-          <th><strong>M4/3 宽幅系统 (目标)</strong></th>
-          <th><strong>物理原理</strong></th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>光圈</strong></td>
-          <td><strong>f/3.4</strong></td>
-          <td><strong>f/8.0</strong></td>
-          <td>保持物理通光孔径直径一致，统一景深</td>
-      </tr>
-      <tr>
-          <td><strong>快门</strong></td>
-          <td><strong>1/250</strong></td>
-          <td><strong>1/250</strong></td>
-          <td>保持运动模糊一致 (时间积分一致)</td>
-      </tr>
-      <tr>
-          <td><strong>ISO/增益</strong></td>
-          <td><strong>ISO 200</strong> (+6dB)</td>
-          <td><strong>ISO 800</strong> (+6dB)</td>
-          <td>补偿光圈缩小的光强损失，统一信噪比</td>
-      </tr>
-      <tr>
-          <td><strong>总进光量</strong></td>
-          <td><strong>1 Unit</strong></td>
-          <td><strong>1 Unit</strong></td>
-          <td><strong>物理光子总量恒等，画质质感一致</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th><strong>参数项</strong></th>
+					<th><strong>1/1.8英寸系统 (源)</strong></th>
+					<th><strong>M4/3 宽幅系统 (目标)</strong></th>
+					<th><strong>物理原理</strong></th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><strong>光圈</strong></td>
+					<td><strong>f/3.4</strong></td>
+					<td><strong>f/8.0</strong></td>
+					<td>保持物理通光孔径直径一致，统一景深</td>
+			</tr>
+			<tr>
+					<td><strong>快门</strong></td>
+					<td><strong>1/250</strong></td>
+					<td><strong>1/250</strong></td>
+					<td>保持运动模糊一致 (时间积分一致)</td>
+			</tr>
+			<tr>
+					<td><strong>ISO/增益</strong></td>
+					<td><strong>ISO 200</strong> (+6dB)</td>
+					<td><strong>ISO 800</strong> (+6dB)</td>
+					<td>补偿光圈缩小的光强损失，统一信噪比</td>
+			</tr>
+			<tr>
+					<td><strong>总进光量</strong></td>
+					<td><strong>1 Unit</strong></td>
+					<td><strong>1 Unit</strong></td>
+					<td><strong>物理光子总量恒等，画质质感一致</strong></td>
+			</tr>
+	</tbody>
 </table>
 <hr>
 <h2 id="2-硬件规格定义-hardware-specifications">2. 硬件规格定义 (Hardware Specifications)<a hidden class="anchor" aria-hidden="true" href="#2-硬件规格定义-hardware-specifications">#</a></h2>
@@ -541,20 +515,23 @@
 <p>$$A_{large} = 17.78 \times 10.00 = 177.80\text{ mm}^2$$</p>
 <p>$$R_{area} = \frac{A_{large}}{A_{small}} = \frac{177.80}{38.1976} \approx \mathbf{4.6547}$$</p>
 <blockquote>
-<p><strong>工程结论：</strong> M4/3 宽幅传感器的物理受光面积约为 1/1.8英寸传感器的 <strong>4.7倍</strong>。这意味着它能多接收 4.7 倍的光子。</p></blockquote>
+<p><strong>工程结论：</strong> M4/3 宽幅传感器的物理受光面积约为 1/1.8英寸传感器的 <strong>4.7倍</strong>。这意味着它能多接收 4.7 倍的光子。</p>
+</blockquote>
 <h3 id="33-等效光圈计算">3.3 等效光圈计算<a hidden class="anchor" aria-hidden="true" href="#33-等效光圈计算">#</a></h3>
 <p>目标：保持物理通光孔径 ($D_{phys}$) 不变。</p>
 <p>$$F_{eq} = F_{origin} \times K$$</p>
 <p>$$F_{eq} = 3.4 \times 2.28 = 7.752$$</p>
 <blockquote>
-<p><strong>工程取值：</strong> 最接近的标准光圈档位为 <strong>f/8.0</strong>。</p></blockquote>
+<p><strong>工程取值：</strong> 最接近的标准光圈档位为 <strong>f/8.0</strong>。</p>
+</blockquote>
 <h3 id="34-等效-iso-计算">3.4 等效 ISO 计算<a hidden class="anchor" aria-hidden="true" href="#34-等效-iso-计算">#</a></h3>
 <p>目标：保持最终画面亮度一致，且信噪比一致。</p>
 <p>$$ISO_{eq} = ISO_{origin} \times R_{area}$$</p>
 <p>$$ISO_{eq} = 200 \times 4.65 = 930$$</p>
 <blockquote>
 <p><strong>工程取值：</strong> <strong>ISO 800</strong>。</p>
-<p><em>分析：ISO 800 是标准整档。虽然理论值是 930，但考虑到大底传感器通常具备更高的量子效率（QE）和更先进的电路设计，ISO 800 实际上能完美对齐 ISO 200 的噪点水平。</em></p></blockquote>
+<p><em>分析：ISO 800 是标准整档。虽然理论值是 930，但考虑到大底传感器通常具备更高的量子效率（QE）和更先进的电路设计，ISO 800 实际上能完美对齐 ISO 200 的噪点水平。</em></p>
+</blockquote>
 <hr>
 <h2 id="4-实验验证-experimental-verification">4. 实验验证 (Experimental Verification)<a hidden class="anchor" aria-hidden="true" href="#4-实验验证-experimental-verification">#</a></h2>
 <p><strong>测试对象：</strong></p>

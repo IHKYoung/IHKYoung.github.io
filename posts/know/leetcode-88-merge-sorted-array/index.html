@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       复盘合并两个有序数组题的逆向双指针解法与常见实现误区。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -331,6 +303,7 @@
     </span>
 </span>
 
+
 </div>
   </header>
 
@@ -352,7 +325,8 @@
 
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>LeetCode上“最简单”的一道题了吧？</p>
-<p><mark>长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！</mark></p></blockquote>
+<p><mark>长时间没有写过题，面试的时候竟然不会写了，奇耻大辱的一件事！</mark></p>
+</blockquote>
 <p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.</p>
 <p><strong>Merge</strong> <code>nums1</code> and <code>nums2</code> into a single array sorted in <strong>non-decreasing order</strong>.</p>
 <p>The final sorted array should not be returned by the function, but instead be <em>stored inside the array</em> <code>nums1</code>. To accommodate this, <code>nums1</code> has a length of <code>m + n</code>, where the first <code>m</code> elements denote the elements that should be merged, and the last <code>n</code> elements are set to <code>0</code> and should be ignored. <code>nums2</code> has a length of <code>n</code>.</p>
@@ -409,7 +383,8 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 </ul>
 <blockquote>
 <p>直接使用“双指针”的写法！</p>
-<p><mark>（你还记得你多年未写算法题，想到了双指针，结果一上来写了两个for的蠢事嘛🤣）</mark></p></blockquote>
+<p><mark>（你还记得你多年未写算法题，想到了双指针，结果一上来写了两个for的蠢事嘛🤣）</mark></p>
+</blockquote>
 <h3 id="直接上菜">🥬直接上菜<a hidden class="anchor" aria-hidden="true" href="#直接上菜">#</a></h3>
 <p>从两个数组的末尾开始，每次取两者之中较大的数，放到 nums1 的合适位置。这样，当 nums2 被完全复制到 nums1 后，合并就完成了，因为 nums1 和 nums2 本来就是有序的。</p>
 <p>下面是详细的步骤：</p>
@@ -421,31 +396,31 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 </ol>
 <p>下面是用C++实现的代码示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 88. Merge Sorted Array
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 逆向双指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">merge</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">m</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 确定终点指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 合并后留下nums1数组
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// 合并后留下nums1数组
+</span></span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 因为已经排序，逆向考虑就是从大往小
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">p1</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">p2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="p">])</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 从后往前，先安排大的
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="n">nums1</span><span class="p">[</span><span class="n">p</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="o">--</span><span class="p">];</span>
+</span></span></span><span class="line"><span class="cl">                <span class="n">nums1</span><span class="p">[</span><span class="n">p</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums1</span><span class="p">[</span><span class="n">p1</span><span class="o">--</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="n">nums1</span><span class="p">[</span><span class="n">p</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="o">--</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">//  //这时候再看p1和p2谁大于零
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// 其实只要看p2是不是大于零就行，因为是从nums2合并到nums1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">while</span> <span class="p">(</span><span class="n">p2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// 其实只要看p2是不是大于零就行，因为是从nums2合并到nums1
+</span></span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">p2</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">nums1</span><span class="p">[</span><span class="n">p</span><span class="o">--</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums2</span><span class="p">[</span><span class="n">p2</span><span class="o">--</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        

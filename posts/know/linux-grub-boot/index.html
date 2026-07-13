@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       记录不借助 Live 盘的 GRUB 启动修复方案，适用于多硬盘 Ubuntu 场景。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -447,7 +420,8 @@
 <p><strong>事情是这样的：</strong></p>
 <p>我分别用两个硬盘装了Ubuntu系统，其中有一个硬盘A的Ubuntu是默认启动项，另一个硬盘B中的Ubuntu系统可以在启动时进行选择。</p>
 <p>现在我直接把硬盘A取走了，再开机，于是乎，启动不了了。。。。</p>
-<p>开机之后直接进入grub&gt;界面。。。</p></blockquote>
+<p>开机之后直接进入grub&gt;界面。。。</p>
+</blockquote>
 <h2 id="先说正题">先说正题<a hidden class="anchor" aria-hidden="true" href="#先说正题">#</a></h2>
 <p>我的想法是，能不能就在grub下实现启动（理论上肯定是可以的！），不借助所谓的Live CD或者USB环境。</p>
 <p>下面是具体步骤：</p>

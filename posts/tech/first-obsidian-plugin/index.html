@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       记录为 Obsidian 与 Hugo 协作而开发首个插件的动机、实现与收获。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -372,10 +345,10 @@
 </span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">lines</span> <span class="o">=</span> <span class="nx">content</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">inCodeBlock</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">codeBlockDelimiter</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span> <span class="c1">// 用于记录当前代码块的分隔符（``` 或 ~~~）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">replacedLines</span> <span class="o">=</span> <span class="nx">lines</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">line</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 检查代码块开始或结束
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">codeBlockMatch</span> <span class="o">=</span> <span class="nx">line</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(```|~~~)/</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">codeBlockMatch</span> <span class="o">=</span> <span class="nx">line</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^(```|~~~)/</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">codeBlockMatch</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">inCodeBlock</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="nx">inCodeBlock</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
@@ -389,11 +362,11 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">inCodeBlock</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 处于代码块中，跳过替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">return</span> <span class="nx">line</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">line</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 处理行内代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="c1">// 暂时保护行内代码中的 ==，避免替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kr">const</span> <span class="nx">inlineCodeRegex</span> <span class="o">=</span> <span class="sr">/`([^`]+)`/g</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">            <span class="c1">// 暂时保护行内代码中的 ==，避免替换
+</span></span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">inlineCodeRegex</span> <span class="o">=</span> <span class="sr">/`([^`]+)`/g</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">protectedLine</span> <span class="o">=</span> <span class="nx">line</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">inlineCodes</span>: <span class="kt">string</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">match</span><span class="p">;</span>
@@ -403,10 +376,10 @@
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="c1">// 替换 ==xxx== 为 &lt;mark&gt;xxx&lt;/mark&gt;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">protectedLine</span> <span class="o">=</span> <span class="nx">protectedLine</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/==(.+?)==/g</span><span class="p">,</span> <span class="s1">&#39;&lt;mark&gt;$1&lt;/mark&gt;&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">            <span class="nx">protectedLine</span> <span class="o">=</span> <span class="nx">protectedLine</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/==(.+?)==/g</span><span class="p">,</span> <span class="s1">&#39;&lt;mark&gt;$1&lt;/mark&gt;&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="c1">// 恢复行内代码
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">protectedLine</span> <span class="o">=</span> <span class="nx">protectedLine</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/__INLINE_CODE_(\d+)__/g</span><span class="p">,</span> <span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">p1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">            <span class="nx">protectedLine</span> <span class="o">=</span> <span class="nx">protectedLine</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/__INLINE_CODE_(\d+)__/g</span><span class="p">,</span> <span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">p1</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">index</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">p1</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="sb">`\`</span><span class="si">${</span><span class="nx">inlineCodes</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span><span class="si">}</span><span class="sb">\``</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="p">});</span>
@@ -423,22 +396,22 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kr">async</span> <span class="nx">onload() {</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 添加一个命令用于高亮替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">addCommand</span><span class="p">({</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">addCommand</span><span class="p">({</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;convert-highlight&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Convert ==xxx== to &lt;mark&gt;xxx&lt;/mark&gt;&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">editorCallback</span><span class="o">:</span> <span class="p">(</span><span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">,</span> <span class="nx">view</span>: <span class="kt">MarkdownView</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 获取编辑器内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getValue</span><span class="p">();</span>
+</span></span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getValue</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 使用辅助函数替换 ==xxx== 为 &lt;mark&gt;xxx&lt;/mark&gt;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kr">const</span> <span class="nx">updatedContent</span> <span class="o">=</span> <span class="nx">replaceHighlight</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">updatedContent</span> <span class="o">=</span> <span class="nx">replaceHighlight</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 更新编辑器内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="nx">editor</span><span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="nx">updatedContent</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">                <span class="nx">editor</span><span class="p">.</span><span class="nx">setValue</span><span class="p">(</span><span class="nx">updatedContent</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">                <span class="k">new</span> <span class="nx">Notice</span><span class="p">(</span><span class="s1">&#39;✨ Markdown Highlight Converted!&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 自动监听编辑器变化并进行替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">activeView</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveViewOfType</span><span class="p">(</span><span class="nx">MarkdownView</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">activeView</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">activeView</span><span class="p">.</span><span class="nx">editor</span><span class="p">;</span>
@@ -454,8 +427,8 @@
 </span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">registerEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 如果不需要设置选项卡，可以移除以下行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="c1">// this.addSettingTab(new Mark2HighlightSettingTab(this.app, this));
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">        <span class="c1">// this.addSettingTab(new Mark2HighlightSettingTab(this.app, this));
+</span></span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nx">onunload() {</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Mark to Highlight Plugin Unloaded.&#39;</span><span class="p">);</span>
@@ -479,7 +452,7 @@ npm install
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">AutoConvertCharsPluginSettings</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">autoConvertDelay</span>: <span class="kt">number</span><span class="p">;</span> <span class="c1">// 自动转换的延迟时间（毫秒）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * 插件的默认设置
@@ -522,12 +495,12 @@ npm install
 </span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
 </span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">replacePatternsInLine</span><span class="p">(</span><span class="nx">line</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span> <span class="nx">newLine</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">replaced</span>: <span class="kt">boolean</span> <span class="p">}</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">// **重要**：将更长的触发字符组合放在前面，避免部分匹配
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kr">const</span> <span class="nx">patterns</span> <span class="o">=</span> <span class="p">[</span>
+</span></span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">patterns</span> <span class="o">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;··· &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;``````&#39;</span> <span class="p">},</span> <span class="c1">// 六个反引号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;· &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;``&#39;</span> <span class="p">},</span>        <span class="c1">// 两个反引号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;》 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">},</span>        <span class="c1">// 引用符号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;〉 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">}</span>         <span class="c1">// 引用符号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">];</span>
+</span></span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;· &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;``&#39;</span> <span class="p">},</span>        <span class="c1">// 两个反引号
+</span></span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;》 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">},</span>        <span class="c1">// 引用符号
+</span></span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;〉 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">}</span>         <span class="c1">// 引用符号
+</span></span></span><span class="line"><span class="cl">    <span class="p">];</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">inInlineCode</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
@@ -537,7 +510,7 @@ npm install
 </span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">char</span> <span class="o">=</span> <span class="nx">line</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 处理行内代码的切换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">char</span> <span class="o">===</span> <span class="s1">&#39;`&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">char</span> <span class="o">===</span> <span class="s1">&#39;`&#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">inInlineCode</span> <span class="o">=</span> <span class="o">!</span><span class="nx">inInlineCode</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="nx">result</span> <span class="o">+=</span> <span class="nx">char</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="k">continue</span><span class="p">;</span>
@@ -551,15 +524,15 @@ npm install
 </span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">triggerSubstring</span> <span class="o">===</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">trigger</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">pattern</span><span class="p">.</span><span class="nx">replacement</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="nx">i</span> <span class="o">+=</span> <span class="nx">triggerLength</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 跳过触发字符
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="nx">replaced</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="nx">replaced</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="nx">matched</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">break</span><span class="p">;</span> <span class="c1">// 跳出当前循环，继续下一个字符
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">                <span class="p">}</span>
 </span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">matched</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="k">continue</span><span class="p">;</span> <span class="c1">// 已经替换，跳过添加当前字符
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span></span><span class="line"><span class="cl">            <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="nx">result</span> <span class="o">+=</span> <span class="nx">char</span><span class="p">;</span>
@@ -597,7 +570,7 @@ npm install
 </span></span><span class="line"><span class="cl">        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">loadSettings</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 创建防抖后的编辑器变化处理函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span> <span class="o">=</span> <span class="nx">debounceFunc</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span> <span class="o">=</span> <span class="nx">debounceFunc</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">activeView</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveViewOfType</span><span class="p">(</span><span class="nx">MarkdownView</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">activeView</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">activeView</span><span class="p">.</span><span class="nx">editor</span><span class="p">;</span>
@@ -606,10 +579,10 @@ npm install
 </span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">autoConvertDelay</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 注册编辑器变化事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">registerEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">registerEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 添加设置选项卡
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">addSettingTab</span><span class="p">(</span><span class="k">new</span> <span class="nx">AutoConvertCharsSettingTab</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">,</span> <span class="k">this</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">addSettingTab</span><span class="p">(</span><span class="k">new</span> <span class="nx">AutoConvertCharsSettingTab</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">,</span> <span class="k">this</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
@@ -642,10 +615,10 @@ npm install
 </span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">saveSettings</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 移除旧的事件监听
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 创建新的防抖处理函数
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span> <span class="o">=</span> <span class="nx">debounceFunc</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span> <span class="o">=</span> <span class="nx">debounceFunc</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">activeView</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">getActiveViewOfType</span><span class="p">(</span><span class="nx">MarkdownView</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">activeView</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="nx">activeView</span><span class="p">.</span><span class="nx">editor</span><span class="p">;</span>
@@ -654,7 +627,7 @@ npm install
 </span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">autoConvertDelay</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 重新注册编辑器变化事件
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">registerEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">));</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">registerEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="nx">workspace</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;editor-change&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">onEditHandler</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="cm">/**
@@ -663,37 +636,37 @@ npm install
 </span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
 </span></span><span class="line"><span class="cl">    <span class="kr">private</span> <span class="nx">convertPatterns</span><span class="p">(</span><span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">cursor</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getCursor</span><span class="p">();</span> <span class="c1">// 保存光标位置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">currentLineNumber</span> <span class="o">=</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">line</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">currentLineNumber</span> <span class="o">=</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">line</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">currentLineText</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getLine</span><span class="p">(</span><span class="nx">currentLineNumber</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 获取所有行内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">allLines</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getValue</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">allLines</span> <span class="o">=</span> <span class="nx">editor</span><span class="p">.</span><span class="nx">getValue</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;\n&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 判断当前行是否在代码块内
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">inCodeBlock</span> <span class="o">=</span> <span class="nx">isLineInCodeBlock</span><span class="p">(</span><span class="nx">allLines</span><span class="p">,</span> <span class="nx">currentLineNumber</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">inCodeBlock</span> <span class="o">=</span> <span class="nx">isLineInCodeBlock</span><span class="p">(</span><span class="nx">allLines</span><span class="p">,</span> <span class="nx">currentLineNumber</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">inCodeBlock</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 当前行在代码块内，跳过替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">return</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 获取替换后的行内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="p">{</span> <span class="nx">newLine</span><span class="p">,</span> <span class="nx">replaced</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">replacePatternsInLine</span><span class="p">(</span><span class="nx">currentLineText</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="p">{</span> <span class="nx">newLine</span><span class="p">,</span> <span class="nx">replaced</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">replacePatternsInLine</span><span class="p">(</span><span class="nx">currentLineText</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">replaced</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// 获取光标在行内的位置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kr">const</span> <span class="nx">beforeCursorText</span> <span class="o">=</span> <span class="nx">currentLineText</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">ch</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">beforeCursorText</span> <span class="o">=</span> <span class="nx">currentLineText</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">cursor</span><span class="p">.</span><span class="nx">ch</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="c1">// 计算替换前触发字符的位置和长度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kd">let</span> <span class="nx">triggerStart</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">triggerStart</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">triggerLength</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">matchedPattern</span><span class="o">:</span> <span class="p">{</span> <span class="nx">trigger</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">replacement</span>: <span class="kt">string</span> <span class="p">}</span> <span class="o">|</span> <span class="kc">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">patterns</span> <span class="o">=</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;··· &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;``````&#39;</span> <span class="p">},</span> <span class="c1">// 六个反引号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;· &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;``&#39;</span> <span class="p">},</span>        <span class="c1">// 两个反引号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;》 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">},</span>        <span class="c1">// 引用符号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;〉 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">}</span>         <span class="c1">// 引用符号
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">];</span>
+</span></span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;· &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;``&#39;</span> <span class="p">},</span>        <span class="c1">// 两个反引号
+</span></span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;》 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">},</span>        <span class="c1">// 引用符号
+</span></span></span><span class="line"><span class="cl">                <span class="p">{</span> <span class="nx">trigger</span><span class="o">:</span> <span class="s1">&#39;〉 &#39;</span><span class="p">,</span> <span class="nx">replacement</span><span class="o">:</span> <span class="s1">&#39;&gt;&#39;</span> <span class="p">}</span>         <span class="c1">// 引用符号
+</span></span></span><span class="line"><span class="cl">            <span class="p">];</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kr">const</span> <span class="nx">pattern</span> <span class="k">of</span> <span class="nx">patterns</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">beforeCursorText</span><span class="p">.</span><span class="nx">lastIndexOf</span><span class="p">(</span><span class="nx">pattern</span><span class="p">.</span><span class="nx">trigger</span><span class="p">);</span>
@@ -707,28 +680,28 @@ npm install
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="nx">triggerStart</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">matchedPattern</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="c1">// 定义替换范围
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kr">const</span> <span class="kr">from</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">line</span>: <span class="kt">currentLineNumber</span><span class="p">,</span> <span class="nx">ch</span>: <span class="kt">triggerStart</span> <span class="p">};</span>
+</span></span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="kr">from</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">line</span>: <span class="kt">currentLineNumber</span><span class="p">,</span> <span class="nx">ch</span>: <span class="kt">triggerStart</span> <span class="p">};</span>
 </span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">to</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">line</span>: <span class="kt">currentLineNumber</span><span class="p">,</span> <span class="nx">ch</span>: <span class="kt">triggerStart</span> <span class="o">+</span> <span class="nx">triggerLength</span> <span class="p">};</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="c1">// 定义替换内容
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="kr">const</span> <span class="nx">replacement</span> <span class="o">=</span> <span class="nx">matchedPattern</span><span class="p">.</span><span class="nx">replacement</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                <span class="kr">const</span> <span class="nx">replacement</span> <span class="o">=</span> <span class="nx">matchedPattern</span><span class="p">.</span><span class="nx">replacement</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="p">(</span><span class="nx">replacement</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                    <span class="c1">// 执行替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="nx">editor</span><span class="p">.</span><span class="nx">replaceRange</span><span class="p">(</span><span class="nx">replacement</span><span class="p">,</span> <span class="kr">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="nx">editor</span><span class="p">.</span><span class="nx">replaceRange</span><span class="p">(</span><span class="nx">replacement</span><span class="p">,</span> <span class="kr">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="c1">// 设置光标位置到替换后的中间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 对于 &#39;· &#39; → &#39;`` &#39;，光标应在两个反引号之间，即位置 1
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="c1">// 对于 &#39;··· &#39; → &#39;`````` &#39;，光标应在前三个反引号之后，即位置 3
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="kd">let</span> <span class="nx">newCursorCh</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="c1">// 对于 &#39;· &#39; → &#39;`` &#39;，光标应在两个反引号之间，即位置 1
+</span></span></span><span class="line"><span class="cl">                    <span class="c1">// 对于 &#39;··· &#39; → &#39;`````` &#39;，光标应在前三个反引号之后，即位置 3
+</span></span></span><span class="line"><span class="cl">                    <span class="kd">let</span> <span class="nx">newCursorCh</span>: <span class="kt">number</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="nx">matchedPattern</span><span class="p">.</span><span class="nx">trigger</span> <span class="o">===</span> <span class="s1">&#39;· &#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="nx">newCursorCh</span> <span class="o">=</span> <span class="nx">triggerStart</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// After first backtick
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">matchedPattern</span><span class="p">.</span><span class="nx">trigger</span> <span class="o">===</span> <span class="s1">&#39;··· &#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">matchedPattern</span><span class="p">.</span><span class="nx">trigger</span> <span class="o">===</span> <span class="s1">&#39;··· &#39;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="nx">newCursorCh</span> <span class="o">=</span> <span class="nx">triggerStart</span> <span class="o">+</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// After third backtick
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl">                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="c1">// For other patterns like &#39;》 &#39; and &#39;〉 &#39;, place cursor after replacement
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="nx">newCursorCh</span> <span class="o">=</span> <span class="nx">triggerStart</span> <span class="o">+</span> <span class="nx">replacement</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">                        <span class="nx">newCursorCh</span> <span class="o">=</span> <span class="nx">triggerStart</span> <span class="o">+</span> <span class="nx">replacement</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">                    <span class="nx">editor</span><span class="p">.</span><span class="nx">setCursor</span><span class="p">({</span> <span class="nx">line</span>: <span class="kt">currentLineNumber</span><span class="p">,</span> <span class="nx">ch</span>: <span class="kt">newCursorCh</span> <span class="p">});</span>
@@ -756,10 +729,10 @@ npm install
 </span></span><span class="line"><span class="cl">        <span class="nx">containerEl</span><span class="p">.</span><span class="nx">empty</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 设置标题
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">containerEl</span><span class="p">.</span><span class="nx">createEl</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Auto Convert Chars 设置&#39;</span> <span class="p">});</span>
+</span></span></span><span class="line"><span class="cl">        <span class="nx">containerEl</span><span class="p">.</span><span class="nx">createEl</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Auto Convert Chars 设置&#39;</span> <span class="p">});</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="c1">// 自动识别延迟设置
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">new</span> <span class="nx">Setting</span><span class="p">(</span><span class="nx">containerEl</span><span class="p">)</span>
+</span></span></span><span class="line"><span class="cl">        <span class="k">new</span> <span class="nx">Setting</span><span class="p">(</span><span class="nx">containerEl</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s1">&#39;自动转换延迟（毫秒）&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">setDesc</span><span class="p">(</span><span class="s1">&#39;设置自动识别并转换特定字符组合的延迟时间，默认100毫秒。&#39;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">            <span class="p">.</span><span class="nx">addText</span><span class="p">(</span><span class="nx">text</span> <span class="o">=&gt;</span> <span class="nx">text</span>
@@ -769,7 +742,7 @@ npm install
 </span></span><span class="line"><span class="cl">                    <span class="kr">const</span> <span class="nx">parsed</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">parsed</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">parsed</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="c1">// 调用插件的公共方法更新延迟时间
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                        <span class="k">this</span><span class="p">.</span><span class="nx">plugin</span><span class="p">.</span><span class="nx">updateAutoConvertDelay</span><span class="p">(</span><span class="nx">parsed</span><span class="p">);</span>
+</span></span></span><span class="line"><span class="cl">                        <span class="k">this</span><span class="p">.</span><span class="nx">plugin</span><span class="p">.</span><span class="nx">updateAutoConvertDelay</span><span class="p">(</span><span class="nx">parsed</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">                        <span class="k">new</span> <span class="nx">Notice</span><span class="p">(</span><span class="sb">`自动转换延迟已设置为 </span><span class="si">${</span><span class="nx">parsed</span><span class="si">}</span><span class="sb"> 毫秒`</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                        <span class="k">new</span> <span class="nx">Notice</span><span class="p">(</span><span class="s1">&#39;请输入有效的毫秒数（非负整数）。&#39;</span><span class="p">);</span>

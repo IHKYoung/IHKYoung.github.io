@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       讲解用 CMake/CPack 打包与分发可执行程序的完整流程及配置要点。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -431,40 +404,41 @@
 
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>就是代码写好了，肯定不能发源码出去，肯定发的是可执行文件，或者就依赖和可执行文件都打包好～</p>
-<p><strong>如果是Github管理的话，甚至还要考虑一下Release管理。</strong></p></blockquote>
+<p><strong>如果是Github管理的话，甚至还要考虑一下Release管理。</strong></p>
+</blockquote>
 <p><strong>因为习惯了CMake，所以直观地想到使用CMakeLists.txt来配置。举例如下：</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.10</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">project</span><span class="p">(</span><span class="s">MoInfo2GSBag</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">project</span><span class="p">(</span><span class="s">MoInfo2GSBag</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_INSTALL_PREFIX</span> <span class="s2">&#34;${CMAKE_CURRENT_BINARY_DIR}/../install&#34;</span> <span class="s">CACHE</span> <span class="s">PATH</span> <span class="s2">&#34;Install path prefix&#34;</span> <span class="s">FORCE</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">option</span><span class="p">(</span><span class="s">BUILD_SHARED_LIBS</span> <span class="s2">&#34;Build libraries as shared libraries&#34;</span> <span class="s">ON</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_INSTALL_PREFIX</span> <span class="s2">&#34;${CMAKE_CURRENT_BINARY_DIR}/../install&#34;</span> <span class="s">CACHE</span> <span class="s">PATH</span> <span class="s2">&#34;Install path prefix&#34;</span> <span class="s">FORCE</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">option</span><span class="p">(</span><span class="s">BUILD_SHARED_LIBS</span> <span class="s2">&#34;Build libraries as shared libraries&#34;</span> <span class="s">ON</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">20</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD_REQUIRED</span> <span class="s">True</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PCL</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">PCL</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">OpenCV</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">include_directories</span><span class="p">(</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">include_directories</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">OpenCV_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">PCL_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># add subdirectories
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">AI</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">RoadSeg</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># add subdirectories
+</span></span></span><span class="line"><span class="cl"><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">AI</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">add_subdirectory</span><span class="p">(</span><span class="s">RoadSeg</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">## -- for MoInfo2GSBag -- ##
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">spdlog</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c">## -- for MoInfo2GSBag -- ##
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">spdlog</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Find FFmpeg components
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">find_package</span><span class="p">(</span><span class="s">PkgConfig</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVCODEC</span> <span class="s">REQUIRED</span> <span class="s">libavcodec</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVFORMAT</span> <span class="s">REQUIRED</span> <span class="s">libavformat</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">SWSCALE</span> <span class="s">REQUIRED</span> <span class="s">libswscale</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVUTIL</span> <span class="s">REQUIRED</span> <span class="s">libavutil</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Find FFmpeg components
+</span></span></span><span class="line"><span class="cl"><span class="nb">find_package</span><span class="p">(</span><span class="s">PkgConfig</span> <span class="s">REQUIRED</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVCODEC</span> <span class="s">REQUIRED</span> <span class="s">libavcodec</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVFORMAT</span> <span class="s">REQUIRED</span> <span class="s">libavformat</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">SWSCALE</span> <span class="s">REQUIRED</span> <span class="s">libswscale</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">pkg_check_modules</span><span class="p">(</span><span class="s">AVUTIL</span> <span class="s">REQUIRED</span> <span class="s">libavutil</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">include_directories</span><span class="p">(</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">include_directories</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVCODEC_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVFORMAT_INCLUDE_DIRS</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">SWSCALE_INCLUDE_DIRS</span><span class="o">}</span>
@@ -474,22 +448,22 @@
 </span></span><span class="line"><span class="cl">    <span class="s">/usr/include</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">link_directories</span><span class="p">(</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">link_directories</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/MoBag/lib</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/MoBag/external/platform_sdk/lib</span>
 </span></span><span class="line"><span class="cl">    <span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_library</span><span class="p">(</span><span class="s">metoak_proto_gsbag</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">add_library</span><span class="p">(</span><span class="s">metoak_proto_gsbag</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/MoBag/proto/metoak_image_msg.pb.cc</span> 
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/MoBag/proto/metoak_image_msg.pb.h</span>
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">metoak_proto_gsbag</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">metoak_proto_gsbag</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">PROTOBUF_LIBRARIES</span><span class="o">}</span>  
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">add_executable</span><span class="p">(</span><span class="s">MoInfo2GSBag</span> <span class="s">moinfo_to_gsbag.cpp</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MoInfo2GSBag</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">add_executable</span><span class="p">(</span><span class="s">MoInfo2GSBag</span> <span class="s">moinfo_to_gsbag.cpp</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MoInfo2GSBag</span>
 </span></span><span class="line"><span class="cl">    <span class="s">spdlog::spdlog</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVCODEC_LIBRARIES</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">${</span><span class="nv">AVFORMAT_LIBRARIES</span><span class="o">}</span>
@@ -511,27 +485,27 @@
 </span></span><span class="line"><span class="cl"><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">## -- Install -- ##
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> <span class="s">MoInfo2GSBag</span> <span class="s">DESTINATION</span> <span class="s">bin</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> 
+</span></span></span><span class="line"><span class="cl"><span class="c">## -- Install -- ##
+</span></span></span><span class="line"><span class="cl"><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> <span class="s">MoInfo2GSBag</span> <span class="s">DESTINATION</span> <span class="s">bin</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">install</span><span class="p">(</span><span class="s">TARGETS</span> 
 </span></span><span class="line"><span class="cl">    <span class="s">metoak_proto_gsbag</span> 
 </span></span><span class="line"><span class="cl">    <span class="s">AI4FS</span>
 </span></span><span class="line"><span class="cl">    <span class="s">RoadSeg</span>
 </span></span><span class="line"><span class="cl">    <span class="s">DESTINATION</span> <span class="s">lib</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">install</span><span class="p">(</span><span class="s">DIRECTORY</span> <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/MoBag/lib/</span> <span class="s">DESTINATION</span> <span class="s">lib</span>
+</span></span></span><span class="line"><span class="cl"><span class="nb">install</span><span class="p">(</span><span class="s">DIRECTORY</span> <span class="o">${</span><span class="nv">CMAKE_CURRENT_SOURCE_DIR</span><span class="o">}</span><span class="s">/MoBag/lib/</span> <span class="s">DESTINATION</span> <span class="s">lib</span>
 </span></span><span class="line"><span class="cl">        <span class="s">FILES_MATCHING</span> <span class="s">PATTERN</span> <span class="s2">&#34;*.so*&#34;</span><span class="p">)</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># CPack configuration
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_GENERATOR</span> <span class="s2">&#34;TGZ;DEB&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_NAME</span> <span class="s2">&#34;MoInfo2GSBag&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_VERSION</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_FILE_NAME</span> <span class="s2">&#34;${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_CONTACT</span> <span class="s2">&#34;ChangKunYang &lt;changkun.yang@metoak.net&gt;&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_DEBIAN_PACKAGE_DEPENDS</span> <span class="s2">&#34;libavcodec, libavformat, libswscale, libavutil, protobuf, spdlog&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION</span> <span class="s2">&#34;MoInfo2GSBag tool with all dependencies included&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION_SUMMARY</span> <span class="s2">&#34;A tool to process MoInfo2GSBag data with all required libraries included&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">include</span><span class="p">(</span><span class="s">CPack</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="c"># CPack configuration
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_GENERATOR</span> <span class="s2">&#34;TGZ;DEB&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_NAME</span> <span class="s2">&#34;MoInfo2GSBag&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_VERSION</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_FILE_NAME</span> <span class="s2">&#34;${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_CONTACT</span> <span class="s2">&#34;ChangKunYang &lt;changkun.yang@metoak.net&gt;&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_DEBIAN_PACKAGE_DEPENDS</span> <span class="s2">&#34;libavcodec, libavformat, libswscale, libavutil, protobuf, spdlog&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION</span> <span class="s2">&#34;MoInfo2GSBag tool with all dependencies included&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION_SUMMARY</span> <span class="s2">&#34;A tool to process MoInfo2GSBag data with all required libraries included&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">include</span><span class="p">(</span><span class="s">CPack</span><span class="p">)</span><span class="err">
 </span></span></span></code></pre></div><p>其中的<code>set(CMAKE_INSTALL_PREFIX &quot;${CMAKE_CURRENT_BINARY_DIR}/../install&quot; CACHE PATH &quot;Install path prefix&quot; FORCE)</code>就是用来配置install的位置的，如果没有设置，默认是<code>/usr/local</code>，这时候使用<code>cmake install</code>是需要<code>sudo</code>权限的。</p>
 <p><strong>其次，还需要注意安装的lib要全！</strong></p>
 <p>注意这种写法：</p>
@@ -552,15 +526,15 @@
 <p><mark>特别注意一下，所有的CPack变量需要在include(CPack)之前设置，这样CPack能够正确读取这些变量。</mark></p>
 <h4 id="cpack的配置说明">CPack的配置说明<a hidden class="anchor" aria-hidden="true" href="#cpack的配置说明">#</a></h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cmake" data-lang="cmake"><span class="line"><span class="cl"><span class="c"># CPack configuration
-</span></span></span><span class="line"><span class="cl"><span class="c"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_GENERATOR</span> <span class="s2">&#34;TGZ;DEB&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_NAME</span> <span class="s2">&#34;MoInfo2GSBag&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_VERSION</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_FILE_NAME</span> <span class="s2">&#34;${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_CONTACT</span> <span class="s2">&#34;ChangKunYang &lt;changkun.yang@metoak.net&gt;&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_DEBIAN_PACKAGE_DEPENDS</span> <span class="s2">&#34;libavcodec, libavformat, libswscale, libavutil, protobuf, spdlog&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION</span> <span class="s2">&#34;MoInfo2GSBag tool with all dependencies included&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION_SUMMARY</span> <span class="s2">&#34;A tool to process MoInfo2GSBag data with all required libraries included&#34;</span><span class="p">)</span><span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nb">include</span><span class="p">(</span><span class="s">CPack</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_GENERATOR</span> <span class="s2">&#34;TGZ;DEB&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_NAME</span> <span class="s2">&#34;MoInfo2GSBag&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_VERSION</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_FILE_NAME</span> <span class="s2">&#34;${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_CONTACT</span> <span class="s2">&#34;ChangKunYang &lt;changkun.yang@metoak.net&gt;&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_DEBIAN_PACKAGE_DEPENDS</span> <span class="s2">&#34;libavcodec, libavformat, libswscale, libavutil, protobuf, spdlog&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION</span> <span class="s2">&#34;MoInfo2GSBag tool with all dependencies included&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">set</span><span class="p">(</span><span class="s">CPACK_PACKAGE_DESCRIPTION_SUMMARY</span> <span class="s2">&#34;A tool to process MoInfo2GSBag data with all required libraries included&#34;</span><span class="p">)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="nb">include</span><span class="p">(</span><span class="s">CPack</span><span class="p">)</span><span class="err">
 </span></span></span></code></pre></div>
 
   </div>

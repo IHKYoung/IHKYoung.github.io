@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       总结移除元素题的原地覆盖策略，说明 O(1) 空间实现与代码要点。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -419,7 +392,8 @@ for (int i = 0; i &lt; len; i++) {
 </ul>
 <blockquote>
 <p>这道题的用意是指，<strong>不能用额外空间。</strong></p>
-<p>不能用额外空间，那就用两个指针。快慢指针，这种设计很巧妙，快指针遍历，慢指针覆盖，因为有筛选，所以原始数组的大小够用</p></blockquote>
+<p>不能用额外空间，那就用两个指针。快慢指针，这种设计很巧妙，快指针遍历，慢指针覆盖，因为有筛选，所以原始数组的大小够用</p>
+</blockquote>
 <h3 id="上菜上菜">🥬上菜上菜<a hidden class="anchor" aria-hidden="true" href="#上菜上菜">#</a></h3>
 <p>可以使用双指针法来实现原地算法。具体来说，可以采用<strong>快慢指针</strong>的策略：快指针（fast）遍历数组，慢指针（slow）指向更新数组的下一个位置。当遇到与 <code>val</code> 相等的元素时，快指针继续前进，跳过这些元素；当遇到不等于 <code>val</code> 的元素时，将其复制到慢指针的位置，然后慢指针前进。这样，所有不等于 <code>val</code> 的元素都被移动到数组的前面，且不需要使用额外的空间。</p>
 <p>下面是具体的步骤：</p>
@@ -433,17 +407,17 @@ for (int i = 0; i &lt; len; i++) {
 <p>这种方法之所以高效，是因为它避免了对 <code>val</code> 元素的重复检查和不必要的元素移动。</p>
 <p>下面是用C++实现的代码示例：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// 27. Remove Element
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">// 快慢指针
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">removeElement</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">nums</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="c1">// 快指针遍历数组，慢指针按需替换
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kt">int</span> <span class="n">slow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">slow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">fast</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">fast</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">fast</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">]</span> <span class="o">!=</span> <span class="n">val</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">                <span class="n">nums</span><span class="p">[</span><span class="n">slow</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="p">[</span><span class="n">fast</span><span class="p">];</span>

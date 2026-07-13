@@ -39,7 +39,7 @@
 
 
 
-<html lang="zh" dir="zh-cn">
+<html lang="zh-cn" dir="ltr">
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -261,35 +261,7 @@
     <div class="post-description">
       整理开发前的环境准备项，覆盖终端配置、网络处理与常用工具安装。
     </div>
-    <div class="post-meta">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <div class="post-meta"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
@@ -330,6 +302,7 @@
         </span>
     </span>
 </span>
+
 
 </div>
   </header>
@@ -434,7 +407,8 @@
 
   <div class="post-content" id="post-content" style="display: none;"><blockquote>
 <p>有一些事情，重复干两次以上，就不应该想办法让它自动化，或者被记录。
-Chat+Note的方式可能需要继续迭代，先满足自己的需求，后面继续迭代。</p></blockquote>
+Chat+Note的方式可能需要继续迭代，先满足自己的需求，后面继续迭代。</p>
+</blockquote>
 <h2 id="linux的习惯性配置">Linux的习惯性配置<a hidden class="anchor" aria-hidden="true" href="#linux的习惯性配置">#</a></h2>
 <p>沿用之前的模式，Ohmyzsh方案：p10k+自动高亮和补充这种。
 以下复制使用（网络不好的话，手动下载或者直接局域网梯子🚀）</p>
@@ -454,7 +428,7 @@ Chat+Note的方式可能需要继续迭代，先满足自己的需求，后面�
 </span></span><span class="line"><span class="cl"><span class="o">)</span>
 </span></span></code></pre></div><p>然后也写了一个脚本工具：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>**set** -euo pipefail
+</span></span></span><span class="line"><span class="cl">**set** -euo pipefail
 </span></span><span class="line"><span class="cl">**echo** <span class="s2">&#34;===&gt; 1) 检查依赖：curl / git&#34;</span>
 </span></span><span class="line"><span class="cl">**command** -v curl &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span> **echo** <span class="s2">&#34;需要 curl&#34;</span><span class="p">;</span> **exit** 1<span class="p">;</span> <span class="o">}</span>
 </span></span><span class="line"><span class="cl">**command** -v git  &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">||</span> <span class="o">{</span> **echo** <span class="s2">&#34;需要 git&#34;</span><span class="p">;</span>  **exit** 1<span class="p">;</span> <span class="o">}</span>
