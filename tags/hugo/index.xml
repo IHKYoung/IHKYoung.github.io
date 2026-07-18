@@ -6,15 +6,8 @@
     <description>Recent content in Hugo on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 02 Mar 2026 12:17:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Feb 2025 01:49:17 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>AhaKnow博客备忘录</title>
-      <link>https://blog.ahaknow.com/posts/inspiration/memo-blog/</link>
-      <pubDate>Sun, 25 Jan 2026 22:56:50 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/inspiration/memo-blog/</guid>
-      <description>记录 AhaKnow 博客的关键运维步骤，包含主题修改、本地预览与同步发布流程。</description>
-    </item>
     <item>
       <title>🔐 Hugo 文章密码保护初次实践</title>
       <link>https://blog.ahaknow.com/posts/aiknow/hugo/</link>

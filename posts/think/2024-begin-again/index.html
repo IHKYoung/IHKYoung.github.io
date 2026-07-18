@@ -58,6 +58,8 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" hreflang="zh" href="https://blog.ahaknow.com/posts/think/2024-begin-again/">
+
+
 <noscript>
     <style>
         #theme-toggle,
@@ -99,7 +101,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://blog.ahaknow.com/posts/think/2024-begin-again/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-03-27T17:01:29+08:00" />
-<meta property="article:modified_time" content="2026-03-02T12:17:00+08:00" />
+<meta property="article:modified_time" content="2024-03-27T17:01:29+08:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="折腾博客是为了更好地专注在写作上？"/>
@@ -146,7 +148,7 @@
   "wordCount" : "902",
   "inLanguage": "zh",
   "datePublished": "2024-03-27T17:01:29+08:00",
-  "dateModified": "2026-03-02T12:17:00+08:00",
+  "dateModified": "2024-03-27T17:01:29+08:00",
   "author":[{
     "@type": "Person",
     "name": "CKYoung"
@@ -213,37 +215,37 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://blog.ahaknow.com/search" title="🪄探索 (Alt &#43; /)" accesskey=/>
+                <a href="https://blog.ahaknow.com/search/" title="🪄 魔法 (Alt &#43; /)" accesskey=/>
                     <span>🪄探索</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/" title="🏡首页">
+                <a href="https://blog.ahaknow.com/" title="AhaKnow">
                     <span>🏡首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/posts" title="🚀持续生长">
-                    <span>🚀持续生长</span>
+                <a href="https://blog.ahaknow.com/posts/" title="🚀 持续生长" aria-current="page">
+                    <span class="active">🚀持续生长</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/archives" title="⏱️时序长廊">
+                <a href="https://blog.ahaknow.com/archives/" title="⏱️ 时间线">
                     <span>⏱️时序长廊</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/tags" title="🏷️词语标引">
+                <a href="https://blog.ahaknow.com/tags/" title="🏷️ 标签">
                     <span>🏷️词语标引</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/categories" title="🖇专题归档">
+                <a href="https://blog.ahaknow.com/categories/" title="🖇️ 归档">
                     <span>🖇专题归档</span>
                 </a>
             </li>
             <li>
-                <a href="https://blog.ahaknow.com/toolkits" title="🧰工具栈">
+                <a href="https://blog.ahaknow.com/toolkits/" title="🧰 医疗箱">
                     <span>🧰工具栈</span>
                 </a>
             </li>
@@ -265,7 +267,7 @@
 <span class="parent-post-meta">
         <span id="post_meta_style_1">
             <span class="fa fa-calendar-check-o"></span>
-            <span>2026-03-02
+            <span>2024-03-27
                 &nbsp;&nbsp;
             </span>
         </span>
@@ -381,23 +383,50 @@
         let win = element.ownerDocument.defaultView;
         return rect.top + win.pageYOffset;
     }
+</script><dialog class="reading-gate" data-reading-gate aria-labelledby="reading-gate-title">
+  <div class="reading-gate__content">
+    <p class="reading-gate__eyebrow">AhaKnow</p>
+    <h2 id="reading-gate-title">准备好了吗？</h2>
+    <p>慢一点，认真读完这一页。</p>
+    <button type="button" data-reading-gate-confirm>进入阅读</button>
+  </div>
+</dialog>
+<script>
+  (() => {
+    const dialog = document.querySelector('[data-reading-gate]')
+    const confirmButton = dialog?.querySelector('[data-reading-gate-confirm]')
+    const sessionKey = 'ckpaper-reading-confirmed'
+    if (!dialog || !confirmButton) return
+
+    const isConfirmed = () => {
+      try {
+        return sessionStorage.getItem(sessionKey) === '1'
+      } catch {
+        return false
+      }
+    }
+    const openDialog = () => {
+      if (isConfirmed()) return
+      if (typeof dialog.showModal === 'function') dialog.showModal()
+      else dialog.setAttribute('open', '')
+    }
+    const confirmReading = () => {
+      try {
+        sessionStorage.setItem(sessionKey, '1')
+      } catch {
+        
+      }
+      if (typeof dialog.close === 'function') dialog.close()
+      else dialog.removeAttribute('open')
+    }
+
+    dialog.addEventListener('cancel', event => event.preventDefault())
+    confirmButton.addEventListener('click', confirmReading)
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', openDialog, { once: true })
+    else openDialog()
+  })()
 </script>
-
-  
-  
-  
-  <div id="ai-check" style="text-align: center; padding: 20px;">
-    <p style="font-size: 1.2em;">🤖 嘿嘿，你是人类还是AI？</p>
-    <p style="font-size: 1.2em;">不管是谁，反正得回答我一个终极问题👇</p>
-    <p id="ai-check-text" style="font-size: 1.5em; font-weight: bold; color: #45b97c;"></p>
-    <input type="text" id="ai-input" placeholder="乖乖输入正确答案" />
-    <button id="ai-check-button" onclick="verifyHuman()">✅ 我是人类，放我进去！</button>
-    <p id="ai-error" style="color: red; display: none;">❌ 哈哈，答错了！要不要再试一次？😏</p>
-    <p style="font-size: 1em; color: gray;">🤖 如果你真的是AI…… 记得代我向<mark>你的主人</mark>问好，顺便告诉它我很酷！😎</p>
-</div>
-
-
-  <div class="post-content" id="post-content" style="display: none;"><p>以下是心路历程：</p>
+  <div class="post-content"><p>以下是心路历程：</p>
 <blockquote>
 <p>为了写博客，因为觉得工具看着不爽，变成了学习Python后端（为啥不是Java？质问脸），开始造引擎？</p>
 <p>纠结于用什么博客框架，Hexo？Hugo？Halo？甚至想学JS框架自己做一个！</p>
@@ -424,55 +453,6 @@
 
 
   </div>
-
-  <script>
-    let aiChallengeText = Math.random().toString(36).substring(2, 8); 
-    document.getElementById("ai-check-text").innerText = aiChallengeText;
-
-    function verifyHuman() {
-      let inputText = document.getElementById("ai-input").value;
-      if (inputText === aiChallengeText) {
-        document.getElementById("ai-check").style.display = "none";
-        document.getElementById("post-content").style.display = "block";
-      } else {
-        let errorMsg = document.getElementById("ai-error");
-        errorMsg.style.display = "block";
-        errorMsg.classList.add("shake");
-        setTimeout(() => errorMsg.classList.remove("shake"), 300);
-      }
-    }
-  </script>
-
-  <style>
-     
-    #check-button, #ai-check-button {
-        background-color: transparent;
-        border: none;
-        padding: 10px 20px;
-        font-size: 1.2em;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: transform 0.1s ease-in-out, box-shadow 0.2s;
-    }
-    #check-button:active, #ai-check-button:active {
-        transform: scale(0.9);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-  
-     
-    @keyframes shake {
-        0% { transform: translateX(0); }
-        25% { transform: translateX(-5px); }
-        50% { transform: translateX(5px); }
-        75% { transform: translateX(-5px); }
-        100% { transform: translateX(0); }
-    }
-    .shake {
-        animation: shake 0.3s ease-in-out;
-    }
-  </style>
-
-
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://blog.ahaknow.com/tags/%E6%80%9D%E8%80%83%E8%AE%B0%E5%BD%95/">思考记录</a></li>

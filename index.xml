@@ -6,15 +6,8 @@
     <description>Recent content on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 17 May 2026 00:10:47 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2026 23:53:07 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>逐镜探维：置身三维重建而后生</title>
-      <link>https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/</link>
-      <pubDate>Thu, 10 Oct 2024 21:58:23 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/inspiration/aha-dig-into-3d-reconstruction/</guid>
-      <description>从拍照建模问题出发，串联三维重建的核心目标、技术路线与学习动机。</description>
-    </item>
     <item>
       <title>站在前人的肩膀上：笔记收集录</title>
       <link>https://blog.ahaknow.com/posts/know/collection-notes/</link>
@@ -177,13 +170,6 @@
       <description>系统讲解 Linux 下 Git 的 HTTP/HTTPS 与 SSH 代理配置，并附验证命令。</description>
     </item>
     <item>
-      <title>今天有点恍惚</title>
-      <link>https://blog.ahaknow.com/posts/diary/2026-02-03/</link>
-      <pubDate>Tue, 03 Feb 2026 14:42:04 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2026-02-03/</guid>
-      <description>从公众号停更现象出发，记录一次关于时间流逝、创作耐力与表达焦虑的反思。</description>
-    </item>
-    <item>
       <title>开发Prompt</title>
       <link>https://blog.ahaknow.com/posts/aiknow/prompt/</link>
       <pubDate>Wed, 28 Jan 2026 17:21:30 +0800</pubDate>
@@ -219,67 +205,11 @@
       <description>给出 Ubuntu 下 GitHub SSH 走 SOCKS5 的可用配置，解决握手卡死与端口受限问题。</description>
     </item>
     <item>
-      <title>我在想：要不要整理一下现在的博客？</title>
-      <link>https://blog.ahaknow.com/posts/diary/2026-01-26/</link>
-      <pubDate>Mon, 26 Jan 2026 16:18:28 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2026-01-26/</guid>
-      <description>记录一次博客整理取舍思考，明确“先持续输出、再阶段治理”的执行顺序。</description>
-    </item>
-    <item>
-      <title>2年前和现在的变化。</title>
-      <link>https://blog.ahaknow.com/posts/diary/2026-01-25/</link>
-      <pubDate>Sun, 25 Jan 2026 23:29:28 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2026-01-25/</guid>
-      <description>对照两年前与当下的开发条件，梳理效率变化与 AI 协作带来的方法升级。</description>
-    </item>
-    <item>
-      <title>AhaKnow博客备忘录</title>
-      <link>https://blog.ahaknow.com/posts/inspiration/memo-blog/</link>
-      <pubDate>Sun, 25 Jan 2026 22:56:50 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/inspiration/memo-blog/</guid>
-      <description>记录 AhaKnow 博客的关键运维步骤，包含主题修改、本地预览与同步发布流程。</description>
-    </item>
-    <item>
-      <title>2026年，继续记录！</title>
-      <link>https://blog.ahaknow.com/posts/diary/2026-01-06/</link>
-      <pubDate>Tue, 06 Jan 2026 23:16:44 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2026-01-06/</guid>
-      <description>作为 2026 年开场复盘，重新审视写作习惯、工具偏好与持续记录机制。</description>
-    </item>
-    <item>
-      <title>好记性不如烂笔头</title>
-      <link>https://blog.ahaknow.com/posts/diary/2025-08-25/</link>
-      <pubDate>Mon, 25 Aug 2025 12:22:51 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2025-08-25/</guid>
-      <description>记录服务常驻运行的实践对比，说明 nohup 与 systemd 的稳定性差异。</description>
-    </item>
-    <item>
-      <title>先把身体养好</title>
-      <link>https://blog.ahaknow.com/posts/diary/2025-08-21/</link>
-      <pubDate>Thu, 21 Aug 2025 11:31:47 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2025-08-21/</guid>
-      <description>把身体恢复放到首位，记录健康管理与工作节奏重新平衡的当天决策。</description>
-    </item>
-    <item>
-      <title>又想继续做自己的App了！</title>
-      <link>https://blog.ahaknow.com/posts/diary/2025-08-20/</link>
-      <pubDate>Wed, 20 Aug 2025 11:04:45 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2025-08-20/</guid>
-      <description>梳理个人 App 新想法与产品种子，明确 AI 提醒、AhaNews 等方向的优先级。</description>
-    </item>
-    <item>
       <title>开发前的一些准备工作～</title>
       <link>https://blog.ahaknow.com/posts/tech/preparation-development/</link>
       <pubDate>Tue, 19 Aug 2025 11:03:49 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/tech/preparation-development/</guid>
       <description>整理开发前的环境准备项，覆盖终端配置、网络处理与常用工具安装。</description>
-    </item>
-    <item>
-      <title>又是匆匆一个月……</title>
-      <link>https://blog.ahaknow.com/posts/diary/2025-03-05/</link>
-      <pubDate>Wed, 05 Mar 2025 07:51:53 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2025-03-05/</guid>
-      <description>记录一个月后的状态回看，从工具选择到写作流程做阶段性调整。</description>
     </item>
     <item>
       <title>📖算法工程师面试指南</title>
@@ -318,9 +248,9 @@
     </item>
     <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/latex/</guid>
       <description>按场景整理 LaTeX 数学公式语法，覆盖行内、块级、常见符号与排版细节。</description>
     </item>
     <item>
@@ -329,13 +259,6 @@
       <pubDate>Fri, 07 Feb 2025 23:39:05 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/github-pull-reques-release/</guid>
       <description>定位 Pull Request 中 Release 附件缺失的根因，并给出发布流程的修复办法。</description>
-    </item>
-    <item>
-      <title>💡AI调教指令</title>
-      <link>https://blog.ahaknow.com/posts/inspiration/aha-prompts/</link>
-      <pubDate>Fri, 07 Feb 2025 21:45:07 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/inspiration/aha-prompts/</guid>
-      <description>思考 Prompt 的真正价值，讨论如何用 AI 协作反向提升表达与推理能力。</description>
     </item>
     <item>
       <title>🚀Git 自动 Push 脚本：跨平台 (Windows/macOS/Linux) 解决方案</title>
@@ -366,13 +289,6 @@
       <description>介绍 Scoop 在 Windows 的安装与使用方法，帮助建立轻量可维护的命令行软件管理流。</description>
     </item>
     <item>
-      <title>今天就用中文路径来作为地址</title>
-      <link>https://blog.ahaknow.com/posts/diary/2025-02-04/</link>
-      <pubDate>Tue, 04 Feb 2025 12:41:31 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2025-02-04/</guid>
-      <description>讨论博客 URL 使用中文路径的可行性，权衡可读性、维护成本与 SEO 影响。</description>
-    </item>
-    <item>
       <title>GitHub README 美化经验分享</title>
       <link>https://blog.ahaknow.com/posts/aiknow/github-readme/</link>
       <pubDate>Sat, 01 Feb 2025 21:41:12 +0800</pubDate>
@@ -399,34 +315,6 @@
       <pubDate>Tue, 10 Dec 2024 22:33:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/tech/first-obsidian-plugin/</guid>
       <description>记录为 Obsidian 与 Hugo 协作而开发首个插件的动机、实现与收获。</description>
-    </item>
-    <item>
-      <title>今天来学习Obsidian怎么用！</title>
-      <link>https://blog.ahaknow.com/posts/diary/2024-12-10/</link>
-      <pubDate>Tue, 10 Dec 2024 21:31:27 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2024-12-10/</guid>
-      <description>复盘 Obsidian 深度使用过程，聚焦知识管理体系搭建与插件化工作流探索。</description>
-    </item>
-    <item>
-      <title>图形学，启动！</title>
-      <link>https://blog.ahaknow.com/posts/diary/2024-10-11/</link>
-      <pubDate>Fri, 11 Oct 2024 19:10:42 +0600</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2024-10-11/</guid>
-      <description>写下启动图形学学习的初衷与阶段反馈，保留目标与现实差距的真实记录。</description>
-    </item>
-    <item>
-      <title>今天用Obsidian写日记</title>
-      <link>https://blog.ahaknow.com/posts/diary/2024-10-10/</link>
-      <pubDate>Thu, 10 Oct 2024 22:00:50 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2024-10-10/</guid>
-      <description>记录切换到 Obsidian 写日记的动机与体验，并反思时间管理中的惯性问题。</description>
-    </item>
-    <item>
-      <title>慢慢来，比较快！</title>
-      <link>https://blog.ahaknow.com/posts/diary/2024-10-09/</link>
-      <pubDate>Wed, 09 Oct 2024 20:16:50 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2024-10-09/</guid>
-      <description>复盘作息调整与日常执行，在慢下来之后重新找回稳定节奏。</description>
     </item>
     <item>
       <title>全栈开发：从Python脚本到独立的App（初稿）</title>
@@ -469,13 +357,6 @@
       <pubDate>Thu, 30 May 2024 14:13:33 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/linux-grub-boot/</guid>
       <description>记录不借助 Live 盘的 GRUB 启动修复方案，适用于多硬盘 Ubuntu 场景。</description>
-    </item>
-    <item>
-      <title>开发实战：“锁”的机制</title>
-      <link>https://blog.ahaknow.com/posts/inspiration/dev-mutex/</link>
-      <pubDate>Wed, 29 May 2024 11:05:35 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/inspiration/dev-mutex/</guid>
-      <description>聚焦并发开发中的锁机制，整理互斥控制的使用原则、风险点与调试思路。</description>
     </item>
     <item>
       <title>Linux：测试硬盘读写速度</title>
@@ -581,13 +462,6 @@
       <pubDate>Sun, 21 Apr 2024 22:36:36 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/know/note-shell-move-file/</guid>
       <description>整理命令行移动与重命名文件的高效做法，沉淀可直接复用的 Shell 技巧。</description>
-    </item>
-    <item>
-      <title>编程艺术：高质量编程指南C/C&#43;&#43;试题</title>
-      <link>https://blog.ahaknow.com/posts/inspiration/art-c-c-exam/</link>
-      <pubDate>Sat, 20 Apr 2024 19:21:42 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/inspiration/art-c-c-exam/</guid>
-      <description>收集《高质量编程指南》C/C&#43;&#43; 习题并记录解题中断点，作为后续重启入口。</description>
     </item>
     <item>
       <title>开发实战：解析H.264编码和LZ4压缩的相机图像</title>
@@ -723,6 +597,13 @@
       <description>以移动机器人案例讲清二维坐标变换，包含公式推导、参数含义与验证方法。</description>
     </item>
     <item>
+      <title>SLAM100问</title>
+      <link>https://blog.ahaknow.com/posts/inspiration/slam100/</link>
+      <pubDate>Thu, 28 Mar 2024 13:00:34 +0800</pubDate>
+      <guid>https://blog.ahaknow.com/posts/inspiration/slam100/</guid>
+      <description>以问答清单方式覆盖 SLAM 核心知识点，串联算法原理与工程实现的对应关系。</description>
+    </item>
+    <item>
       <title>博客自定义：实现Mac风格的代码栏</title>
       <link>https://blog.ahaknow.com/posts/know/blog-mac-style-code/</link>
       <pubDate>Wed, 27 Mar 2024 20:39:16 +0800</pubDate>
@@ -742,13 +623,6 @@
       <pubDate>Mon, 19 Feb 2024 10:50:57 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/think/innovation-vs-repetition/</guid>
       <description>借一次自动化小改造反思重复劳动，讨论如何把执行力转化为创新惯性。</description>
-    </item>
-    <item>
-      <title>2024年的第一篇记录</title>
-      <link>https://blog.ahaknow.com/posts/diary/2024-01-26/</link>
-      <pubDate>Fri, 26 Jan 2024 10:35:31 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/diary/2024-01-26/</guid>
-      <description>作为 2024 年开篇记录，反思自我状态落差并重新确认长期成长的行动起点。</description>
     </item>
     <item>
       <title>🧰 医疗箱</title>

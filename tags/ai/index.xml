@@ -6,7 +6,7 @@
     <description>Recent content in AI on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 26 Mar 2026 22:03:23 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 14:31:20 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>macOS 零基础配置 Git SSH 密钥完全指南（包含 22 端口屏蔽解决方案）</title>
@@ -59,9 +59,9 @@
     </item>
     <item>
       <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
+      <link>https://blog.ahaknow.com/posts/ahaknow/latex/</link>
       <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
+      <guid>https://blog.ahaknow.com/posts/ahaknow/latex/</guid>
       <description>按场景整理 LaTeX 数学公式语法，覆盖行内、块级、常见符号与排版细节。</description>
     </item>
   </channel>

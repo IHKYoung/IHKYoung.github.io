@@ -6,6 +6,7 @@
     <description>Recent content in 🤖 人工智能 on AhaKnow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <lastBuildDate>Thu, 26 Mar 2026 14:31:20 +0800</lastBuildDate>
     <atom:link href="https://blog.ahaknow.com/posts/aiknow/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>macOS 零基础配置 Git SSH 密钥完全指南（包含 22 端口屏蔽解决方案）</title>
@@ -97,13 +98,6 @@
       <pubDate>Sun, 09 Feb 2025 00:36:17 +0800</pubDate>
       <guid>https://blog.ahaknow.com/posts/aiknow/git-crlf/</guid>
       <description>讲清 Git 在 CRLF/LF 场景下的处理机制，并给出跨平台项目的稳妥配置方案。</description>
-    </item>
-    <item>
-      <title>✨ LaTeX 数学公式语法大全 📘</title>
-      <link>https://blog.ahaknow.com/posts/aiknow/latex/</link>
-      <pubDate>Sat, 08 Feb 2025 01:00:25 +0800</pubDate>
-      <guid>https://blog.ahaknow.com/posts/aiknow/latex/</guid>
-      <description>按场景整理 LaTeX 数学公式语法，覆盖行内、块级、常见符号与排版细节。</description>
     </item>
     <item>
       <title>GitHub Pull Reques 时 Release 文件缺失问题解决方案 📦</title>
